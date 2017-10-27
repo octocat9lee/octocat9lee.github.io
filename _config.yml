@@ -6,7 +6,7 @@
 title: 章鱼猫
 subtitle: 
 description:
-author: zhoulee
+author: octocat9lee
 language:
 timezone:
 
@@ -100,4 +100,3 @@ jsonContent:
       excerpt: false
       categories: false
       tags: true
-
