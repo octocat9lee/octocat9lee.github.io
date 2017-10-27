@@ -8,9 +8,9 @@ menu:
 subnav:
   github: "https://github.com/octocat9lee"
   weibo: "http://weibo.com/2077147601/profile?topnav=1&wvr=6"
-  rss: "#"
   zhihu: "https://www.zhihu.com/people/octocat9lee/"
   mail: "mailto:295861542@qq.com"
+  rss: "/atom.xml"
   #qq: "#"
   #weixin: "#"
   #jianshu: "#"
