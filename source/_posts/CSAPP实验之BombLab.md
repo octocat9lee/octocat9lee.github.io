@@ -205,3 +205,170 @@ End of assembler dump.
 >所以，`phase_3`函数的破解密码存在上述多组。
 
 # phase_4
+`phase_4`函数的反汇编代码和详细注释如下：
+```
+Dump of assembler code for function phase_4:
+   0x000000000040100c <+0>: sub    $0x18,%rsp                    分配栈空间
+   0x0000000000401010 <+4>: lea    0xc(%rsp),%rcx                为调用scanf函数构造参数，对应scanf第二个参数
+   0x0000000000401015 <+9>: lea    0x8(%rsp),%rdx                为调用scanf函数构造参数，对应scanf第一个参数
+   0x000000000040101a <+14>:    mov    $0x4025cf,%esi            %esi存储scanf函数格式化字符串 gdb中使用 x /s 0x4025cf查看格式化字符串
+   0x000000000040101f <+19>:    mov    $0x0,%eax                 %eax保存scanf函数返回值
+
+   0x0000000000401024 <+24>:    callq  0x400bf0 <__isoc99_sscanf@plt>  调用scanf参数
+
+   0x0000000000401029 <+29>:    cmp    $0x2,%eax                 判断输入参数个数是否等于2
+   0x000000000040102c <+32>:    jne    0x401035 <phase_4+41>     输入参数个数不等于2,调用explode_bomb
+   0x000000000040102e <+34>:    cmpl   $0xe,0x8(%rsp)            判断输入第一个参数与0xe的大小
+   0x0000000000401033 <+39>:    jbe    0x40103a <phase_4+46>     第一个参数小于等于0xe跳转
+   0x0000000000401035 <+41>:    callq  0x40143a <explode_bomb>   第一个参数大于0xe调用explode_bomb
+
+   0x000000000040103a <+46>:    mov    $0xe,%edx                 为调用func4构造参数c,参数值为0xe
+   0x000000000040103f <+51>:    mov    $0x0,%esi                 为调用func4构造参数b,参数值为0x0
+   0x0000000000401044 <+56>:    mov    0x8(%rsp),%edi            为调用func4构造参数a,参数值为输入第一个参数值
+   0x0000000000401048 <+60>:    callq  0x400fce <func4>          调用func4
+
+   0x000000000040104d <+65>:    test   %eax,%eax                 测试func4返回值是否等于0
+   0x000000000040104f <+67>:    jne    0x401058 <phase_4+76>     等于0继续执行,否则调用explode_bomb
+   0x0000000000401051 <+69>:    cmpl   $0x0,0xc(%rsp)            测试输入第二个参数是否等于0
+   0x0000000000401056 <+74>:    je     0x40105d <phase_4+81>     等于0,跳转;否则调用explode_bomb
+   0x0000000000401058 <+76>:    callq  0x40143a <explode_bomb>
+   0x000000000040105d <+81>:    add    $0x18,%rsp
+   0x0000000000401061 <+85>:    retq
+End of assembler dump.
+```
+在`phase_4`函数中要求`func4`函数的返回值等于0，并且`func4`函数的参数为：第一个输入数，0，14。`func4`函数反汇编代码如下所示：
+```
+Dump of assembler code for function func4:
+   0x0000000000400fce <+0>: sub    $0x8,%rsp
+   0x0000000000400fd2 <+4>: mov    %edx,%eax                   result = c
+   0x0000000000400fd4 <+6>: sub    %esi,%eax                   result = result - b
+   0x0000000000400fd6 <+8>: mov    %eax,%ecx                   tmp = result
+   0x0000000000400fd8 <+10>:    shr    $0x1f,%ecx              tmp = (unsigned)tmp >> 31
+   0x0000000000400fdb <+13>:    add    %ecx,%eax               result = result + tmp
+   0x0000000000400fdd <+15>:    sar    %eax                    result = result / 2
+   0x0000000000400fdf <+17>:    lea    (%rax,%rsi,1),%ecx      tmp = result + b
+   0x0000000000400fe2 <+20>:    cmp    %edi,%ecx   tmp <= a    
+   0x0000000000400fe4 <+22>:    jle    0x400ff2 <func4+36>     
+   0x0000000000400fe6 <+24>:    lea    -0x1(%rcx),%edx         c =  tmp - 1
+   0x0000000000400fe9 <+27>:    callq  0x400fce <func4>        
+   0x0000000000400fee <+32>:    add    %eax,%eax               
+   0x0000000000400ff0 <+34>:    jmp    0x401007 <func4+57>     
+   0x0000000000400ff2 <+36>:    mov    $0x0,%eax               result = 0
+   0x0000000000400ff7 <+41>:    cmp    %edi,%ecx               tmp >= a
+   0x0000000000400ff9 <+43>:    jge    0x401007 <func4+57>     
+   0x0000000000400ffb <+45>:    lea    0x1(%rcx),%esi          b = tmp + 1
+   0x0000000000400ffe <+48>:    callq  0x400fce <func4>
+   0x0000000000401003 <+53>:    lea    0x1(%rax,%rax,1),%eax
+   0x0000000000401007 <+57>:    add    $0x8,%rsp
+   0x000000000040100b <+61>:    retq
+End of assembler dump.
+```
+其中，`%rdi %rsi %rdx`依次保存第1，2，3个参数，分别对应于a b c；`%eax`表示返回值。另外定义局部变量`int result`, 保存在`%rax`作为返回值，定义局部变量`int tmp`，保存在`%rcx`。按照上述定义，获得`func4`函数对应的C语言代码：
+```
+int func4(int a, int b, int c)
+{
+    int result;
+    result = c;
+    result = result - b;
+    int tmp = result;
+    tmp = (unsigned)tmp >> 31;
+    result = result + tmp;
+    result = result / 2;
+    tmp = result + b;
+    if(tmp > a)
+    {
+        c = tmp - 1;
+        result = func4(a, b, c);
+        return (2 * result);
+    }
+    result = 0;
+    if(tmp < a)
+    {
+        b = tmp + 1;
+        result = func4(a, b, c);
+        return (1 + 2 * result);
+    }
+    return result;
+}
+```
+使用如下的测试程序，获得所有满足`phase_4`函数的破解密码：
+```
+int main()
+{
+    for(int input = 0; input < 15; ++input)
+    {
+        int result = func4(input, 0, 14);
+        if(result == 0)
+        {
+            printf("input = %d, func4 = %d\n", input, result);
+        }
+    }
+    return 0;
+}
+```
+>因此phase_4破译可能结果为：
+```
+0 0
+1 0
+3 0
+7 0
+```
+
+# phase_5
+`phase_5`函数反汇编代码和详细注释如下所示：
+```
+(gdb) disassemble phase_5
+Dump of assembler code for function phase_5:
+   0x0000000000401062 <+0>: push   %rbx
+   0x0000000000401063 <+1>: sub    $0x20,%rsp
+   0x0000000000401067 <+5>: mov    %rdi,%rbx                             %rdi保存输入的字符串指针
+   0x000000000040106a <+8>: mov    %fs:0x28,%rax
+   0x0000000000401073 <+17>:    mov    %rax,0x18(%rsp)                   将%rax存储到0x18(%rsp)
+
+   0x0000000000401078 <+22>:    xor    %eax,%eax                         清零%eax
+   0x000000000040107a <+24>:    callq  0x40131b <string_length>          计算输入字符串长度
+   0x000000000040107f <+29>:    cmp    $0x6,%eax                         判断输入字符串长度是否等于6
+   0x0000000000401082 <+32>:    je     0x4010d2 <phase_5+112>
+   0x0000000000401084 <+34>:    callq  0x40143a <explode_bomb>
+
+   0x0000000000401089 <+39>:    jmp    0x4010d2 <phase_5+112>
+   0x000000000040108b <+41>:    movzbl (%rbx,%rax,1),%ecx                复制输入字符串的第%rax个字符到%ecx中
+   0x000000000040108f <+45>:    mov    %cl,(%rsp)                        将第%rax字符保存至(%rsp)中
+   0x0000000000401092 <+48>:    mov    (%rsp),%rdx                       将第%rax字符复制到%rdx中
+   0x0000000000401096 <+52>:    and    $0xf,%edx                         将第%rax字符最低4bit复制到%rdx最低4bit
+   0x0000000000401099 <+55>:    movzbl 0x4024b0(%rdx),%edx               将与0x4024b0偏移量为%rdx的一个字节数据复制到%edx
+   0x00000000004010a0 <+62>:    mov    %dl,0x10(%rsp,%rax,1)             将%edx最低字节复制到与%rsp偏移量为(0x10 + %rax)的栈地址中
+   0x00000000004010a4 <+66>:    add    $0x1,%rax                         %rax值加1,指向下一个输入字符
+   0x00000000004010a8 <+70>:    cmp    $0x6,%rax                         判断%rax是否等于6,不等于6继续循环
+   0x00000000004010ac <+74>:    jne    0x40108b <phase_5+41>
+   0x00000000004010ae <+76>:    movb   $0x0,0x16(%rsp)
+   0x00000000004010b3 <+81>:    mov    $0x40245e,%esi                    %esi指向从0x40245e内存单元读入的字符串
+   0x00000000004010b8 <+86>:    lea    0x10(%rsp),%rdi                   %rdi指向前面循环中构造好的长度为6的字符串
+   0x00000000004010bd <+91>:    callq  0x401338 <strings_not_equal>      判断%esi和%rdi指向的字符串是否相等
+   0x00000000004010c2 <+96>:    test   %eax,%eax
+   0x00000000004010c4 <+98>:    je     0x4010d9 <phase_5+119>
+   0x00000000004010c6 <+100>:   callq  0x40143a <explode_bomb>
+   0x00000000004010cb <+105>:   nopl   0x0(%rax,%rax,1)
+   0x00000000004010d0 <+110>:   jmp    0x4010d9 <phase_5+119>
+   0x00000000004010d2 <+112>:   mov    $0x0,%eax
+   0x00000000004010d7 <+117>:   jmp    0x40108b <phase_5+41>
+   0x00000000004010d9 <+119>:   mov    0x18(%rsp),%rax
+   0x00000000004010de <+124>:   xor    %fs:0x28,%rax
+   0x00000000004010e7 <+133>:   je     0x4010ee <phase_5+140>
+   0x00000000004010e9 <+135>:   callq  0x400b30 <__stack_chk_fail@plt>
+   0x00000000004010ee <+140>:   add    $0x20,%rsp
+   0x00000000004010f2 <+144>:   pop    %rbx
+   0x00000000004010f3 <+145>:   retq
+End of assembler dump.
+```
+使用gdb查看`0x4024b0`和`0x40245e`开始的内存单元的内容：
+```
+(gdb) x/32xb 0x4024b0
+0x4024b0 <array.3449>:      0x6d    0x61    0x64    0x75    0x69    0x65    0x72    0x73
+0x4024b8 <array.3449+8>:    0x6e    0x66    0x6f    0x74    0x76    0x62    0x79    0x6c
+(gdb) x/s 0x40245e
+0x40245e:   "flyers"
+```
+>`flyers`串对应的ascii值为`0x66 0x6c 0x79 0x65 0x72 0x73`，与`0x4024b0`内存地址开始的查找表比较获得偏移量为`0x9 0xF 0xE 0x5 0x6 0x72`。因此输入长度为6的字符串中每个字符的低4bit的值分别为`0x9 0xF 0xE 0x5 0x6 0x72`。所以，`phase_5`函数的破解密码存在两种情形：若输入为大写字母,将低4bit的值加上`0x40`,获得输入字符串`IONEFG`，若输入为小写字母,将低4bit的值加上`0x60`，获得输入字符串`ionefg`。
+
+# phase_6
