@@ -1,7 +1,7 @@
 ---
 title: coredump
 tags:
-  - 调式技术
+  - 调试技术
 toc: true
 date: 2017-10-28 23:13:11
 ---
