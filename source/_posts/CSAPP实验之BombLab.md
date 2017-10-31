@@ -1,7 +1,7 @@
 ---
 title: CSAPP实验之BombLab
 tags:
-  - 技术点滴
+  - CSAPP
 toc: true
 date: 2017-10-27 17:32:56
 ---
