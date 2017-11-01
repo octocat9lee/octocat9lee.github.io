@@ -14,7 +14,7 @@ cat /proc/sys/kernel/core_pattern
 <!--more-->
 
 # coredump基本配置
-调试coredump文件需要读取相应符号信息。因此，编译时需要加入-g选项。因为系统资源限制，所以默认情况下，core文件大小限制为0，不会生成core文件，需要进行设置。命令如下：
+调试coredump文件需要读取相应符号信息。因此，编译时需要加入`-g`选项。因为系统资源限制，所以默认情况下，core文件大小限制为0，不会生成core文件，需要进行设置。命令如下：
 ```
 ulimit -c unlimited  (coredump文件大小不受限制)
 ```
