@@ -2,7 +2,7 @@
 title: CSAPP之优化程序性能
 tags:
   - CSAPP
-toc: false
+toc: true
 date: 2017-11-03 10:31:39
 ---
 # 前言
