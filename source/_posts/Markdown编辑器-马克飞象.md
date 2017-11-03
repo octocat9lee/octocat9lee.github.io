@@ -1,5 +1,5 @@
 ---
-title: Markdown编辑器-马克飞象
+title: Markdown编辑器
 tags:
   - 技术点滴
 toc: true
