@@ -14,7 +14,7 @@ archlab是CSAPP3e第4章`处理器体系结构`对应的实验，该实验主要
 ## 循环求链表和函数
 `example.c`文件中第一个函数的功能就是求链表所有元素的和，数据段在内容在`archlab.pdf`文件中指出。参照CSAPP的`4.1.5`节求数组元素的和，很容易实现对应的求链表元素的和的汇编程序。
 <!--more-->
-```
+``` x86asm
 # Execution begins at address 0
     .pos 0
     irmovq stack, %rsp      # Set up stack pointer
@@ -58,7 +58,7 @@ test:
 stack:
 ```
 >在shell中执行如下命令，验证汇编代码的正确性。我们看到`%rax`寄存器的内容为`cba`，等于链表所有元素的和。
-```
+``` shell
 root@misc$ ./yas sum.ys
 root@misc$ ./yis sum.yo
 Stopped in 26 steps at PC = 0x13.  Status 'HLT', CC Z=1 S=0 O=0
@@ -74,7 +74,7 @@ Changes to memory:
 
 ## 递归求链表元素的和
 函数2和函数1实现相同的功能，不过函数2使用递归形式，因此程序的调用和栈与函数1基本保持一致，仅函数2本身的具体实现发生变化。对应的汇编程序如下：
-```
+``` x86asm
 # Execution begins at address 0
     .pos 0
     irmovq stack, %rsp      # Set up stack pointer
@@ -118,7 +118,7 @@ return:
 stack:
 ```
 >同样的，我们看到`%rax`寄存器的内容为`cba`，等于链表所有元素的和。
-```
+``` shell
 root@misc$ ./yas rsum.ys
 root@misc$ ./yis rsum.yo
 Stopped in 40 steps at PC = 0x13.  Status 'HLT', CC Z=0 S=0 O=0
@@ -189,7 +189,7 @@ test:
 stack:
 ```
 >同样的，我们看到`%rax`寄存器的内容为`cba`，等于数组元素异或的值。
-```
+``` shell
 root@misc$ ./yis copy.yo
 Stopped in 36 steps at PC = 0x13.  Status 'HLT', CC Z=1 S=0 O=0
 Changes to registers:
