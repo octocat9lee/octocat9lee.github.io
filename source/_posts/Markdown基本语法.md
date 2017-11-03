@@ -6,7 +6,7 @@ toc: true
 date: 2017-10-27 16:04:53
 ---
 # 前言
-<strong>Markdown</strong>编辑器支持高亮代码块，是一款简洁高效的编辑器。
+<strong>Markdown</strong>编辑器支持代码块高亮，是一款简洁高效的编辑器。
 
 # Markdown简介
 
@@ -58,10 +58,8 @@ Markdown支持有序列表和无序列表，无序列表使用`+`或者`-`作为
 3. 关上冰箱门
 
 # 其他样式
-<em>着重字</em>
-<i>斜体字</i>
 <small>小号字</small>
-<strong>加重语气</strong>
+<strong>字体加粗</strong>
 上标x<sup>2</sup>
 下标x<sub>1</sub>
 <ins>插入线</ins>
