@@ -2,7 +2,7 @@
 title: grep
 tags:
   - 调试技术
-toc: false
+toc: true
 date: 2017-10-30 15:29:36
 ---
 # grep常用选项
