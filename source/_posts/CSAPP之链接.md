@@ -73,20 +73,23 @@ soname(Short for Shared Object Name)的存在主要是为了共享库兼容性�
 # 处理目标文件工具
 ## readelf
 ``` bash
-readelf -h main.o     #获取目标文件ELF Header信息
-readelf -S target.o   #获取ELF文件section信息
-readelf -s target.o   #获取ELF文件symbol信息
-readelf -r target.o   #获取ELF文件重定位条目信息
-readelf -l proc       #获取可执行文件中的程序头表信息
-readelf -all target.o #查看全部段的详细信息
+readelf -h main.o           #获取目标文件ELF Header信息
+readelf -S target.o         #获取ELF文件section信息
+readelf -s target.o         #获取ELF文件symbol信息
+readelf -r target.o         #获取ELF文件重定位条目信息
+readelf -l proc             #获取可执行文件中的程序头表信息
+readelf -x .text target.o   #以字节(HEX或字符)形式dump某节的内容
+readelf -a target.o         #查看全部段的详细信息
 ```
 
 ## objdump
 ``` bash
-objdump -s -d target.o #查看段内容 -s"十六进制打印" "-d反汇编"
-objdump -r -d target.o #查看重定位表
-objdump -x -d target.o #查看全部头信息
-objdump -t libc.a #查看lbc.a中符号信息  
+objdump -h target.o           #查看section信息
+objdump -r target.o           #查看重定位表
+objdump -t libc.a             #查看lbc.a中符号信息
+objdump -x target.o           #查看全部头信息
+objdump -s target.o           #dump所有节的内容
+objdump -s -j .text target.o  #dump指定节的内容
 ```
 
 ## ar
