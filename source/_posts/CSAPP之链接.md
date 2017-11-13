@@ -11,9 +11,9 @@ date: 2017-11-09 21:25:54
 # 编译器驱动程序
 在将源代码编译成可执行程序时，会经历如下步骤：首先，运行预处理器将源程序翻译成一个ASCII码的中间文件；然后，运行C编译器将中间文件翻译成一个汇编文件；再运行汇编器将汇编文件翻译成可重定位目标文件；最后，运行链接程序将可重定位目标文件以及一些必要的系统目标文件组合起来，创建一个可执行目标文件。
 ``` bash
-cpp sum.c /tmp/sum.i #预处理
-/usr/lib/gcc/x86_64-linux-gnu/5/cc1 /tmp/sum.i -Og -o /tmp/sum.s #编译
-as -o /tmp/sum.o /tmp/sum.s #汇编
+cpp sum.c /tmp/sum.i或者gcc -E sum.c -o /tmp/sum.i  #预处理
+/usr/lib/gcc/x86_64-linux-gnu/5/cc1 /tmp/sum.i -Og -o /tmp/sum.s或者gcc -Og -S sum.i -o /tmp/sum.s #编译
+as -o /tmp/sum.o /tmp/sum.s或者gcc -c /tmp/sum.s -o /tmp/sum.o  #汇编
 ld -o prog /tmp/main.o /tmp/sum.o #链接
 ```
 <!--more-->
@@ -44,6 +44,7 @@ ld -o prog /tmp/main.o /tmp/sum.o #链接
 Rule 2: 若一个符号被定义为一次强符号和多次弱符号，则按强定义为准
 Rule 3: 若有多个弱符号定义，则任选其中一个
 
+GCC的"-fno-common"选项允许我们把所有未初始化的全部变量不以COMMON块的形式处理，一旦一个未初始化的全局变量不是以COMMON块形式存在，那么它就相当于一个强符号，如果其他目标文件中还有同一个变量的强符号定义，链接时就会发生符号重定义错误。GCC编译器选项"-ffunction-section"和"-fdata-section"将函数或变量分别保存到独立的段中。
 规则2和规则3的应用会造成一些不易察觉的运行时错误，尤其是如果重复的符号定义还有不同的类型。当怀疑有此类错误时，在GCC中使用`-fno-common`的选项调用链接器，这个选项会告诉链接器在遇到多重定义的符号时，触发一个错误。或者使用`-Werror`选项，它会把所有的警告都变为错误。多重定义导致难以察觉错误示例:
 <center>![avatar](http://oyh38rhr2.bkt.clouddn.com/github/171110/bLLL6Hadaj.jpg)</center>
 
@@ -52,3 +53,53 @@ Rule 3: 若有多个弱符号定义，则任选其中一个
 关于库的一般准则是将它们放在命令行的结尾。如果各个库的成员是相互独立的，那么这些库就可以以任意的顺序放在命令行的结尾处；如果不是相互独立的，那么必须对它们排序，使得对于每个被静态库的外部成员引用的符号s，在命令行中至少有一个s的定义是在s的引用之后。在某些情况下，为了满足依赖需求，需要重复包含库或者将多个库合并成一个库。
 
 # 重定位
+
+# 动态共享库
+动态库使用`-shared和-fPIC`编译选项从而编译位置无关的代码。
+## soname
+soname(Short for Shared Object Name)的存在主要是为了共享库兼容性。比如说，有一个程序prog，以及依赖的共享库库libtest.so.1，prog启动的时候需要libtest.so.1，如果链接的时候直接把libtest.so.1传给prog，那么将来库升级为libtest.so.2的时候prog仍然只能使用libtest.so.1，并不能链接到升级后的动态库。然而如果指定soname为libtest.so，那么prog启动的时候将查找的就是libtest.so，而不是其在被链接时实际使用的库libtest.so.1这个文件名。在发布版本1时，我们使用`ln -sf libtest.so.1 libtest.so`对版本1的动态库创建软链接；而在库升级后，我们`ln -sf libtest.so.2 libtest.so`创建新的软链接即可，这样prog不需要任何变动就能享受升级后的库的特性了。另外，`共享库libtest.so.1与libtest.so.2`可以同时存在于系统内，不必非得把libtest.so.2重命名成libtest.so.1。
+编译选项`-Wl`中的l应该表示ld的缩写，后面的参数就是选项信息。`-Wl`参数可以将指定的参数传递给链接器。
+>`-Wl,-soname,my_soname`指定输出共享库的SONAME
+    `gcc -shared -fPIC -Wl,-soname,libfoo.so.1 -o libfoo.so.1.0.0 libfoo1.c libfoo2.c -lbar1 -lbar2`
+`-Wl,-rpath=/home/mylib`指定链接器产生的目标程序的共享库查找路径
+`-Wl,-export-dynamic`将所有全局符号导出到动态符号表
+
+## PIC
+地址无关代码(PIC,Position-independent Code)解决共享对象指令中对绝对地址的重定位问题。希望程序模块中的共享指令部分在装载时不要因为装载地址的改变而改变，其基本想法就是把指令中需要被修改的部分分离出来，跟数据部分放在一起，从而指令部分就可以保持不变，而数据部分可以在每个进程中拥有一个副本。
+>如何区分一个动态库是否为PIC
+    `readelf -d foo.so | grep TEXTREL`
+如果上面的命令有任何输出，那么foo.so就不是PIC的，否则就是PIC的。PIC的DSO是不会包含任何代码段重定位表的，TEXTREL表示代码段重定位表地址
+
+# 处理目标文件工具
+## readelf
+``` bash
+readelf -h main.o     #获取目标文件ELF Header信息
+readelf -S target.o   #获取ELF文件section信息
+readelf -s target.o   #获取ELF文件symbol信息
+readelf -r target.o   #获取ELF文件重定位条目信息
+readelf -l proc       #获取可执行文件中的程序头表信息
+readelf -all target.o #查看全部段的详细信息
+```
+
+## objdump
+``` bash
+objdump -s -d target.o #查看段内容 -s"十六进制打印" "-d反汇编"
+objdump -r -d target.o #查看重定位表
+objdump -x -d target.o #查看全部头信息
+objdump -t libc.a #查看lbc.a中符号信息  
+```
+
+## ar
+``` bash
+ar -t libc.a  #查看静态库包含了哪些目标文件
+ar -x libc.a  #解压libc.a中所有的目标文件到当前目录
+```
+
+## 其他
+``` bash
+file target.o  #判断文件类型
+size target.o  #查看ELF文件代码段，数据段和BSS段长度
+nm target.o    #查看ELF文件符号表
+c++filt _ZN1N1C4funcEi  #解析修饰过的符号名
+strip libfoo.so #清除共享库或者可执行文件的所有符号和调试信息
+```
