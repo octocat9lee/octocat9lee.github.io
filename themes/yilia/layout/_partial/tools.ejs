@@ -26,7 +26,7 @@
     <%if(hasInnerArchive){%>
     	<section class="tools-section tools-section-all" q-show="innerArchive">
         <div class="search-wrap">
-          <input class="search-ipt" q-model="search" type="text" placeholder="search content">
+          <input class="search-ipt" q-model="search" type="text" placeholder="搜索标题关键字">
           <i class="icon-search icon" q-show="search|isEmptyStr"></i>
           <i class="icon-close icon" q-show="search|isNotEmptyStr" q-on="click:clearChose(e)"></i>
         </div>
