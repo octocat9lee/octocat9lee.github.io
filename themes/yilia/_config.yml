@@ -84,12 +84,11 @@ duoshuo: false
 wangyiyun: false
 
 #3、畅言
-changyan_appid: 'cytjw5XRO'
-changyan_conf: 'prod_c22e96a7ddcbb3c30bb13ad4711f5e18'
+#changyan_appid: 'cytjw5XRO'
+#changyan_conf: '4218785abbf36794e35a1d29e1d56763'
 
 #4、Disqus 在hexo根目录的config里也有disqus_shortname字段，优先使用yilia的
-#disqus: 'octocat9lee'
-disqus: false
+disqus: 'octocat9lee'
 
 #5、Gitment
 gitment_owner: false      #你的 GitHub ID
