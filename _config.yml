@@ -77,8 +77,11 @@ theme: yilia
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git
+- type: git
   repository: git@github.com:octocat9lee/octocat9lee.github.io
+  branch: master
+- type: git
+  repository: git@git.coding.net:octocat9lee/octocat9lee.git
   branch: master
 
 
