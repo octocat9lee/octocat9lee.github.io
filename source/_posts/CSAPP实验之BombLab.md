@@ -30,7 +30,7 @@ cmp指令使用`目的操作数-源操作数`，test指令使用`目的操作数
 </center>
 ## gdb基本调试命令
 <center>
-![avatar](http://oyh38rhr2.bkt.clouddn.com/gdb_debug.png)
+![avatar](http://oyh38rhr2.bkt.clouddn.com/gdb.jpg)
 </center>
 在gdb调式过程中，可以使用`help`命令查看对应的帮助信息，例如`help x`查看`x`命令的使用方式。
 
