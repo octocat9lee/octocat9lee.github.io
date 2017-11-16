@@ -58,7 +58,7 @@ test:
 stack:
 ```
 >在shell中执行如下命令，验证汇编代码的正确性。我们看到`%rax`寄存器的内容为`cba`，等于链表所有元素的和。
-``` shell
+``` bash
 root@misc$ ./yas sum.ys
 root@misc$ ./yis sum.yo
 Stopped in 26 steps at PC = 0x13.  Status 'HLT', CC Z=1 S=0 O=0
@@ -118,7 +118,7 @@ return:
 stack:
 ```
 >同样的，我们看到`%rax`寄存器的内容为`cba`，等于链表所有元素的和。
-``` shell
+``` bash
 root@misc$ ./yas rsum.ys
 root@misc$ ./yis rsum.yo
 Stopped in 40 steps at PC = 0x13.  Status 'HLT', CC Z=0 S=0 O=0
@@ -189,7 +189,7 @@ test:
 stack:
 ```
 >同样的，我们看到`%rax`寄存器的内容为`cba`，等于数组元素异或的值。
-``` shell
+``` bash
 root@misc$ ./yis copy.yo
 Stopped in 36 steps at PC = 0x13.  Status 'HLT', CC Z=1 S=0 O=0
 Changes to registers:

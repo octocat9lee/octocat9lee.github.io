@@ -55,7 +55,9 @@ GCC的"-fno-common"选项允许我们把所有未初始化的全部变量不以C
 # 重定位
 
 # 动态共享库
-动态库使用`-shared和-fPIC`编译选项从而编译位置无关的代码。
+动态库使用`-shared和-fPIC`编译选项从而编译位置无关的代码。对于创建依赖动态库的可执行文件其基本思路是`创建可执行文件使，静态执行一些链接，生成部分链接的可执行目标文件，此时动态库中的代码和数据节都没有复制到可执行文件中，仅仅复制了重定位和符号表信息；在程序加载时，完成链接过程，代码和数据才真正的复制到可执行文件中`。在依赖动态库的可执行文件中，包含`.interp`节，包含动态链接器的路径名。动态链接器也是共享目标，但加载器会特殊对待，从而加载和运行加载器，动态链接器通过重定位完成链接过程，具体的动态共享库链接过程如下所示：
+<center>![动态共享库链接过程]()</center>
+
 ## soname
 soname(Short for Shared Object Name)的存在主要是为了共享库兼容性。比如说，有一个程序prog，以及依赖的共享库库libtest.so.1，prog启动的时候需要libtest.so.1，如果链接的时候直接把libtest.so.1传给prog，那么将来库升级为libtest.so.2的时候prog仍然只能使用libtest.so.1，并不能链接到升级后的动态库。然而如果指定soname为libtest.so，那么prog启动的时候将查找的就是libtest.so，而不是其在被链接时实际使用的库libtest.so.1这个文件名。在发布版本1时，我们使用`ln -sf libtest.so.1 libtest.so`对版本1的动态库创建软链接；而在库升级后，我们`ln -sf libtest.so.2 libtest.so`创建新的软链接即可，这样prog不需要任何变动就能享受升级后的库的特性了。另外，`共享库libtest.so.1与libtest.so.2`可以同时存在于系统内，不必非得把libtest.so.2重命名成libtest.so.1。
 编译选项`-Wl`中的l应该表示ld的缩写，后面的参数就是选项信息。`-Wl`参数可以将指定的参数传递给链接器。
@@ -69,6 +71,9 @@ soname(Short for Shared Object Name)的存在主要是为了共享库兼容性�
 >如何区分一个动态库是否为PIC
     `readelf -d foo.so | grep TEXTREL`
 如果上面的命令有任何输出，那么foo.so就不是PIC的，否则就是PIC的。PIC的DSO是不会包含任何代码段重定位表的，TEXTREL表示代码段重定位表地址
+
+## 运行时加载共享库
+
 
 # 处理目标文件工具
 ## readelf
@@ -94,15 +99,15 @@ objdump -s -j .text target.o  #dump指定节的内容
 
 ## ar
 ``` bash
-ar -t libc.a  #查看静态库包含了哪些目标文件
-ar -x libc.a  #解压libc.a中所有的目标文件到当前目录
+ar -t libc.a                 #查看静态库包含了哪些目标文件
+ar -x libc.a                 #解压libc.a中所有的目标文件到当前目录
 ```
 
 ## 其他
 ``` bash
-file target.o  #判断文件类型
-size target.o  #查看ELF文件代码段，数据段和BSS段长度
-nm target.o    #查看ELF文件符号表
-c++filt _ZN1N1C4funcEi  #解析修饰过的符号名
-strip libfoo.so #清除共享库或者可执行文件的所有符号和调试信息
+file target.o               #判断文件类型
+size target.o               #查看ELF文件代码段，数据段和BSS段长度
+nm target.o                 #查看ELF文件符号表
+c++filt _ZN1N1C4funcEi      #解析修饰过的符号名
+strip libfoo.so             #清除共享库或者可执行文件的所有符号和调试信息
 ```

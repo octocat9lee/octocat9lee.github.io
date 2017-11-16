@@ -15,6 +15,7 @@ date: 2017-10-27 16:04:53
 <blockquote>[百度一下](http://www.baidu.com)</blockquote>
 
 # 代码块
+常用代码块指示标签有`bash python c cpp java javascript css xml x86asm haskell`
 
 ## Python
 ``` python
