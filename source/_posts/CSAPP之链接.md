@@ -56,7 +56,7 @@ GCC的"-fno-common"选项允许我们把所有未初始化的全部变量不以C
 
 # 动态共享库
 动态库使用`-shared和-fPIC`编译选项从而编译位置无关的代码。对于创建依赖动态库的可执行文件其基本思路是`创建可执行文件使，静态执行一些链接，生成部分链接的可执行目标文件，此时动态库中的代码和数据节都没有复制到可执行文件中，仅仅复制了重定位和符号表信息；在程序加载时，完成链接过程，代码和数据才真正的复制到可执行文件中`。在依赖动态库的可执行文件中，包含`.interp`节，包含动态链接器的路径名。动态链接器也是共享目标，但加载器会特殊对待，从而加载和运行加载器，动态链接器通过重定位完成链接过程，具体的动态共享库链接过程如下所示：
-<center>![动态共享库链接过程]()</center>
+<center>![动态共享库链接过程](http://oyh38rhr2.bkt.clouddn.com/github/171116/0JD765eBgD.jpg)</center>
 
 ## soname
 soname(Short for Shared Object Name)的存在主要是为了共享库兼容性。比如说，有一个程序prog，以及依赖的共享库库libtest.so.1，prog启动的时候需要libtest.so.1，如果链接的时候直接把libtest.so.1传给prog，那么将来库升级为libtest.so.2的时候prog仍然只能使用libtest.so.1，并不能链接到升级后的动态库。然而如果指定soname为libtest.so，那么prog启动的时候将查找的就是libtest.so，而不是其在被链接时实际使用的库libtest.so.1这个文件名。在发布版本1时，我们使用`ln -sf libtest.so.1 libtest.so`对版本1的动态库创建软链接；而在库升级后，我们`ln -sf libtest.so.2 libtest.so`创建新的软链接即可，这样prog不需要任何变动就能享受升级后的库的特性了。另外，`共享库libtest.so.1与libtest.so.2`可以同时存在于系统内，不必非得把libtest.so.2重命名成libtest.so.1。
@@ -66,16 +66,44 @@ soname(Short for Shared Object Name)的存在主要是为了共享库兼容性�
 `-Wl,-rpath=/home/mylib`指定链接器产生的目标程序的共享库查找路径
 `-Wl,-export-dynamic`将所有全局符号导出到动态符号表
 
-## PIC
+## 位置无关代码
+对GCC使用`-fpic`选项指示GNU编译器生成PIC代码。共享库的编译必须总是使用该选项。
+对同一个目标模块中符号的引用因为可以使用PC相对寻址来编译，所以不需要特殊处理就可以实现PIC。然而，对于模块外部和对全局变量的引用需要特殊处理。
+<center>![模块内函数调用示例](http://oyh38rhr2.bkt.clouddn.com/github/171116/gc3j58GK5f.jpg)</center>
+<center>![模块内数据引用示例](http://oyh38rhr2.bkt.clouddn.com/github/171116/BGlCccbJ0a.jpg)</center>
+
+PIC数据引用基于`代码段中指令和数据变量之间的距离为常量，与代码段和数据段的绝对内存位置无关`。编译器为GOT中每个条目生成一个重定位记录，在加载时，动态链接器会重定位GOT(Global Offset Table,全局偏移表)中的每个条目，使得它包含目标正确的绝对地址。
+<center>![模块外部数据GOT引用示例](http://oyh38rhr2.bkt.clouddn.com/github/171116/a8HjA1iJl5.jpg)</center>
+
+PIC函数调用通过GOT和PLT(Procedure Linkage Table,过程链接表)实现。
+<center>![模块间函数调用](http://oyh38rhr2.bkt.clouddn.com/github/171116/b3f621I3G6.jpg)</center>
+<center>![模块间函数调用](http://oyh38rhr2.bkt.clouddn.com/github/171116/DKCmI6a51D.jpg)</center>
+
 地址无关代码(PIC,Position-independent Code)解决共享对象指令中对绝对地址的重定位问题。希望程序模块中的共享指令部分在装载时不要因为装载地址的改变而改变，其基本想法就是把指令中需要被修改的部分分离出来，跟数据部分放在一起，从而指令部分就可以保持不变，而数据部分可以在每个进程中拥有一个副本。
 >如何区分一个动态库是否为PIC
     `readelf -d foo.so | grep TEXTREL`
 如果上面的命令有任何输出，那么foo.so就不是PIC的，否则就是PIC的。PIC的DSO是不会包含任何代码段重定位表的，TEXTREL表示代码段重定位表地址
 
 ## 运行时加载共享库
+使用`dlopen`系列函数在运行时加载共享库时，需要使用`-rdynamic`编译选项。`-rdynamic`编译选项`This instructs the linker to add all symbols, not only used ones, to the dynamic symbol table. This option is needed for some uses of dlopen or to allow obtaining backtraces from within a program`。关于`-rdynamic`更多详细介绍参考博文[gcc选项-g与-rdynamic的异同](https://stackoverflow.com/questions/8623884/gcc-debug-symbols-g-flag-vs-linkers-rdynamic-option)。在Java中使用JNI技术调用本地的C和C++接口函数。
 
+# 库打桩机制
+库打桩就是截获对共享库函数的调用，取而代之执行自己的代码。
+## 基本原理
+给定需要打桩的目标函数，常见一个wrapper函数，其原型和目标函数一致。利用特殊的打桩机制，可以实现让系统调用你的wrapper函数而不是目标函数。wrapper函数中通常会执行自己的逻辑，然后调用目标函数，再将目标函数的返回值传递给调用者。打桩可以发生在编译时、链接时或者程序被加载执行的运行时。不同的阶段都有对应的打桩机制，也有其局限性。
 
 # 处理目标文件工具
+
+## 工具列表
+``` bash
+ar        #创建静态库，插入、列出、删除和提取成员
+strings   #列出一个目标文件中所有可打印的字符串
+strip     #从目标文件中删除符号表信息
+size      #列出目标文件中节的名字和大小
+readelf   #显示目标文件的完整结构
+objdump   #二进制工具之母，最重要功能反汇编.text节中的二进制指令
+ldd       #列出可执行文件所需要的共享库
+```
 ## readelf
 ``` bash
 readelf -h main.o           #获取目标文件ELF Header信息
