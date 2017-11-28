@@ -213,5 +213,273 @@ int main()
 >规则1：信号处理程序越简单越好，例如简单设置全局变量返回，其他信号处理相关的由主程序执行
 规则2：只使用异步信号安全(可重入或者不能被信号处理程序中断)的函数，使用`man 7 signal`可以获得信号安全函数列表
 规则3：在进入和退出的时候保存和恢复errno，从而信号处理程序就不会覆盖原有的errno值
+规则4：阻塞所有的信号，保护对共享全局数据结构的访问
+规则5：用`volatile`声明全局变量，高速编译器不要缓存变量在寄存器中，每次从内存中引用该变量，同时也应该暂时阻塞信号，保护每次对全局变量的访问
+规则6：用`sig_atomic_t`声明标志。在处理程序中，处理程序写全局标志记录接收到了信号，主程序周期读标志，响应信号，最后清除标志。整型数据类型`sig_atomic_t`保证读写为原子操作，不可中断，因此可以安全读写`sig_atomic_t`变量，而不需要暂时阻塞信号。另外，原子性的保证只适合单个的读和写，不适用于`flag++`或者`flag=flag+10`这样的更新，因为它们需要多条指令
 
-# 总结
+## 正确的信号处理
+未处理信号不排队，所以每种类型最多只能有一个未处理的信号。如果正在处理，则第二个信号就简单丢弃，`不会排队`。如果存在一个未处理的信号就表明至少有一个信号到达了。
+>不可以使用信号对来对其他进程中发生的事件计数
+
+## 可移植的信号处理程序
+Unix信号处理程序的缺陷在于不同的系统有不同的信号处理语义。
+>signal函数的语义不同。有些系统在运行完处理程序后，需要显示重新设置
+系统调用可以被中断，程序员必须手动重启被中断的系统调用
+
+使用Posix标准定义的sigaction函数，明确指明需要的信号处理语义，Signal包装函数如下：
+``` c
+handler_t *Signal(int signum, handler_t *handler)
+{
+    struct sigaction action, old_action;
+
+    action.sa_handler = handler;  
+    sigemptyset(&action.sa_mask); /* Block sigs of type being handled */
+    action.sa_flags = SA_RESTART; /* Restart syscalls if possible */
+
+    if (sigaction(signum, &action, &old_action) < 0)
+    {
+        unix_error("Signal error");
+    }
+    return (old_action.sa_handler);
+}
+```
+Signal包装函数语义如下：
+>只有这个处理程序当前正在处理的那种类型的信号被阻塞
+信号不会排队
+被中断的系统调用会自动重启
+一旦设置信号处理程序，会一直保持，直到Signal的handler参数为SIG_IGN或者SIG_DEF调用
+
+## 同步流避免并发错误
+在下面的代码情形中，main函数调用addjob和处理程序调用main函数调用addjob和处理程序调用deletejob间存在竞争。如果addjob首先获得调度，那么结果执行正确；如果没有那么结果就错误。另外，这样的错误非常难以调试，因为无法测试所有的交错情形。
+``` c
+void initjobs()
+{
+}
+
+void addjob(int pid)
+{
+}
+
+void deletejob(int pid)
+{
+}
+
+/* WARNING: This code is buggy! */
+void handler(int sig)
+{
+    int olderrno = errno;
+    sigset_t mask_all, prev_all;
+    pid_t pid;
+
+    Sigfillset(&mask_all);
+    while ((pid = waitpid(-1, NULL, 0)) > 0) { /* Reap a zombie child */
+        Sigprocmask(SIG_BLOCK, &mask_all, &prev_all);
+        deletejob(pid); /* Delete the child from the job list */
+        Sigprocmask(SIG_SETMASK, &prev_all, NULL);
+    }
+    if (errno != ECHILD)
+        Sio_error("waitpid error");
+    errno = olderrno;
+}
+
+int main(int argc, char **argv)
+{
+    int pid;
+    sigset_t mask_all, prev_all;
+
+    Sigfillset(&mask_all);
+    Signal(SIGCHLD, handler);
+    initjobs(); /* Initialize the job list */
+
+    while (1) {
+        if ((pid = Fork()) == 0) { /* Child process */
+            Execve("/bin/date", argv, NULL);
+        }
+        Sigprocmask(SIG_BLOCK, &mask_all, &prev_all); /* Parent process */  
+        addjob(pid);  /* Add the child to the job list */
+        Sigprocmask(SIG_SETMASK, &prev_all, NULL);    
+    }
+    exit(0);
+}
+```
+消除竞争的方法就是在调用fork之前，阻塞SIGCHLD信号，然后在调用addjob之后取消取消阻塞这些信号，从而保证子进程被添加到作业列表之后回收子进程。注意：`子进程继承了父进程的被阻塞集合`，所以小心解除子进程中阻塞的SIGCHLD信号。修正后的程序代码如下：
+``` c
+int main(int argc, char **argv)
+{
+    int pid;
+    sigset_t mask_all, mask_one, prev_one;
+
+    Sigfillset(&mask_all);
+    Sigemptyset(&mask_one);
+    Sigaddset(&mask_one, SIGCHLD);
+    Signal(SIGCHLD, handler);
+    initjobs(); /* Initialize the job list */
+
+    while (1) {
+        Sigprocmask(SIG_BLOCK, &mask_one, &prev_one); /* Block SIGCHLD */
+        if ((pid = Fork()) == 0) { /* Child process */
+            Sigprocmask(SIG_SETMASK, &prev_one, NULL); /* Unblock SIGCHLD */
+            Execve("/bin/date", argv, NULL);
+        }
+        Sigprocmask(SIG_BLOCK, &mask_all, NULL); /* Parent process */  
+        addjob(pid);  /* Add the child to the job list */
+        Sigprocmask(SIG_SETMASK, &prev_one, NULL);  /* Unblock SIGCHLD */
+    }
+    exit(0);
+}
+```
+
+## 显式地等待信号
+有时候主程序需要显式地等待某个信号处理程序运行。
+``` c
+volatile sig_atomic_t pid;
+
+void sigchld_handler(int s)
+{
+    int olderrno = errno;
+    pid = Waitpid(-1, NULL, 0);
+    errno = olderrno;
+}
+
+void sigint_handler(int s)
+{
+}
+
+int main(int argc, char **argv)
+{
+    sigset_t mask, prev;
+
+    Signal(SIGCHLD, sigchld_handler);
+    Signal(SIGINT, sigint_handler);
+    Sigemptyset(&mask);
+    Sigaddset(&mask, SIGCHLD);
+
+    while (1) {
+        Sigprocmask(SIG_BLOCK, &mask, &prev); /* Block SIGCHLD */
+        if (Fork() == 0) /* Child */
+            exit(0);
+
+        /* Parent */
+        pid = 0;
+        Sigprocmask(SIG_SETMASK, &prev, NULL); /* Unblock SIGCHLD */
+
+        /* Wait for SIGCHLD to be received (wasteful) */
+        while (!pid)
+            ;
+
+        /* Do some work after receiving SIGCHLD */
+        printf(".");
+    }
+    exit(0);
+}
+```
+上面代码执行正确，但由于while死循环导致CPU浪费。为了修复这个问题，在循环体内插入pause:
+``` c
+while(!pid)  /* Race! */
+    pause();
+```
+需要采用while循环，是因为会收到一个或者多个SIGINT信号，pause会被中断。上述代码也存在严重的竞争条件：`如果在while测试后和pause之前收到SIGCHLD信号，pause会永远睡眠`。另外选择就是使用sleep替换pause，但由于无法确定休眠的间隔，如果间隔大小，循环浪费；如果太大，程序又太慢。
+合适的解决办法是使用`sigsuspend`。
+sigsuspend函数暂时用mask替换当前的阻塞集合，然后挂起该进程，直到收到一个信号，其行为要么是运行一个处理程序，要么是终止该进程。如果行为是终止，那么该进程不从sigsuspend返回就直接终止。如果行为是运行一个处理程序，那么sigsuspend从处理程序返回，恢复调用sigsuspend时原有的阻塞集合。`sigsuspend`函数等价于下述代码的`原子的`版本：
+``` c
+sigprocmask(SIG_SETMASK, &mask, &prev);
+pause();
+sigprocmask(SIG_SETMASK, &prev, NULL);
+```
+sigsuspend版本比原来的版本不浪费CPU，避免了引入pause带来的竞争，又比sleep更有效率。
+``` c
+volatile sig_atomic_t pid;
+
+void sigchld_handler(int s)
+{
+    int olderrno = errno;
+    pid = Waitpid(-1, NULL, 0);
+    errno = olderrno;
+}
+
+void sigint_handler(int s)
+{
+}
+
+int main(int argc, char **argv)
+{
+    sigset_t mask, prev;
+
+    Signal(SIGCHLD, sigchld_handler);
+    Signal(SIGINT, sigint_handler);
+    Sigemptyset(&mask);
+    Sigaddset(&mask, SIGCHLD);
+
+    while (1) {
+        Sigprocmask(SIG_BLOCK, &mask, &prev); /* Block SIGCHLD */
+        if (Fork() == 0) /* Child */
+            exit(0);
+
+        /* Wait for SIGCHLD to be received */
+        pid = 0;
+        while (!pid)
+            Sigsuspend(&prev);
+
+        /* Optionally unblock SIGCHLD */
+        Sigprocmask(SIG_SETMASK, &prev, NULL);
+
+        /* Do some work after receiving SIGCHLD */
+        printf(".");
+    }
+    exit(0);
+}
+```
+
+# 非本地跳转
+非本地跳转(nonlocal jump)是与本地跳转相对应的一个概念。本地跳转主要指的是类似于goto语句的一系列应用，当设置了标志之后，可以跳到所在函数内部的标号上。然而，本地跳转不能将控制权转移到所在程序的任意地点，不能跨越函数，因此也就有了`非本地跳转`。非本地跳转将控制直接从一个函数转移到另一个函数，而不需要经过正常的调用-返回序列。C语言里面提供了setjmp和longjmp函数来进行跨越函数之间的控制权的跳转，从而称之为非本地跳转。
+``` c
+#include <setjmp.h>
+int setjmp(jmp_buf env);   /* setjmp返回0，longjmp返回非零 */
+int sigsetjmp(sigjmp buf env, int savesigs); //可以被信号处理程序使用的版本
+void longjmp(jmp_buf env, int value);   /* 从不返回 */
+void siglongjmp(sigjmp buf env, int retval); //可以被信号处理程序使用的版本
+```
+setjmp函数在env缓冲区中保存当前调用环境，供后面的longjmp使用，并返回0。调用环境包括程序计数器、栈指针和通用目的寄存器。`setjmp`返回值不能被赋值给变量，不过可以安全地使用在switch和条件测试中。
+``` c
+rc = setjmp(env);  /* Wrong! */
+```
+longjmp函数从env缓冲区中恢复调用环境，然后触发一个从最近一次初始化env的setjmp调用的返回，并带有非零的返回值retval。
+setjmp和longjmp之间的相互关系：
+>setjmp函数只被调用一次，但返回多次：一次是当第一次调用setjmp，而调用环境保存在缓冲区env中时，一次是为每个相应的longjmp调用。另一方面，longjmp函数被调用一次，但从不返回。
+
+longjmp如果跳过了中间释放已经分配了的某些数据结构，将会产生内存泄露。
+非本地跳转的另一个重要应用是使一个信号处理程序分支到一个特殊的代码位置，而不是返回到被信号到达中断了的指令的位置。当用户在键盘上键入Ctrl+C时，程序使用信号和非本地跳转实现软重启。
+``` c
+sigjmp_buf buf;
+
+void handler(int sig)
+{
+    siglongjmp(buf, 1);
+}
+
+int main()
+{
+    if (!sigsetjmp(buf, 1)) {
+        Signal(SIGINT, handler);
+        Sio_puts("starting\n");
+    }
+    else {
+        Sio_puts("restarting\n");
+    }
+
+    while(1) {
+        Sleep(1);
+        Sio_puts("processing...\n");
+    }
+    exit(0); /* Control never reaches here */
+}
+```
+当用户键入Ctrl+C时，内核发送SIGINT信号给进程，进程捕获信号，如果不使用非本地跳转，信号处理程序会将控制返回给被中断的循环，使用非本地跳转，控制返回到main函数的开始处。
+为了避免竞争，必须在调用了sigsetjmp之后再设置信号处理程序，否则可能会在sigsetjmp为siglongjmp设置调用环境前运行处理程序；另外，在siglongjmp可达的代码中只调用安全函数。例如我们调用的安全函数Sio_puts和Sleep函数。不安全的函数exit是不可达的。
+
+# 操作进程的工具
+>strace 跟踪系统调用
+ps 打印当前系统中的进程
+top 打印当前进程资源使用
+pmap 显示进程的内存映射
+/proc 虚拟文件系统
