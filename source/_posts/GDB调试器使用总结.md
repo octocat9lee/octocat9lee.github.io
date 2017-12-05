@@ -27,5 +27,11 @@ gdb -ex "thread apply all bt" -batch -p pid > thread_stack.info
 gdb -ex "thread apply all bt" -batch -p `ps -e | grep procname | awk '{print $1}'` > thread_stack.info
 ```
 <!--more-->
+
+# 调用函数
+``` bash
+gdb>call function();
+```
+
 # 网络资源
 [《100个gdb小技巧》](https://gitlore.com/subject/15/src/print-threads.md)
