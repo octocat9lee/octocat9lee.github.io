@@ -1,5 +1,5 @@
 ---
-title: C++Primer5e：第05章：语句
+title: C++Primer5e第05章：语句
 tags:
   - C++
 toc: true
