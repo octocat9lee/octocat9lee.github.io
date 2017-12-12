@@ -226,5 +226,107 @@ vector一般采用的分配策略是在每次需要分配新内存时将当前�
 # 额外的string操作
 ## substr操作
 substr操作返回一个string的一部分或全部的拷贝，参数是一个可选的开始位置和计数值。如果开始位置超过了string大小，则substr函数抛出一个抛出out_of_range异常。如果开始位置加上计数值大于string的大小，则substr会调整计数值，只拷贝到string的末尾。
+``` cpp
+//使用vector<char>初始化string，vector提供data成员函数，返回其内存空间首地址
+vector<char> vc = {'H', 'e', 'l', 'l', 'o'};
+string s(vc.data(), vc.size());
+```
+
+## 修改string的操作
+```
+s.insert(pos, args)   在pos之前插入args指定的字符，pos可以是下标或迭代器，下标版本返回指向s的引用；迭代器版本返回指向第一个插入字符的迭代器
+s.erase(pos, len)   删除从位置pos开始的len个字符，如果len省略，删除至末尾，返回指向s的引用
+s.assign(args)    将s中的字符替换为args指定的字符，返回指向s的引用
+s.append(args)    将args追加到s，返回一个指向s的引用
+s.replace(range, args) 删除s范围range内的字符，替换为args所指定的字符。range可以是下标和一个长度，或者一对指向s的迭代器。返回指向s的引用
+```
+
+## string搜索操作
+string搜索函数返回string::size_type值，表示匹配位置下标，该类型是一个unsigned类型。因此，使用int或其他有符号类型保存这些函数返回值不是一个好主意。如果搜索失败，返回一个名为string::npos的static成员。
+``` cpp
+搜索操作返回指定字符的下标，如果未找到则返回npos
+s.find(args)                   查找s中args第一次出现的位置
+s.rfind(args)                  查找s中args最后一次出现的位置
+s.find_first_of(args)          在s中查找args中任何一个字符第一次出现的位置
+s.find_last_of(args)           在s中查找args中任何一个字符最后一次出现的位置
+s.find_fist_not_of(args)       在s中查找第一个不在args中的字符
+s.find_last_not_of(args)       在s中查找最后一个不在args中的字符
+
+args必须是以下形式之一
+pos是string::size_type类型
+c,pos     从s中位置pos开始查找字符c。pos默认为0
+s2,pos    从s中位置pos开始查找字符串s2。pos默认为0
+cp,pos    从s中位置pos开始查找指针cp指向的以空字符结尾的C风格字符串。pos默认为0
+cp,pos,n  从s中位置pos开始查找指针cp指向的数组的前n个字符。pos和n无默认值
+```
+
+## compare函数
+compare类似strcmp，根据s是等于、大于还是小于参数指定的字符串，s.compare返回0、正数或负数。
+
+## 数值转换
+string和数值之间的转换
+``` cpp
+to_string(val)        返回数值val的string表示。val可以是任何算术类型
+
+stoi(s, p, b)         返回s的起始子串(表示整数内容)的数值，返回类型分别为
+stol(s, p, b)         int、long、unsigned long、long long、unsigned long long。
+stoul(s, p, b)        b表示转换用的基数，默认值为10。p是size_t指针，用来保存s中第一个
+stoll(s, p, b)        非数值字符的下标，p默认值为0，即函数不保存下标。
+stoull(s, p, b)
+
+stof(s, p)            返回s的起始子串(表示浮点数内容)的数值，返回值类型分别是float、
+stod(s, p)            double、long double。
+stold(s, p)
+```
+string参数中第一个非空白字符必须是符号(+或-)或数字。对于将字符串转换成浮点的数，string参数也可以以小数点(.)开头，并可以包含e或E来表示指数部分。对于转换为整型值的函数，根据基数不同，string参数可以包含字母字符，对应大于数字9的数。如果string不能转换为一个数值，则函数抛出invalid_argument异常。如果转换得到的数值无法用任何类型表示，则抛出一个抛出out_of_range异常。
+``` cpp
+string s2 = "pi = 3.14";
+//转换s中以数字开始的第一个子串，结果d=3.14
+d = stod(s2.substr(s2.find_first_of("+-.0123456789")));
+```
 
 # 容器适配器
+标准库定义三个顺序容器适配器：stack、queue和priority_queue。适配器使某种事物的行为看起来像另外一种事物一样。一个容器适配器接受一种已有的容器类型，使其行为看起来像一种不同的类型。
+所有容器适配器都支持的操作和类型
+``` cpp
+size_type               一种类型，足以保存当前类型的最大对象的大小
+value_type              元素类型
+container_type          实现适配器的底层容器类型
+A a;                    创建一个名为a的空适配器
+A a(c);                 创建一个名为a的适配器，带有容器c的一个拷贝
+关系运算(== != < <= > >=)返回底层容器的比较结果
+a.empty()               若a包含元素，返回false；否则返回true
+a.size()                返回a中元素数目
+swap(a, b)              交换a和b的内容，a和b必须具有相同类型，包括底层容器类型也必须相同
+a.swap(b)
+```
+每个容器适配器基于底层容器类型的操作定义了自己的特殊操作。我们只可以使用适配器操作，而不能使用底层容器类型的操作。
+另外，我们可以在创建一个适配器时将一个命名的顺序容器作为第二个类型参数，来重载默认容器类型。
+``` cpp
+//在vector上实现的空栈
+stack<string, vector<string>> str_stk;
+```
+
+## 栈适配器
+stack适配器接受一个顺序容器(除array或forward_list外)，并使其操作起来像一个stack一样。
+stack的额外操作：
+``` cpp
+栈默认基于deque实现，也可以在list或vector上实现
+s.pop()            删除栈顶元素
+s.push(item)       创建一个新元素压入栈顶，该元素通过拷贝或移动item而来，或者
+s.emplace(args)    由args构造
+s.top()            返回栈顶元素，但不将元素弹出
+```
+
+## 队列适配器
+标准库queue使用一种FIFO的存储和访问策略。priority_queue允许我们为队列中的元素建立优先级。新加入的元素会排在所有优先级比它低的已有元素之前。默认情况下，标准库使用<运算符确定优先级。
+``` cpp
+queue默认基于deque实现，priority_queue默认基于vector实现
+queue也可以list或vector实现，priority_queue也可以使用deque实现
+q.pop()       返回queue首元素或priority_queue的最高优先级元素，但不删除此元素
+q.front()     返回首元素或尾元素，但不删除此元素
+q.back()      只适用于queue
+q.top()       返回最高优先级元素，但不删除此元素，只适用于priority_queue
+q.push(item)  在queue末尾或priority_queue中恰当位置创建一个元素，其值为item或者args构造
+q.emplace(args)
+```
