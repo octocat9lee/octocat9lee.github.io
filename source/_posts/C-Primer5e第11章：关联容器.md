@@ -7,6 +7,17 @@ date: 2017-12-13 14:47:45
 ---
 关联容器中的元素是按关键字来保存和访问的，支持高效的关键字查找和访问。标准库提供8个关联容器，体现在3个维度：
 (1) set或者map；(2)关键字能否重复，允许重复关键字的包含单词multi；(3)按顺序保存或无序保存，不保持关键字按顺序存储的容器的名字都以单词unordered开头。因此，unordered_multi_set是一个允许关键字重复，元素无序保存的集合，而set则是一个要求关键字不重复，有序存储的集合。`set和map使用红黑树，无序容器使用哈希函数来组织元素。`
+关联容器类型：
+>按关键字有序保存元素
+map
+set
+multimap
+multiset
+无序集合
+unordered_map
+unordered_set
+unordered_multimap
+unordered_multiset
 
 # 使用关联容器
 在忽略大小写和标点的单词计数程序中，首先是对输入的字符串进行处理，剔除单词中的标点，并将大写转换成小写。
@@ -159,6 +170,58 @@ for(auto pos = authors.equal_range(search_item);
 ```
 
 # 无序容器
+如果关键字类型就是无序的，或者性能测试发现问题可以使用哈希技术解决，就可以使用无序容器。
 C++11新标准定义了4个无序关联容器。这些容器使用哈希函数和关键字类型的==运算符。除哈希管理操作之外，无序容器还提供与有序容器相同的操作。
 
 ## 管理桶
+无序容器使用哈希函数将元素映射到桶。为了访问一个元素，容器首先计算元素的哈希值，指出应该搜索哪个桶。如果容器允许重复关键字，所有具有相同关键字的元素都会在同一个桶中。因此，无序容器的性能依赖于哈希函数的质量和桶的数量和大小。如果一个桶中保存了很多的元素，那么查找一个特定元素就需要大量的比较操作。
+无序容器提供了一组管理桶的函数，允许我们查询容器的状态以及在必要时强制容器进行重组：
+``` cpp
+无序容器管理操作
+桶接口
+c.bucket_count()                  正在使用的桶的数目
+c.max_bucket_count()              容器能容纳的最多的桶的数量
+c.bucket_size(n)                  第n个桶中有多少个元素
+c.bucket(k)                       关键字为k的元素在哪个桶中
+
+桶迭代
+local_iterator                    用来访问桶中元素的迭代器类型
+const_local_iterator              桶迭代器的const版本
+c.begin(n), c.end(n)              桶n的首元素迭代器和尾后迭代器，返回local_iterator类型
+c.cbegin(n), c.cend(n)            返回const_local_iterator
+
+哈希策略
+c.load_factor()                   每个桶的平均元素的数量，返回float值
+c.max_load_factor()               c试图维护桶的平均桶大小，返回float值。c会在需要时
+                                  添加新的桶，使得load_factor <= max_load_factor
+c.rehash(n)                       重组存储，使得bucket_count >= n且bucket_size > size/max_load_factor
+c.reserve(n)                      重组存储，使得c可以保存n个元素且不必rehash
+```
+
+## 无序容器对关键字类型的要求
+``` cpp
+template < class Key,                                    // unordered_map::key_type
+           class T,                                      // unordered_map::mapped_type
+           class Hash = hash<Key>,                       // unordered_map::hasher
+           class Pred = equal_to<Key>,                   // unordered_map::key_equal
+           class Alloc = allocator< pair<const Key,T> >  // unordered_map::allocator_type
+           > class unordered_map;
+```
+默认情况下，无序容器使用关键字类型的==运算符比较元素，使用一个hash<key_type>类型的对象生成每个元素的哈希值。标准库为`内置类型(包括指针)、string和智能指针类型`提供了hash模板。[更多的默认hash模板](http://www.cplusplus.com/reference/functional/hash/)
+
+我们不能直接定义关键字类型为自定义类型的无序容器。为了能将Sales_data用作关键字，我们需要提供函数来代替==运算符和哈希值计算函数。
+``` cpp
+size_t hasher(const Sales_data &sd)
+{
+    return hash<string>()(std.isbn()); //使用标准库string的hash函数计算ISBN成员的哈希值
+}
+
+bool eqOp(const Sales_data &lhs, const Sales_data &rhs)
+{
+    return lhs.isbn() == rhs.isbn();
+}
+//定义类型别名
+using SD_multiset = unordered_set<Sales_data, decltype(hasher)*, decltype(eqOp)*>;
+//参数是桶的大小、哈希函数指着和相等性判断运算符指针
+SD_multiset bookstore(42, hasher, eqOp);
+```
