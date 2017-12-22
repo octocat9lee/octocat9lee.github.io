@@ -224,3 +224,386 @@ C++11新标准一个最主要的特性是可以移动而非拷贝对象的能力
 变量是左值，因为变量是持久的，直至离开作用域时才被销毁。因此我们不能将一个右值引用直接绑定到一个变量上，即使这个变量是右值引用类型也不行。
 
 C++11新标准中使用`move`标准库函数获得绑定到左值上的右值引用，函数定义在`utility`头文件中。
+``` cpp
+int &&rr1 = 42;    //正确：字面常量是右值
+int &&rr2 = rr1;   //错误：表达式rr1是左值！
+int &&rr3 = std::move(rr1); //ok
+```
+move告诉编译器：我们有一个左值，但我们希望像一个右值使用。
+调用move后，`除了对rr1赋值或销毁它，我们不能再使用它`。
+使用move的代码应该使用std::move而不是move，从而避免可能存在的名字冲突。
+返回左值的表达式包括返回左值引用的函数及赋值、下标、解引用和前置递增/递减运算符
+返回右值的包括返回非引用类型的函数及算术、关系、位和后置递增/递减运算符
+
+## 移动构造函数和移动赋值运算符
+移动构造函数和移动赋值运算符它们从给定对象“窃取”资源而不是拷贝资源。
+移动构造函数的第一个参数是一个`右值引用`。一旦完成资源移动，源对象必须不再指向被移动的资源，因为资源的所有权已经归属新创建的对象。另外，移动构造函数还必须确保移动对象可以被销毁，执行析构函数是安全的。
+``` cpp
+StrVec::StrVec(StrVec &&s) noexcept: //移动构造函数不应该抛出异常
+elements(s.elements), first_free(s.first_free), cap(s.cap)
+{
+    //令s可以被安全析构，如果不设置，则销毁源对象就会释放我们刚刚移动的内存
+    s.elements = s.first_free = s.cap = nullptr;
+}
+
+StrVec& StrVec::operator=(StrVec &&rhs) noexcept
+{
+     //检测自我赋值
+    if(this != &rhs)
+    {
+        free(); //释放已有元素
+        elements = rhs.elements; //从rhs接管资源
+        first_free = rhs.first_free;
+        cap = rhs.cap;
+        //将rhs置为可析构状态
+        rhs.elements = rhs.first_free = rhs.cap = nullptr;
+    }
+    return *this;
+}
+```
+移动构造函数通常不会分配任何资源，因此移动操作通常不会抛出异常。不抛出异常的移动构造函数和移动赋值运算符必须标记为`noexcept`。在类头文件的声明和定义中都指定`noexcept`。
+
+从一个对象移动数据并不会销毁此对象，但有时在移动操作完成后，源对象会被销毁。因此，当我们编写一个移动操作时，必须确保移后源对象进入一个可析构的状态。
+
+如果一个类定义了自己的拷贝构造函数、拷贝赋值运算符和析构函数，编译器就不会为它合成移动构造函数和移动赋值运算符了。
+只有当一个类没有定义任何自己的拷贝控制成员，且它的所有数据成员都能移动构造或移动赋值时，编译器才会为它合成移动构造函数或移动赋值运算符。
+如果类定义了移动构造函数或移动赋值运算符，则该类的合成拷贝构造函数和拷贝赋值运算符则被定义为删除的。
+
+<strong>所有的五个拷贝控制成员应该看作一个整体：如果类定义了任何一个拷贝操作，它就应该定义所有五个操作。</strong>
+
+## 移动迭代器
+C++11新标准库定义了一种`移动迭代器(move iterator)`适配器。移动迭代器通过改变迭代器的解引用运算符的行为来适配此迭代器。移动迭代器的解引用运算符生成一个右值引用。
+标准库的`make_move_iterator`函数将一个普通迭代器转换为一个移动迭代器。
+由于移动迭代器支持正常的迭代器操作，我们可以将移动迭代器传递给算法。
+``` cpp
+void StrVec::reallocate(size_t newcapacity)
+{
+    auto first = alloc.allocate(newcapacity);
+    auto last = uninitialized_copy(make_move_iterator(begin()),
+        make_move_iterator(end()), first);
+
+    free(); //一旦完成元素的移动就释放旧的内存空间
+    elements = first;
+    first_free = last;
+    cap = elements + newcapacity;
+}
+```
+由于我们传递给它的是移动迭代器，因此解引用生成的是一个右值引用，这意味着construct将使用移动构造函数来构造元素。
+在移动构造函数和移动赋值运算符这些类实现代码之外的地方，只有当你确信需要进行移动操作是安全的，才可以使用std::move。
+
+## 右值引用和成员函数
+定义了push_back的标准库容器提供两个版本：一个版本有一个const的左值引用，一个版本指向非const的右值引用。
+``` cpp
+//拷贝：绑定到任意类型的x，拷贝操作不应该改变源对象，因此通常不需要非const的左值引用版本
+void push_back(const X&);
+//移动：只能绑定到类型X的可修改的右值，因为移动操作从实参窃取数据，实参不能是const的
+void push_back(X &&);
+```
+StrVec类push_back的令一个版本：
+``` cpp
+void StrVec::push_back(const std::string& s)
+{
+    chk_n_alloc(); //确保有空间容纳元素
+    alloc.construct(first_free++, s); //在first_free指向的元素构造s的副本
+}
+
+void StrVec::push_back(std::string &&s)
+{
+    chk_n_alloc(); //确保有空间容纳元素
+    alloc.construct(first_free++, std::move(s)); //move返回一个右值引用，因此使用string的移动构造函数构造新元素
+}
+
+StrVec vec;
+string s = "sone string or another";
+vec.push_back(s); //调用push_back(const std::string& s)版本
+vec.push_back("done"); //调用push_back(std::string &&s)版本，因为实参是一个临时对象是一个右值
+```
+
+### 右值和左值引用成员函数
+无论对象是左值还是右值，我们都可以在一个对象上调用成员函数。更差异的是，我们可以对一个右值进行赋值：
+``` cpp
+string s1 = "a value";
+string s2 = "another";
+s1 + s2 = "wow!";
+```
+如果我们希望在自己的类中阻止这种用法，我们可以使用`引用限定符(reference qualifier)&或者&&`分别指出this可以指向一个左值或右值。限定符必须同时出现在声明和定义中。
+``` cpp
+class Foo()
+{
+public:
+    Foo &operator=(const Foo&) &; //只能向左值赋值
+    Foo someMem() & const; //错误：const限定符必须在前
+    Foo someMem() const &; //正确：const限定符在前
+};
+
+Foo& Foo::operator=(const Foo &rhs)
+{
+    return *this;
+}
+```
+
+### 重载和引用函数
+如果一个成员函数有引用限定符，则具有相同参数列表的所有版本都必须有引用限定符。
+成员函数可以根据是否有const来区分其重载版本，也可以使用引用限定符区分重载版本：
+``` cpp
+class Foo()
+{
+public:
+    Foo sorted() &&; //可用于可改变的右值
+    Foo sorted() const &; //可用于const右值或左值
+private:
+    std::vector<int> data;
+};
+
+//本对象为右值，因此可以原址排序
+Foo Foo::sorted() &&
+{
+    sort(data.begin(), data.end());
+    return *this;
+}
+
+//本对象为const或者左值，不能进行原址排序
+Fool Foo::sorted() const &
+{
+    Foo ret(*this); //拷贝一个副本
+    sort(ret.data.begin(), ret.data.end()); //排序副本
+    return ret; //返回副本
+};
+
+Fool Foo::sorted() const &
+{
+    Foo ret(*this); //拷贝一个副本，是一个左值
+    return ret.sorted(); //仍然调用左值引用版本，产生递归循环
+};
+
+Fool Foo::sorted() const &
+{
+    return Foo(*this).sorted(); //编译器认为Foo(*this)是一个临时对象，因此为右值，从而匹配到右值引用版本
+};
+```
+
+# 附录
+本章代码中完整的StrVec类，具体头文件如下：
+``` cpp
+//StrVec.h
+#ifndef _STR_VEC_H
+#define _STR_VEC_H
+
+#include <string>
+#include <memory>
+
+class StrVec
+{
+public:
+    StrVec(): //默认构造函数
+        elements(nullptr), first_free(nullptr), cap(nullptr) { }
+
+    StrVec(std::initializer_list<std::string> il); //构造函数
+
+    StrVec(const StrVec &s); //拷贝构造函数
+
+    StrVec(StrVec &&s) noexcept; //移动构造函数
+
+    StrVec& operator=(const StrVec &rhs); //拷贝赋值运算符
+
+    StrVec& operator=(StrVec &&rhs) noexcept; //移动赋值运算符
+
+    ~StrVec(); //析构函数
+
+    void push_back(const std::string& s); //拷贝元素
+
+    void push_back(std::string &&s); //移动元素
+
+    size_t size() const { return first_free - elements; }
+
+    size_t capacity() const { return cap - elements; }
+
+    std::string* begin() const { return elements; }
+
+    std::string* end() const { return first_free; }
+
+    void reserve(size_t n) { if(n > capacity()) { reallocate(n); } }
+
+    void resize(size_t n);
+
+private:
+    static std::allocator<std::string> alloc;
+
+    void chk_n_alloc()
+    {
+        if(size() == capacity()) //当没有空间添加新元素
+        {
+            //分配当前大小两倍的内存空间
+            auto newcapacity = size() ? 2 * size() : 1;
+            reallocate(newcapacity); //重新分配内存
+        }
+    }
+
+    //拷贝一个给定范围中的元素
+    std::pair<std::string*, std::string*> alloc_n_copy
+        (const std::string*, const std::string*);
+
+    void free();  //销毁元素并释放内存
+
+    void reallocate(size_t newcapacity); //分配更多内存并拷贝已有元素
+
+private:
+    std::string *elements;   //指向数组首元素的指针
+    std::string *first_free; //指向数组最后元素之后的指针
+    std::string *cap;        //指向数组空间尾后位置的指针
+};
+
+#endif
+```
+StrVec类的源码文件如下：
+``` cpp
+//StrVec.cpp
+#include "StrVec.h"
+#include <algorithm>
+
+using namespace std;
+
+std::allocator<std::string> StrVec::alloc;
+
+StrVec::StrVec(const StrVec &s)
+{
+    auto data = alloc_n_copy(s.begin(), s.end());
+    elements = data.first;
+    first_free = data.second;
+    cap = data.second;
+}
+
+inline StrVec::StrVec(std::initializer_list<std::string> il)
+{
+    auto newdata = alloc_n_copy(il.begin(), il.end());
+    elements = newdata.first;
+    first_free = newdata.second;
+    cap = newdata.second;
+}
+
+StrVec::StrVec(StrVec &&s) noexcept: //移动构造函数不应该抛出异常
+elements(s.elements),
+first_free(s.first_free),
+cap(s.cap)
+{
+    //令s可以被安全析构，如果不设置，则销毁源对象就会释放我们刚刚移动的内存
+    s.elements = s.first_free = s.cap = nullptr;
+}
+
+StrVec& StrVec::operator=(StrVec &&rhs) noexcept
+{
+    //检测自我赋值
+    if(this != &rhs)
+    {
+        free(); //释放已有元素
+        elements = rhs.elements; //从rhs接管资源
+        first_free = rhs.first_free;
+        cap = rhs.cap;
+        //将rhs置为可析构状态
+        rhs.elements = rhs.first_free = rhs.cap = nullptr;
+    }
+    return *this;
+}
+
+StrVec::~StrVec()
+{
+    free();
+}
+
+void StrVec::push_back(const std::string& s)
+{
+    chk_n_alloc(); //确保有空间容纳元素
+    alloc.construct(first_free++, s); //在first_free指向的元素构造s的副本
+}
+
+void StrVec::push_back(std::string &&s)
+{
+    chk_n_alloc(); //确保有空间容纳元素
+    alloc.construct(first_free++, std::move(s)); //move返回一个右值引用，因此使用string的移动构造函数构造新元素
+}
+
+void StrVec::resize(size_t n)
+{
+    if(n > size())
+    {
+        while(size() < n)
+        {
+            push_back("");
+        }
+    }
+    else if(n < size())
+    {
+        while(size() > n)
+        {
+            alloc.destroy(--first_free);
+        }
+    }
+}
+
+std::pair<std::string*, std::string*>
+StrVec::alloc_n_copy(const std::string* b, const std::string* e)
+{
+    //指向同一个数组的指针相减获得间隔的元素数目
+    auto data = alloc.allocate(e - b);
+    return{data, uninitialized_copy(b, e, data)};
+}
+
+//void StrVec::free()
+//{
+//    if(elements)
+//    {
+//        for(auto p = first_free; p != elements; )
+//        {
+//            alloc.destroy(--p);
+//        }
+//        alloc.deallocate(elements, cap - elements);
+//    }
+//}
+
+void StrVec::free()
+{
+    for_each(elements, first_free, [](string &p) { alloc.destroy(&p); });
+    alloc.deallocate(elements, cap - elements);
+}
+
+//void StrVec::reallocate(size_t newcapacity)
+//{
+//    //分配新内存
+//    auto newdata = alloc.allocate(newcapacity);
+//    //将数据从旧内存移动到新内存
+//    auto dest = newdata;  //指向新数组中下一个空闲位置
+//    auto elem = elements; //指向旧数组下一个元素
+//    for(size_t i = 0; i != size(); ++i)
+//    {
+//        alloc.construct(dest++, std::move(*elem++));
+//    }
+//    free(); //一旦完成元素的移动就释放旧的内存空间
+//    elements = newdata;
+//    first_free = dest;
+//    cap = elements + newcapacity;
+//}
+
+void StrVec::reallocate(size_t newcapacity)
+{
+    auto first = alloc.allocate(newcapacity);
+    auto last = uninitialized_copy(make_move_iterator(begin()),
+        make_move_iterator(end()), first);
+
+    free(); //一旦完成元素的移动就释放旧的内存空间
+    elements = first;
+    first_free = last;
+    cap = elements + newcapacity;
+}
+
+
+StrVec& StrVec::operator=(const StrVec &rhs)
+{
+    auto data = alloc_n_copy(rhs.begin(), rhs.end());
+    free();
+    elements = data.first;
+    first_free = data.second;
+    cap = data.second;
+    return *this;
+}
+
+```
