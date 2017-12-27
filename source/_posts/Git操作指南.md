@@ -102,3 +102,11 @@ git push origin dev
 ## 删除标签
 >`git tag -d tagname` 删除本地一个标签
 `git push origin :refs/tags/tagname` 删除远程标签
+
+# 日志
+## 查看日志
+>`git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"`
+`git lg file.c` 查看file.c文件的提交记录
+`git lg dir/`   查看dir目录下提交记录
+`git lg --grep "opencl"` 匹配日志信息中指定的的关键字
+`git show commitId` 显示某次提交的详细信息

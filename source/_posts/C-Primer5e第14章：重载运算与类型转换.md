@@ -271,3 +271,124 @@ private:
 auto wc = find_if(words.begin(), words.end(), SizeComp(sz));
 ```
 lambda表达式产生的类不包含默认构造函数，赋值运算符以及析构函数。是否包含拷贝/移动构造函数需要根据捕获的数据成员类型而定。
+<strong>什么情况使用lambda表达式？什么情况使用函数对象？</strong>
+在C++11中，lambda是通过匿名的函数对象来实现的，因此可以把lambda看作是函数对象在使用方式上的简化。当代码需要一个简单的函数，并且这个函数并不会在其他地方使用，就可以使用lambda来实现。但如果这个函数需要多次使用，并且它需要保存状态的话，使用函数对象更合适。
+
+## 标准库定义的函数对象
+标准库定义了一组表示算术运算符、关系运算符和逻辑运算符的类，每个类分别定义了一个执行命名操作的调用运算符。所有类型定义在functional头文件中。
+``` cpp
+plus<int> intAdd; //可执行int加法的函数
+int sum = intAdd(10, 20); //sum = 30
+//在算法中使用标准库函数对象
+sort(svec.begin(), svec.end(), greater<string>()); //sort默认使用升序排列，使用greater函数对象实现降序排列
+```
+另外，标准库规定其函数对象对于指针同样适用。
+``` cpp
+vector<string *> nameTable; //指针的vector
+//错误：nameTable中的指针彼此之间没有关系，所以<将产生未定义的行为
+sort(nameTable.begin(), nameTable.end(), [](string *a, string *b) { return a < b; });
+//正确：标准库规定指针的less是定义良好的
+sort(nameTable.begin(), nameTable.end(), less<string*>());
+```
+关联容器使用`less<key_type>`对元素排序，因此我们可以定义一个指针的set或者在map中使用指针作为关键值而不需要声明less。
+标准库函数对象以及适配器使用示例：
+``` cpp
+//std::bind1st和std::bind2nd将二元函数转换为一元函数
+//统计大于1024的值有多少
+using namespace std::placeholders;
+vector<int> ivec = {2000, 3, 1024, 7, 1025, 2046, 1, 2};
+count_if(ivec.begin(), ivec.end(), bind2nd(greater<int>(), 1024));
+count_if(ivec.begin(), ivec.end(), bind(greater<int>(), _1, 1024));
+//找到第一个不等于pooh的字符串
+find_if(vec.begin(), vec.end(), bind2nd(not_equal_to<string>(), "pooh"));
+//将所有值乘以2
+transform(vec.begin(), vec.end(), vec.begin(), bind2nd(multiplies<int>(), 2));
+//判断一个int值能否被int容器中的所有元素整除
+bool dividedByAll(vector<int> &ivec, int dividend)
+{
+    return count_if(ivec.begin(), ivec.end(), bind1st(modulus<int>(), dividend)) == 0;
+}
+//使用count_if每次会遍历容器中所有的元素，改用find_if当遍历到不能整除的数时退出
+bool dividedByAll(vector<int> &ivec, int dividend)
+{
+    return find_if(ivec.begin(), ivec.end(), bind1st(modulus<int>(), dividend)) == ivec.end();
+}
+```
+
+## 可调用对象与function
+C++语言中可调用对象包括：
+- 函数
+- 函数指针
+- lambda表达式
+- bind创建的对象
+- 重载了函数调用运算符的类
+
+两个不同类型的可调用对象却可能共享同一种`调用形式(call signature)`。调用形式指明了调用返回类型以及传递给调用的实参类型。
+function是一个类模板，模板中的参数信息是该function类型能够表示的对象的调用形式。
+``` cpp
+function<int(int, int)> f1 = add;      //函数指针
+function<int(int, int)> f2 = divide(); //函数对象类的对象
+function<int(int, int)> f3 = [](int i, int j) {return i * j; }; //lambda
+
+std::map<string, funciton<int(int, int)>> binops = {
+    {"+", add},  //函数指针
+    {"-", std::minus<int>()}, //标准库函数对象
+    {"/", divide()}, //用户定义的函数对象
+    {"*", [](int i, int j) { return i * j; }}, //未命名的lambda
+    {"%d", mod}}; //命名的lambda对象
+```
+我们不能直接将重载函数的名字存入function类型的对象中：
+``` cpp
+int add(int i, int j) {return i + j;}
+Sales_data add(const Sales_data &, const Sales_data &);
+map<string, function<int(int, int)>> binops;
+binops.insert({"+", add}); //错误：哪个add？
+```
+解决二义性问题的途径是使用函数指针而非函数名字，或者lambda来消除二义性：
+``` cpp
+int (*fp)(int, int) = add; //指针指向接受两个int的版本
+binops.insert({"+", fp});  //正确：fp指向一个正确的add版本
+
+binops.insert({"+", [](int i, int j) { return add(a, b); } });
+```
+
+# 重载、类型转换与运算符
+类型转换运算符负责将一个类类型的值转换成其他类型。类型转换函数的一般形式如下：
+``` cpp
+operator type() const; //type表示某种类型
+
+//定义含有类型转换运算符的类
+class SmallInt
+{
+public:
+    SmallInt(int i = 0): val(i)
+    {
+        if(i < 0 || i > 255)
+        {
+            throw std::out_of_range("Bad SmallInt value");
+        }
+    }
+
+    operator int() const { return val; }
+private:
+    std::size_t val;
+};
+
+SmallInt si;
+si = 4; //首先将4隐式地转换成SmallInt，然后调用SmallInt::operator=
+si + 3; //首先将si隐式地转换成int，然后执行整数的加法
+```
+为了避免隐式类型转换运算符产生意外结果，C++11新标准引入`显式的类型转换运算符`。
+``` cpp
+class SmallInt
+{
+public:
+    //编译器不会自动执行这一类型转换
+    explicit operator int() const { return val; }
+};
+SmallInt si = 3; //正确：SmallInt的构造函数不是显式的
+si + 3; //错误：此处需要隐式的类型转换，但类的转换运算符是显式的
+static_cast<int>(si) + 3; //正确：显式地请求类型转换
+```
+如果表达式被用作条件，显式的类型转换将被隐式地执行。
+<strong>向bool的类型转换通常用在条件部分，因此operator bool一般定义成explicit的。</strong>
