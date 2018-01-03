@@ -195,3 +195,104 @@ string phone = "(\\()?(\\d{3})(\\))?([-. ])?(\\d{3})([-. ]?)(\\d{4})";
 6 ([-. ])? 表示可选的分隔符
 7 (\\d{4}) 表示号码最后四位数字
 ```
+
+## 使用regex_replace
+当我们希望在输入序列中查找并替换一个正则表达式时，可以使用regex_replace。在电话号码匹配中，如果我们希望替换字符串中使用第二个，第五个和第七个子表达式。而忽略其他的子表达式，我们用一个符号`$`后跟子表达式的索引号来表示一个特定的子表达式：
+``` cpp
+string phone = "(\\()?(\\d{3})(\\))?([-. ])?(\\d{3})([-. ]?)(\\d{4})";
+string fmt = "$2.$5.$7"; //将号码格式修改为ddd.ddd.dddd
+regex r(phone);
+string number = "morgan (908) 555-1800";
+cout << regex_replace(number, r, fmt) << endl; //morgan 908.555.1800
+//默认情况下，regex_replace输出整个输入序列，使用format_no_copy匹配标志从而不输出序列中未匹配的部分
+using namespace std::regex_constants;
+cout << regex_replace(number, r, fmt, format_no_copy) << endl; //908.555.1800
+```
+
+# 随机数
+在新标准之前，C和C++都依赖于一个简单的C库函数rand来生成随机数。但存在如下问题：不能指定随机数范围以及随机数的概率分布特性。
+在C++11新标准中，定义在头文件random中的随机数库通过一组协作类来解决问题：随机数引擎类和随机数分布类。随机数引擎类可以生成unsigned随机数序列，一个分布类使用一个引擎类生成指定类型的，给定范围的，服从特定概率分布的随机数。
+<strong>C++程序不应该使用库函数rand，而应使用default_random_engine类和恰当的分布类对象。</strong>
+## 随机数引擎和分布
+随机数发生器特性：对一个给定的发生器，每次运行程序它都会返回相同的数值序列。序列不变这一事实在调试时非常有用，但另一方面，使用随机数发生器的程序必须考虑这一特性。
+假设我们需要一个函数生成一个vector，包含100个均匀分布在0到9之间的随机数：
+``` cpp
+//几乎肯定是生成随机整数vector的错误方法
+//每次调用这个函数都会生成相同的100个数！
+vector<unsigned> bad_randVec()
+{
+    default_random_engine e;
+    uniform_int_distribution<unsigned> u(0, 9);
+    vector<unsigned> ret;
+    for(size_t i = 0; i < 100; ++i)
+    {
+        ret.push_back(u(e));
+    }
+    return ret;
+}
+```
+一个函数如果定义类局部的随机数发生器，应该将其(包括引擎和分布对象)定义为static的，从而在函数调用之间会保持住状态。否则，每次调用函数都会生成相同的序列。
+``` cpp
+vector<unsigned> bad_randVec()
+{
+    //定义为static的，保持引擎和分布对象的状态，从而每次调用生成新的数
+    static default_random_engine e;
+    static uniform_int_distribution<unsigned> u(0, 9);
+    vector<unsigned> ret;
+    for(size_t i = 0; i < 100; ++i)
+    {
+        ret.push_back(u(e));
+    }
+    return ret;
+}
+```
+随机数发生器会生成相同的随机数这一特性在调试时很有用。当我们调试完毕，我们希望每次运行程序都会生成不同的随机结果，可以通过提供种子来达到这一目的。
+为引擎设置种子有两种方式：创建引擎对象时提供种子，或者调用引擎的seed成员。
+``` cpp
+default_random_engine e1; //使用默认种子
+default_random_engine e2(214789562); //使用给定的种子值
+
+//e3和e4将生成相同的序列，因为它们使用了相同的种子
+default_random_engine e3;
+e3.seed(32767); //调用seed设置一个新种子值
+default_random_engine e4(32767);
+
+default_random_engine es(time(0)); //适用于生成间隔为秒级或更长的应用
+```
+
+## 其他随机数分布
+``` cpp
+default_random_engine e;
+//0到1(包含)的均匀分布
+uniform_real_distribution<double> u(0, 1);
+for(size_t i = 0; i < 10; ++i)
+{
+    cout << u(e) << " ";
+}
+//空<>表示我们希望使用默认结果类型
+uniform_real_distribution<> u(0, 1); //默认生成double值
+
+//生成均值为4，标准差为1.5的正态分布
+normal_distribution<> n(4, 1.5);
+
+```
+
+### bernoulli_distribution类
+bernoulli_distribution是一个普通的类，该分布总是返回一个bool值，返回true的概率是一个常数，次概率的默认值是0.5。
+决定用户和程序先行的游戏：
+``` cpp
+string resp;
+default_random_engine e; //e应该保持状态，所以必须在循环体外定义
+bernoulli_distribution b; //默认是50/50的机会
+do {
+    bool first = b(e); //如果为true，则程序先行
+} while(cin >> resp && resp[0] == 'y');
+
+bernoulli_distribution b(0.55); //则程序有55/45的机会先行
+```
+
+# IO库再探
+## 格式化输入与输出
+标准库定义类一组操纵符来修改流的格式状态。
+操作符也返回它所处理的流对象，因此我们可以在一条语句中组合操纵符和数据。
+大多数改变格式状态的操纵符都是设置/复原成对的：一个用来设置新值，一个用来恢复为默认格式。
