@@ -296,3 +296,88 @@ bernoulli_distribution b(0.55); //则程序有55/45的机会先行
 标准库定义类一组操纵符来修改流的格式状态。
 操作符也返回它所处理的流对象，因此我们可以在一条语句中组合操纵符和数据。
 大多数改变格式状态的操纵符都是设置/复原成对的：一个用来设置新值，一个用来恢复为默认格式。
+整型类型常用的格式操纵符：
+>使用`boolalpha`和`noboolalpha`操纵符控制布尔值的格式
+使用`hex oct dec`将整型值输出修改为十六进制、八进制或是改回十进制
+使用`showbase`和`noshowbase`显式与关闭进制的前导字符
+使用`uppercase`和`nouppercase`打开或关闭进制前导字符或数字中a-f大小写
+
+浮点数常用操纵符：
+>使用`setprecision`或IO对象的`precision`成员控制打印精度
+使用`scientific`表示科学记数法
+使用`fixed`表示定点十进制
+使用`hexfloat`强制浮点数使用十六进制格式，C++11新增
+使用`defaultfloat`将流回复到默认状态
+使用`showpoint`强制打印小数点，默认情况下，浮点数的小数部分为0时，不显示小数点
+
+setprecision和其他接受参数的操纵符都定义在头文件`iomainip`中。
+除非你需要控制浮点数的表示形式（如按列打印数据或打印表示金额或百分比的数据），否则由标准库选择记数法是最好的方式。
+在执行scientific、fixed或hexfloat后，精度控制的是小数点后面的数字位数，而默认情况下精度指定的是数字的总位数。
+
+当按列打印数据时，需要非常精细控制数据格式。标准库提供了一些操纵符完成控制：
+>setw  指定下一个数字或字符串值的最小空间
+left  表示左对齐输出
+right 表示右对齐输出，默认格式
+internal 控制负数的符号位置，左对齐括号，右对齐值，用空格填满中间空间
+setfill  使用指定字符代替默认的空格补白输出
+
+setw类似endl，不改变输出流的内部状态。它只决定下一个输出的大小。
+默认情况下，输入运算符会忽略空白符(空格符、制表符、换行符、换纸符和回车符)。操纵符`noskipws`会令输入运算符读取空白符而不是跳过它们。使用`skipws`操纵符恢复默认行为。
+
+## 未格式化的输入/输出操作
+之前我们使用的都是格式化的IO操作。输入和输出运算符根据读写的数据类型来格式化它们。
+标准库还提供一组低层操作，支持未格式IO。这些操作允许我们将一个流当作一个无解释的字节序列来处理。
+头文件`cstdio`定义了一个名为EOF的const，我们可以使用它来检测从get返回的值是否是文件尾，而不必记忆表示文件尾的实际数值。
+``` cpp
+int ch; //使用int而不是char来保存get()的返回值
+//循环读取并输出读入的字符
+while ((ch = cin.get()) != EOF)
+{
+    cout.put(ch);
+}
+```
+## 流随机访问
+由于istream和ostream类型通常都不支持随机访问，所以随机访问只适用于fstream和sstream类型。
+标准库提供`tell和seek`两组函数支持随机访问：seek将流设置到指定的位置；tell标记当前位置。输入和输出的版本的差别在于名字的后缀是g还是p。g版本表示我们正在“获得”(读取)数据，而p版本表示我们正在“放置”(写入)数据。
+虽然标准库区分seek和tell的“放置”和“获得”版本，但同时可以读写的流只维护一个标记，并不存在独立的读标记和写标记。因此只要我们在读写操作间切换，就必须进行seek操作来重定位标记。
+在文件的末尾写入新的一行，表示文件中每行的相对起始位置：
+``` cpp
+#include <fstream>
+#include <cstdlib>
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    //以读写方式打开文件，并定位到文件尾
+    fstream inOut("seek.in", fstream::ate | fstream::in | fstream::out);
+    if(!inOut)
+    {
+        cerr << "Unable open file!" << endl;
+        return EXIT_FAILURE;
+    }
+    //以ate模式打开inOut，因此一开始就定位到文件末尾
+    auto end_mark = inOut.tellg();  //记住原文件尾的位置
+    inOut.seekg(0, fstream::beg);   //重新定位到文件开始处
+    size_t cnt = 0;
+    string line;
+    while(inOut && (inOut.tellg() != end_mark) && getline(inOut, line))
+    {
+        cnt += line.size() + 1; //+1表示统计换行符
+        auto read_mark = inOut.tellg(); //记住读取位置
+        inOut.seekp(0, fstream::end);   //将写标记移动到文件尾
+        inOut << cnt;                   //输出累计长度
+        //如果不是最后一行，打印分隔符
+        if(read_mark != end_mark)
+        {
+            inOut << " ";
+        }
+        inOut.seekg(read_mark);         //恢复读位置
+    }
+    inOut.seekp(0, fstream::end);       //定位到文件尾
+    inOut << "\n";                      //输出换行符
+    inOut.close();
+    return EXIT_SUCCESS;
+}
+```
