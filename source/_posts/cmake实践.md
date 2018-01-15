@@ -249,7 +249,7 @@ ENDIF(expression)
 ```
 表达式的使用方法如下：
 >IF(var)   如果变量不是：空、0、N、NO、OFF、FALSE、NOTFOUND或`<var>_NOTFOUND`时，表达式为真
-IF(NOT var)  与上述条件相反。
+IF(NOT var)  与上述条件相反
 IF(var1 AND var2) 当两个变量都为真是为真
 IF(var1 OR var2)  当两个变量其中一个为真时为真
 IF(COMMAND cmd)   当给定的cmd确实是命令并调用是为真
@@ -342,6 +342,97 @@ FOREACH(A RANGE 5 15 3)
 ENDFOREACH(A)
 ```
 特别注意的是，<strong>在控制语句条件中使用变量，不能用${}引用，而是直接应用变量名</strong>
+
+# 模块的使用和自定义模块
+cmake系统提供类各种模块，一般情况需要使用INCLUDE指令显示的调用，FIND_PACKAGE指令是一个特例，可以直接调用预定义的模块。
+## 使用FindCURL模块
+向t5/src/CMakeLists.txt中添加：
+``` bash
+ADD_EXECUTABLE(curltest main.c)
+FIND_PACKAGE(CURL)
+IF(CURL_FOUND)
+  INCLUDE_DIRECTORIES(${CURL_INCLUDE_DIR}) #将头文件加入INCLUDE_DIRECTORIES
+  TARGET_LINK_LIBRARIES(curltest ${CURL_LIBRARY}) #指定依赖的库文件
+ELSE(CURL_FOUND)
+  MESSAGE(FATAL_ERROR "CURL library not found")
+ENDIF(CURL_FOUND)
+```
+对于系统预定义的`Find<name>.cmake`模块，使用方法一般如上所示：
+每一个模块都会定义以下几个变量：
+>`<name>_FOUND`  #判断模块是否被找到，如果没有找到，按照需要关闭特性或者终止编译
+`<name>_INCLUDE_DIR or <name>_ICLUDES` #模块对应头文件目录
+`<name>_LIBRARY or <name>_LIBRARIES` #模块对应的库名称
+
+通过`<name>_FOUND`控制工程特性：
+``` bash
+SET(mySources viewer.c)
+SET(optionalSources)
+SET(optionalLibs)
+FIND_PACKAGE(JPEG)
+IF(JPEG_FOUND)
+  SET(optionalSources ${optionalSources} jpegview.c)
+  INCLUDE_DIRECTORIES(${JPEG_INCLUDE_DIR})
+  SET(optionalLibs ${optionalLibs} ${JPEG_LIBRARIES})
+  ADD_DEFINITIONS(-DENABLE_JPEG_SUPPORT)
+ENDIF(JPEG_FOUND)
+
+FIND_PACKAGE(PNG)
+IF(PNG_FOUND)
+  SET(optionalSources ${optionalSources} pngview.c)
+  INCLUDE_DIRECTORIES(${PNG_INCLUDE_DIR})
+  SET(optionalLibs ${optionalLibs} ${PNG_LIBRARIES})
+  ADD_DEFINITIONS(-DENABLE_PNG_SUPPORT)
+ENDIF(PNG_FOUND)
+
+ADD_EXECUTABLE(viewer ${mySources} ${optionalSources})
+TARGET_LINK_LIBRARIES(viewer ${optionalLibs})
+```
+通过判断系统是否提供JPEG类库来决定是否支持JPEG功能。
+
+## 编写自己的FindHello模块
+定义cmake/FindHELLO.cmake模块，在t6/cmake/目录下新建FindHELLO.cmake文件，添加如下内容：
+``` bash
+FIND_PATH(HELLO_INCLUDE_DIR hello.h /usr/include/hello /usr/local/include/hello /tmp/cmake/t3/include/hello)
+FIND_LIBRARY(HELLO_LIBRARY NAMES hello PATH /usr/lib /usr/local/lib /tmp/cmake/t3/lib/)
+IF(HELLO_INCLUDE_DIR AND HELLO_LIBRARY)
+  SET(HELLO_FOUND TRUE)
+ENDIF(HELLO_INCLUDE_DIR AND HELLO_LIBRARY)
+
+IF(HELLO_FOUND)
+  IF(NOT HELLO_FIND_QUIETLY)
+    MESSAGE(STATUS "Found Hello: ${HELLO_LIBRARY}")
+  ENDIF(NOT HELLO_FIND_QUIETLY)
+ELSE(HELLO_FOUND)
+  IF(HELLO_FIND_REQUIRED)
+    MESSAGE(FATAL_ERROR "Could not find hello library")
+  ENDIF(HELLO_FIND_REQUIRED)
+ENDIF(HELLO_FOUND)
+```
+因为我们的库未安装到标准的/usr或/usr/local目录下，因此需要在bash中设置CMAKE_LIBRARY_PATH，否则FIND_LIBRARY无法找到对应的库名称。
+``` bash
+$ export CMAKE_LIBRARY_PATH=/tmp/cmake/t3/lib
+```
+FIND_PACKAGE指令：
+``` bash
+FIND_PACKAGE(<name> [major.minor] [QUIET] [NO_MODULE] [[REQUIRED|COMPONENTS] [componets...]])
+```
+QUIET参数对应FindHELLO中的HELLO_FIND_QUIETLY，REQUIRED参数对应于FindHELLO.cmake模块中的HELLO_FIND_REQUIRED变量。
+建立src/CMakeLists.txt文件，内容如下：
+``` bash
+FIND_PACKAGE(HELLO)
+IF(HELLO_FOUND)
+  ADD_EXECUTABLE(hello main.c)
+  INCLUDE_DIRECTORIES(${HELLO_INCLUDE_DIR})
+  TARGET_LINK_LIBRARIES(hello ${HELLO_LIBRARY})
+ENDIF(HELLO_FOUND)
+```
+为了能够让工程找到FindHELLO.cmake模块(存放在工程的cmake目录中)，在主工程文件CMakeLists.txt中加入：
+``` bash
+CMAKE_MINIMUM_REQUIRED(VERSION 3.5)
+PROJECT(NEWHELLO)
+SET(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake) #必须位于ADD_SUBDIRECTORY前面
+ADD_SUBDIRECTORY(src)
+```
 
 # 代码托管
 该博客中所有的源代码归档于[github](https://github.com/octocat9lee/tools/tree/master/cmake)，欢迎共同交流，一起学习进步。
