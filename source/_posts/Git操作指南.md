@@ -74,7 +74,33 @@ git管理的是修改，而不是文件，每次修改如果不add到暂存区�
 `git branch --set-upstream branch-name origin/branch-name` 建立本地分支和远程分支的关联
 `git pull` 从远程抓取分支，如果有冲突，要先处理冲突
 
-多人协作开发模式
+## 多次commit合并为一次commit
+有的时候我们提交了多次commit，但是这些历史记录我们没有必要都要放到远程服务器上，在推送到远端时，需要在合并的时候先合并一下
+``` bash
+首先我们在master分支上创建一个新分支，叫dev：
+git checkout -b dev
+然后我们在dev分支上提交三次更新，分别取名为first commit 、second commit、third commit。
+将多次提交合并为一次：
+git merge dev --squash
+一定要注意，git merge后一定要commit一下
+git commit -m "update README.md"
+```
+
+## 合并远程最新代码
+在多人协同开发中，我们经常会遇到这样的问题：A在本地开发完成后，将代码推送到远程，这时候B的本地代码的版本就低于远程代码的版本，这时候B该如何从远程拉取最新的代码，并与自己的本地代码合并呢？
+具体步骤如下：
+``` bash
+从远程origin仓库获取master分支最新版本代码到本地的tmp分支
+git fetch origin master:tmp
+查看tmp分支与本地分支的差异
+git diff tmp
+将tmp分支与本地分支合并，B的本地代码已经和远程仓库处于同一个版本了
+git merge tmp
+最后，可以删除tmp分支
+git branch -d tmp
+```
+
+## 多人协作开发模式
 >当从远程库clone时，默认情况下，只能看到本地的`master`分支。现在，要在dev分支上开发，就必须创建远程`origin`的`dev`分支到本地，创建本地dev分支:
 ``` bash
  git checkout -b dev origin/dev
