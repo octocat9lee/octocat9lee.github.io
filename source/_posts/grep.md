@@ -37,3 +37,30 @@ grep -vrn "search-content" < file.log
 grep -f fromat.pat < file.log
 ```
 在程序调试时，需要查找多个关键之时，该选项特别有用！
+
+# ack-grep
+ack-grep是linux平台下的代码全文检索工具，比grep更友好，更适合对代码的检索。
+## ack基本使用
+``` bash
+在当前目录递归搜索单词eat
+ack -w eat
+
+搜索有特殊字符的字符串$path=.
+ack -Q '$path=.' /etc
+
+除dowloads目录，在所有目录搜索about
+ack about --ignore-dir=downloads
+
+只搜索包含protected的C++文件，然后通过文件名把搜索结果整合在一起，打印每个文件对应的搜索结果
+ack --cpp --group protected
+
+获取包含CFLAGS关键字的Makefile文件名
+ack --make -l CFLAGS
+
+显示整个日志文件时高亮匹配到的字符串
+tail -f /var/log/syslog | ack --passthru 192.168.1.10
+
+获取ack支持的文件过滤类型
+ack --help-type
+```
+[代码（文件）搜索工具——ack](http://blog.sina.com.cn/s/blog_bd615ff80102wm9v.html)
