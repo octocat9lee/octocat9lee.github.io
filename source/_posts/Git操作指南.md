@@ -87,6 +87,8 @@ git merge dev --squash
 一定要注意，git merge后一定要commit一下
 git commit -m "update README.md"
 ```
+在同一分支中使用`git rebase -i HEAD~3`的交互模式将多次的提交合并成一次提交。
+具体的`git rebase -i`详细介绍：[Doing git rebase --interactive, including merge conflicts](https://www.youtube.com/watch?v=_ajGPzBBOoQ)
 
 ## 拣选合并
 有时候分之间只需要合并一个提交，而不需要合并一条分支上的全部改动。
@@ -139,12 +141,17 @@ git push origin dev
 `git push origin :refs/tags/tagname` 删除远程标签
 
 # 日志
-## 查看日志
+## 配置别名
 >`git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"`
-`git lg file.c` 查看file.c文件的提交记录
+
+## 查看日志
+>`git lg file.c` 查看file.c文件的提交记录
 `git lg dir/`   查看dir目录下提交记录
 `git lg --grep "opencl"` 匹配日志信息中指定的的关键字
 `git show commitId` 显示某次提交的详细信息
 `git blame somefile` 显示文件各个部分的修改作者及相关提交信息
 `git blame -M somefile`
 `git blame -C -C somefile`
+
+# 参考资料
+<strong>[Git教程](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)</strong>
