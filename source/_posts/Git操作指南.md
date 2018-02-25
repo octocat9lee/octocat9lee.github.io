@@ -53,7 +53,9 @@ git管理的是修改，而不是文件，每次修改如果不add到暂存区�
 `git branch branchname` 创建分支
 `git checkout branchname` 切换分支
 `git checkout -b branchname` 创建分支同时切换到创建分支
+`git checkout -b branchname master` 从指定的master分支创建分支并切换到branchname分支
 `git branch -d branchname` 删除分支
+`git branch -m master altername` 将master分支名称修改为altername
 
 ## 合并分支
 通常，合并分支时，如果可能，Git会用`Fast forward`模式，但这种模式下，删除分支后，会丢掉分支信息。如果要强制禁用`Fast forward`模式，Git就会在merge时生成一个新的commit，这样，从分支历史上就可以看出分支信息。
@@ -84,6 +86,13 @@ git checkout -b dev
 git merge dev --squash
 一定要注意，git merge后一定要commit一下
 git commit -m "update README.md"
+```
+
+## 拣选合并
+有时候分之间只需要合并一个提交，而不需要合并一条分支上的全部改动。
+``` bash
+git cherry-pick commitId #合并指定commitId到当前分支
+git cherry-pick -n commitId #拣选多个提交
 ```
 
 ## 合并远程最新代码
@@ -136,3 +145,6 @@ git push origin dev
 `git lg dir/`   查看dir目录下提交记录
 `git lg --grep "opencl"` 匹配日志信息中指定的的关键字
 `git show commitId` 显示某次提交的详细信息
+`git blame somefile` 显示文件各个部分的修改作者及相关提交信息
+`git blame -M somefile`
+`git blame -C -C somefile`
