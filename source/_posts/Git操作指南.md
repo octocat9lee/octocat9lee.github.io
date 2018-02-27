@@ -155,3 +155,6 @@ git push origin dev
 
 # 参考资料
 <strong>[Git教程](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)</strong>
+<strong>[Pro Git](https://git-scm.com/book/zh/v2#%E5%9F%BA%E6%9C%AC%E7%9A%84%E8%A1%8D%E5%90%88%E6%93%8D%E4%BD%9C)</strong>
+<strong>[Git分支Rebase详解](http://blog.csdn.net/endlu/article/details/51605861)</strong>
+<strong>[Git Merge和Git Rebase小结](http://blog.csdn.net/wh_19910525/article/details/7554489)</strong>
