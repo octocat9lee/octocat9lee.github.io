@@ -8,18 +8,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zhoulee.top">
-  <title>Archives: 2017/10 | 章鱼猫の博客</title>
+  <title>Hexo+Github搭建博客 | 章鱼猫の博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="做自己爱做的事,爱自己在做的事">
-<meta property="og:type" content="website">
-<meta property="og:title" content="章鱼猫の博客">
-<meta property="og:url" content="http://zhoulee.top/archives/2017/10/index.html">
+  <meta name="description" content="前言前期使用Hexo+Github搭建部署了个人博客，并且在Github上使用分支技术，其中hexo分支用于编写博客，master分支用于发布博客。因为很长一段时间没有使用博客系统，关于博客的部署又得重新查找资料，故将个人博客的重新部署归纳总结。 Hexo安装安装Node.js和Git直接在官网下载最新的Node.js和GitNode.js和Git下载，安装完成后，启动Git Bash，使用git">
+<meta name="keywords" content="技术点滴">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo+Github搭建博客">
+<meta property="og:url" content="http://zhoulee.top/2018/06/22/Hexo-Github搭建博客/index.html">
 <meta property="og:site_name" content="章鱼猫の博客">
-<meta property="og:description" content="做自己爱做的事,爱自己在做的事">
+<meta property="og:description" content="前言前期使用Hexo+Github搭建部署了个人博客，并且在Github上使用分支技术，其中hexo分支用于编写博客，master分支用于发布博客。因为很长一段时间没有使用博客系统，关于博客的部署又得重新查找资料，故将个人博客的重新部署归纳总结。 Hexo安装安装Node.js和Git直接在官网下载最新的Node.js和GitNode.js和Git下载，安装完成后，启动Git Bash，使用git">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-06-22T15:33:02.870Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="章鱼猫の博客">
-<meta name="twitter:description" content="做自己爱做的事,爱自己在做的事">
+<meta name="twitter:title" content="Hexo+Github搭建博客">
+<meta name="twitter:description" content="前言前期使用Hexo+Github搭建部署了个人博客，并且在Github上使用分支技术，其中hexo分支用于编写博客，master分支用于发布博客。因为很长一段时间没有使用博客系统，关于博客的部署又得重新查找资料，故将个人博客的重新部署归纳总结。 Hexo安装安装Node.js和Git直接在官网下载最新的Node.js和GitNode.js和Git下载，安装完成后，启动Git Bash，使用git">
   
     <link rel="alternative" href="/atom.xml" title="章鱼猫の博客" type="application/atom+xml">
   
@@ -169,302 +171,43 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Hexo-Github搭建博客" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Hexo+Github搭建博客
+    </h1>
+  
+
+        
+        <a href="/2018/06/22/Hexo-Github搭建博客/" class="archive-article-date">
+  	<time datetime="2018-06-22T14:56:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-22</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前期使用<code>Hexo+Github</code>搭建部署了个人博客，并且在Github上使用分支技术，其中<code>hexo</code>分支用于编写博客，<code>master</code>分支用于发布博客。因为很长一段时间没有使用博客系统，关于博客的部署又得重新查找资料，故将个人博客的重新部署归纳总结。</p>
+<h1 id="Hexo安装"><a href="#Hexo安装" class="headerlink" title="Hexo安装"></a>Hexo安装</h1><h2 id="安装Node-js和Git"><a href="#安装Node-js和Git" class="headerlink" title="安装Node.js和Git"></a>安装Node.js和Git</h2><p>直接在官网下载最新的Node.js和Git<br><a href="https://zh.wikipedia.org/wiki/Markdown" target="_blank" rel="noopener">Node.js</a>和<a href="https://zh.wikipedia.org/wiki/Markdown" target="_blank" rel="noopener">Git</a>下载，安装完成后，启动<code>Git Bash</code>，使用<code>git --version,node -v和npm -v</code>检测安装是否成功。</p>
+<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p>在<code>Git Bash</code>中，使用<code>npm install hexo --save</code>安装Hexo；然后使用<code>hexo -v</code>检测安装是否成功。<br><a id="more"></a></p>
+<h1 id="配置SSH"><a href="#配置SSH" class="headerlink" title="配置SSH"></a>配置SSH</h1><p>使用如下命令生成ssh信息：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ssh-keygen</span> <span class="selector-tag">-t</span> <span class="selector-tag">rsa</span> <span class="selector-tag">-C</span> "295861542@<span class="keyword">qq</span>.<span class="keyword">com</span>"</span><br></pre></td></tr></table></figure></p>
+<p>找到<code>~/.ssh/id_rsa.pub</code>文件并复制里面的内容，登录Github并添加密钥，将复制的内容添加到<code>SSH Key</code>中，然后使用如下命令检验是否添加成功：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ssh</span> <span class="selector-tag">-T</span> <span class="selector-tag">git</span>@<span class="keyword">github</span>.<span class="keyword">com</span></span><br></pre></td></tr></table></figure></p>
+<p>添加SSH Key之后，再配置git的全局信息和命令别名：<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global user.name zhoulee</span><br><span class="line">git<span class="built_in"> config </span>--global user.email 295861542@qq.com</span><br><span class="line">git<span class="built_in"> config </span>--global alias.lg <span class="string">"log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit"</span></span><br></pre></td></tr></table></figure></p>
+<p>配置完git信息后，从Github克隆个人博客仓库：<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/octocat9lee/octocat9lee.github.io.git</span><br></pre></td></tr></table></figure></p>
+<p>最后，切换到<code>hexo</code>分支，使用<code>npm install</code>命令安装所需的模块。至此，关于博客基础环境搭建完毕。</p>
+<h1 id="Hexo命令简介"><a href="#Hexo命令简介" class="headerlink" title="Hexo命令简介"></a>Hexo命令简介</h1><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hexo g <span class="comment"># 生成静态文件</span></span><br><span class="line">hexo s -p <span class="number">4001</span> <span class="comment"># 部署监听4001端口</span></span><br><span class="line">hexo d <span class="comment"># 部署</span></span><br><span class="line">hexo d -g <span class="comment"># 生成并部署到Github</span></span><br><span class="line">hexo <span class="built_in">new</span> <span class="string">"Title"</span> <span class="comment"># 新建一篇文章</span></span><br><span class="line">hexo <span class="built_in">version</span> <span class="comment"># 查看版本</span></span><br><span class="line">hexo clean <span class="comment"># 清除缓存文件和已生成的静态文件</span></span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/31/程序常用调试工具汇总/" class="archive-article-date">
-  	<time datetime="2017-10-31T09:51:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/31/程序常用调试工具汇总/">程序常用调试工具汇总</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">调试技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/31/CSAPP之Y86-64模拟器安装/" class="archive-article-date">
-  	<time datetime="2017-10-31T01:33:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/31/CSAPP之Y86-64模拟器安装/">CSAPP之Y86-64模拟器安装</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">CSAPP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/30/键盘快捷操作指南/" class="archive-article-date">
-  	<time datetime="2017-10-30T09:30:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/30/键盘快捷操作指南/">键盘快捷操作指南</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">调试技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/30/grep/" class="archive-article-date">
-  	<time datetime="2017-10-30T07:29:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/30/grep/">grep</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">调试技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/28/coredump/" class="archive-article-date">
-  	<time datetime="2017-10-28T15:13:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/28/coredump/">coredump</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">调试技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/28/进程内存监控/" class="archive-article-date">
-  	<time datetime="2017-10-28T15:03:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/28/进程内存监控/">进程内存监控</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/27/CSAPP实验之BombLab/" class="archive-article-date">
-  	<time datetime="2017-10-27T09:32:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/27/CSAPP实验之BombLab/">CSAPP实验之BombLab</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">CSAPP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/27/Markdown基本语法/" class="archive-article-date">
-  	<time datetime="2017-10-27T08:04:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/27/Markdown基本语法/">Markdown基本语法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -476,19 +219,129 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://zhoulee.top/2018/06/22/Hexo-Github搭建博客/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/04/01/Scratch基本操作篇/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Scratch基本操作篇</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hexo安装"><span class="toc-number">2.</span> <span class="toc-text">Hexo安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Node-js和Git"><span class="toc-number">2.1.</span> <span class="toc-text">安装Node.js和Git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Hexo"><span class="toc-number">2.2.</span> <span class="toc-text">安装Hexo</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置SSH"><span class="toc-number">3.</span> <span class="toc-text">配置SSH</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hexo命令简介"><span class="toc-number">4.</span> <span class="toc-text">Hexo命令简介</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+  <div id="SOHUCS" sid="Hexo-Github搭建博客" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cytjw5XRO",
+        conf: "4218785abbf36794e35a1d29e1d56763"
+    });
+</script>
+</script>
+  
+
+  
+
+  
 
 
           </div>
@@ -520,8 +373,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

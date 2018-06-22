@@ -171,6 +171,84 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Hexo-Github搭建博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/22/Hexo-Github搭建博客/">Hexo+Github搭建博客</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/22/Hexo-Github搭建博客/" class="archive-article-date">
+  	<time datetime="2018-06-22T14:56:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前期使用<code>Hexo+Github</code>搭建部署了个人博客，并且在Github上使用分支技术，其中<code>hexo</code>分支用于编写博客，<code>master</code>分支用于发布博客。因为很长一段时间没有使用博客系统，关于博客的部署又得重新查找资料，故将个人博客的重新部署归纳总结。</p>
+<h1 id="Hexo安装"><a href="#Hexo安装" class="headerlink" title="Hexo安装"></a>Hexo安装</h1><h2 id="安装Node-js和Git"><a href="#安装Node-js和Git" class="headerlink" title="安装Node.js和Git"></a>安装Node.js和Git</h2><p>直接在官网下载最新的Node.js和Git<br><a href="https://zh.wikipedia.org/wiki/Markdown" target="_blank" rel="noopener">Node.js</a>和<a href="https://zh.wikipedia.org/wiki/Markdown" target="_blank" rel="noopener">Git</a>下载，安装完成后，启动<code>Git Bash</code>，使用<code>git --version,node -v和npm -v</code>检测安装是否成功。</p>
+<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p>在<code>Git Bash</code>中，使用<code>npm install hexo --save</code>安装Hexo；然后使用<code>hexo -v</code>检测安装是否成功。<br>
+        
+          <a class="article-more-a" href="/2018/06/22/Hexo-Github搭建博客/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术点滴</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/22/Hexo-Github搭建博客/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Scratch基本操作篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -861,87 +939,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-C-Primer5e第18章：用于大型程序的工具" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/09/C-Primer5e第18章：用于大型程序的工具/">C++Primer5e第18章：用于大型程序的工具</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/09/C-Primer5e第18章：用于大型程序的工具/" class="archive-article-date">
-  	<time datetime="2018-01-09T07:13:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>与小系统相比，大规模编程对程序设计语言的要求更高。大规模应用程序的特殊要求包括：</p>
-<blockquote>
-<p>在独立开发的子系统之间协同处理错误的能力<br>使用各种库(可能包含独立开发的库)进行协同开发的能力<br>对比较复杂的应用概念建模的能力</p>
-</blockquote>
-<h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1><p>异常处理机制允许程序中独立开发的部分能够在运行时就出现的问题进行通信并作出相应的处理。<br>异常将问题的检测与解决过程分离开来。程序的一部分负责检测问题的出现，解决问题的任务传递给程序的另一部分。</p>
-<h2 id="抛出异常"><a href="#抛出异常" class="headerlink" title="抛出异常"></a>抛出异常</h2><p>当抛出一个异常后，栈展开过程沿着嵌套函数的调用链不断查找，直到找到了与异常匹配的catch子句为止，如果没有找到匹配的catch，则它将终止当前程序。<br><strong>栈展开过程中对象被自动销毁</strong><br>如果在栈展开过程中退出了某个块，编译器将负责在这个块中创建的对象能被正确的销毁。如果某个局部对象是类类型，则该对象的析构将被自动调用。<br>如果异常发生在构造函数中，则当前对象可能只是构造了一部分。我们也要确保已构造的成员能被正确的销毁。<br><strong>析构函数与异常</strong><br>析构函数总是会被执行的，但是函数中负责释放资源的代码可能因为异常而被跳过。因此，如果我们使用类来控制资源的分配，就能确保无论函数正常结束还是遇到异常，资源都能被正确释放。<br>析构函数不应该抛出异常，如果析构函数的某个操作可能抛出异常，则该操作应该放置在一个try语句块中，并且在析构函数内部处理。<br>
-        
-          <a class="article-more-a" href="/2018/01/09/C-Primer5e第18章：用于大型程序的工具/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/09/C-Primer5e第18章：用于大型程序的工具/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1056,11 +1053,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能分析</a>
+                <a href="javascript:void(0)" class="js-tag color5">技术点滴</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术点滴</a>
+                <a href="javascript:void(0)" class="js-tag color5">性能分析</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1076,11 +1073,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
             
             <div class="clearfix"></div>
