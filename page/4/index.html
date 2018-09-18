@@ -171,6 +171,86 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CSAPP之虚拟内存" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/28/CSAPP之虚拟内存/">CSAPP之虚拟内存</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/28/CSAPP之虚拟内存/" class="archive-article-date">
+  	<time datetime="2017-11-28T07:33:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文介绍虚拟内存如何工作以及应用程序如何使用和管理虚拟内存。虚拟内存由硬件异常、硬件地址翻译、主存、磁盘文件和内核交互，为每个进程提供一个大的、一致的和私有的地址空间，提供如下三个重要功能：</p>
+<blockquote>
+<p>1) 作为主存和磁盘的高速缓存，在主存中只保存活动区域<br>2) 为每个进程提供了一致的地址空间，从而简化内存管理<br>3) 保护每个进程的地址空间不被其他进程破坏</p>
+</blockquote>
+<h1 id="虚拟内存作为缓存的工具"><a href="#虚拟内存作为缓存的工具" class="headerlink" title="虚拟内存作为缓存的工具"></a>虚拟内存作为缓存的工具</h1><p>磁盘和主存间的传输单元为虚拟页(Virtual Page, VP)。虚拟页和物理页(页帧)为相同的固定大小的块。虚拟存储在磁盘上，物理页存储在主存中。在任意时刻，虚拟页集合分为三个不相交的子集：未分配的，缓存的和未缓存的。<br>术语SRAM缓存表示CPU和主存之间的L1、L2和L3高速缓存，DRAM缓存表示虚拟内存系统的缓存，在主存中缓存虚拟页。因为大的不命中处罚和访问磁盘第一个字节的开销，所以<code>虚拟页往往很大</code>，通常在4KB~2MB。由于大的不命中处罚，<code>DRAM缓存是全相联</code>，即任何虚拟页都可以放置在任何的物理页中。最后，因为对磁盘的访问时间长，DRAM缓存总是使用<code>写回</code>，而不是直写。<br>
+        
+          <a class="article-more-a" href="/2017/11/28/CSAPP之虚拟内存/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">CSAPP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/28/CSAPP之虚拟内存/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Git操作指南" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -885,87 +965,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-CSAPP之Y86-64模拟器安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/31/CSAPP之Y86-64模拟器安装/">CSAPP之Y86-64模拟器安装</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/31/CSAPP之Y86-64模拟器安装/" class="archive-article-date">
-  	<time datetime="2017-10-31T01:33:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在CSAPP第4章处理器体系结构中，需要使用Y86-64模拟器，在安装模拟过程中遇到一些问题，下面记录自己的安装过程：</p>
-<h2 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h2><p>因每个人操作系统环境的不一致，因此下面列出自己的安装环境：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@sim$ uname -a</span><br><span class="line">Linux zhoulee 4.10.0-37-generic <span class="comment">#41~16.04.1-Ubuntu SMP Fri Oct 6 22:42:59 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="下载模拟器源码"><a href="#下载模拟器源码" class="headerlink" title="下载模拟器源码"></a>下载模拟器源码</h2><p>首先，到CS:APP3e官方的<a href="http://csapp.cs.cmu.edu/3e/students.html" target="_blank" rel="noopener">学生主页</a>下载最新的Y86-64模拟源码，源码位于<code>Chapter 4: Processor Architecture</code>。<br>然后，在工作目录解压对应源码文件，我们假设编译无图形界面版本，编辑<code>Makefile</code>，注释下面两个选项：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">TKLIBS=-L/usr/lib -ltk -ltcl</span><br><span class="line">TKINC=-isystem /usr/include/tcl8.5</span><br></pre></td></tr></table></figure></p>
-<p>最后，执行<code>make clean &amp;&amp; make</code>编译生成Y86-64工具集。</p>
-<h2 id="安装问题"><a href="#安装问题" class="headerlink" title="安装问题"></a>安装问题</h2><p>缺少词法分析器，链接时为找到<code>/usr/bin/ld: cannot find -lfl</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install flex</span><br></pre></td></tr></table></figure></p>
-<p>缺少语法分析器，编译中出现<code>make[1]: bison: Command not found</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install bison</span><br></pre></td></tr></table></figure></p>
-        
-          <a class="article-more-a" href="/2017/10/31/CSAPP之Y86-64模拟器安装/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">CSAPP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/31/CSAPP之Y86-64模拟器安装/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
@@ -1064,11 +1063,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">生活规划</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" class="js-tag color5">生活规划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1100,11 +1099,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
               </li>
             
             <div class="clearfix"></div>
