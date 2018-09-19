@@ -171,6 +171,88 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-C-Primer5e第13章：拷贝控制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/15/C-Primer5e第13章：拷贝控制/">C++Primer5e第13章：拷贝控制</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/15/C-Primer5e第13章：拷贝控制/" class="archive-article-date">
+  	<time datetime="2017-12-15T02:09:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>拷贝控制决定着对象在拷贝、移动、赋值和销毁时的行为，包括：<code>拷贝构造函数(copy constructor)、拷贝赋值运算符(copy-assignment operator)、移动构造函数(move constructor)、移动赋值运算符(move-assignment operator)和析构函数(destructor)</code>。</p>
+<blockquote>
+<p>拷贝构造和移动构造函数定义当用同类型的另一个对象初始化本对象时做什么。<br>拷贝赋值运算符和移动赋值运算符定义了将一个对象赋予同类型对象时做什么。<br>析构函数定义了当此对象销毁时做什么。</p>
+</blockquote>
+<h1 id="拷贝、赋值和销毁"><a href="#拷贝、赋值和销毁" class="headerlink" title="拷贝、赋值和销毁"></a>拷贝、赋值和销毁</h1><h2 id="拷贝构造函数"><a href="#拷贝构造函数" class="headerlink" title="拷贝构造函数"></a>拷贝构造函数</h2><p>拷贝构造函数特征：首先满足构造函数特征，没有返回值；其次操作函数的第一个参数必须是自身类型的引用，其他参数有默认值。<br><strong>如果第一个参数不是引用类型，为了在调用拷贝构造函数时拷贝实参又需要调用拷贝构造函数，从而形成死循环。</strong></p>
+<h2 id="拷贝赋值运算符"><a href="#拷贝赋值运算符" class="headerlink" title="拷贝赋值运算符"></a>拷贝赋值运算符</h2><p>赋值运算符其实就是名为<code>operator=</code>的函数。赋值运算符通常应该返回一个指向其左侧对象的引用。</p>
+<h2 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h2><p>如同构造函数有一个初始化部分和一个函数体，析构函数也有一个函数体和一个析构部分。在构造函数中，成员的初始化是在函数体执行之前完成的，而且按照它们在类中出现的顺序初始化。在析构函数中，首先执行函数体，然后按初始化的相反顺序销毁其成员。成员是在析构函数体之后隐含的析构阶段中被销毁的。<br>对于一个类，只有唯一的一个析构函数。<br>
+        
+          <a class="article-more-a" href="/2017/12/15/C-Primer5e第13章：拷贝控制/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/15/C-Primer5e第13章：拷贝控制/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-C-Primer5e第12章：动态内存" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -909,85 +991,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-C-Primer5e第03章：字符串、向量和数组" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/06/C-Primer5e第03章：字符串、向量和数组/">C++Primer5e第03章：字符串、向量和数组</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/06/C-Primer5e第03章：字符串、向量和数组/" class="archive-article-date">
-  	<time datetime="2017-12-06T01:25:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="命名空间的using声明"><a href="#命名空间的using声明" class="headerlink" title="命名空间的using声明"></a>命名空间的using声明</h1><p><strong>头文件不应包含using声明</strong><br>因为头文件的内容会拷贝到所有引用它的文件中去，如果头文件里有某个using声明，那么每个使用了该头文件的文件都会有这个声明。对于某些程序来说，由于不经意间包含了一些名字，可能产生意想不到的冲突。</p>
-<h1 id="标准库类型string"><a href="#标准库类型string" class="headerlink" title="标准库类型string"></a>标准库类型string</h1><p>如果使用等号(=)初始化一个变量，实际上执行的是<code>拷贝初始化(copy initialization)</code>，因为编译器创建临时对象，然后会把等号右侧的初始值拷贝到新创建的对象中去。如果不使用等号，则执行的是<code>直接初始化(direct initialization)</code>。</p>
-<h2 id="string-size-type类型"><a href="#string-size-type类型" class="headerlink" title="string::size_type类型"></a>string::size_type类型</h2><p>string的size函数返回的是一个string::size_type类型，它是一个无符号类型。切记：如果表达式中已经有size()函数就不要再使用int了，从而可以避免混用int和unsigned可能带来的问题。例如：假设n是一个负值的int，则表达式<code>s.size() &lt; n</code>的判断结果几乎肯定是true，因为负值n会转换成一个很大的无符号值。<br>在C++11新标准中，可以通过auto或decltype来判断变量类型：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> len = s.size(); <span class="comment">//len的类型是string::size_type</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="处理string对象中的字符"><a href="#处理string对象中的字符" class="headerlink" title="处理string对象中的字符"></a>处理string对象中的字符</h2><p>使用C++版本的C标准库头文件，C++标准兼容C语言标准库。C语言的头文件刑如name.h，C++则将文件命名为cname。在名为cname的头文件中定义的名字从属于std命名空间，而定义在名为.h的头文件中则不然。一般来说，C++程序应该使用名为cname的头文件，标准库的名字总能在std中找到。<br>
-        
-          <a class="article-more-a" href="/2017/12/06/C-Primer5e第03章：字符串、向量和数组/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/06/C-Primer5e第03章：字符串、向量和数组/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
@@ -1088,11 +1091,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" class="js-tag color5">生活规划</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">生活规划</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1112,15 +1115,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">STEAM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">家庭教育</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
+                <a href="javascript:void(0)" class="js-tag color1">STEAM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1128,7 +1131,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
               </li>
             
             <div class="clearfix"></div>
