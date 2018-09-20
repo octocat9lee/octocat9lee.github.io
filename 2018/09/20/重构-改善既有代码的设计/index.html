@@ -8,20 +8,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://octocat9lee.github.io">
-  <title>C++Primer5e第11章：关联容器 | 章鱼猫の博客</title>
+  <title>重构-改善既有代码的设计 | 章鱼猫の博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="关联容器中的元素是按关键字来保存和访问的，支持高效的关键字查找和访问。标准库提供8个关联容器，体现在3个维度：(1) set或者map；(2)关键字能否重复，允许重复关键字的包含单词multi；(3)按顺序保存或无序保存，不保持关键字按顺序存储的容器的名字都以单词unordered开头。因此，unordered_multi_set是一个允许关键字重复，元素无序保存的集合，而set则是一个要求关键字">
-<meta name="keywords" content="C++">
+  <meta name="description" content="何谓重构？重构的定义 名词形式  重构(名词)：对软件内部的一种调整，目的是在不改变软件可观察的前提下，提高其可理解性，降低其修改成本。  动词形式  重构(动词)：使用一系列的重构手法，在不改变软件可观察的行为的前提下，调整其结构。  通俗解释  你要问我“重构就只是整理代码吗？” 在某种角度来说是的。但是重构肯定有其独到的地方：它提供一种更高效且受控的代码整理技术。 两顶帽子使用重构技术开发软">
+<meta name="keywords" content="技术点滴">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++Primer5e第11章：关联容器">
-<meta property="og:url" content="https://octocat9lee.github.io/2017/12/13/C-Primer5e第11章：关联容器/index.html">
+<meta property="og:title" content="重构-改善既有代码的设计">
+<meta property="og:url" content="https://octocat9lee.github.io/2018/09/20/重构-改善既有代码的设计/index.html">
 <meta property="og:site_name" content="章鱼猫の博客">
-<meta property="og:description" content="关联容器中的元素是按关键字来保存和访问的，支持高效的关键字查找和访问。标准库提供8个关联容器，体现在3个维度：(1) set或者map；(2)关键字能否重复，允许重复关键字的包含单词multi；(3)按顺序保存或无序保存，不保持关键字按顺序存储的容器的名字都以单词unordered开头。因此，unordered_multi_set是一个允许关键字重复，元素无序保存的集合，而set则是一个要求关键字">
+<meta property="og:description" content="何谓重构？重构的定义 名词形式  重构(名词)：对软件内部的一种调整，目的是在不改变软件可观察的前提下，提高其可理解性，降低其修改成本。  动词形式  重构(动词)：使用一系列的重构手法，在不改变软件可观察的行为的前提下，调整其结构。  通俗解释  你要问我“重构就只是整理代码吗？” 在某种角度来说是的。但是重构肯定有其独到的地方：它提供一种更高效且受控的代码整理技术。 两顶帽子使用重构技术开发软">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-31T01:34:09.978Z">
+<meta property="og:updated_time" content="2018-09-20T08:56:34.410Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C++Primer5e第11章：关联容器">
-<meta name="twitter:description" content="关联容器中的元素是按关键字来保存和访问的，支持高效的关键字查找和访问。标准库提供8个关联容器，体现在3个维度：(1) set或者map；(2)关键字能否重复，允许重复关键字的包含单词multi；(3)按顺序保存或无序保存，不保持关键字按顺序存储的容器的名字都以单词unordered开头。因此，unordered_multi_set是一个允许关键字重复，元素无序保存的集合，而set则是一个要求关键字">
+<meta name="twitter:title" content="重构-改善既有代码的设计">
+<meta name="twitter:description" content="何谓重构？重构的定义 名词形式  重构(名词)：对软件内部的一种调整，目的是在不改变软件可观察的前提下，提高其可理解性，降低其修改成本。  动词形式  重构(动词)：使用一系列的重构手法，在不改变软件可观察的行为的前提下，调整其结构。  通俗解释  你要问我“重构就只是整理代码吗？” 在某种角度来说是的。但是重构肯定有其独到的地方：它提供一种更高效且受控的代码整理技术。 两顶帽子使用重构技术开发软">
   
     <link rel="alternative" href="/atom.xml" title="章鱼猫の博客" type="application/atom+xml">
   
@@ -171,60 +171,433 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-C-Primer5e第11章：关联容器" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-重构-改善既有代码的设计" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      C++Primer5e第11章：关联容器
+      重构-改善既有代码的设计
     </h1>
   
 
         
-        <a href="/2017/12/13/C-Primer5e第11章：关联容器/" class="archive-article-date">
-  	<time datetime="2017-12-13T06:47:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-13</time>
+        <a href="/2018/09/20/重构-改善既有代码的设计/" class="archive-article-date">
+  	<time datetime="2018-09-20T07:58:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>关联容器中的元素是按关键字来保存和访问的，支持高效的关键字查找和访问。标准库提供8个关联容器，体现在3个维度：<br>(1) set或者map；(2)关键字能否重复，允许重复关键字的包含单词multi；(3)按顺序保存或无序保存，不保持关键字按顺序存储的容器的名字都以单词unordered开头。因此，unordered_multi_set是一个允许关键字重复，元素无序保存的集合，而set则是一个要求关键字不重复，有序存储的集合。<code>set和map使用红黑树，无序容器使用哈希函数来组织元素。</code><br>关联容器类型：</p>
-<blockquote>
-<p>按关键字有序保存元素<br>map<br>set<br>multimap<br>multiset<br>无序集合<br>unordered_map<br>unordered_set<br>unordered_multimap<br>unordered_multiset</p>
-</blockquote>
-<h1 id="使用关联容器"><a href="#使用关联容器" class="headerlink" title="使用关联容器"></a>使用关联容器</h1><p>在忽略大小写和标点的单词计数程序中，首先是对输入的字符串进行处理，剔除单词中的标点，并将大写转换成小写。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> &amp;<span class="title">trans</span><span class="params">(<span class="built_in">string</span> &amp;s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">string</span>::size_type p = <span class="number">0</span>; p &lt; s.size(); ++p)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(s[p] &gt;= <span class="string">'A'</span> &amp;&amp; s[p] &lt;= <span class="string">'Z'</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            s[p] -= (<span class="string">'A'</span> - <span class="string">'a'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(s[p] == <span class="string">','</span> || sp[p] == <span class="string">'.'</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            s.erase(p, <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h1 id="关联容器概述"><a href="#关联容器概述" class="headerlink" title="关联容器概述"></a>关联容器概述</h1><p>关联容器的迭代器都是双向的。在C++11新标准中，我们可以对关联容器进行值初始化：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">size_t</span>&gt; word_count; <span class="comment">//空容器</span></span><br><span class="line"><span class="comment">//列表初始化</span></span><br><span class="line"><span class="built_in">set</span>&lt;<span class="built_in">string</span>&gt; exclude = &#123;<span class="string">"the"</span>, <span class="string">"but"</span>, <span class="string">"and"</span>, <span class="string">"or"</span>, <span class="string">"an"</span>&#125;;</span><br><span class="line"><span class="comment">//三个元素：authors将姓映射为名</span></span><br><span class="line"><span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt; authors = &#123;&#123;<span class="string">"Joyce"</span>, <span class="string">"James"</span>&#125;, &#123;<span class="string">"Austen"</span>, <span class="string">"Jane"</span>&#125;, &#123;<span class="string">"Dickens, "</span>Charles<span class="string">"&#125;&#125;;</span></span><br></pre></td></tr></table></figure></p>
-<a id="more"></a>
-<h2 id="关键字类型要求"><a href="#关键字类型要求" class="headerlink" title="关键字类型要求"></a>关键字类型要求</h2><p>对于有序容器map、multimap、set以及multiset，关键字类型必须定义元素比较的方法。默认情况下，标准库使用关键字类型的&lt;运算符来比较两个关键字。<br>传递给排序算法的可调用对象必须满足与关联容器中关键字一样的类型要求。<br>在实际编程中，如果一个类型定义了正常的&lt;运算符，则它可以用作关键字类型。<br>使用自定义的操作作为关联容器类型的比较操作类型(函数指针类型个)：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">comparseIsbn</span><span class="params">(<span class="keyword">const</span> Sales_data &amp;lhs, <span class="keyword">const</span> Sales_data &amp;rhs)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> lhs.isbn() &lt; rhs.isbn();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//定义容器对象时，需要提供想要使用的操作的函数指针</span></span><br><span class="line"><span class="built_in">multiset</span>&lt;Sales_data, <span class="keyword">decltype</span>(comparseIsbn)*&gt; bookStore(comparseIsbn);</span><br></pre></td></tr></table></figure></p>
-<h2 id="pair类型"><a href="#pair类型" class="headerlink" title="pair类型"></a>pair类型</h2><p>pair标准库类型定义在头文件utility中。pair也是一个模板类，当创建一个pair时，必须提供两个类型名。pair的数据成员是public的，分别命名为first和seconde。我们可以为每个成员提供初始化：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pair&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt; author1(<span class="string">"James"</span>, <span class="string">"Joyce"</span>);</span><br><span class="line">pair&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt; author2&#123;<span class="string">"James"</span>, <span class="string">"Joyce"</span>&#125;; <span class="comment">//列表初始化</span></span><br><span class="line">pair&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt; author3 = make_pair(<span class="string">"James"</span>, <span class="string">"Joyce"</span>);</span><br></pre></td></tr></table></figure></p>
-<p>三种创建pair对象的方法：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;pair&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt;&gt; data; <span class="comment">//pair的vector</span></span><br><span class="line">data.push_back(pair&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt;(s, v));</span><br><span class="line">data.push_back(&#123;s, v&#125;);  <span class="comment">//C++11新标准的列表初始化</span></span><br><span class="line">data.push_back(make_pair(s, v));</span><br></pre></td></tr></table></figure></p>
-<h1 id="关联容器操作"><a href="#关联容器操作" class="headerlink" title="关联容器操作"></a>关联容器操作</h1><p>关联容器额外的类型别名，使用域运算符提取类型成员，例如，<code>map&lt;string, int&gt;::key_type</code>。</p>
-<blockquote>
-<p>key_type        容器的关键字类型，键的类型<br>  mapped_type     关键字关联的类型，即键值对中值的类型，只适用于map<br>  value_type      对于set，与key_type相同<br>                  对于map，为pair<const key_type,="" mapped_type=""></const></p>
-</blockquote>
-<h2 id="关联容器迭代器"><a href="#关联容器迭代器" class="headerlink" title="关联容器迭代器"></a>关联容器迭代器</h2><p>当解引用一个关联容器迭代器时，会得到一个类型为容器的value_type的值的引用。<br>对map而言，value_type是一个pair类型，first成员保存const的关键字，second成员保存值。<br>set的迭代器是const的<br>当使用迭代器遍历map、multimap、set和multiset时，迭代器按关键字升序遍历元素。<br>我们通常不对关联容器使用泛型算法。在实际编程中，如果我们真的需要对关联容器使用算法，要么将它当作一个源序列，要么当作一个目的位置。例如，用泛型copy算法将元素从一个关联容器拷贝到另一个序列。通过inserter，将关联容器当作一个目的位置来调用另一个算法。</p>
-<h2 id="添加元素"><a href="#添加元素" class="headerlink" title="添加元素"></a>添加元素</h2><p>由于map和set包含不重复的关键字，因此插入一个已存在的元素对容器没有任何影响。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">size_t</span>&gt; word_count;</span><br><span class="line">word_count.insert(&#123;word, <span class="number">1</span>&#125;); <span class="comment">//C++11新标准支持</span></span><br><span class="line">word_count.insert(make_pair(word, <span class="number">1</span>));</span><br><span class="line">word_count.insert(pair&lt;<span class="built_in">string</span>, <span class="keyword">size_t</span>&gt;(word, <span class="number">1</span>));</span><br><span class="line">word_count.insert(<span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">size_t</span>&gt;::value_type(word, <span class="number">1</span>));</span><br></pre></td></tr></table></figure></p>
-<p>对于不包含重复关键字的容器你，添加单一元素的insert和emplace版本返回一个pair，first成员是一个迭代器，指向具有给定关键字的元素；second成员是一个bool值，表示插入是否成功。如果元素已经在容器中，insert什么也不做，bool值为false。<br>对于允许重复关键字的容器，接受单个元素的insert总是一个指向新元素的迭代器。因为insert总会插入一个元素。</p>
-<h2 id="删除元素"><a href="#删除元素" class="headerlink" title="删除元素"></a>删除元素</h2><p>关联容器定义三个版本的erase实现删除操作：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">c.erase(k)     从c中删除关键字为k的元素，返回size_type的值，指示删除元素的数量。返回<span class="number">0</span>，表示删除元素不在容器中，对于允许重复关键字的容器，删除元素的数目可能大于<span class="number">1</span></span><br><span class="line"></span><br><span class="line">c.erase(p)     从c中删除迭代器p指定的元素。p必须指向c中一个真实的元素，不能等于c.end()。返回一个指向p之后元素的迭代器，如果p指向c中的尾元素，则返回c.end()</span><br><span class="line"></span><br><span class="line">c.erase(b, e)  删除迭代器对b和e表示的范围内的元素，返回e</span><br></pre></td></tr></table></figure></p>
-<h2 id="map的下标操作"><a href="#map的下标操作" class="headerlink" title="map的下标操作"></a>map的下标操作</h2><p>map和unordered_map容器提供了下标运算符和对应的at函数。multimap和unordered_multimap不能进行下标操作，因为容器中可能有多个值和一个关键字相关联。<br>map下标的类型为key_type类型，即关键字类型，获得与此关键字相关联的值。使用一个不在容器中的关键字作为下标，会添加一个具有此关键字的元素到map中。因此，我们只可以对非const的map使用下标操作。<br>使用at关键字访问元素，若k不在c中，则抛出一个out_of_range异常。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">size_t</span>&gt; word_count; <span class="comment">// empty map</span></span><br><span class="line"><span class="comment">//插入一个关键字为Anna的元素，关联值进行值初始化；然后将1赋予它</span></span><br><span class="line">word_count[<span class="string">"Anna"</span>] = <span class="number">1</span>;</span><br></pre></td></tr></table></figure></p>
-<p>上述代码的过程如下：</p>
-<ul>
-<li>在word_count中搜索关键字为Anna的元素，未找到</li>
-<li>将新的关键字-值对插入到word_count中。关键字保存Anna，值进行值初始化，在本例中意味着值为0</li>
-<li>提取出新插入的元素，并将值1赋予它</li>
+        <h1 id="何谓重构？"><a href="#何谓重构？" class="headerlink" title="何谓重构？"></a>何谓重构？</h1><h2 id="重构的定义"><a href="#重构的定义" class="headerlink" title="重构的定义"></a>重构的定义</h2><ul>
+<li>名词形式</li>
 </ul>
-<p>map的下标操作返回mapped_type类型的引用，也就是map的值类型的引用，可以作为左值，进行读写。</p>
-<h2 id="访问元素"><a href="#访问元素" class="headerlink" title="访问元素"></a>访问元素</h2><p>在multimap或multiset中查找元素，如果一个multimap或multiset中包含有多个元素具有给定的关键字，则这些元素会相邻存储。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">multimap</span>&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt; authors;</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">search_item</span><span class="params">(<span class="string">"Alain de Botton"</span>)</span></span>;</span><br><span class="line"><span class="keyword">auto</span> enteries = authors.count(search_item); <span class="comment">//元素的数量</span></span><br><span class="line"><span class="keyword">auto</span> iter = authors.find(search_item); <span class="comment">//此作者的第一本书</span></span><br><span class="line"><span class="keyword">while</span>(enteries)&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; iter-&gt;second &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    ++iter;</span><br><span class="line">    --enteries;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>面向迭代器的解决方法</strong><br>使用lower_bound和upper_bound，如果关键字在容器中，lower_bound返回的迭代器将指向第一个具有给定关键字的元素，而upper_bound返回的迭代器则指向最后一个匹配给定的关键字的元素之后的位置。如果元素不在multimap中，则lower_bound和upper_bound返回相等的迭代器。因此，使用相同的关键字调用lower_bound和upper_bound则会得到一个迭代器范围，表示所有具有该关键字的元素。<br>重写前面的程序：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">multimap</span>&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt; authors;</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">search_item</span><span class="params">(<span class="string">"Alain de Botton"</span>)</span></span>;</span><br><span class="line"><span class="keyword">auto</span> beg = authors.lower_bound(search_item);</span><br><span class="line"><span class="keyword">auto</span> end = authors.upper_bound(search_item);</span><br><span class="line"><span class="keyword">for</span>(; beg != end; ++beg)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; beg-&gt;second &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>equal_range函数</strong><br>equal_range函数接受一个关键字，返回一个迭代器pair。若关键字存在，则第一个迭代器指向第一个匹配的元素，第二个迭代器指向最后一个匹配元素之后的位置。若未找到匹配元素，则两个迭代器都指向关键字可以插入的位置。<br>使用equal_range再次修改我们的程序：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">multimap</span>&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt; authors;</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">search_item</span><span class="params">(<span class="string">"Alain de Botton"</span>)</span></span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> pos = authors.equal_range(search_item);</span><br><span class="line">    pos.first != pos.second; ++pos.first)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; pos.first-&gt;second &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h1 id="无序容器"><a href="#无序容器" class="headerlink" title="无序容器"></a>无序容器</h1><p>如果关键字类型就是无序的，或者性能测试发现问题可以使用哈希技术解决，就可以使用无序容器。<br>C++11新标准定义了4个无序关联容器。这些容器使用哈希函数和关键字类型的==运算符。除哈希管理操作之外，无序容器还提供与有序容器相同的操作。</p>
-<h2 id="管理桶"><a href="#管理桶" class="headerlink" title="管理桶"></a>管理桶</h2><p>无序容器使用哈希函数将元素映射到桶。为了访问一个元素，容器首先计算元素的哈希值，指出应该搜索哪个桶。如果容器允许重复关键字，所有具有相同关键字的元素都会在同一个桶中。因此，无序容器的性能依赖于哈希函数的质量和桶的数量和大小。如果一个桶中保存了很多的元素，那么查找一个特定元素就需要大量的比较操作。<br>无序容器提供了一组管理桶的函数，允许我们查询容器的状态以及在必要时强制容器进行重组：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">无序容器管理操作</span><br><span class="line">桶接口</span><br><span class="line">c.bucket_count()                  正在使用的桶的数目</span><br><span class="line">c.max_bucket_count()              容器能容纳的最多的桶的数量</span><br><span class="line">c.bucket_size(n)                  第n个桶中有多少个元素</span><br><span class="line">c.bucket(k)                       关键字为k的元素在哪个桶中</span><br><span class="line"></span><br><span class="line">桶迭代</span><br><span class="line">local_iterator                    用来访问桶中元素的迭代器类型</span><br><span class="line">const_local_iterator              桶迭代器的<span class="keyword">const</span>版本</span><br><span class="line">c.begin(n), c.end(n)              桶n的首元素迭代器和尾后迭代器，返回local_iterator类型</span><br><span class="line">c.cbegin(n), c.cend(n)            返回const_local_iterator</span><br><span class="line"></span><br><span class="line">哈希策略</span><br><span class="line">c.load_factor()                   每个桶的平均元素的数量，返回<span class="keyword">float</span>值</span><br><span class="line">c.max_load_factor()               c试图维护桶的平均桶大小，返回<span class="keyword">float</span>值。c会在需要时</span><br><span class="line">                                  添加新的桶，使得load_factor &lt;= max_load_factor</span><br><span class="line">c.rehash(n)                       重组存储，使得bucket_count &gt;= n且bucket_size &gt; size/max_load_factor</span><br><span class="line">c.reserve(n)                      重组存储，使得c可以保存n个元素且不必rehash</span><br></pre></td></tr></table></figure></p>
-<h2 id="无序容器对关键字类型的要求"><a href="#无序容器对关键字类型的要求" class="headerlink" title="无序容器对关键字类型的要求"></a>无序容器对关键字类型的要求</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt; <span class="class"><span class="keyword">class</span> <span class="title">Key</span>,                                    // <span class="title">unordered_map</span>:</span>:key_type</span><br><span class="line">           <span class="class"><span class="keyword">class</span> <span class="title">T</span>,                                      // <span class="title">unordered_map</span>:</span>:mapped_type</span><br><span class="line">           <span class="class"><span class="keyword">class</span> <span class="title">Hash</span> = <span class="title">hash</span>&lt;Key&gt;,                       // <span class="title">unordered_map</span>:</span>:hasher</span><br><span class="line">           <span class="class"><span class="keyword">class</span> <span class="title">Pred</span> = <span class="title">equal_to</span>&lt;Key&gt;,                   // <span class="title">unordered_map</span>:</span>:key_equal</span><br><span class="line">           <span class="class"><span class="keyword">class</span> <span class="title">Alloc</span> = <span class="title">allocator</span>&lt; pair&lt;const Key,T&gt; &gt;  // <span class="title">unordered_map</span>:</span>:allocator_type</span><br><span class="line">           &gt; <span class="class"><span class="keyword">class</span> <span class="title">unordered_map</span>;</span></span><br></pre></td></tr></table></figure>
-<p>默认情况下，无序容器使用关键字类型的==运算符比较元素，使用一个hash&lt;key_type&gt;类型的对象生成每个元素的哈希值。标准库为<code>内置类型(包括指针)、string和智能指针类型</code>提供了hash模板。<a href="http://www.cplusplus.com/reference/functional/hash/" target="_blank" rel="noopener">更多的默认hash模板</a></p>
-<p>我们不能直接定义关键字类型为自定义类型的无序容器。为了能将Sales_data用作关键字，我们需要提供函数来代替==运算符和哈希值计算函数。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">size_t</span> hasher(<span class="keyword">const</span> Sales_data &amp;sd)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> hash&lt;<span class="built_in">string</span>&gt;()(<span class="built_in">std</span>.isbn()); <span class="comment">//使用标准库string的hash函数计算ISBN成员的哈希值</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">eqOp</span><span class="params">(<span class="keyword">const</span> Sales_data &amp;lhs, <span class="keyword">const</span> Sales_data &amp;rhs)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> lhs.isbn() == rhs.isbn();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//定义类型别名</span></span><br><span class="line"><span class="keyword">using</span> SD_multiset = <span class="built_in">unordered_set</span>&lt;Sales_data, <span class="keyword">decltype</span>(hasher)*, <span class="keyword">decltype</span>(eqOp)*&gt;;</span><br><span class="line"><span class="comment">//参数是桶的大小、哈希函数指着和相等性判断运算符指针</span></span><br><span class="line"><span class="function">SD_multiset <span class="title">bookstore</span><span class="params">(<span class="number">42</span>, hasher, eqOp)</span></span>;</span><br></pre></td></tr></table></figure></p>
+<p>重构(名词)：对软件内部的一种调整，目的是在不改变软件可观察的前提下，提高其可理解性，降低其修改成本。</p>
+<ul>
+<li>动词形式</li>
+</ul>
+<p>重构(动词)：使用一系列的重构手法，在不改变软件可观察的行为的前提下，调整其结构。</p>
+<ul>
+<li>通俗解释</li>
+</ul>
+<p>你要问我“重构就只是整理代码吗？” 在某种角度来说是的。但是重构肯定有其独到的地方：<strong>它提供一种更高效且受控的代码整理技术。</strong></p>
+<h2 id="两顶帽子"><a href="#两顶帽子" class="headerlink" title="两顶帽子"></a>两顶帽子</h2><p>使用重构技术开发软件时，你应该把你自己的时间分配给两种截然不同的行为：添加新功能，以及重构。</p>
+<p>添加新功能时，你不应该修改既有代码，只管添加新功能</p>
+<p>重构时你就不能添加功能，只管改进程序的结构</p>
+<p>两种动作循环往复，但无论何时你都应该清楚自己戴的是哪一顶帽子</p>
+<a id="more"></a>
+<h2 id="重构目的"><a href="#重构目的" class="headerlink" title="重构目的"></a>重构目的</h2><ul>
+<li>重构的目的是是软件更容易被理解和修改</li>
+<li>重构不能对软件的现有功能造成任何的变化，及时在重构过程中发现疑似BUG的行为，也请遵循原始代码的逻辑</li>
+<li>重构不会改变软件的可观察的行为，重构之后软件的功能一如既往。除了你自己，所有人都不知道有东西改变过</li>
+</ul>
+<h1 id="为何重构？"><a href="#为何重构？" class="headerlink" title="为何重构？"></a>为何重构？</h1><ul>
+<li>重构改进软件设计</li>
+</ul>
+<p>如果没有重构，程序的设计会逐渐腐败变质。重构很像是在整理代码，你所做的就是让所有东西回到应出的位置上。经常性的重构可以帮助维持自己该有的形态。</p>
+<ul>
+<li>重构使软件更容易理解</li>
+</ul>
+<p>重构可以帮助我们让代码更容易阅读和理解</p>
+<ul>
+<li>重构帮助找到bug</li>
+</ul>
+<p>对代码进行重构，可以帮助我们深入理解代码，对代码理解的越深，就越能帮我们找到bug。重构能够帮大家更有效地写出强健的代码。</p>
+<ul>
+<li>重构提高编程速度</li>
+</ul>
+<p>重构可以帮助我们更快速地开发软件，因为它阻止系统腐败变质，它甚至还可以提高设计质量。</p>
+<blockquote>
+<p>Any fool can write code that a computer can understand. Good programmers write code that humans can understand.</p>
+</blockquote>
+<p>任何一个傻瓜都能写出计算机可以理解的代码。唯有写出人类容易理解的代码，才是优秀的代码。</p>
+<h1 id="何时重构？"><a href="#何时重构？" class="headerlink" title="何时重构？"></a>何时重构？</h1><p>重构不是一件应该特别抽出时间做的事情，重构应该随时随地进行。不应该为重构而重构，之所以重构，是因为我们想做别的什么事，而重构可以帮助我们把那些事做好。</p>
+<blockquote>
+<p>三次法则：事不过三，三则重构</p>
+</blockquote>
+<p>重构时期</p>
+<ul>
+<li>添加功能时重构</li>
+<li>修补错误时重构</li>
+<li>复审代码时重构</li>
+</ul>
+<h1 id="重构的难题"><a href="#重构的难题" class="headerlink" title="重构的难题"></a>重构的难题</h1><p>当你使用一种可以提高生成力的新技能时，一定要仔细思考此场景是不是适用。</p>
+<p>假如你发现你确实需要重构，请参考仔细阅读下面你可能会遇到的难题：</p>
+<ul>
+<li>数据库难在哪？</li>
+</ul>
+<p>绝大多数的程序都和背后的数据库结构紧密的耦合在一起。</p>
+<p>数据迁移</p>
+<ul>
+<li>接口修改难在哪？</li>
+</ul>
+<p>已经发布了的接口</p>
+<h2 id="何时不该重构？"><a href="#何时不该重构？" class="headerlink" title="何时不该重构？"></a>何时不该重构？</h2><p>代码根本无法工作或者太糟糕，重构还不如重写来的简单</p>
+<p>在项目的最后期限，应该避免重构</p>
+<h1 id="代码的坏味道"><a href="#代码的坏味道" class="headerlink" title="代码的坏味道"></a>代码的坏味道</h1><ul>
+<li><p><strong>重复代码(Duplicated Code)</strong></p>
+</li>
+<li><p><strong>过长函数(Long Method)</strong></p>
+</li>
+<li><p><strong>过大的类(Large Class)</strong></p>
+</li>
+<li><p><strong>过长参数列(Long Parameter List)</strong></p>
+</li>
+<li><p><strong>发散式变化(Divergent Change)</strong>：一个类受多种变化的影响</p>
+</li>
+<li><p><strong>霰弹式修改(Shotgun Surgery)</strong>：一种变化引发多个类相应修改</p>
+</li>
+<li><p><strong>依恋情结(Feature Envy)</strong>：函数对某个类的兴趣高过自己所处类的兴趣</p>
+</li>
+<li><p><strong>数据泥团(Data Clumps)</strong>：相同的若干项数据出现在不同地方，这些绑在一起出现的数据应该有属于它们自己的对象</p>
+</li>
+<li><p><strong>基本类型偏执(Private Obsession)</strong>：很多人不愿意在小任务上运用小对象</p>
+</li>
+<li><p><strong>switch惊悚现身(Switch Statements)</strong>：switch语句会在很多地方重复出现，一改则需全改</p>
+</li>
+<li><p><strong>平行继承体系(Parallel Inheritance Hierarchies)</strong>：当你为某一个类增加子类时，也必须为另一个类相应增加一个类</p>
+</li>
+<li><p><strong>冗赘类(Lazy Class)</strong>：如果一个类不值得存在，那就让它消失</p>
+</li>
+<li><p><strong>夸夸其谈的未来性(Speculative Generality)</strong>：预留的无用的抽象类，无用的抽象参数</p>
+</li>
+<li><p><strong>令人迷惑的暂时字段(Temporary Field)</strong>：类中某个字段只为某些特殊情况而设置</p>
+</li>
+<li><p><strong>过度耦合的消息链(Message Chains)</strong>：用户向一个对象请求另一个对象，然后再向后者请求另一个对象……</p>
+</li>
+<li><p><strong>中间人(Middle Man)</strong>：无用的委托，过多的中间层</p>
+</li>
+<li><p><strong>狎昵关系(Inappropriate Intimacy)</strong>：两个类过于亲密，一个类过于关注另一个类的成员</p>
+</li>
+<li><p><strong>异曲同工的类(Alternative Classes with DifferentInterfaces)</strong>：不同名字的类或函数，作者相同的事</p>
+</li>
+<li><p><strong>不完美的库类(Incomplete Library Class)</strong>：类库设计不可能完美</p>
+</li>
+<li><p><strong>纯稚的数据类(Data Class)</strong>：一个类拥有一些字段以及用于访问这些字段的函数，除此之外一无长物</p>
+</li>
+<li><p><strong>被拒绝的遗赠(Refused Bequest)</strong>：子类不想继承超类所有的函数和数据，只想挑几样来玩</p>
+</li>
+<li><p><strong>过多的注释(Comments)</strong></p>
+</li>
+</ul>
+<h1 id="构筑测试体系"><a href="#构筑测试体系" class="headerlink" title="构筑测试体系"></a>构筑测试体系</h1><p>重构的首要前提是拥有一个可靠的测试环境。</p>
+<p>只要写好一点功能，就立即添加测试，并确保所有测试都完全自动化，让它们检查自己的测试结果。</p>
+<p>一套测试就是一个强大的bug侦测器，能够大大缩减查找bug所需要的时间。</p>
+<p>撰写测试代码的最有用时机是在开始编程之前。当你需要添加特性的时候，先写相应测试代码。</p>
+<p>多运用单元测试。测试你最担心出错的地方，考虑可能出错的边界条件。</p>
+<p>不要因为测试无法捕捉所有bug就不写测试，因为测试的确可以捕捉到大多数bug。</p>
+<blockquote>
+<p>“花合理时间抓出大多数bug”要好过“穷尽一生抓出所有bug”。</p>
+</blockquote>
+<h1 id="重新组织函数"><a href="#重新组织函数" class="headerlink" title="重新组织函数"></a>重新组织函数</h1><ul>
+<li><strong>提炼函数(Extract Method)</strong></li>
+</ul>
+<p>你有一段代码可以被组织在一起并独立出来。将这段代码放进一个独立函数中，并将函数名称解释该函数的用途。</p>
+<ul>
+<li><strong>内联函数(Inline Method)</strong></li>
+</ul>
+<p>一个函数的本体与名称同样清楚易懂。在函数调用点插入函数本体，然后移除该函数。</p>
+<ul>
+<li><strong>内联临时变量(InlineTemp)</strong></li>
+</ul>
+<p>你有一个临时变量，只被一个简单表达式赋值一次，而它妨碍了其他重构手法。将所有对该变量的引用动作，替换为对它赋值的那个表达式自身。</p>
+<ul>
+<li><p><strong>以查询取代临时变量(Replace Temp withQuery)</strong><br>你的程序以一个临时变量保存某一表达式的运算结果。将这个表达式提炼到一个独立函数中。将这个临时变量的所有引用点替换为对新函数的调用。此后，新函数就可被其他函数使用。</p>
+</li>
+<li><p><strong>引入解释性变量(Introduce ExplainingVariable)</strong></p>
+</li>
+</ul>
+<p>你有一个复杂的表达式。将该复杂表达式(或其中一部分)的结果放进一个临时变量，以此变量名称来解释表达式用途。</p>
+<ul>
+<li><strong>分解临时变量(Split TemporaryVariable)</strong></li>
+</ul>
+<p>你的程序有某个临时变量被赋值过一次，它既不是循环变量，也不被用于收集计算结果。针对每次赋值，创造一个独立、对应的临时变量。</p>
+<ul>
+<li><strong>移除对参数的赋值(Remove Assignments Parameters)</strong></li>
+</ul>
+<p>代码对一个参数进行赋值。以一个临时变量取代参数的位置。</p>
+<ul>
+<li><strong>以函数对象取代函数(Replace Method with MethodObject)</strong></li>
+</ul>
+<p>你有一个大型函数，其中对局部变量的使用使你无法采用ExtractMethod。将这个函数放进一个单独对象中，如此一来局部变量就成了对象内的字段。然后你可以在同一个对象中将这个大型函数分解为多个小型函数。</p>
+<ul>
+<li><strong>替换算法(Substitute Algorithm)</strong></li>
+</ul>
+<p>你想要把某个算法替换为另一个更清晰的算法。将函数本体替换为另一个算法。</p>
+<h1 id="在对象之间搬移特性"><a href="#在对象之间搬移特性" class="headerlink" title="在对象之间搬移特性"></a>在对象之间搬移特性</h1><ul>
+<li><strong>搬移函数(MoveMethod)</strong></li>
+</ul>
+<p>你的程序中，有个函数与其所驻之外的另一个类进行更多交流：调用后者，或被后者调用。在该函数最常引用的类中建立一个有着类似行为的新函数。将旧函数变成一个单纯的委托函数，或是将旧函数完全移除。</p>
+<ul>
+<li><strong>搬移字段(MoveField)</strong></li>
+</ul>
+<p>你的程序中，某个字段被其所驻类之外的另一个类更多地用到。在目标类新建一个字段，修改源字段的所有用户，令它们改用新字段。</p>
+<ul>
+<li><strong>提炼类(Extract Class)</strong></li>
+</ul>
+<p>某个类做了应该有两个类做的事。建立一个新类，将相关的字段和函数从旧类搬移到新类。</p>
+<ul>
+<li><strong>将类内联化(Inline Class)</strong></li>
+</ul>
+<p>某个类没有做太多事情。将这个类的所有特性搬移到另一个类中，然后移除原类。</p>
+<ul>
+<li><strong>隐藏“委托关系”(Hide Delegate)</strong></li>
+</ul>
+<p>客户通过一个委托来调用另一个对象。在服务类上建立客户所需的所有函数，用以隐藏委托关系。</p>
+<ul>
+<li><strong>移除中间人(Remove Middle Man)</strong></li>
+</ul>
+<p>某个类做了过多的简单委托动作。让客户直接调用受托类。</p>
+<ul>
+<li><strong>引入外加函数(Introduce ForeignMethod)</strong></li>
+</ul>
+<p>你需要为提供服务的类增加一个函数，但你无法修改这个类。在客户类中建立一个函数，并以第一参数形式传入一个服务类实例。</p>
+<ul>
+<li><strong>引入本地扩展(Introduce LocalExtension)</strong></li>
+</ul>
+<p>你需要为服务类提供一些额外函数，但你无法修改这个类。建立一个新类，使它包含这些额外函数。让这个扩展品成为源类的子类或包装类。</p>
+<h1 id="重新组织数据"><a href="#重新组织数据" class="headerlink" title="重新组织数据"></a>重新组织数据</h1><ul>
+<li><strong>自封装字段(Self Encapsulate Field)</strong></li>
+</ul>
+<p>你直接访问一个字段，但与字段之间的耦合关系逐渐变得笨拙。为这个字段建立取值/设值函数，并且只以这些函数来访问字段。</p>
+<ul>
+<li><strong>以对象取代数据值(Replace Data Value withObject)</strong></li>
+</ul>
+<p>你有一个数据项，需要与其他数据和行为一起使用才有意义。将数据项变成对象。</p>
+<ul>
+<li><strong>将值对象改为引用对象(Change Value toReference)</strong></li>
+</ul>
+<p>你从一个类衍生出许多彼此相等的实例，希望将它们替换为同一个对象。将这个值对象变成引用对象。</p>
+<ul>
+<li><strong>将引用对象改为值对象(Change Reference to Value)</strong></li>
+</ul>
+<p>你有一个引用对象，很小且不可变，而且不易管理。将它变成一个值对象。</p>
+<ul>
+<li><strong>以对象取代数据(Replace Array withObject)</strong></li>
+</ul>
+<p>你有一个数组，其中的元素各自代表不同的东西。以对象替换数组，对于数组中的每个元素，以一个字段来表示。</p>
+<ul>
+<li><strong>复制“被监视数据”(Duplicate ObservedData)</strong></li>
+</ul>
+<p>你有一些领域数据置身GUI控件中，而领域函数需要访问这些数据。将该数据复制到一个领域对象中。建立一个Observe模式，用以同步领域对象和GUI对象内的重复数据。</p>
+<ul>
+<li><strong>将单向关联改为双向关联(Change Unidirectional Association toBidirectional)</strong></li>
+</ul>
+<p>两个类都需要使用对方特性，但其间只有一条单向链接。添加一个反向指针，并使修改函数能够同时更新两条链接。</p>
+<ul>
+<li><strong>将双向关联改为单向关联(Change Bidirectional Association toUnidirectional)</strong></li>
+</ul>
+<p>两个类之间有双向关联，但其中一个类如今不再需要另一个类的特性。去除不必要的关联。</p>
+<ul>
+<li><strong>以字面常量取代魔法数(Replace Magic Number with SymbolicConstant)</strong></li>
+</ul>
+<p>你有一个字面数值，带有特别含义。创造一个常量，根据其意义为它命名，并将上述的字面数值替换为这个常量。</p>
+<ul>
+<li><strong>封装字段(Encapsulate Field)</strong></li>
+</ul>
+<p>你的类中存在一个public字段。将它声明为private，并提供相应的访问函数。</p>
+<ul>
+<li><strong>封装集合(EncapsulateCollection)</strong></li>
+</ul>
+<p>有个函数返回一个集合。让这个函数返回该集合的一个只读副本，并在这个类中提供添加/移除集合元素的函数。</p>
+<ul>
+<li><strong>以数据类取代记录(Replace Record with Data Class)</strong></li>
+</ul>
+<p>你需要面对传统编程环境中的记录结构。为该记录创建一个“哑”数据对象。</p>
+<ul>
+<li><strong>以类取代类型码(Replace Type Code withClass)</strong></li>
+</ul>
+<p>类之中有一个数值类行码，但它并不影响类的行为。以一个新的类替换该数值类型码。</p>
+<ul>
+<li><strong>以子类取代类型码(Replace Type Code withSubclass)</strong></li>
+</ul>
+<p>你有一个不可变的类型码，它会影响类的行为。以子类取代这个类型码。</p>
+<ul>
+<li><strong>以State/Strategy取代类型码(Replace Type Code withState/Strategy)</strong></li>
+</ul>
+<p>你有一个类型码，它会影响类的行为，但你无法通过继承手法消除它。以状态对象取代类型码。</p>
+<ul>
+<li><strong>以字段取代子类(Replace Subclass withFields)</strong></li>
+</ul>
+<p>你的各个子类的唯一差别只在“返回常量数据”的函数身上。修改这些函数，使他么返回超类中的某个(新增)字段，然后销毁子类。</p>
+<h1 id="简化条件表达式"><a href="#简化条件表达式" class="headerlink" title="简化条件表达式"></a>简化条件表达式</h1><ul>
+<li><strong>分解条件表达式(DecomposeConditional)</strong></li>
+</ul>
+<p>你有一个复杂的条件(if-then-else)语句。从if、then、else三分段落中分别提炼出独立函数。</p>
+<ul>
+<li><strong>合并条件表达式(Consolidate ConditionalExpression)</strong></li>
+</ul>
+<p>你有一系列条件测试，都得到相同结果。将这些测试合并为一个条件表达式，并将这个条件表达式提炼成为一个独立函数。</p>
+<ul>
+<li><strong>合并重复的条件片段(Consolidate Duplicate ConditionalFragments)</strong></li>
+</ul>
+<p>在条件表达式的每个分支上有着相同的一段代码。将这段重复的代码搬移到条件表达式之外。</p>
+<ul>
+<li><strong>移除控制标记(Remove ControlFlag)</strong></li>
+</ul>
+<p>在一系列布尔表达式中，某个变量带有“控制标记”的作用。以break语句或return语句取代控制标记。</p>
+<ul>
+<li><strong>以卫语句取代嵌套条件表达式(Replace nested Conditional with GuardClauses)</strong></li>
+</ul>
+<p>函数中的条件逻辑使人难以看清正常的执行路径。使用卫语句表现所有的特殊情况。</p>
+<ul>
+<li><strong>以多态取代条件表达式(Replace Conditional withPolymorphism)</strong></li>
+</ul>
+<p>你手上有个条件表达式，它根据对象类型的不同选择不同的行为。将这个条件表达式的每个分支放进一个子类内的覆写函数中，然后将原始函数声明为抽象函数。</p>
+<ul>
+<li><strong>引入Null对象(Introduce Null Object)</strong></li>
+</ul>
+<p>你需要再三检查某对象是否为null。将null值替换为null对象。</p>
+<ul>
+<li><strong>引入断言(Introduce Assertion)</strong></li>
+</ul>
+<p>某一段代码需要对程序状态做出某种假设。以断言明确表现这种假设。</p>
+<h1 id="简化条件表达式-1"><a href="#简化条件表达式-1" class="headerlink" title="简化条件表达式"></a>简化条件表达式</h1><ul>
+<li><strong>函数改名(Rename Method)</strong></li>
+</ul>
+<p>函数的名称未能揭示函数的用途。修改函数的名称。</p>
+<ul>
+<li><strong>添加参数(Add Parameter)</strong></li>
+</ul>
+<p>某个函数需要从调用端得到更多信息。为此函数添加一个对象参数，让该对象带进函数所需信息。</p>
+<ul>
+<li><strong>移除参数(Remove Parameter)</strong></li>
+</ul>
+<p>函数本体不再需要某个参数。将该参数去除。</p>
+<ul>
+<li><strong>将查询函数和修改函数分离(Separate Query from Modifier)</strong></li>
+</ul>
+<p>某个函数既返回对象状态值，又修改对象状态。建立两个不同的函数，其中一个负责查询，另一个负责修改。</p>
+<ul>
+<li><strong>令函数携带参数(ParameterizeMethod)</strong></li>
+</ul>
+<p>若干函数做了类似的工作，但在函数本体中却包含了不同的值。建立单一函数，以参数表达那些不同的值。</p>
+<ul>
+<li><strong>以明确函数取代参数(Replace Parameter with ExplicitMethods)</strong></li>
+</ul>
+<p>你有一个函数，其中完全取决于参数值而采取不同行为。针对该参数的每一个可能值，建立一个独立函数。</p>
+<ul>
+<li><strong>保持对象完整(Preserve WholeObject)</strong></li>
+</ul>
+<p>你从某个对象中取出若干值，将它们作为某一次函数调用时的参数。改为传递整个对象。</p>
+<ul>
+<li><strong>以函数取代参数(Replace Parameter withMethods)</strong></li>
+</ul>
+<p>对象调用某个函数，并将所得结果作为参数，传递给另一个函数。而接受该参数的函数本身也能够调用前一个函数。让参数接受者去除该项参数，并直接调用前一个函数。</p>
+<ul>
+<li><strong>引入参数对象(Introduce Parameter Object)</strong></li>
+</ul>
+<p>某些参数总是很自然地同时出现。以一个对象取代这些参数。</p>
+<ul>
+<li><strong>移除设值函数(Remove Setting Method)</strong></li>
+</ul>
+<p>类中的某个字段应该在对象创建时被设值，然后就不再改变。去掉该字段的所有设值函数。</p>
+<ul>
+<li><strong>隐藏函数(Hide Method)</strong></li>
+</ul>
+<p>有一个函数，从来没有被其他任何类用到。将这个函数修改为private。</p>
+<ul>
+<li><strong>以工厂函数取代构造函数(Replace Constructor with FactoryMethod)</strong></li>
+</ul>
+<p>你希望在创建对象时不仅仅是做简单的构建动作。将构建函数替换为工厂函数。</p>
+<ul>
+<li><strong>封装向下转型(Encapsulate Downcast)</strong></li>
+</ul>
+<p>某个函数返回的对象，需要由函数调用者执行向下转型。将向下转型动作移到函数中。</p>
+<ul>
+<li><strong>以异常取代错误码(Replace Error Code withException)</strong></li>
+</ul>
+<p>某个函数返回一个特定的代码，用以表示某种错误情况。改用异常。</p>
+<ul>
+<li><strong>以测试取代异常(Replace Exception withTest)</strong></li>
+</ul>
+<p>面对一个调用者可以预先检查的条件，你抛出了一个异常。修改调用者，使它在调用函数之前先做检查。</p>
+<h1 id="处理概括关系"><a href="#处理概括关系" class="headerlink" title="处理概括关系"></a>处理概括关系</h1><ul>
+<li><strong>字段上移(Pull Up Field)</strong></li>
+</ul>
+<p>两个子类拥有相同的字段。将该字段移至超类。</p>
+<ul>
+<li><strong>函数上移(Pull Up Method)</strong></li>
+</ul>
+<p>有些函数，在各个子类中产生完全相同的结果。将该函数移至超类。</p>
+<ul>
+<li><strong>构造函数本体上移(Pull Up ConstructorBody)</strong></li>
+</ul>
+<p>你在各个子类中拥有一些构造函数，他们的本体几乎完全一致。在超类中新建一个构造函数，并在子类构造函数中调用它。</p>
+<ul>
+<li><strong>函数下移(Push Down Method)</strong></li>
+</ul>
+<p>超类中的某个函数只与部分(而非全部)子类有关。将这个函数移到相关的那些子类去。</p>
+<ul>
+<li><strong>字段下移(Push Down Field)</strong></li>
+</ul>
+<p>超类中的某个字段只被部分(而非全部)子类用到。将这个字段移到需要它的那些子类去。</p>
+<ul>
+<li><strong>提炼子类(ExtractSubclass)</strong></li>
+</ul>
+<p>类中的某些特性只被某些(而非全部)实例用到。新建一个子类，将上面所说的那一部分特性移到子类中。</p>
+<ul>
+<li><strong>提炼超类(Extract Superclass)</strong></li>
+</ul>
+<p>两个类有相似特性。为这两个类建立一个超类，将相同特性移至超类。</p>
+<ul>
+<li><strong>提炼接口(ExtractInterface)</strong></li>
+</ul>
+<p>若干客户使用类接口中的同一子集，或者两个类的接口有部分相同。将相同的子集提炼到一个独立接口中。</p>
+<ul>
+<li><strong>折叠继承体系(Collapse Hierarchy)</strong></li>
+</ul>
+<p>超类和子类之间无太大差别。将它们合为一体。</p>
+<ul>
+<li><strong>塑造模板函数(Form TemPlateMethod)</strong></li>
+</ul>
+<p>你有一些子类，其中相应的某些函数以相同顺序执行类似的操作，但各个操作的细节上所有不同。将这些操作分别放进独立函数中，并保持它们都有相同的签名，于是原函数也就变得相同了。然后将原函数上移至超类。</p>
+<ul>
+<li><strong>以委托取代继承(Replace Inheritance withDelegation)</strong></li>
+</ul>
+<p>某个子类只使用超类接口中的一部分，或是根本不需要继承而来的数据。在子类中新建一个字段用以保存超类；调整子类函数令它改而委托超类；然后去掉两者之间的继承关系。</p>
+<ul>
+<li><strong>以继承取代委托(Replace Delegation withInheritance)</strong></li>
+</ul>
+<p>你在两个类之间使用委托关系，并经常为整个接口编写许多极简单的委托函数。让委托类来继承受托类。</p>
+<h1 id="大型重构"><a href="#大型重构" class="headerlink" title="大型重构"></a>大型重构</h1><ul>
+<li><strong>梳理并分解继承体系(Tease ApartInheritance)</strong></li>
+</ul>
+<p>某个继承体系同时承担两项责任。建立两个继承体系，并通过委托关系让其中一个可以调用另一个。</p>
+<ul>
+<li><strong>将过程化设计转化为对象设计(Convert Procedural Design toObjects)</strong></li>
+</ul>
+<p>你手上有一些传统过程化风格的代码。将数据记录变成对象，将大块的行为分成小块，并将行为移入相关对象之中。</p>
+<ul>
+<li><strong>将领域和表述/显示分离(Separate Domain fromPresentation)</strong></li>
+</ul>
+<p>某些GUI类之中包含了领域逻辑。将领域逻辑分离出来，为它们建立独立的领域类。</p>
+<ul>
+<li><strong>提炼继承体系(ExtractHierarchy)</strong></li>
+</ul>
+<p>你有某各类做了太多工作，其中一部分工作是以大量条件表达式完成的。建立继承体系，以一个子类表示一种特殊情况。</p>
 
       
 
@@ -238,7 +611,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术点滴</a>
         		</li>
       		
 		</ul>
@@ -294,7 +667,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://octocat9lee.github.io/2017/12/13/C-Primer5e第11章：关联容器/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://octocat9lee.github.io/2018/09/20/重构-改善既有代码的设计/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -308,18 +681,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2017/12/14/C-Primer5e第12章：动态内存/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          C++Primer5e第12章：动态内存
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/12/12/C-Primer5e第10章：泛型算法/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">C++Primer5e第10章：泛型算法</div>
+    <a href="/2018/09/19/UNIX编程艺术/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">UNIX编程艺术</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -346,7 +710,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#使用关联容器"><span class="toc-number">1.</span> <span class="toc-text">使用关联容器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#关联容器概述"><span class="toc-number">2.</span> <span class="toc-text">关联容器概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#关键字类型要求"><span class="toc-number">2.1.</span> <span class="toc-text">关键字类型要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pair类型"><span class="toc-number">2.2.</span> <span class="toc-text">pair类型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#关联容器操作"><span class="toc-number">3.</span> <span class="toc-text">关联容器操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#关联容器迭代器"><span class="toc-number">3.1.</span> <span class="toc-text">关联容器迭代器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加元素"><span class="toc-number">3.2.</span> <span class="toc-text">添加元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除元素"><span class="toc-number">3.3.</span> <span class="toc-text">删除元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#map的下标操作"><span class="toc-number">3.4.</span> <span class="toc-text">map的下标操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#访问元素"><span class="toc-number">3.5.</span> <span class="toc-text">访问元素</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#无序容器"><span class="toc-number">4.</span> <span class="toc-text">无序容器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#管理桶"><span class="toc-number">4.1.</span> <span class="toc-text">管理桶</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#无序容器对关键字类型的要求"><span class="toc-number">4.2.</span> <span class="toc-text">无序容器对关键字类型的要求</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#何谓重构？"><span class="toc-number">1.</span> <span class="toc-text">何谓重构？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#重构的定义"><span class="toc-number">1.1.</span> <span class="toc-text">重构的定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#两顶帽子"><span class="toc-number">1.2.</span> <span class="toc-text">两顶帽子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重构目的"><span class="toc-number">1.3.</span> <span class="toc-text">重构目的</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#为何重构？"><span class="toc-number">2.</span> <span class="toc-text">为何重构？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#何时重构？"><span class="toc-number">3.</span> <span class="toc-text">何时重构？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#重构的难题"><span class="toc-number">4.</span> <span class="toc-text">重构的难题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#何时不该重构？"><span class="toc-number">4.1.</span> <span class="toc-text">何时不该重构？</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码的坏味道"><span class="toc-number">5.</span> <span class="toc-text">代码的坏味道</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#构筑测试体系"><span class="toc-number">6.</span> <span class="toc-text">构筑测试体系</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#重新组织函数"><span class="toc-number">7.</span> <span class="toc-text">重新组织函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#在对象之间搬移特性"><span class="toc-number">8.</span> <span class="toc-text">在对象之间搬移特性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#重新组织数据"><span class="toc-number">9.</span> <span class="toc-text">重新组织数据</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#简化条件表达式"><span class="toc-number">10.</span> <span class="toc-text">简化条件表达式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#简化条件表达式-1"><span class="toc-number">11.</span> <span class="toc-text">简化条件表达式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#处理概括关系"><span class="toc-number">12.</span> <span class="toc-text">处理概括关系</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#大型重构"><span class="toc-number">13.</span> <span class="toc-text">大型重构</span></a></li></ol>
                     </div>
                 </span>
             </div>

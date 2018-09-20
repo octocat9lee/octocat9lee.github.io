@@ -171,6 +171,89 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-C-Primer5e第04章：表达式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/06/C-Primer5e第04章：表达式/">C++Primer5e第04章：表达式</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/06/C-Primer5e第04章：表达式/" class="archive-article-date">
+  	<time datetime="2017-12-06T07:21:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="左值和右值"><a href="#左值和右值" class="headerlink" title="左值和右值"></a>左值和右值</h2><p>左值可以位于赋值语句的左侧，右值则不能。<br>当一个对象被用作右值时，用的是对象的值(内容)；当对象用作左值时，用的是对象的身份(在内存中的位置)。<br>使用关键字decltype，左值和右值也有所不同，如果表达式的求值结果是左值，decltype会得到一个引用类型。假设p类型int<em>，因为解引用生成左值，所以decltype(</em>p)的结果是int&amp;。</p>
+<h2 id="求值顺序"><a href="#求值顺序" class="headerlink" title="求值顺序"></a>求值顺序</h2><p>优先级规定运算对象的组合方式，但没有说明运算符对象的求值顺序。在大多数情况下，不会明确指定求值顺序。例如，下面的表达式中，我们可以确定f1和f2一定会在乘法前调用，因为调用符优先级高于乘法，但我们无法知道f1和f2谁先调用。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = f1() * f2();</span><br></pre></td></tr></table></figure></p>
+<p>对于没有明确指定执行顺序的运算符来说，如果表达式指向并修改了同一个对象，将导致未定义行为。例如：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="string">" "</span> &lt;&lt; ++i &lt;&lt; <span class="built_in">endl</span>; <span class="comment">//未定义的</span></span><br><span class="line"><span class="comment">//将单词改成大写形式</span></span><br><span class="line"><span class="keyword">while</span>(beg != s.end() &amp;&amp; !<span class="built_in">isspace</span>(*beg))</span><br><span class="line">&#123;</span><br><span class="line">    *beg = <span class="built_in">toupper</span>(*beg++); <span class="comment">//该赋值语句未定义</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>编译器可能先求++i的值，再求i的值，因此输出结果是1 1；也可能先求i的值再求++i的值，输出结果是0 1，甚至编译器还可能做完全不同的操作。在单词程序中，编译器可能按照下面的任意一种方式处理表达式，也可能采用别的方式处理它。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">*beg = <span class="built_in">toupper</span>(*beg);       <span class="comment">//如果先求左侧的值</span></span><br><span class="line">*(beg + <span class="number">1</span>) = <span class="built_in">toupper</span>(*beg); <span class="comment">//如果先求右侧的值</span></span><br></pre></td></tr></table></figure></p>
+<p>明确规定了求值顺序的运算符：<strong>逻辑与(&amp;&amp;) 逻辑或(||) 条件运算(?:) 逗号(,)运算 </strong></p>
+<blockquote>
+<p>处理复合表达式原则<br>1）使用括号强制让表达式的组合关系符合逻辑要求<br>2）如果改变了某个运算对象的值，在表达式的其他地方不要再使用这个运算对象<br>规则2的例外，当改变对象的子表达式本身就是另外一个子表达式的运算对象时，该规则无效。比如常用的用法*++iter，因为递增运算必须先求值，然后才轮到解引用。</p>
+</blockquote>
+        
+          <a class="article-more-a" href="/2017/12/06/C-Primer5e第04章：表达式/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/06/C-Primer5e第04章：表达式/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-C-Primer5e第03章：字符串、向量和数组" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -894,84 +977,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-CSAPP之优化程序性能" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/03/CSAPP之优化程序性能/">CSAPP之优化程序性能</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/03/CSAPP之优化程序性能/" class="archive-article-date">
-  	<time datetime="2017-11-03T02:31:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>程序性能优化最重要的原则是在<code>保证程序正确性</code>的基础上，使用多种手段，反复尝试分析，有时甚至需要查看底层对应的汇编代码，从而找出性能的瓶颈，进行合理的优化。另外，我们需要注意的是在性能重要的环境中反复执行的代码，进行优化是合适的。为了提升程序的性能，我们做了大量的修改优化，但仍然要保持代码的简洁和可读性。如果我们盲目执行对低级别的优化，往往会降低程序的可读性，使得程序难以扩展和维护。因此，我们需要在<code>程序实现和维护的简单性与它们的运行速度</code>之间做出权衡。在性能优化过程中，我们经常遇到<code>很小的改动但产生性能巨大的差异，有时一些很有希望的技术却被证明无效</code>的场景，这是因为性能依赖于处理器许多特性的设计，而我们却所知甚少，因此，性能的优化往往是比较困难的，需要我们有足够的经验，采用各种综合手段去分析，挖掘性能的瓶颈。</p>
-<h1 id="优化方法"><a href="#优化方法" class="headerlink" title="优化方法"></a>优化方法</h1><h2 id="熟悉编译器优化选项"><a href="#熟悉编译器优化选项" class="headerlink" title="熟悉编译器优化选项"></a>熟悉编译器优化选项</h2><p>在大多数情况下，我们都是使用高级的程序语言，需要通过编译器将源码转变成机器识别执行的机器程序。因此，我们需要对使用的编译器的优化选项有大致的了解，其中<a href="https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html" target="_blank" rel="noopener">gcc optimize options</a>编译优化选项在其使用手册文档中有详细说明。因为编译器优化能力的局限性和安全性，导致很多情形下编译器很无法执行理想的优化，因此，需要程序员编写编译器容易优化的代码，帮助编译器显式执行优化。</p>
-<h2 id="消除循环低效率"><a href="#消除循环低效率" class="headerlink" title="消除循环低效率"></a>消除循环低效率</h2><p>在循环过程中，重复计算没有改变的量应该使用局部变量进行保存，减少不必要的重复计算。例如，CSAPP作者举例的<code>将字符串由小写转成成大小</code>的示例中，在每次循环中求取保持不变的字符串长度量，导致函数的运行时间为二次方。如果使用局部变量保存长度，函数的时间开销为线性。作者特别提到，编程中更常见的问题是<code>一个无足轻重的代码隐藏着渐进的低效率</code>，使得当问题的规模较小时，根本无法发现问题。因此我们作为一名有经验合格的程序员应该竭力避免引入这种<code>渐进低效率</code>的问题。<br>
-        
-          <a class="article-more-a" href="/2017/11/03/CSAPP之优化程序性能/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">CSAPP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/03/CSAPP之优化程序性能/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
@@ -1084,11 +1089,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
+                <a href="javascript:void(0)" class="js-tag color5">技术点滴</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术点滴</a>
+                <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1096,15 +1101,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">家庭教育</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">STEAM</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color5">家庭教育</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1112,7 +1117,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
             
             <div class="clearfix"></div>
