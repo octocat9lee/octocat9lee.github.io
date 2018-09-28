@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://octocat9lee.github.io/"/>
-  <updated>2018-09-20T08:56:34.410Z</updated>
+  <updated>2018-09-28T08:47:55.155Z</updated>
   <id>https://octocat9lee.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>写作的层次</title>
+    <link href="https://octocat9lee.github.io/2018/09/28/%E5%86%99%E4%BD%9C%E7%9A%84%E5%B1%82%E6%AC%A1/"/>
+    <id>https://octocat9lee.github.io/2018/09/28/写作的层次/</id>
+    <published>2018-09-28T08:38:30.000Z</published>
+    <updated>2018-09-28T08:47:55.155Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="描写"><a href="#描写" class="headerlink" title="描写"></a>描写</h1><p>你要学会描述一件东西，一个人，一只动物，一件事情，或者别的。你就把它说出来就行，不需要增加、减少任何东西。这个步骤，就像学画画一样，最开始是学习素描，我们也可以叫它“文字素描”。一个笨办法但是也是最有效的办法，你去写某个东西的说明书，比如一台电视机。用你的语言把那个原装说明书表达出来。然后，把你写的说明书，交给别人去看，看他能不能根据你的说明书，操作这台电视机。如果他说：“哎呀这个电视机我本来就会操作，你这个写的不对，这儿那儿错了。”那你还得继续改，直到别人说“嗯，电视机就是这样操作的”。</p><a id="more"></a><h1 id="情感"><a href="#情感" class="headerlink" title="情感"></a>情感</h1><p>你现在学会描述一个东西了，接下来描述一下你的感情。不要隐瞒自己，有什么感觉写什么感觉。拿一个你很喜欢的、有特点的东西，比如说你的游戏机、玩具、宠物，去找你的小伙伴，告诉他你对这个东西有什么感觉。如果他说他也是这么认为的，并且愿意跟你一起玩，说明你的情感引起了他的“共鸣”，你就学会了如何用文字表达情感。如果没有，你就还得练。</p><h1 id="阅历"><a href="#阅历" class="headerlink" title="阅历"></a>阅历</h1><p>你现在会描写你遇到某个东西的时候的感情了，接下来需要描写一些复杂的事情，比如通过一个学期的努力，成绩排名上升了很多位，你的感受、遭遇。比方说，你自己努力提高了5位的排名，你刚开始感觉到付出终于有回报了，你很高兴，但是回到家，父母却说才5位，太少了，没拿到年级第一都是失败，你又很沮丧。这种经历你没有体验过，你是没办法讲出来的。但是你今天体验过一次了，以后就可以挪到很多很多别的事情上面去用。这一层次是没有参照的，你要把你的阅历，放到网上去，大胆的写，然后看别人的评论。到这个阶段会有很多人恶毒的攻击你，胡搅蛮缠，不要去搭理这种人，捡有道理的看。</p><h1 id="眼界"><a href="#眼界" class="headerlink" title="眼界"></a>眼界</h1><p>当你开始接触真实的社会，走出叛逆期，理解原谅你的父母，看到更广博的世界。你开始了解，人与人是有很大不同的，你的感受、遭遇，是在特定情况下的特定反应，并不能推广到每一个人。你就需要去感受别人的感受，理解别人的遭遇，并且写下来。</p><h1 id="爱"><a href="#爱" class="headerlink" title="爱"></a>爱</h1><p>你会在现实里头破血流、遍体鳞伤，你会被背叛、欺骗、伤害、欺压、折磨，你会愤怒、失望、伤心、颓丧，你会感受到孤独、寂寞、愤恨、绝望、消沉，也有可能你已经忘了你的文学梦了。经历过这一切，如果你还对这个世界、他人、人性、未来，抱有真实的爱，你就通关了。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;描写&quot;&gt;&lt;a href=&quot;#描写&quot; class=&quot;headerlink&quot; title=&quot;描写&quot;&gt;&lt;/a&gt;描写&lt;/h1&gt;&lt;p&gt;你要学会描述一件东西，一个人，一只动物，一件事情，或者别的。你就把它说出来就行，不需要增加、减少任何东西。这个步骤，就像学画画一样，最开始是学习素描，我们也可以叫它“文字素描”。一个笨办法但是也是最有效的办法，你去写某个东西的说明书，比如一台电视机。用你的语言把那个原装说明书表达出来。然后，把你写的说明书，交给别人去看，看他能不能根据你的说明书，操作这台电视机。如果他说：“哎呀这个电视机我本来就会操作，你这个写的不对，这儿那儿错了。”那你还得继续改，直到别人说“嗯，电视机就是这样操作的”。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="家庭教育" scheme="https://octocat9lee.github.io/tags/%E5%AE%B6%E5%BA%AD%E6%95%99%E8%82%B2/"/>
+    
+  </entry>
   
   <entry>
     <title>重构-改善既有代码的设计</title>
@@ -433,31 +453,6 @@
       &lt;p&gt;模板是C++中泛型编程的基础。一个模板就是一个创建类或函数的蓝图或者说公式。&lt;/p&gt;
 &lt;h1 id=&quot;定义模板&quot;&gt;&lt;a href=&quot;#定义模板&quot; class=&quot;headerlink&quot; title=&quot;定义模板&quot;&gt;&lt;/a&gt;定义模板&lt;/h1&gt;&lt;h2 id=&quot;函数模板&quot;&gt;&lt;a href=&quot;#函数模板&quot; class=&quot;headerlink&quot; title=&quot;函数模板&quot;&gt;&lt;/a&gt;函数模板&lt;/h2&gt;&lt;p&gt;除了定义类型参数，还可以在模板中定义&lt;code&gt;非类型参数(nontype parameter)&lt;/code&gt;。一个非类型参数表示一个值而非一个类型。我们通过特定的类型名而非关键字class或typename来指定非类型参数。&lt;br&gt;当一个模板被实例化时，非类型参数被一个用户提供的或编译器推断出的值所代替。这些值必须是常量表达式，从而允许编译器在编译时实例化模板。非类型参数可以是一个整型，或者是一个指向对象或函数类型的指针或引用。&lt;br&gt;比较不同长度的字符串字面常量，因此为模板定义了两个非类型的参数，分别表示数组的长度：&lt;br&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;template&lt;/span&gt;&amp;lt;&lt;span class=&quot;keyword&quot;&gt;unsigned&lt;/span&gt; N, &lt;span class=&quot;keyword&quot;&gt;unsigned&lt;/span&gt; M&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;int compare(const char (&amp;amp;p1)[N], const char (&amp;amp;p2)[M])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;strcmp&lt;/span&gt;(p1, p2);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;compare(&lt;span class=&quot;string&quot;&gt;&quot;hi&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;mom&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//编译器会实例化出如下版本&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;int compare(const char (&amp;amp;p1)[3], const char (&amp;amp;p2)[4])&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;模板程序应该尽量减少对实参类型的要求&lt;/strong&gt;&lt;br&gt;当编译器遇到一个模板定义时，它并不生成代码。只有当我们实例化出模板的一个特定版本时，编译器才会生成代码。因此大多数编译错误在实例化期间报告。&lt;br&gt;&lt;strong&gt;模板的头文件通常既包括声明也包括定义&lt;/strong&gt;&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="C++" scheme="https://octocat9lee.github.io/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C++Primer5e第15章：面向对象程序设计</title>
-    <link href="https://octocat9lee.github.io/2017/12/27/C-Primer5e%E7%AC%AC15%E7%AB%A0%EF%BC%9A%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
-    <id>https://octocat9lee.github.io/2017/12/27/C-Primer5e第15章：面向对象程序设计/</id>
-    <published>2017-12-27T05:19:24.000Z</published>
-    <updated>2018-08-31T01:34:09.983Z</updated>
-    
-    <content type="html"><![CDATA[<p>面向对象程序设计基于三个基本概念：<code>数据抽象、继承和动态绑定</code>。通过数据抽象，可以将类的接口与实现分离；使用继承，可以定义相似的类型并对其相似关系建模；使用动态绑定，可以在一定程度上忽略相似类型的区别，从而以统一的方式使用它们的对象。</p><h1 id="定义基类和派生类"><a href="#定义基类和派生类" class="headerlink" title="定义基类和派生类"></a>定义基类和派生类</h1><h2 id="定义基类"><a href="#定义基类" class="headerlink" title="定义基类"></a>定义基类</h2><p>在C++语言中，当我们使用基类的引用或者指针调用一个虚函数时将发生动态绑定，即在运行时选择函数的版本。<br><code>基类通常都应该定义一个虚析构函数，即使该函数不执行任何实际操作也是如此</code>。因为在C++中，当派生类对象经由一个基类对象指针被删除，而该基类带有一个非虚析构函数，那么基类成分将被销毁，而派生类对象的析构函数未被执行，从而造成“局部销毁”对象。<br><strong>是否应该声明virtual析构函数的原则：</strong></p><blockquote><p>如果类带有任何virtual函数，它就应该拥有一个virtual析构函数<br>如果类设计的目的不是作为基类使用，或者不是为了具备多态性，就不该声明virtual析构函数</p></blockquote><p>基类通过在其成员函数的声明语句之前加上关键字virtual使得该函数执行动态绑定。关键字virtual仅出现在声明处而不能用于类外部的函数定义。在基类中为virtual函数，则该函数在派生类中隐式地也是虚函数。<br><a id="more"></a></p><h2 id="定义派生类"><a href="#定义派生类" class="headerlink" title="定义派生类"></a>定义派生类</h2><p>C++11新标准允许派生类显式地注明它使用某个成员函数覆盖了它继承的虚函数，即在函数声明的最后添加一个关键字<code>override</code>。<br>编译器会隐式执行<code>派生类到基类的转换</code>，因此我么可以将基类的指针或引用绑定到派生类对象上，当我们使用基类的引用或指针时，实际上我们并不清楚该引用或者指针绑定的真实类型，该对象可能是基类的对象，也可能是派生类的对象。<br>每个类控制它自己的成员初始化过程。在继承类结构中，首先初始化基类的部分，然后按照声明的顺序依次初始化派生类的成员。<br>派生类对象不能直接初始化基类的成员，应该通过调用基类的构造函数来初始化那些从基类中继承而来的成员。<br>如果基类定义了一个静态成员，则整个继承体系中只存在该成员的唯一定义。<br>C++11新标准提供一种防止继承发生的方法：即在类名后跟一个关键字<code>final</code>。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NoDerived</span> <span class="title">final</span> &#123;</span> &#125;; <span class="comment">//NoDerived不能作为基类</span></span><br></pre></td></tr></table></figure></p><h2 id="类型转换与继承"><a href="#类型转换与继承" class="headerlink" title="类型转换与继承"></a>类型转换与继承</h2><p>表达式的静态类型在编译时总是已知的，是变量声明时的类型或表达式生成的类型；动态类型则是变量或表达式表示的内存中的对象的类型。动态类型直到运行时才可知。<br><strong>如果表达式既不是引用也不是指针，则它的动态类型永远与静态类型一致。</strong><br>如果在基类中有一个或多个虚函数，我们可以使用<code>dynamic_cast</code>请求一个类型转换，该转换的安全检查将在运行时执行。同样，如果我们已知某个基类向派生类的转换是安全的，则我们可以使用<code>static_cast</code>来强制覆盖掉编译器的检查工作。<br>当用派生类对象为一个基类对象初始化或者赋值时，只有该派生类对象中的基类部分会被拷贝、移动或赋值，它的派生类部分被切掉(slice down)。</p><h1 id="虚函数"><a href="#虚函数" class="headerlink" title="虚函数"></a>虚函数</h1><p>动态绑定只有当我们通过指针或者引用调用虚函数时才会发生。当我们通过普通类型(非指针非引用)的表达式调用虚函数时，在编译时就会将调用的版本确定下来。<br>在C++11新标准中我们可以使用override关键字来说明派生类中的虚函数，这样做的好处是让程序员的意图更加清晰，并且能够让编译器帮助我们发现错误。如果我们使用override标记了某个函数，但该函数并没有覆盖已存在的虚函数，此时编译器将报错。<br>当把某个函数指定为final，则之后任何尝试覆盖的操作都将引发错误。<br>override和final修饰符都位于形参列表(包括任何const或引用修饰符)以及尾置返回类型之后。</p><h2 id="虚函数与默认实参"><a href="#虚函数与默认实参" class="headerlink" title="虚函数与默认实参"></a>虚函数与默认实参</h2><p>如果虚函数中使用了默认实参，则基类和派生类中定义的默认实参最好一致，因为该实参的值由调用的静态类型决定。在通过基类的指针或引用调用函数时，则使用基类中定义的默认实参，即使实际运行的是派生类中的函数版本也是如此。此时，传入派生类函数的将是基类函数定义的默认实参。<br>如果一个派生类虚函数需要调用它的基类版本，但是没有使用作用域运算符，则在运行时该调用将被解析为对派生类版本自身的调用，从而导致无限递归。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//强行调用基类中定义的函数版本而不管baseP的动态类型</span></span><br><span class="line"><span class="keyword">double</span> undiscounted = baseP-&gt;Quote::net_price(<span class="number">42</span>);</span><br></pre></td></tr></table></figure></p><h1 id="抽象基类"><a href="#抽象基类" class="headerlink" title="抽象基类"></a>抽象基类</h1><p>纯虚函数清晰告诉用户当前函数是没有意义的，一个纯虚函数无须定义。<br>含有纯虚函数的类是抽象基类，抽象基类负责定义接口，而后续的其他类可以覆盖该接口。<br>不能创建抽象基类的对象。<br>派生类构造函数只初始化它的直接基类。</p><h1 id="继承中的类作用域"><a href="#继承中的类作用域" class="headerlink" title="继承中的类作用域"></a>继承中的类作用域</h1><p>当存在继承关系时，派生类的作用域嵌套在其基类作用域之内，如果一个名字在派生类的作用域内无法正确解析，则编译器将继续在外层的基类作用域中寻找该名字的定义。<br>派生类的成员将隐藏同名的基类成员，我们可以通过作用域运算符来使用隐藏的成员。<br><code>除了覆盖继承而来的虚函数之外，派生类最好不要重用其他定义在基类中的名字。</code></p><h1 id="构造函数与拷贝控制"><a href="#构造函数与拷贝控制" class="headerlink" title="构造函数与拷贝控制"></a>构造函数与拷贝控制</h1><p>如果构造函数或析构函数调用了某个虚函数，则我们应该执行与构造函数或析构函数所属类型相对应的虚函数的版本。<br>在C++11新标准中，派生类能够使用using声明直接重用其直接基类定义的构造函数。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Bulk_quote</span> :</span> <span class="keyword">public</span> Disc_quote &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">using</span> Disc_quote::Disc_quote; <span class="comment">// 继承Disc_quote的构造函数</span></span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">net_price</span><span class="params">(<span class="built_in">std</span>::<span class="keyword">size_t</span>)</span> <span class="keyword">const</span></span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p><p>using声明语句将令编译器产生代码，对于基类的每个构造函数，编译器都生成一个与之对应的形参列表完成相同的派生类构造函数。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;面向对象程序设计基于三个基本概念：&lt;code&gt;数据抽象、继承和动态绑定&lt;/code&gt;。通过数据抽象，可以将类的接口与实现分离；使用继承，可以定义相似的类型并对其相似关系建模；使用动态绑定，可以在一定程度上忽略相似类型的区别，从而以统一的方式使用它们的对象。&lt;/p&gt;
-&lt;h1 id=&quot;定义基类和派生类&quot;&gt;&lt;a href=&quot;#定义基类和派生类&quot; class=&quot;headerlink&quot; title=&quot;定义基类和派生类&quot;&gt;&lt;/a&gt;定义基类和派生类&lt;/h1&gt;&lt;h2 id=&quot;定义基类&quot;&gt;&lt;a href=&quot;#定义基类&quot; class=&quot;headerlink&quot; title=&quot;定义基类&quot;&gt;&lt;/a&gt;定义基类&lt;/h2&gt;&lt;p&gt;在C++语言中，当我们使用基类的引用或者指针调用一个虚函数时将发生动态绑定，即在运行时选择函数的版本。&lt;br&gt;&lt;code&gt;基类通常都应该定义一个虚析构函数，即使该函数不执行任何实际操作也是如此&lt;/code&gt;。因为在C++中，当派生类对象经由一个基类对象指针被删除，而该基类带有一个非虚析构函数，那么基类成分将被销毁，而派生类对象的析构函数未被执行，从而造成“局部销毁”对象。&lt;br&gt;&lt;strong&gt;是否应该声明virtual析构函数的原则：&lt;/strong&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;如果类带有任何virtual函数，它就应该拥有一个virtual析构函数&lt;br&gt;如果类设计的目的不是作为基类使用，或者不是为了具备多态性，就不该声明virtual析构函数&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;基类通过在其成员函数的声明语句之前加上关键字virtual使得该函数执行动态绑定。关键字virtual仅出现在声明处而不能用于类外部的函数定义。在基类中为virtual函数，则该函数在派生类中隐式地也是虚函数。&lt;br&gt;
     
     </summary>
     
