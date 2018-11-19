@@ -26,11 +26,11 @@ cmp指令使用`目的操作数-源操作数`，test指令使用`目的操作数
 ## 栈示意图
 在一个函数栈帧中，首先将被调用者保存寄存器中的值入栈，因为在被调用函数中，会使用上述寄存器，因此需要保存，并在函数返回时，`按照与入栈相反顺序重新出栈`；然后再保存函数中局部变量；最后，如果调用函数的参数多于6个，还需要按照从右至左顺序构造调用函数剩余的参数，栈示意图如下图所示。
 <center>
-![avatar](http://oyh38rhr2.bkt.clouddn.com/github/171028/dcm2AfeBgc.png)
+![avatar](https://github.com/octocat9lee/blog-images/raw/master/dcm2AfeBgc.png)
 </center>
 ## gdb基本调试命令
 <center>
-![avatar](http://oyh38rhr2.bkt.clouddn.com/gdb.jpg)
+![avatar](https://github.com/octocat9lee/blog-images/raw/master/gdb.jpg)
 </center>
 在gdb调式过程中，可以使用`help`命令查看对应的帮助信息，例如`help x`查看`x`命令的使用方式。
 

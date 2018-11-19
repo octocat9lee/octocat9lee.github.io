@@ -21,30 +21,30 @@ CPU发送完读磁盘请求后，由相应的控制器完成磁盘与内存间�
 CPU访问寄存器需要一个时钟周期，SRAM需要几个时钟周期，DRAM需要几十到几百时钟周期。
 基本原则：上层缓存下层的一个块，每次传输时使用块作为单元，为了补偿访问时间，因此，在越远离CPU的层次时块的大小越大。存储器层次结构如下图所示：
 <!--more-->
-<center>![avatar](http://oyh38rhr2.bkt.clouddn.com/github/171107/giLDl9lIHa.jpg)</center>
+<center>![avatar](https://github.com/octocat9lee/blog-images/raw/master/giLDl9lIHa.jpg)</center>
 
 # 高速缓存存储器
 ## 直接映射高速缓存
 直接映射表示每个组只有一行，替换策略就是使用新行替换当前行。如果块被映射到相同的高速缓存组中，将发生抖动，导致程序速度下降。修正抖动问题的一个方法就是填充多余数据，使访问的数据映射到不同的高速缓存组中。
 使用中间位作为索引值，可以将连续的内存映射到不同的高速缓存组中，高速缓存能够存放整个大小为C的数组，C为高速缓存容量的大小。如果使用高位作为索引，高速缓存仅能够保存一个块的大小。这是因为如果使用高位作为索引，连续的内存块会映射到相同的高速缓存块中。
-<center>![avatar](http://oyh38rhr2.bkt.clouddn.com/github/171107/Lb0lJEFFi9.jpg)</center>
+<center>![avatar](https://github.com/octocat9lee/blog-images/raw/master/Lb0lJEFFi9.jpg)</center>
 
 ## 直接映射地址解析示例
-<center>![avatar](http://oyh38rhr2.bkt.clouddn.com/github/171108/053gdgCkHG.jpg)</center>
+<center>![avatar](https://github.com/octocat9lee/blog-images/raw/master/053gdgCkHG.jpg)</center>
 
 ## 组相联高速缓存
 相对直接映射高速缓存，在每个组中有多行，匹配时，除了有效位校验外，需要将查找的地址与组中所有行的标记逐一匹配，若匹配则命中。替换策略有最近最少使用(LRU)和最不常使用(LFU)策略。
-<center>![avatar](http://oyh38rhr2.bkt.clouddn.com/github/171107/kjl7KBEdjc.jpg)</center>
+<center>![avatar](https://github.com/octocat9lee/blog-images/raw/master/kjl7KBEdjc.jpg)</center>
 
 ## 组相联地址解析示例
-<center>![avatar](http://oyh38rhr2.bkt.clouddn.com/github/171108/Bb7c9AK52h.jpg)</center>
+<center>![avatar](https://github.com/octocat9lee/blog-images/raw/master/Bb7c9AK52h.jpg)</center>
 
 ## 全相联高速缓存
 全相连高速缓存，一个组包含所有的行。因为只有一个组，所以没有组索引。地址只被划分为一个标记和块偏移。全相联需要与高速缓存中全部行逐一匹配标记，匹配规模较大，另外构造一个又快又大的全相联高速缓存很困难，而且昂贵。因此全相联的高速缓存只适合做小的缓存。
-<center>![avatar](http://oyh38rhr2.bkt.clouddn.com/github/171107/KFlEc4Fk20.png)</center>
+<center>![avatar](https://github.com/octocat9lee/blog-images/raw/master/KFlEc4Fk20.png)</center>
 
 ## 全相连地址解析示例
-<center>![avatar](http://oyh38rhr2.bkt.clouddn.com/github/171108/hk7I9ccic0.jpg)</center>
+<center>![avatar](https://github.com/octocat9lee/blog-images/raw/master/hk7I9ccic0.jpg)</center>
 
 # 编写高速缓存友好的代码
 高速缓存友好代码编写的基本方法：
@@ -54,7 +54,7 @@ CPU访问寄存器需要一个时钟周期，SRAM需要几个时钟周期，DRAM
 4）步长为1的引用模式是好的，因为存储器层次结构中都是将数据存储为连续的块(空间局部性)
 
 # 存储器山
-<center>![avatar](http://oyh38rhr2.bkt.clouddn.com/github/171108/bF4Alm4fcG.jpg)</center>
+<center>![avatar](https://github.com/octocat9lee/blog-images/raw/master/bF4Alm4fcG.jpg)</center>
 上图为Intel I7处理器的一个存储器山。图中左上角是CPU参数，表明三级高速缓存大小。在下图的存储器山中，X坐标轴`working set size`表明式工作集的大小，size的值越小，得到的工作集越小，时间局部性越好。Y坐标抽`Stride`表示步长大小，stride的值越小，空间局部性越好。Z坐标抽表示读吞吐量，数值越大越好。
 垂直于工作集大小的是四条山脊，分别对应于工作集完全在L1高速缓存，L2高速缓存，L3高速缓存和主存的时间局部性区域。从步长来看，步长越长，速度越慢。大步长的访问方法完全破坏了空间局部性，因此会造成访问速度下降。综合来看，读吞吐量与工作集和步长的有如下的特性:
 1）当步长很小，工作集很大时，访问速度也很高。这是因为空间局部性可以补救时间局部性，充分利用空间局部性，相同缓存块内的数据，只有第一个发生了miss，而在这次miss之后，后续的数据将hit

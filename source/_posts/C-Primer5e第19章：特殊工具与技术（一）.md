@@ -8,7 +8,7 @@ date: 2018-01-05 09:25:57
 # 内存管理
 内存管理的层级以及对应的特性如下：
 <center>
-![C++内存管理层级](http://oyh38rhr2.bkt.clouddn.com/C++%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E5%B1%82%E7%BA%A7.jpg)
+![C++内存管理层级](https://github.com/octocat9lee/blog-images/raw/master/C++%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E5%B1%82%E7%BA%A7.jpg)
 </center>
 我们在程序中经常使用的new和delete是C++标准中的表达式，有时也称为new运算符。但new与delete运算符和其他运算符最大的不同在于new和delete运算符不可以重载。
 各层次内存分配与释放方式的使用示例：

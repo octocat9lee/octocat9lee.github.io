@@ -18,7 +18,7 @@ date: 2017-11-28 15:33:47
 ## 页表
 页表就是一个页表条目(Page Table Entry,PTE)的数组。虚拟地址空间中的每个页在页表中一个固定的偏移量处都有一个PTE。每个PTE项包括一个有效位和一个n位地址字段。有效位表明该虚拟页当前是否被缓存在DRAM中，如果设置了有效位，那么地址字段就表示DRAM中相应的物理页的起始位置，这个物理页中缓存了该虚拟页。如果没有设置有效位，那么一个空地址表示这个虚拟页还未分配。否则，这个地址就指向该虚拟页在磁盘上的起始位置。为了控制内存系统的访问，PTE表项中添加一些额外的许可位来控制对一个虚拟页面内容的访问。如果指令违反了许可条件，那么CPU就触发一个一般保护故障，将控制传递给一个内核中的异常处理程序。Linux shell一般将这种异常报告为"段错误(segmentaion fault)"。PTE示意图如下：
 <center>
-![PTE示意图](http://oyh38rhr2.bkt.clouddn.com/github/171201/iialF2i0gB.jpg)
+![PTE示意图](https://github.com/octocat9lee/blog-images/raw/master/iialF2i0gB.jpg)
 </center>
 
 ## 局部性
@@ -34,12 +34,12 @@ date: 2017-11-28 15:33:47
 ## 隐式空闲链表
 分配器需要一个数据结构来区别块边界，以及区别已分配块和空闲块。大多数的分配器将这些信息嵌入块本身。一个块由4Byte的头部，有效载荷以及可选的额外填充组成。头部编码块的大小(包括头部和所有填充)以及这个块是已分配还是空闲的。如果强加一个8Byte的对齐约束，那么块大小总是8的倍数，因此块大小的最低3bit总是零。从而，块大小表示使用头部的高29bit，剩余的3bit来编码其他信息。在这种情况下，我们用其中最低位来指示块是已分配的还是空闲的。填充块用来满足对齐或者对付外部碎片。简单的堆块格式如下：
 <center>
-![堆块格式](http://oyh38rhr2.bkt.clouddn.com/github/171201/h1HkaAei2m.jpg)
+![堆块格式](https://github.com/octocat9lee/blog-images/raw/master/h1HkaAei2m.jpg)
 </center>
 
 将堆组织为一个连续的已分配块和空闲块的序列，这种结构称为`隐式空闲链表`。分配器可以通过遍历堆中所有的块，从而间接地遍历整个空闲块的集合。在该示例中，设置了已分配位而大小为零的终止头部的结束块。隐式链表结构如下图所示：
 <center>
-![隐式空闲链表](http://oyh38rhr2.bkt.clouddn.com/github/171201/DfkHEEEc1c.jpg)
+![隐式空闲链表](https://github.com/octocat9lee/blog-images/raw/master/DfkHEEEc1c.jpg)
 </center>
 
 隐式空闲链表的优点是简单，显著的缺点是任何操作的开销，例如放置分配的块，要对空闲链表进行搜索，该搜索所需时间与堆中已分配块和空闲块的总数呈线性关系。
@@ -51,13 +51,13 @@ date: 2017-11-28 15:33:47
 ## 分割空闲块
 分配器找到一个匹配的空闲块，接下来的决策就是分配这个空闲块中多少空间。一个选择是用整个空闲块，简单快捷，但缺点是造成内部碎片。另外就是将空闲块分割成两部分，第一部分变成分配块，而剩下的变成一个新的空闲块。下图展示从6个字节的空闲块中分配4个字节，剩余的2个字节变成新的空闲块:
 <center>
-![分割空闲块示意图](http://oyh38rhr2.bkt.clouddn.com/github/171201/fGEeBF716e.jpg)
+![分割空闲块示意图](https://github.com/octocat9lee/blog-images/raw/master/fGEeBF716e.jpg)
 </center>
 
 ## 释放内存
 释放内存仅仅需要清除堆块中头部的标志信息，具体过程如下所示：
 <center>
-![释放分配的内存块](http://oyh38rhr2.bkt.clouddn.com/github/171201/553mbd1lKg.jpg)
+![释放分配的内存块](https://github.com/octocat9lee/blog-images/raw/master/553mbd1lKg.jpg)
 </center>
 
 ## 获取额外的堆内存
@@ -69,12 +69,12 @@ date: 2017-11-28 15:33:47
 ## 带边界标记的合并
 合并下一个空闲块十分简单，因为当前块的头部指向下一个块的头部，通过判断下一个块的头部是否空闲，如果是，就将它的大小简单地加到当前块头部的大小上，这两个块在常数时间内被合并。合并当前块的下一个块如下所示：
 <center>
-![合并当前块的下一个块](http://oyh38rhr2.bkt.clouddn.com/github/171201/ei3dflDGDG.jpg)
+![合并当前块的下一个块](https://github.com/octocat9lee/blog-images/raw/master/ei3dflDGDG.jpg)
 </center>
 
 困难在于`如何合并当前块前面的块呢？`Knuth提出了一种聪明而通用的技术，叫做`边界标记(boundary tag)`，允许在常数时间内进行对前面块的合并。该思想在每个块的结尾处添加一个脚部(footer，边界标记)，其中脚部就是头部的一个副本。如果每个块包括这样一个脚部，那么分配器就可以通过它的脚部，判断前面一个块的起始位置和状态，因为脚部总是在距当前块开始位置4Byte的距离。使用边界标记的堆块格式如下所示：
 <center>
-![边界标记的堆块格式](http://oyh38rhr2.bkt.clouddn.com/github/171201/G7b927HG63.jpg)
+![边界标记的堆块格式](https://github.com/octocat9lee/blog-images/raw/master/G7b927HG63.jpg)
 </center>
 
 边界标记的概念简单优雅，对许多不同类型的分配器和空闲链表组织都是通用的。缺点就是要求每个块都保持一个头部和一个脚部，在应用程序操作许多小块时，会产生显著的内存开销。另外一种更聪明的边界标记优化方法，能够使得在已分配块中不再需要脚部。因为我们试图合并当前块以及前面的块和后面的块时，只有前面的块是空闲时，才会需要用它的脚部。如果我们把前面块的已分配/空闲位存放在当前块中多余的低位中，那么已分配的块就不需要脚部了，这样我们就可以将这个多出来的空间用作有效载荷了。不过注意，空闲块仍然需要脚部。当分配器释放当前块时包含如下四中情形：
@@ -85,9 +85,9 @@ case 4）前面的块和后面的块都空闲
 
 上述情形合并过程如下所示：
 <center>
-![空闲块合并过程](http://oyh38rhr2.bkt.clouddn.com/github/171201/a5k0hmfK9I.jpg)
+![空闲块合并过程](https://github.com/octocat9lee/blog-images/raw/master/a5k0hmfK9I.jpg)
 </center>
 
 # 参考资料
-[19-malloc-basic.pdf](http://oyh38rhr2.bkt.clouddn.com/19-malloc-basic.pdf)
-[20-malloc-advanced.pdf](http://oyh38rhr2.bkt.clouddn.com/20-malloc-advanced.pdf)
+[19-malloc-basic.pdf](https://github.com/octocat9lee/blog-images/raw/master/19-malloc-basic.pdf)
+[20-malloc-advanced.pdf](https://github.com/octocat9lee/blog-images/raw/master/20-malloc-advanced.pdf)

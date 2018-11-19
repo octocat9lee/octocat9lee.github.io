@@ -69,10 +69,10 @@ Markdown支持有序列表和无序列表，无序列表使用`+`或者`-`作为
 
 # 图片
 ## 默认位置
-![avatar](http://oyh38rhr2.bkt.clouddn.com/github_2.png)
+![avatar](https://github.com/octocat9lee/blog-images/raw/master/github_2.png)
 ## 图片居中
 <center>
-![avatar](http://oyh38rhr2.bkt.clouddn.com/github_2.png)
+![avatar](https://github.com/octocat9lee/blog-images/raw/master/github_2.png)
 </center>
 
 # 反馈与建议
