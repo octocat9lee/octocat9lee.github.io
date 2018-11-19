@@ -168,5 +168,8 @@
     <None Include="..\..\..\source\_posts\重构-改善既有代码的设计.md">
       <Filter>资源文件</Filter>
     </None>
+    <None Include="..\..\..\source\_posts\python小工具.md">
+      <Filter>资源文件</Filter>
+    </None>
   </ItemGroup>
 </Project>
