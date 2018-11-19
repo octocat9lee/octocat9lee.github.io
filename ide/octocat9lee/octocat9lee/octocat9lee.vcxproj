@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{5F8C6528-D629-461F-9765-23192499E7F0}</ProjectGuid>
+    <RootNamespace>octocat9lee</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="..\..\..\source\_posts\2017年读书计划.md" />
+    <None Include="..\..\..\source\_posts\C-Primer5e第02章：变量和基本类型.md" />
+    <None Include="..\..\..\source\_posts\C-Primer5e第03章：字符串、向量和数组.md" />
+    <None Include="..\..\..\source\_posts\C-Primer5e第04章：表达式.md" />
+    <None Include="..\..\..\source\_posts\C-Primer5e第05章：语句-md.md" />
+    <None Include="..\..\..\source\_posts\C-Primer5e第06章：函数.md" />
+    <None Include="..\..\..\source\_posts\C-Primer5e第07章：类.md" />
+    <None Include="..\..\..\source\_posts\C-Primer5e第08章：IO库.md" />
+    <None Include="..\..\..\source\_posts\C-Primer5e第09章：顺序容器.md" />
+    <None Include="..\..\..\source\_posts\C-Primer5e第10章：泛型算法.md" />
+    <None Include="..\..\..\source\_posts\C-Primer5e第11章：关联容器.md" />
+    <None Include="..\..\..\source\_posts\C-Primer5e第12章：动态内存.md" />
+    <None Include="..\..\..\source\_posts\C-Primer5e第13章：拷贝控制.md" />
+    <None Include="..\..\..\source\_posts\C-Primer5e第14章：重载运算与类型转换.md" />
+    <None Include="..\..\..\source\_posts\C-Primer5e第15章：面向对象程序设计.md" />
+    <None Include="..\..\..\source\_posts\C-Primer5e第16章：模板与泛型编程.md" />
+    <None Include="..\..\..\source\_posts\C-Primer5e第17章：标准库特殊设施.md" />
+    <None Include="..\..\..\source\_posts\C-Primer5e第18章：用于大型程序的工具.md" />
+    <None Include="..\..\..\source\_posts\C-Primer5e第19章：特殊工具与技术（一）.md" />
+    <None Include="..\..\..\source\_posts\C-Primer5e第19章：特殊工具与技术（二）.md" />
+    <None Include="..\..\..\source\_posts\cmake实践.md" />
+    <None Include="..\..\..\source\_posts\coredump.md" />
+    <None Include="..\..\..\source\_posts\CSAPP之Y86-64模拟器安装.md" />
+    <None Include="..\..\..\source\_posts\CSAPP之优化程序性能.md" />
+    <None Include="..\..\..\source\_posts\CSAPP之存储器层次结构.md" />
+    <None Include="..\..\..\source\_posts\CSAPP之异常控制流.md" />
+    <None Include="..\..\..\source\_posts\CSAPP之虚拟内存.md" />
+    <None Include="..\..\..\source\_posts\CSAPP之链接.md" />
+    <None Include="..\..\..\source\_posts\CSAPP实验之archlab.md" />
+    <None Include="..\..\..\source\_posts\CSAPP实验之BombLab.md" />
+    <None Include="..\..\..\source\_posts\GDB调试器使用总结.md" />
+    <None Include="..\..\..\source\_posts\Git操作指南.md" />
+    <None Include="..\..\..\source\_posts\grep.md" />
+    <None Include="..\..\..\source\_posts\Hexo-Github搭建博客.md" />
+    <None Include="..\..\..\source\_posts\Linux性能分析工具：ftrace.md" />
+    <None Include="..\..\..\source\_posts\Markdown基本语法.md" />
+    <None Include="..\..\..\source\_posts\Scratch基本操作篇.md" />
+    <None Include="..\..\..\source\_posts\UNIX编程艺术.md" />
+    <None Include="..\..\..\source\_posts\写作的层次.md" />
+    <None Include="..\..\..\source\_posts\可变参数模板.md" />
+    <None Include="..\..\..\source\_posts\家庭教育专栏-阅读整理一.md" />
+    <None Include="..\..\..\source\_posts\李玫瑾家庭教育视频文档整理.md" />
+    <None Include="..\..\..\source\_posts\李玫瑾教育讲座.md" />
+    <None Include="..\..\..\source\_posts\程序常用调试工具汇总.md" />
+    <None Include="..\..\..\source\_posts\经济学入门通俗教程汇总.md" />
+    <None Include="..\..\..\source\_posts\网络编程实践环境搭建.md" />
+    <None Include="..\..\..\source\_posts\软件架构专栏-阅读整理一.md" />
+    <None Include="..\..\..\source\_posts\软件架构专栏-阅读整理二.md" />
+    <None Include="..\..\..\source\_posts\进程内存监控.md" />
+    <None Include="..\..\..\source\_posts\重构-改善既有代码的设计.md" />
+    <None Include="..\..\..\source\_posts\键盘快捷操作指南.md" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
