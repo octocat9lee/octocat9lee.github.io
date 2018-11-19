@@ -171,6 +171,85 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CSAPP之存储器层次结构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/07/CSAPP之存储器层次结构/">CSAPP之存储器层次结构</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/07/CSAPP之存储器层次结构/" class="archive-article-date">
+  	<time datetime="2017-11-07T01:30:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>存储系统采用分层结构，越靠近CPU，访问速度快，容量小，越远离CPU，访问速度慢，容量大。存储器分层结构利用程序的<code>局部性</code>基本属性，即程序在一段时间内，倾向于访问相同集合的数据例如循环遍历数组或者访问相邻的数据集合的特性，从而提升访问性能。所以，利用<code>缓冲</code>思想，将存储系统设计为层次结构，例如高速Cache作为CPU寄存器和内存的缓冲区，内存作为高速Cache和硬盘的缓冲区，硬盘可以作为网络数据的缓冲区。</p>
+<h1 id="存储器分类"><a href="#存储器分类" class="headerlink" title="存储器分类"></a>存储器分类</h1><p>RAM分为SRAM和DRAM，SRAM主要用于作为高速Cache，DRAM用来作为主存或者图形帧缓冲区。桌面系统SRAM容量不超过几M字节，DRAM却有几百到几千M字节。从磁盘读取信息为毫秒级，比从DRAM读慢了10万倍，比从SRAM读慢了100万倍。<br>CPU发送完读磁盘请求后，由相应的控制器完成磁盘与内存间数据的读写处理，CPU不需要参与，可以继续执行其他的指令。当读写操作完成后，控制器通过中断通知CPU，称之为<code>直接内存访问(DMA,Direct Memory Access)</code>。</p>
+<h1 id="局部性"><a href="#局部性" class="headerlink" title="局部性"></a>局部性</h1><p>时间局部性：被引用过一次的内存位置在不久的将来再次被引用<br>空间局部性：被引用过一次的内存位置在不久的将来引用附近的内存访问<br>重复引用相同变量的程序具有良好的时间局部性；步长为1的引用模式具有良好的空间局部性，随着步长的增加，空间局部性下降；对于指令来说，循环具有良好的时间和空间局部性，循环体越小，迭代次数越多，局部性越好</p>
+<h1 id="存储器层次结构"><a href="#存储器层次结构" class="headerlink" title="存储器层次结构"></a>存储器层次结构</h1><p>CPU访问寄存器需要一个时钟周期，SRAM需要几个时钟周期，DRAM需要几十到几百时钟周期。<br>基本原则：上层缓存下层的一个块，每次传输时使用块作为单元，为了补偿访问时间，因此，在越远离CPU的层次时块的大小越大。存储器层次结构如下图所示：<br>
+        
+          <a class="article-more-a" href="/2017/11/07/CSAPP之存储器层次结构/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">CSAPP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/07/CSAPP之存储器层次结构/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-2017年读书计划" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -878,84 +957,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-CSAPP实验之BombLab" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/27/CSAPP实验之BombLab/">CSAPP实验之BombLab</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/27/CSAPP实验之BombLab/" class="archive-article-date">
-  	<time datetime="2017-10-27T09:32:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>“二进制炸弹”是作为目标代码文件提供给学生的程序。运行时，它提示用户键入6个不同的字符串。如果这些中的任何一个是不正确的，炸弹“爆炸”，打印一个错误消息。我们必须通过拆卸和反向工程来确定6个字符串应该是什么，来“消除”自己独特的炸弹。本实验的主要目的是熟悉汇编语言，并强制学习如何使用调试器。<br>本实验详细项目文件以及分析解决方案参见<a href="https://gitee.com/zhoulee/CSAPP/tree/master/bomb" target="_blank" rel="noopener">BombLab</a>，下载实验代码，解压，进入工作目录，下面进入惊险刺激的的破译之旅。</p>
-<h1 id="基本知识"><a href="#基本知识" class="headerlink" title="基本知识"></a>基本知识</h1><h2 id="寄存器基本使用规律"><a href="#寄存器基本使用规律" class="headerlink" title="寄存器基本使用规律"></a>寄存器基本使用规律</h2><figure class="highlight mojolicious"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"></span><span class="perl">%rbp %rbx %r12~%15 被调用者保存寄存器</span><span class="xml"></span></span><br><span class="line"><span class="xml"></span><span class="perl">%r10 %r11 调用者保存寄存器</span><span class="xml"></span></span><br><span class="line"><span class="xml"></span><span class="perl">%rax 保存函数返回值</span><span class="xml"></span></span><br><span class="line"><span class="xml"></span><span class="perl">%rdi %rsi %rdx %rcx %r8 %r9 依次保存函数参数<span class="number">1</span>~<span class="number">6</span></span><span class="xml"></span></span><br></pre></td></tr></table></figure>
-<h2 id="汇编指令阅读"><a href="#汇编指令阅读" class="headerlink" title="汇编指令阅读"></a>汇编指令阅读</h2><p>指令编写方式：<code>指令名  源操作数  目的操作数</code>源操作数和目的操作数不能同时都为内存单元<br>对于源操作数和目的操作数中，除lea指令外，其他包含括号的指令均为访问对应的内存单元的值，在C语言中，可以将该变量视为指针变量。<br>cmp指令使用<code>目的操作数-源操作数</code>，test指令使用<code>目的操作数&amp;源操作数</code>，接下来的条件指令根据命令规则进行跳转。<br>
-        
-          <a class="article-more-a" href="/2017/10/27/CSAPP实验之BombLab/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">CSAPP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/27/CSAPP实验之BombLab/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
@@ -1056,19 +1057,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">生活规划</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">CSAPP</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
+                <a href="javascript:void(0)" class="js-tag color1">CSAPP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1080,19 +1077,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">家庭教育</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">STEAM</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
+                <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">家庭教育</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
               </li>
              
               <li class="article-tag-list-item">
