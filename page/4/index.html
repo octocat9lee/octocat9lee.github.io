@@ -171,6 +171,335 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-C-Primer5e第10章：泛型算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/12/C-Primer5e第10章：泛型算法/">C++Primer5e第10章：泛型算法</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/12/C-Primer5e第10章：泛型算法/" class="archive-article-date">
+  	<time datetime="2017-12-12T03:40:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>标准库并未给容器添加大量的功能，而是提供了一组独立于任何特定容器的通用的算法实现相关功能。算法是泛型的，也就是说可以用于不同类型的元素和多种容器类型，不仅包括标准库类型，还包括内置数组类型。</p>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>大多数算法定义在头文件<code>algorithm</code>中。标准库还在头文件<code>numeric</code>中定义了一组数值泛型算法。算法并不直接操作容器，而是遍历由两个迭代器指定的一个元素范围进行操作。迭代器令算法不依赖于容器，但算法依赖于元素类型的操作，大多数算法提供了一种方法，允许我们使用自定义的操作来代替默认的运算符。<strong>STL组件间关系如下图所示：</strong></p>
+<p><center><img src="https://github.com/octocat9lee/blog-images/raw/master/JG7AjIb3dh.jpg" alt="STL组件关系"></center><br>泛型算法使用迭代器作为访问容器元素的桥梁，对元素的元素可以通过函数对象传递到算法内部。为了实现与数据结构的分离，为了实现通用性，算法根本就不该知道容器的存在。算法访问数据的唯一通道是迭代器，是否改变容器大小，完全是迭代器的选择和责任。</p>
+<h1 id="初识泛型算法"><a href="#初识泛型算法" class="headerlink" title="初识泛型算法"></a>初识泛型算法</h1><p>算法使用元素的方式包括只读取元素、改变元素或者是重排元素顺序。算法不会执行容器操作，所以算法不会改变底层容器的大小。</p>
+<h2 id="只读算法"><a href="#只读算法" class="headerlink" title="只读算法"></a>只读算法</h2><p>accumulate的第三个参数的类型决定了函数中使用哪个加法运算符以及返回值的类型。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//对vec中的int元素求和，和的初始值为0</span></span><br><span class="line"><span class="keyword">int</span> sum = accumulate(vec.cbegin(), vec.cend(), <span class="number">0</span>);</span><br><span class="line"><span class="comment">//将vector中所有的string元素连接起来</span></span><br><span class="line"><span class="built_in">string</span> sum = accumulate(v.cbegin(), v.cend(), <span class="built_in">std</span>::<span class="built_in">string</span>(<span class="string">""</span>));</span><br><span class="line"><span class="comment">//错误：const char*上没有定义+运算符</span></span><br><span class="line"><span class="built_in">string</span> sum = accumulate(v.cbegin(), v.cend(), <span class="string">""</span>);</span><br></pre></td></tr></table></figure></p>
+<p>对于只读取元素而不改变元素的算法，最好使用cbegin()和cend()。<br>使用equal判断两个序列是否保存相同的值，构成这两个序列的元素可以来自不同类型的容器。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; roster1 = &#123;<span class="string">"Hello"</span>, <span class="string">"The"</span>, <span class="string">"a"</span>&#125;;</span><br><span class="line"><span class="built_in">list</span>&lt;<span class="keyword">const</span> <span class="keyword">char</span>*&gt; roster2 = &#123;<span class="string">"Hello"</span>, <span class="string">"The"</span>, <span class="string">"a"</span>&#125;;</span><br><span class="line"><span class="keyword">bool</span> eq = equal(roster1.cbegin(), roster1.cend(), roster2.cbegin());</span><br></pre></td></tr></table></figure></p>
+<p>在上面equal中，如果roster中都是C风格字符串，用==比较两个char*对象，只是检查两个指针值是否相等。所以只有当两个序列中的指针都指向相同地址时，equal才会返回true。否则，即使字符串内容完全相同，也会返回false。<br>那些只接受一个单一迭代器来表示第二个序列的算法，都假定第二个序列至少与第一个序列一样长。<br>
+        
+          <a class="article-more-a" href="/2017/12/12/C-Primer5e第10章：泛型算法/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/12/C-Primer5e第10章：泛型算法/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-C-Primer5e第09章：顺序容器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/11/C-Primer5e第09章：顺序容器/">C++Primer5e第09章：顺序容器</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/11/C-Primer5e第09章：顺序容器/" class="archive-article-date">
+  	<time datetime="2017-12-11T05:11:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="顺序容器概述"><a href="#顺序容器概述" class="headerlink" title="顺序容器概述"></a>顺序容器概述</h1><p>顺序容器中顺序不依赖元素的值，而与元素加入容器时的位置相对应。所有顺序容器都提供快速顺序访问元素的能力，但在以下方面有不同的性能折中：</p>
+<blockquote>
+<p>向容器中添加和删除元素的代价<br>非顺序访问容器中元素的代价</p>
+</blockquote>
+<h2 id="顺序容器类型"><a href="#顺序容器类型" class="headerlink" title="顺序容器类型"></a>顺序容器类型</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>        可变大小数组。支持快速随机访问。在尾部之外的位置插入或删除元素可能很慢</span><br><span class="line"><span class="built_in">deque</span>         双端队列。支持快速随机访问。在头尾位置插入、删除速度都很快</span><br><span class="line"><span class="built_in">list</span>          双向链表。只支持双向顺序访问。在<span class="built_in">list</span>中任何位置进行插入、删除操作速度都很快</span><br><span class="line">forward_list  单向链表。只支持单向顺序访问。在链表任何位置进行插入、删除操作速度都很快</span><br><span class="line"><span class="built_in">array</span>         固定大小数组。支持快速随机访问。不能添加或删除元素</span><br><span class="line"><span class="built_in">string</span>        与<span class="built_in">vector</span>相似的容器，但专门用于保存字符。随机访问快。在尾部插入、删除速度快</span><br></pre></td></tr></table></figure>
+<p>新标准库容器的性能几乎肯定与最精心优化过的同类数据结构一样好(通常会更好)。现代C++程序应该使用标准库容器，而不是更原始的数据结构，如内置数组。</p>
+<h2 id="选择容器的基本原则"><a href="#选择容器的基本原则" class="headerlink" title="选择容器的基本原则"></a>选择容器的基本原则</h2><blockquote>
+<p>1）除非有很好的理由选择其他容器，否则应使用vector；<br>2）如果程序有很多小元素，且空间的额外开销很重要，则不要使用list或forward_list；<br>3）如果程序要求随机访问元素，应使用vector或deque；<br>4）如果程序要求在容器的中间插入或删除元素，应使用list或forward_list；<br>5）如果程序需要在头尾位置插入或删除元素，但不会在中间位置进行插入或删除操作，则使用deque；<br>6）如果程序只有在读取输入时才需要在容器中间位置插入元素，随后需要随机访问元素，则:</p>
+<pre><code>- 首先，确定是否真的需要在容器中间位置添加元素。当处理输入数据时，通常可以很容易地向vector追加数据，然后在调用标准库的sort函数来重排序，从而避免在中间位置添加元素。
+- 如果必须在中间位置插入元素，考虑在输入阶段使用list，一旦输入完成，将list中的内容拷贝到一个vector中。
+</code></pre></blockquote>
+<p><strong>如果不确定应该使用哪种容器，那么在程序中使用vector和list公共操作：使用迭代器，不使用下标访问，避免随机访问。这样，在必要时选择使用vector和list都很方便。</strong><br>
+        
+          <a class="article-more-a" href="/2017/12/11/C-Primer5e第09章：顺序容器/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/11/C-Primer5e第09章：顺序容器/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-C-Primer5e第08章：IO库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/11/C-Primer5e第08章：IO库/">C++Primer5e第08章：IO库</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/11/C-Primer5e第08章：IO库/" class="archive-article-date">
+  	<time datetime="2017-12-11T02:37:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="IO类"><a href="#IO类" class="headerlink" title="IO类"></a>IO类</h1><p>标准库定义的IO类型包括基础istream，ostream，iostream类型，ifstream，ofstream，fstream读写文件类型以及istringstream，ostringstream，stringstream读写内存string对象的类型。<br>另外，为了支持使用宽字符，标准库还定义了一组wchar_t类型的数据。<br>宽字符版本的类型和函数的名字以一个w开始。例如：wiostream，wfstream，wstringstream，wcin，wcout，wcerr。</p>
+<h2 id="IO类型间的关系"><a href="#IO类型间的关系" class="headerlink" title="IO类型间的关系"></a>IO类型间的关系</h2><p>继承机制让我们可以将派生类对象当作基类对象来使用。类型ifstream和istringstream都继续自istream。因此，我们可以在传递istream对象的地方传递ifstream和istringstream。<br>例如：对ifstream和istringstream对象调用getline，也可以用&gt;&gt;从ifstream和istringstream读取数据。类的ofstream和ostringstream也都继承自ostream。</p>
+<h2 id="IO对象无拷贝和赋值"><a href="#IO对象无拷贝和赋值" class="headerlink" title="IO对象无拷贝和赋值"></a>IO对象无拷贝和赋值</h2><p>不能拷贝IO对象，因此不能将形参和返回类型设置为流类型。所以，进行IO操作的函数通常以引用方式传递和返回流，并且读写一个IO对象会改变其状态，因此传递和返回的引用不能是const的。</p>
+<h2 id="条件状态"><a href="#条件状态" class="headerlink" title="条件状态"></a>条件状态</h2><p>IO类定义了一些函数和标志，帮助我们访问和控制流的状态条件。IO标准库内部条件状态：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">strm::iostate  由各个iostream 类定义，用于定义条件状态</span><br><span class="line">strm::badbit   strm::iostate类型的值，用于指出被破坏的流</span><br><span class="line">strm::failbit  strm::iostate类型的值，用于指出失败的流</span><br><span class="line">strm::eofbit   strm::iostate类型的值，用于指出流已经到达文件的结束符</span><br><span class="line">strm::goodbit　strm::iostate类型的值，流未出现错误状态，此值保证为<span class="number">0</span></span><br></pre></td></tr></table></figure></p>
+<p>IO标准库条件状态获取以及设置函数：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">s.eof()           若流s的eofbit置位，则返回<span class="literal">true</span></span><br><span class="line">s.fail()          若流s的failbit或badbit置位，则返回<span class="literal">true</span></span><br><span class="line">s.bad()           若流s的badbit置位，则返回<span class="literal">true</span></span><br><span class="line">s.good()          若流s处于有效状态，则返回<span class="literal">true</span></span><br><span class="line">s.clear()         将流s的所有条件状态位复位，将流的状态设置为有效</span><br><span class="line">s.clear(flag)     根据指定的flag，将流s中对应条件状态复位。flag类型是strm::iostate</span><br><span class="line">s.setstate(flag)  根据指定的flag，将流s中对应条件状态置位</span><br><span class="line">s.rdstate()       返回流的当前条件状态，返回值类型是strm::iostate</span><br></pre></td></tr></table></figure></p>
+<p>使用位操作按需复位生成新的状态，例如将failbit和badbit复位，但保持eofbit不变：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cin</span>.clear(<span class="built_in">cin</span>.rdstate() &amp; ~<span class="built_in">cin</span>.failbit &amp; ~<span class="built_in">cin</span>.badbit)</span><br></pre></td></tr></table></figure></p>
+        
+          <a class="article-more-a" href="/2017/12/11/C-Primer5e第08章：IO库/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/11/C-Primer5e第08章：IO库/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-C-Primer5e第07章：类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/08/C-Primer5e第07章：类/">C++Primer5e第07章：类</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/08/C-Primer5e第07章：类/" class="archive-article-date">
+  	<time datetime="2017-12-08T02:15:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在C++中，我们可以使用类定义自己的数据类型，用新的类型反映程序中的概念，从而我们更容易编写、调试和修改程序。<br>类的基本思想是<code>数据抽象</code>和<code>封装</code>。数据抽象能够帮助我们将对象的具体实现和对象所执行的操作分离开来，是一种依赖于接口和实现分离的编程技术。封装后的类隐藏了实现细节，类的使用者只需要使用接口而不需要关心具体的实现，降低程序的耦合性。</p>
+<h1 id="定义抽象数据类型"><a href="#定义抽象数据类型" class="headerlink" title="定义抽象数据类型"></a>定义抽象数据类型</h1><p>成功的应用程序，作者必须充分了解并实现用户的需求。所以，优秀的类设计者也应该密切关注那些使用该类的程序员的需求。作为一个设计良好的类，既要有直观而且易于使用的接口，也要具备高效的实现过程。<br>定义在类内部的函数是隐式的inline函数。</p>
+<h2 id="引入this"><a href="#引入this" class="headerlink" title="引入this"></a>引入this</h2><p>当我们调用成员函数时，实际上是在替某个对象调用它。成员函数通过一个名为this的隐式参数来访问调用它的对象。当我们调用一个成员函数时，用调用该函数对象的地址初始化this。例如，调用<code>total.isbn()</code>，则编译器负责把total的地址传递isbn的隐式参数this，等价于编译器将调用重写成如下形式：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//伪代码，用于说明调用成员函数的实际执行过程</span></span><br><span class="line">Sales_data::isbn(&amp;total);</span><br></pre></td></tr></table></figure></p>
+<p>在成员函数内部，因为this都指向该对象，所以可以直接调用该对象的其他成员函数。<br>this形参是隐式定义的。所以，任何自定义名为this的参数或成员变量都是非法的。另外，我们可以在成员函数内部使用this。因为this的目的总是指向“这个”对象，所以this是一个常量指针。<br>
+        
+          <a class="article-more-a" href="/2017/12/08/C-Primer5e第07章：类/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/08/C-Primer5e第07章：类/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-C-Primer5e第06章：函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -662,326 +991,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Git操作指南" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/24/Git操作指南/">Git操作指南</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/24/Git操作指南/" class="archive-article-date">
-  	<time datetime="2017-11-24T07:07:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="全局配置与帮助"><a href="#全局配置与帮助" class="headerlink" title="全局配置与帮助"></a>全局配置与帮助</h1><blockquote>
-<p><code>git config --global user.name &quot;your name&quot;</code><br><code>git config --global user.email &quot;email@gmai.com&quot;</code> <code>--global</code>表示机器上所有Git仓库都使用该配置</p>
-</blockquote>
-<h1 id="版本库管理"><a href="#版本库管理" class="headerlink" title="版本库管理"></a>版本库管理</h1><h2 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h2><blockquote>
-<p>步骤1:本地创建版本库目录<br>步骤2: 使用<code>git init</code>将目录变成git可以管理的仓库，生成.git目录</p>
-</blockquote>
-<h2 id="添加文件"><a href="#添加文件" class="headerlink" title="添加文件"></a>添加文件</h2><blockquote>
-<p>步骤1: <code>git add file</code> 把文件添加到仓库<br>步骤2: <code>git commit -m &quot;comment&quot;</code> 把文件提交到仓库</p>
-</blockquote>
-<h2 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态"></a>查看状态</h2><blockquote>
-<p><code>git status</code> 显示仓库当前状态<br><code>git diff file</code> 显示指定文件差异<br><code>git show commitId</code> 显示某次提交的修改内容<br><code>git show &lt;commit-hashId&gt; filename</code> 显示某次提交某个文件的修改信息<br><code>git log</code>  显示提交日志记录<br><code>git log --pretty=online --graph --color</code><br><code>git reflog</code> 查看命令历史，以便确认回到未来哪个版本</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2017/11/24/Git操作指南/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术点滴</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/24/Git操作指南/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-CSAPP之异常控制流" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/20/CSAPP之异常控制流/">CSAPP之异常控制流</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/20/CSAPP之异常控制流/" class="archive-article-date">
-  	<time datetime="2017-11-20T03:40:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>从开机到关机，处理器做的工作其实很简单，就是不断读取并执行指令，每次执行一条，整个指令执行的序列，称为处理器的控制流。对于程序内部本身的控制，可以通过跳转、调用和返回等程序指令实现；然而，如果需要对系统状态变化做出反应，因为系统状态不能被程序变量捕获，有时甚至与程序的执行无关。比如说定时器产生信号，数据包到达网卡，程序向磁盘请求数据等情况发生时，需要采用另外的机制对上述的异常情形做出反应，这些突变就称为异常控制流(Exception Control Flow,ECF)。<br>ECF存在于系统的每个层级，最底层的机制称为异常(Exception)，用以改变控制流以响应系统事件，通常是由硬件的操作系统共同实现的。更高层次的异常控制流包括进程切换(Process Context Switch)、信号(Signal)和非本地跳转(Nonlocal Jumps)，也可以看做是一个从硬件过渡到操作系统，再从操作系统过渡到语言库的过程。进程切换是由硬件计时器和操作系统共同实现的，而信号则只是操作系统层面的概念了，到了非本地跳转就已经是在C运行时库中实现的了。</p>
-<h1 id="进程控制"><a href="#进程控制" class="headerlink" title="进程控制"></a>进程控制</h1><p>进程是计算机科学中最为重要的思想之一，进程是运行实例。进程给每个应用提供了两个非常关键的抽象：一是逻辑控制流，二是私有地址空间。逻辑控制流通过称为上下文切换(context switching)的内核机制让每个程序都感觉自己在独占处理器。私有地址空间则是通过称为虚拟内存(virtual memory)的机制让每个程序都感觉自己在独占内存。这样的抽象使得具体的进程不需要操心处理器和内存的相关适宜，也保证了在不同情况下运行同样的程序能得到相同的结果。对于fork关系复杂的进程，建议使用<code>进程图</code>画出各个进程的关系，梳理所有调用时序的可能性。</p>
-<h2 id="僵尸进程"><a href="#僵尸进程" class="headerlink" title="僵尸进程"></a>僵尸进程</h2><p>当一个进程由于某种原因终止时，内核并不立即从系统中删除。而是进程被保持在一种已终止的状态，直到被它的父进程<code>回收</code>。所以，当一个进程完成它的工作终止之后，它的父进程需要调用<code>wait()或者waitpid()</code>系统调用取得子进程的终止状态。<strong>一个终止了但未被回收的进程称为“僵尸进程”。</strong>系统进程表是一项有限资源，如果系统进程表被僵尸进程耗尽的话，系统就可能无法创建新的进程。模拟产生僵尸进程示例：<br>
-        
-          <a class="article-more-a" href="/2017/11/20/CSAPP之异常控制流/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">CSAPP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/20/CSAPP之异常控制流/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-CSAPP之链接" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/09/CSAPP之链接/">CSAPP之链接</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/09/CSAPP之链接/" class="archive-article-date">
-  	<time datetime="2017-11-09T13:25:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>链接就是将代码和数据组合成一个单一文件的过程，组成的文件可以被加载到内存并执行。链接可以执行于编译时，也可以执行于加载时，甚至执行于运行时。链接在软件开发中扮演着一个关键的角色，因为它使得分离编译成为可能，我们可以将一个大型的应用程序分解为更小更好管理的模块，并且独立的修改和编译这些模块，当我们修改这些模块中的一个时只需要重新编译它，并重新链接应用，而不必重新编译其他文件。</p>
-<h1 id="编译器驱动程序"><a href="#编译器驱动程序" class="headerlink" title="编译器驱动程序"></a>编译器驱动程序</h1><p>在将源代码编译成可执行程序时，会经历如下步骤：首先，运行预处理器将源程序翻译成一个ASCII码的中间文件；然后，运行C编译器将中间文件翻译成一个汇编文件；再运行汇编器将汇编文件翻译成可重定位目标文件；最后，运行链接程序将可重定位目标文件以及一些必要的系统目标文件组合起来，创建一个可执行目标文件。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cpp sum.c /tmp/sum.i或者gcc -E sum.c -o /tmp/sum.i  <span class="comment">#预处理</span></span><br><span class="line">/usr/lib/gcc/x86_64-linux-gnu/5/cc1 /tmp/sum.i -Og -o /tmp/sum.s或者gcc -Og -S sum.i -o /tmp/sum.s <span class="comment">#编译</span></span><br><span class="line">as -o /tmp/sum.o /tmp/sum.s或者gcc -c /tmp/sum.s -o /tmp/sum.o  <span class="comment">#汇编</span></span><br><span class="line">ld -o prog /tmp/main.o /tmp/sum.o <span class="comment">#链接</span></span><br></pre></td></tr></table></figure></p>
-        
-          <a class="article-more-a" href="/2017/11/09/CSAPP之链接/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">CSAPP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/09/CSAPP之链接/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-GDB调试器使用总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/09/GDB调试器使用总结/">GDB调试器使用总结</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/09/GDB调试器使用总结/" class="archive-article-date">
-  	<time datetime="2017-11-09T05:40:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>GDB是GNU开源组织发布的一个强大的UNIX下的程序调试工具。</p>
-<h1 id="输出线程堆栈"><a href="#输出线程堆栈" class="headerlink" title="输出线程堆栈"></a>输出线程堆栈</h1><p>在调试多线程程序时，经常需要查看线程堆栈信息，如果线程数目过多，每次查看一个线程堆栈，繁琐耗时。下面介绍一种一次性将所有线程堆栈输出到文件的方法：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将gdb attach到调试进程</span></span><br><span class="line">gdb -p pid</span><br><span class="line"><span class="comment"># 在GDB中设置调试文件路径,并开启日志选项</span></span><br><span class="line"><span class="built_in">set</span> logging file thread_stack.info</span><br><span class="line"><span class="built_in">set</span> logging on</span><br><span class="line"><span class="comment"># 输出所有线程堆栈到指定文件</span></span><br><span class="line">thread apply all bt</span><br><span class="line"><span class="comment"># 或者简化命令</span></span><br><span class="line">thr app all bt</span><br></pre></td></tr></table></figure></p>
-<p>直接输出所有线程堆栈信息到指定文件<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">gdb</span> -ex <span class="string">"thread apply all bt"</span> -batch -p pid &gt; thread_stack.<span class="literal">info</span></span><br><span class="line">gdb -ex <span class="string">"thread apply all bt"</span> -batch -p `ps -e | grep procname | awk <span class="string">'&#123;print <span class="variable">$1</span>&#125;'</span>` &gt; thread_stack.<span class="literal">info</span></span><br></pre></td></tr></table></figure></p>
-        
-          <a class="article-more-a" href="/2017/11/09/GDB调试器使用总结/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">调试技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/09/GDB调试器使用总结/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
@@ -1098,6 +1107,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">性能分析</a>
               </li>
              
@@ -1106,19 +1119,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">家庭教育</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
+                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
+                <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
               </li>
              
               <li class="article-tag-list-item">

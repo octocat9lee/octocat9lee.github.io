@@ -171,6 +171,326 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Git操作指南" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/24/Git操作指南/">Git操作指南</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/24/Git操作指南/" class="archive-article-date">
+  	<time datetime="2017-11-24T07:07:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="全局配置与帮助"><a href="#全局配置与帮助" class="headerlink" title="全局配置与帮助"></a>全局配置与帮助</h1><blockquote>
+<p><code>git config --global user.name &quot;your name&quot;</code><br><code>git config --global user.email &quot;email@gmai.com&quot;</code> <code>--global</code>表示机器上所有Git仓库都使用该配置</p>
+</blockquote>
+<h1 id="版本库管理"><a href="#版本库管理" class="headerlink" title="版本库管理"></a>版本库管理</h1><h2 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h2><blockquote>
+<p>步骤1:本地创建版本库目录<br>步骤2: 使用<code>git init</code>将目录变成git可以管理的仓库，生成.git目录</p>
+</blockquote>
+<h2 id="添加文件"><a href="#添加文件" class="headerlink" title="添加文件"></a>添加文件</h2><blockquote>
+<p>步骤1: <code>git add file</code> 把文件添加到仓库<br>步骤2: <code>git commit -m &quot;comment&quot;</code> 把文件提交到仓库</p>
+</blockquote>
+<h2 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态"></a>查看状态</h2><blockquote>
+<p><code>git status</code> 显示仓库当前状态<br><code>git diff file</code> 显示指定文件差异<br><code>git show commitId</code> 显示某次提交的修改内容<br><code>git show &lt;commit-hashId&gt; filename</code> 显示某次提交某个文件的修改信息<br><code>git log</code>  显示提交日志记录<br><code>git log --pretty=online --graph --color</code><br><code>git reflog</code> 查看命令历史，以便确认回到未来哪个版本</p>
+</blockquote>
+        
+          <a class="article-more-a" href="/2017/11/24/Git操作指南/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术点滴</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/24/Git操作指南/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-CSAPP之异常控制流" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/20/CSAPP之异常控制流/">CSAPP之异常控制流</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/20/CSAPP之异常控制流/" class="archive-article-date">
+  	<time datetime="2017-11-20T03:40:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>从开机到关机，处理器做的工作其实很简单，就是不断读取并执行指令，每次执行一条，整个指令执行的序列，称为处理器的控制流。对于程序内部本身的控制，可以通过跳转、调用和返回等程序指令实现；然而，如果需要对系统状态变化做出反应，因为系统状态不能被程序变量捕获，有时甚至与程序的执行无关。比如说定时器产生信号，数据包到达网卡，程序向磁盘请求数据等情况发生时，需要采用另外的机制对上述的异常情形做出反应，这些突变就称为异常控制流(Exception Control Flow,ECF)。<br>ECF存在于系统的每个层级，最底层的机制称为异常(Exception)，用以改变控制流以响应系统事件，通常是由硬件的操作系统共同实现的。更高层次的异常控制流包括进程切换(Process Context Switch)、信号(Signal)和非本地跳转(Nonlocal Jumps)，也可以看做是一个从硬件过渡到操作系统，再从操作系统过渡到语言库的过程。进程切换是由硬件计时器和操作系统共同实现的，而信号则只是操作系统层面的概念了，到了非本地跳转就已经是在C运行时库中实现的了。</p>
+<h1 id="进程控制"><a href="#进程控制" class="headerlink" title="进程控制"></a>进程控制</h1><p>进程是计算机科学中最为重要的思想之一，进程是运行实例。进程给每个应用提供了两个非常关键的抽象：一是逻辑控制流，二是私有地址空间。逻辑控制流通过称为上下文切换(context switching)的内核机制让每个程序都感觉自己在独占处理器。私有地址空间则是通过称为虚拟内存(virtual memory)的机制让每个程序都感觉自己在独占内存。这样的抽象使得具体的进程不需要操心处理器和内存的相关适宜，也保证了在不同情况下运行同样的程序能得到相同的结果。对于fork关系复杂的进程，建议使用<code>进程图</code>画出各个进程的关系，梳理所有调用时序的可能性。</p>
+<h2 id="僵尸进程"><a href="#僵尸进程" class="headerlink" title="僵尸进程"></a>僵尸进程</h2><p>当一个进程由于某种原因终止时，内核并不立即从系统中删除。而是进程被保持在一种已终止的状态，直到被它的父进程<code>回收</code>。所以，当一个进程完成它的工作终止之后，它的父进程需要调用<code>wait()或者waitpid()</code>系统调用取得子进程的终止状态。<strong>一个终止了但未被回收的进程称为“僵尸进程”。</strong>系统进程表是一项有限资源，如果系统进程表被僵尸进程耗尽的话，系统就可能无法创建新的进程。模拟产生僵尸进程示例：<br>
+        
+          <a class="article-more-a" href="/2017/11/20/CSAPP之异常控制流/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">CSAPP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/20/CSAPP之异常控制流/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-CSAPP之链接" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/09/CSAPP之链接/">CSAPP之链接</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/09/CSAPP之链接/" class="archive-article-date">
+  	<time datetime="2017-11-09T13:25:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>链接就是将代码和数据组合成一个单一文件的过程，组成的文件可以被加载到内存并执行。链接可以执行于编译时，也可以执行于加载时，甚至执行于运行时。链接在软件开发中扮演着一个关键的角色，因为它使得分离编译成为可能，我们可以将一个大型的应用程序分解为更小更好管理的模块，并且独立的修改和编译这些模块，当我们修改这些模块中的一个时只需要重新编译它，并重新链接应用，而不必重新编译其他文件。</p>
+<h1 id="编译器驱动程序"><a href="#编译器驱动程序" class="headerlink" title="编译器驱动程序"></a>编译器驱动程序</h1><p>在将源代码编译成可执行程序时，会经历如下步骤：首先，运行预处理器将源程序翻译成一个ASCII码的中间文件；然后，运行C编译器将中间文件翻译成一个汇编文件；再运行汇编器将汇编文件翻译成可重定位目标文件；最后，运行链接程序将可重定位目标文件以及一些必要的系统目标文件组合起来，创建一个可执行目标文件。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cpp sum.c /tmp/sum.i或者gcc -E sum.c -o /tmp/sum.i  <span class="comment">#预处理</span></span><br><span class="line">/usr/lib/gcc/x86_64-linux-gnu/5/cc1 /tmp/sum.i -Og -o /tmp/sum.s或者gcc -Og -S sum.i -o /tmp/sum.s <span class="comment">#编译</span></span><br><span class="line">as -o /tmp/sum.o /tmp/sum.s或者gcc -c /tmp/sum.s -o /tmp/sum.o  <span class="comment">#汇编</span></span><br><span class="line">ld -o prog /tmp/main.o /tmp/sum.o <span class="comment">#链接</span></span><br></pre></td></tr></table></figure></p>
+        
+          <a class="article-more-a" href="/2017/11/09/CSAPP之链接/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">CSAPP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/09/CSAPP之链接/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-GDB调试器使用总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/09/GDB调试器使用总结/">GDB调试器使用总结</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/09/GDB调试器使用总结/" class="archive-article-date">
+  	<time datetime="2017-11-09T05:40:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>GDB是GNU开源组织发布的一个强大的UNIX下的程序调试工具。</p>
+<h1 id="输出线程堆栈"><a href="#输出线程堆栈" class="headerlink" title="输出线程堆栈"></a>输出线程堆栈</h1><p>在调试多线程程序时，经常需要查看线程堆栈信息，如果线程数目过多，每次查看一个线程堆栈，繁琐耗时。下面介绍一种一次性将所有线程堆栈输出到文件的方法：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将gdb attach到调试进程</span></span><br><span class="line">gdb -p pid</span><br><span class="line"><span class="comment"># 在GDB中设置调试文件路径,并开启日志选项</span></span><br><span class="line"><span class="built_in">set</span> logging file thread_stack.info</span><br><span class="line"><span class="built_in">set</span> logging on</span><br><span class="line"><span class="comment"># 输出所有线程堆栈到指定文件</span></span><br><span class="line">thread apply all bt</span><br><span class="line"><span class="comment"># 或者简化命令</span></span><br><span class="line">thr app all bt</span><br></pre></td></tr></table></figure></p>
+<p>直接输出所有线程堆栈信息到指定文件<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">gdb</span> -ex <span class="string">"thread apply all bt"</span> -batch -p pid &gt; thread_stack.<span class="literal">info</span></span><br><span class="line">gdb -ex <span class="string">"thread apply all bt"</span> -batch -p `ps -e | grep procname | awk <span class="string">'&#123;print <span class="variable">$1</span>&#125;'</span>` &gt; thread_stack.<span class="literal">info</span></span><br></pre></td></tr></table></figure></p>
+        
+          <a class="article-more-a" href="/2017/11/09/GDB调试器使用总结/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">调试技术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/09/GDB调试器使用总结/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-CSAPP之存储器层次结构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -646,317 +966,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-键盘快捷操作指南" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/30/键盘快捷操作指南/">键盘快捷操作指南</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/30/键盘快捷操作指南/" class="archive-article-date">
-  	<time datetime="2017-10-30T09:30:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="VIM"><a href="#VIM" class="headerlink" title="VIM"></a>VIM</h1><p>有时在生产环境中，没有可视化的IDE环境查看文件，但对于大多数机器来说，都可以使用vim来阅读文件。下面归纳下个人经常使用的vim编辑命令：</p>
-<h2 id="光标移动"><a href="#光标移动" class="headerlink" title="光标移动"></a>光标移动</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hjkl            以字符为单位移动</span><br><span class="line">ctrl+udbf       以页或者半页为单位移动</span><br><span class="line">wbe             以单词为单位移动</span><br><span class="line">f+符号 F+符号    移动到指定位置</span><br><span class="line">gg              移动到文档开始</span><br><span class="line">GG              移动到文档末尾</span><br><span class="line">例如:<span class="built_in">fg</span> 表示将光标移动到行所在的一个字符g处</span><br></pre></td></tr></table></figure>
-<h2 id="删除合并"><a href="#删除合并" class="headerlink" title="删除合并"></a>删除合并</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dd              删除一行</span><br><span class="line">dw              删除单词</span><br><span class="line">0dfH            表示删除从行首到第一个H处间的内容</span><br><span class="line">J               将光标所在行与下一行合并成一行</span><br><span class="line">:10,20d         删除10行至20行间内容</span><br><span class="line">:.,<span class="variable">$d</span>           删除从光标所在行至文件末尾</span><br></pre></td></tr></table></figure>
-<h2 id="撤销与恢复"><a href="#撤销与恢复" class="headerlink" title="撤销与恢复"></a>撤销与恢复</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">u              撤销</span><br><span class="line">ctrl+r         重做上一次动作</span><br><span class="line">.              重复上一次动作</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2017/10/30/键盘快捷操作指南/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">调试技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/30/键盘快捷操作指南/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-grep" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/30/grep/">grep</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/30/grep/" class="archive-article-date">
-  	<time datetime="2017-10-30T07:29:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="grep常用选项"><a href="#grep常用选项" class="headerlink" title="grep常用选项"></a>grep常用选项</h1><p>对于基本常用的命令，如果每次去百度或者Google命令的基本使用方式，因为信息的杂乱，我们很难快速检索到自己需要的信息。因此，作为一名专业的程序员，我们应该逐步建立自己的知识地图，不断总结完善自己的知识体系，当以后再遇到类似问题时，我们只需要回忆类似的场景获取对应的关键字，然后查阅自己的笔记，那么我们解决问题也会快速很多，并且也再次加深对之前知识的理解。<code>好记性不如烂笔头</code>，下面将在log定位检索时常用的<code>grep命令</code>选项总结如下：<br>查看指定内容对应的行号并显示改行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -rn <span class="string">"search-content"</span> &lt; file.log</span><br></pre></td></tr></table></figure></p>
-<p>查看指定内容对应的行号但忽略大小写<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -irn <span class="string">"search-content"</span> &lt; file.log</span><br></pre></td></tr></table></figure></p>
-<p>在指定的文件类型中查找指定的内容<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find /path/to/ -regex <span class="string">'.*\.h\|.*\.cpp'</span> | xargs grep -rn <span class="string">"search-content"</span></span><br></pre></td></tr></table></figure></p>
-        
-          <a class="article-more-a" href="/2017/10/30/grep/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">调试技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/30/grep/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-coredump" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/28/coredump/">coredump</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/28/coredump/" class="archive-article-date">
-  	<time datetime="2017-10-28T15:13:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="coredump介绍"><a href="#coredump介绍" class="headerlink" title="coredump介绍"></a>coredump介绍</h1><p>应用程序有时会因为异常或者bug导致在运行过程中异常退出或者终止，为了方便问题的定位，我们往往需要获取程序运行时的内存，寄存器状态，堆栈指针，内存管理以及函数调用堆栈信息等，从而找到bug所在。在linux系统中，我们通常可以通过对系统进行一些配置，将上述的信息输出到ELF文件中，即core文件。core文件默认存储位置与对应的可执行程序位于同一路径下，文件名为core；具体信息可以通过如下命令查看：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/sys/kernel/core_pattern</span><br></pre></td></tr></table></figure></p>
-<p>如果程序中调用了chdir函数，则core文件生成在chdir指定路径下。另外，我们也可以通过相关设置设定core文件生成路径。在类unix系统中，core文件本身的主要格式也是ELF格式，因此可以使用readelf或者file命令查看core文件的具体信息。<br>
-        
-          <a class="article-more-a" href="/2017/10/28/coredump/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">调试技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/28/coredump/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-进程内存监控" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/28/进程内存监控/">进程内存监控</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/28/进程内存监控/" class="archive-article-date">
-  	<time datetime="2017-10-28T15:03:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="脚本目的"><a href="#脚本目的" class="headerlink" title="脚本目的"></a>脚本目的</h1><p>使用脚本监控指定进程内存占用，当进程占用内存超过设置阈值时，生成对应的coredump文件以及使用gdb命令输出进程的全部线程信息，从而保存进程在系统kill前进程信息，方便后续对内存急剧上涨的调试。</p>
-<h1 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h1><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup ./memcheck.sh &gt; /dev/<span class="literal">null</span> <span class="number">2</span>&gt;<span class="meta">&amp;1 &amp;</span></span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2017/10/28/进程内存监控/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/28/进程内存监控/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
@@ -1073,6 +1082,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">性能分析</a>
               </li>
              
@@ -1081,19 +1094,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">家庭教育</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
+                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
+                <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
               </li>
              
               <li class="article-tag-list-item">

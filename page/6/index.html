@@ -171,6 +171,317 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-键盘快捷操作指南" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/30/键盘快捷操作指南/">键盘快捷操作指南</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/30/键盘快捷操作指南/" class="archive-article-date">
+  	<time datetime="2017-10-30T09:30:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="VIM"><a href="#VIM" class="headerlink" title="VIM"></a>VIM</h1><p>有时在生产环境中，没有可视化的IDE环境查看文件，但对于大多数机器来说，都可以使用vim来阅读文件。下面归纳下个人经常使用的vim编辑命令：</p>
+<h2 id="光标移动"><a href="#光标移动" class="headerlink" title="光标移动"></a>光标移动</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hjkl            以字符为单位移动</span><br><span class="line">ctrl+udbf       以页或者半页为单位移动</span><br><span class="line">wbe             以单词为单位移动</span><br><span class="line">f+符号 F+符号    移动到指定位置</span><br><span class="line">gg              移动到文档开始</span><br><span class="line">GG              移动到文档末尾</span><br><span class="line">例如:<span class="built_in">fg</span> 表示将光标移动到行所在的一个字符g处</span><br></pre></td></tr></table></figure>
+<h2 id="删除合并"><a href="#删除合并" class="headerlink" title="删除合并"></a>删除合并</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dd              删除一行</span><br><span class="line">dw              删除单词</span><br><span class="line">0dfH            表示删除从行首到第一个H处间的内容</span><br><span class="line">J               将光标所在行与下一行合并成一行</span><br><span class="line">:10,20d         删除10行至20行间内容</span><br><span class="line">:.,<span class="variable">$d</span>           删除从光标所在行至文件末尾</span><br></pre></td></tr></table></figure>
+<h2 id="撤销与恢复"><a href="#撤销与恢复" class="headerlink" title="撤销与恢复"></a>撤销与恢复</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">u              撤销</span><br><span class="line">ctrl+r         重做上一次动作</span><br><span class="line">.              重复上一次动作</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2017/10/30/键盘快捷操作指南/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">调试技术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/30/键盘快捷操作指南/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-grep" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/30/grep/">grep</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/30/grep/" class="archive-article-date">
+  	<time datetime="2017-10-30T07:29:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="grep常用选项"><a href="#grep常用选项" class="headerlink" title="grep常用选项"></a>grep常用选项</h1><p>对于基本常用的命令，如果每次去百度或者Google命令的基本使用方式，因为信息的杂乱，我们很难快速检索到自己需要的信息。因此，作为一名专业的程序员，我们应该逐步建立自己的知识地图，不断总结完善自己的知识体系，当以后再遇到类似问题时，我们只需要回忆类似的场景获取对应的关键字，然后查阅自己的笔记，那么我们解决问题也会快速很多，并且也再次加深对之前知识的理解。<code>好记性不如烂笔头</code>，下面将在log定位检索时常用的<code>grep命令</code>选项总结如下：<br>查看指定内容对应的行号并显示改行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -rn <span class="string">"search-content"</span> &lt; file.log</span><br></pre></td></tr></table></figure></p>
+<p>查看指定内容对应的行号但忽略大小写<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -irn <span class="string">"search-content"</span> &lt; file.log</span><br></pre></td></tr></table></figure></p>
+<p>在指定的文件类型中查找指定的内容<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find /path/to/ -regex <span class="string">'.*\.h\|.*\.cpp'</span> | xargs grep -rn <span class="string">"search-content"</span></span><br></pre></td></tr></table></figure></p>
+        
+          <a class="article-more-a" href="/2017/10/30/grep/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">调试技术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/30/grep/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-coredump" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/28/coredump/">coredump</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/28/coredump/" class="archive-article-date">
+  	<time datetime="2017-10-28T15:13:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="coredump介绍"><a href="#coredump介绍" class="headerlink" title="coredump介绍"></a>coredump介绍</h1><p>应用程序有时会因为异常或者bug导致在运行过程中异常退出或者终止，为了方便问题的定位，我们往往需要获取程序运行时的内存，寄存器状态，堆栈指针，内存管理以及函数调用堆栈信息等，从而找到bug所在。在linux系统中，我们通常可以通过对系统进行一些配置，将上述的信息输出到ELF文件中，即core文件。core文件默认存储位置与对应的可执行程序位于同一路径下，文件名为core；具体信息可以通过如下命令查看：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/sys/kernel/core_pattern</span><br></pre></td></tr></table></figure></p>
+<p>如果程序中调用了chdir函数，则core文件生成在chdir指定路径下。另外，我们也可以通过相关设置设定core文件生成路径。在类unix系统中，core文件本身的主要格式也是ELF格式，因此可以使用readelf或者file命令查看core文件的具体信息。<br>
+        
+          <a class="article-more-a" href="/2017/10/28/coredump/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">调试技术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/28/coredump/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-进程内存监控" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/28/进程内存监控/">进程内存监控</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/28/进程内存监控/" class="archive-article-date">
+  	<time datetime="2017-10-28T15:03:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="脚本目的"><a href="#脚本目的" class="headerlink" title="脚本目的"></a>脚本目的</h1><p>使用脚本监控指定进程内存占用，当进程占用内存超过设置阈值时，生成对应的coredump文件以及使用gdb命令输出进程的全部线程信息，从而保存进程在系统kill前进程信息，方便后续对内存急剧上涨的调试。</p>
+<h1 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h1><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup ./memcheck.sh &gt; /dev/<span class="literal">null</span> <span class="number">2</span>&gt;<span class="meta">&amp;1 &amp;</span></span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2017/10/28/进程内存监控/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/28/进程内存监控/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-CSAPP实验之BombLab" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -448,6 +759,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">性能分析</a>
               </li>
              
@@ -456,19 +771,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">家庭教育</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
+                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
+                <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
               </li>
              
               <li class="article-tag-list-item">
