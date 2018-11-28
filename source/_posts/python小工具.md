@@ -57,6 +57,11 @@ if __name__ == "__main__":
 
 # 统一文件名日期
 ``` python
+import os
+import shutil
+import re
+
+
 def normalize_date(filepath, pattern, year):
     for root, _, files in os.walk(filepath):
         for filename in files:

@@ -157,6 +157,10 @@
     <None Include="..\..\..\source\_posts\李玫瑾教育讲座.md" />
     <None Include="..\..\..\source\_posts\程序常用调试工具汇总.md" />
     <None Include="..\..\..\source\_posts\经济学入门通俗教程汇总.md" />
+    <None Include="..\..\..\source\_posts\经济学讲义：01-人性与稀缺.md" />
+    <None Include="..\..\..\source\_posts\经济学讲义：02-成本的深义.md" />
+    <None Include="..\..\..\source\_posts\经济学讲义：03-需求的规律.md" />
+    <None Include="..\..\..\source\_posts\经济学讲义：04-价格的作用.md" />
     <None Include="..\..\..\source\_posts\网络编程实践环境搭建.md" />
     <None Include="..\..\..\source\_posts\软件架构专栏-阅读整理一.md" />
     <None Include="..\..\..\source\_posts\软件架构专栏-阅读整理二.md" />

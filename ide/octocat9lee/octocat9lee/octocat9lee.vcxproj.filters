@@ -171,5 +171,17 @@
     <None Include="..\..\..\source\_posts\python小工具.md">
       <Filter>资源文件</Filter>
     </None>
+    <None Include="..\..\..\source\_posts\经济学讲义：01-人性与稀缺.md">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\..\source\_posts\经济学讲义：02-成本的深义.md">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\..\source\_posts\经济学讲义：03-需求的规律.md">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\..\source\_posts\经济学讲义：04-价格的作用.md">
+      <Filter>资源文件</Filter>
+    </None>
   </ItemGroup>
 </Project>
