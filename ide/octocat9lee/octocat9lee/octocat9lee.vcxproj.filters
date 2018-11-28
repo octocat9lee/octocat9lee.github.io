@@ -183,5 +183,8 @@
     <None Include="..\..\..\source\_posts\经济学讲义：04-价格的作用.md">
       <Filter>资源文件</Filter>
     </None>
+    <None Include="..\..\..\source\_posts\Google搜索技巧.md">
+      <Filter>资源文件</Filter>
+    </None>
   </ItemGroup>
 </Project>
