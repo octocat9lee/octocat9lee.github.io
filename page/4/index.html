@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
-  <meta name="baidu-site-verification" content="gHJw3bXGu1" />
-  <meta name="google-site-verification" content="-lNjR-HxF8YoulCpsMRPTH3XMW3mvngPcJDTDXYkNSA" />
+  <meta name="baidu-site-verification" content="gHJw3bXGu1">
+  <meta name="google-site-verification" content="-lNjR-HxF8YoulCpsMRPTH3XMW3mvngPcJDTDXYkNSA">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://octocat9lee.github.io">
   <title>章鱼猫の博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -48,7 +48,7 @@ var _hmt = _hmt || [];
 
 
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -171,7 +171,168 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-C-Primer5e第11章：关联容器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-C-Primer5e第13章：拷贝控制" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/15/C-Primer5e第13章：拷贝控制/">C++Primer5e第13章：拷贝控制</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/15/C-Primer5e第13章：拷贝控制/" class="archive-article-date">
+  	<time datetime="2017-12-15T02:09:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>拷贝控制决定着对象在拷贝、移动、赋值和销毁时的行为，包括：<code>拷贝构造函数(copy constructor)、拷贝赋值运算符(copy-assignment operator)、移动构造函数(move constructor)、移动赋值运算符(move-assignment operator)和析构函数(destructor)</code>。</p>
+<blockquote>
+<p>拷贝构造和移动构造函数定义当用同类型的另一个对象初始化本对象时做什么。<br>拷贝赋值运算符和移动赋值运算符定义了将一个对象赋予同类型对象时做什么。<br>析构函数定义了当此对象销毁时做什么。</p>
+</blockquote>
+<h1 id="拷贝、赋值和销毁"><a href="#拷贝、赋值和销毁" class="headerlink" title="拷贝、赋值和销毁"></a>拷贝、赋值和销毁</h1><h2 id="拷贝构造函数"><a href="#拷贝构造函数" class="headerlink" title="拷贝构造函数"></a>拷贝构造函数</h2><p>拷贝构造函数特征：首先满足构造函数特征，没有返回值；其次操作函数的第一个参数必须是自身类型的引用，其他参数有默认值。<br><strong>如果第一个参数不是引用类型，为了在调用拷贝构造函数时拷贝实参又需要调用拷贝构造函数，从而形成死循环。</strong></p>
+<h2 id="拷贝赋值运算符"><a href="#拷贝赋值运算符" class="headerlink" title="拷贝赋值运算符"></a>拷贝赋值运算符</h2><p>赋值运算符其实就是名为<code>operator=</code>的函数。赋值运算符通常应该返回一个指向其左侧对象的引用。</p>
+<h2 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h2><p>如同构造函数有一个初始化部分和一个函数体，析构函数也有一个函数体和一个析构部分。在构造函数中，成员的初始化是在函数体执行之前完成的，而且按照它们在类中出现的顺序初始化。在析构函数中，首先执行函数体，然后按初始化的相反顺序销毁其成员。成员是在析构函数体之后隐含的析构阶段中被销毁的。<br>对于一个类，只有唯一的一个析构函数。<br>
+        
+          <a class="article-more-a" href="/2017/12/15/C-Primer5e第13章：拷贝控制/#more">more >></a>
+        
+      
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/15/C-Primer5e第13章：拷贝控制/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-C-Primer5e第12章：动态内存" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/14/C-Primer5e第12章：动态内存/">C++Primer5e第12章：动态内存</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/14/C-Primer5e第12章：动态内存/" class="archive-article-date">
+  	<time datetime="2017-12-14T02:00:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>动态对象的生存期由程序来控制，当动态对象不再使用时，程序必须显式地销毁它们。</p>
+<h1 id="动态内存与智能指针"><a href="#动态内存与智能指针" class="headerlink" title="动态内存与智能指针"></a>动态内存与智能指针</h1><p>C++11新标准库提供两种<code>智能指针类型</code>管理动态对象。智能指针行为类似常规指针，重要区别是智能指针负责自动释放所指向的对象。两种智能指针的区别在于管理底层底层的方式：<code>shared_ptr</code>允许多个指针指向同一个对象；<code>unique_ptr</code>则独占所指向的对象。标准库还定义了一个名为<code>weak_ptr</code>的伴随类，它是一种弱引用，指向<code>shared_ptr</code>所管理的对象。三种类型都定义在<code>memory</code>头文件中。</p>
+<h2 id="shared-ptr类"><a href="#shared-ptr类" class="headerlink" title="shared_ptr类"></a>shared_ptr类</h2><p>智能指针也是模板类，必须在尖括号内提供指针指向的类型参数。<br><strong>shared_ptr和unique_ptr都支持的操作</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">shared_ptr</span>&lt;T&gt;    空智能指针，可以指向类型为T的对象</span><br><span class="line"><span class="built_in">unique_ptr</span>&lt;T&gt;</span><br><span class="line">p                将p用作一个条件判断，若p指向一个对象，则为<span class="literal">true</span></span><br><span class="line">*p               解引用p，获得它指向的对象</span><br><span class="line">p-&gt;mem           等价于(*p).mem</span><br><span class="line">p.get()          返回p中保存的指针。小心使用，若智能指针释放了其对象，返回的指针所指向的对象也就消失</span><br><span class="line">swap(p, q)       交换p和q中的指针</span><br><span class="line">p.swap(q)</span><br></pre></td></tr></table></figure></p>
+<p><strong>shared_ptr独有的操作</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">make_shared&lt;T&gt;(args)   返回一个<span class="built_in">shared_ptr</span>，指向一个动态分配的类型为T的对象。使用args初始化此对象</span><br><span class="line"><span class="built_in">shared_ptr</span>&lt;T&gt; p(q)     p是<span class="built_in">shared_ptr</span>的拷贝；此操作会递增q中的计数器。q中的指针必须能转换为T*</span><br><span class="line">p = q                  p和q都是<span class="built_in">shared_ptr</span>，所保存的指针必须能相互转换。此操作会递减p的引用计数，</span><br><span class="line">                       递增q的引用。若p的引用计数变为<span class="number">0</span>，则将其管理的原内存释放。表达式含义：将p指向q的对象</span><br><span class="line">p.unique()             若p.use_count()为<span class="number">1</span>，则返回<span class="literal">true</span>；否则返回<span class="literal">false</span></span><br><span class="line">p.use_count()          返回与p共享对象的智能指针数量，可能很慢，主要用于调试</span><br></pre></td></tr></table></figure></p>
+        
+          <a class="article-more-a" href="/2017/12/14/C-Primer5e第12章：动态内存/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/14/C-Primer5e第12章：动态内存/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-C-Primer5e第11章：关联容器" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -252,7 +413,7 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-C-Primer5e第10章：泛型算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-C-Primer5e第10章：泛型算法" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -285,7 +446,7 @@ var _hmt = _hmt || [];
       
 
       
-    </div>
+    </p></div>
     <div class="article-info article-info-index">
       
       
@@ -334,7 +495,7 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-C-Primer5e第09章：顺序容器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-C-Primer5e第09章：顺序容器" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -372,7 +533,7 @@ var _hmt = _hmt || [];
       
 
       
-    </div>
+    </p></div>
     <div class="article-info article-info-index">
       
       
@@ -421,7 +582,7 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-C-Primer5e第08章：IO库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-C-Primer5e第08章：IO库" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -502,7 +663,7 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-C-Primer5e第07章：类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-C-Primer5e第07章：类" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -532,7 +693,7 @@ var _hmt = _hmt || [];
       
 
       
-    </div>
+    </p></div>
     <div class="article-info article-info-index">
       
       
@@ -581,7 +742,7 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-C-Primer5e第06章：函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-C-Primer5e第06章：函数" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -670,7 +831,7 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-C-Primer5e第05章：语句-md" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-C-Primer5e第05章：语句-md" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -698,7 +859,7 @@ var _hmt = _hmt || [];
       
 
       
-    </div>
+    </p></div>
     <div class="article-info article-info-index">
       
       
@@ -747,7 +908,7 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-C-Primer5e第04章：表达式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-C-Primer5e第04章：表达式" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -830,168 +991,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-C-Primer5e第03章：字符串、向量和数组" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/06/C-Primer5e第03章：字符串、向量和数组/">C++Primer5e第03章：字符串、向量和数组</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/06/C-Primer5e第03章：字符串、向量和数组/" class="archive-article-date">
-  	<time datetime="2017-12-06T01:25:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="命名空间的using声明"><a href="#命名空间的using声明" class="headerlink" title="命名空间的using声明"></a>命名空间的using声明</h1><p><strong>头文件不应包含using声明</strong><br>因为头文件的内容会拷贝到所有引用它的文件中去，如果头文件里有某个using声明，那么每个使用了该头文件的文件都会有这个声明。对于某些程序来说，由于不经意间包含了一些名字，可能产生意想不到的冲突。</p>
-<h1 id="标准库类型string"><a href="#标准库类型string" class="headerlink" title="标准库类型string"></a>标准库类型string</h1><p>如果使用等号(=)初始化一个变量，实际上执行的是<code>拷贝初始化(copy initialization)</code>，因为编译器创建临时对象，然后会把等号右侧的初始值拷贝到新创建的对象中去。如果不使用等号，则执行的是<code>直接初始化(direct initialization)</code>。</p>
-<h2 id="string-size-type类型"><a href="#string-size-type类型" class="headerlink" title="string::size_type类型"></a>string::size_type类型</h2><p>string的size函数返回的是一个string::size_type类型，它是一个无符号类型。切记：如果表达式中已经有size()函数就不要再使用int了，从而可以避免混用int和unsigned可能带来的问题。例如：假设n是一个负值的int，则表达式<code>s.size() &lt; n</code>的判断结果几乎肯定是true，因为负值n会转换成一个很大的无符号值。<br>在C++11新标准中，可以通过auto或decltype来判断变量类型：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> len = s.size(); <span class="comment">//len的类型是string::size_type</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="处理string对象中的字符"><a href="#处理string对象中的字符" class="headerlink" title="处理string对象中的字符"></a>处理string对象中的字符</h2><p>使用C++版本的C标准库头文件，C++标准兼容C语言标准库。C语言的头文件刑如name.h，C++则将文件命名为cname。在名为cname的头文件中定义的名字从属于std命名空间，而定义在名为.h的头文件中则不然。一般来说，C++程序应该使用名为cname的头文件，标准库的名字总能在std中找到。<br>
-        
-          <a class="article-more-a" href="/2017/12/06/C-Primer5e第03章：字符串、向量和数组/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/06/C-Primer5e第03章：字符串、向量和数组/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-C-Primer5e第02章：变量和基本类型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/05/C-Primer5e第02章：变量和基本类型/">C++Primer5e第02章：变量和基本类型</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/05/C-Primer5e第02章：变量和基本类型/" class="archive-article-date">
-  	<time datetime="2017-12-05T05:47:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="基本内置类型"><a href="#基本内置类型" class="headerlink" title="基本内置类型"></a>基本内置类型</h1><h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><ul>
-<li>给一个无符号类型赋值一个超出表示范围值时，其结果是初始值对无符号类型表示最大值取模后的余数。</li>
-<li>给一个有符号类型赋值一个超出表示范围值时，其结果是未定义的(undefined)。<blockquote>
-<p>切勿混用无符号和有符号类型<br>如果表达式里既包含有符号类型，也包含无符号类型，当有符号类型的取值为负时会出现异常结果，因为有符号类型会自动转换成无符号类型。</p>
-</blockquote>
-</li>
-</ul>
-<h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><h2 id="变量定义"><a href="#变量定义" class="headerlink" title="变量定义"></a>变量定义</h2><p>变量定义基本形式：<code>类型说明符(type specifier) + 变量名</code><br>当对象在创建时获得一个特定的值，我们就说这个对象被<code>初始化(initialized)</code>了。初始化不是赋值，初始化的含义是创建变量时赋予其一个初始值，而赋值的含义是把对象的当前值擦除，而以一个新值来替代。<br>在C++11中，用花括号初始化变量的形式成为<code>列表初始化(list initialization)</code>。无论是初始化对象还是某些时候为对象赋新值，都可以使用花括号括起来的初始值。当应用于内置类型时，如果使用列表初始化而且初始值存在丢失信息的风险，则编译器报错。<br>如果变量定义时没有指定初值，则变量<code>被默认初始化(default initialized)</code>。如果是内置类型，定义于任何函数外的变量初始化为0，定义在函数体内部的变量则<code>不被初始化(unitialized)</code>。未初始化的内置类型的值是未定义的。类对象如果没有显式地初始化，则其值由类确定。所以，建议初始化每一个内置类型的变量。<br>
-        
-          <a class="article-more-a" href="/2017/12/05/C-Primer5e第02章：变量和基本类型/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/05/C-Primer5e第02章：变量和基本类型/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
@@ -1008,12 +1007,14 @@ var _hmt = _hmt || [];
         <div class="footer-left">
           &copy; 2018 <a href="https://octocat9lee.github.io" target="_blank">章鱼猫</a>
         </div>
+        <!--
         <span id="busuanzi_container_site_pv">
           本站总访问量<span id="busuanzi_value_site_pv"></span>次
         </span>
         <span id="busuanzi_container_site_uv">
           本站访客数<span id="busuanzi_value_site_uv"></span>人次
         </span>
+        -->
         <!--
         <div class="footer-right">
           <a href="https://octocat9lee.github.io" style="font-weight: bold">章鱼猫</a>
@@ -1022,8 +1023,10 @@ var _hmt = _hmt || [];
     </div>
   </div>
 </footer>
+<!--
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
+-->
 
     </div>
     <script>
@@ -1124,11 +1127,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
+                <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
+                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1140,7 +1143,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:
