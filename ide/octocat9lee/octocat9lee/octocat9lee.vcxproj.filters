@@ -186,5 +186,11 @@
     <None Include="..\..\..\source\_posts\Google搜索技巧.md">
       <Filter>资源文件</Filter>
     </None>
+    <None Include="..\..\..\source\_posts\经济学讲义：05-权利-自由不等于免费.md">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\..\source\_posts\经济学讲义：06-耐心-想象力决定生产力.md">
+      <Filter>资源文件</Filter>
+    </None>
   </ItemGroup>
 </Project>
