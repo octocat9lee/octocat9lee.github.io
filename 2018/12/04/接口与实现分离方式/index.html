@@ -8,22 +8,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://octocat9lee.github.io">
-  <title>2017年读书计划 | 章鱼猫の博客</title>
+  <title>接口与实现分离方式 | 章鱼猫の博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言有目标才不至于迷失方向，有计划才会有行动，否则一切就是空谈。趁京东双11活动，入手几本关于理财，家庭教育以及逻辑思维方面的书籍，因此制定半年读书计划：  每半个月阅读一本书&amp;emsp;2017-11-06  读书清单  读书列表《小狗钱钱》&amp;emsp;2017-11-19 阅读完成《中产阶级如何保护自己的财富》&amp;emsp;2017-12-05 阅读完成《小岛经济学》&amp;emsp;2017-12-">
-<meta name="keywords" content="生活规划">
+  <meta name="description" content="在阅读SRS源码时，作者大量使用如下的方式实现接口和实现间的分离，并调用接口中的函数，相比自己之前熟悉的使用std::bind和std::function实现回调方式有些差异。于是将作者的意图进行简化，便于理解。简化后的代码如下：">
+<meta name="keywords" content="C++">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2017年读书计划">
-<meta property="og:url" content="https://octocat9lee.github.io/2017/11/06/2017年读书计划/index.html">
+<meta property="og:title" content="接口与实现分离方式">
+<meta property="og:url" content="https://octocat9lee.github.io/2018/12/04/接口与实现分离方式/index.html">
 <meta property="og:site_name" content="章鱼猫の博客">
-<meta property="og:description" content="前言有目标才不至于迷失方向，有计划才会有行动，否则一切就是空谈。趁京东双11活动，入手几本关于理财，家庭教育以及逻辑思维方面的书籍，因此制定半年读书计划：  每半个月阅读一本书&amp;emsp;2017-11-06  读书清单  读书列表《小狗钱钱》&amp;emsp;2017-11-19 阅读完成《中产阶级如何保护自己的财富》&amp;emsp;2017-12-05 阅读完成《小岛经济学》&amp;emsp;2017-12-">
+<meta property="og:description" content="在阅读SRS源码时，作者大量使用如下的方式实现接口和实现间的分离，并调用接口中的函数，相比自己之前熟悉的使用std::bind和std::function实现回调方式有些差异。于是将作者的意图进行简化，便于理解。简化后的代码如下：">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://github.com/octocat9lee/blog-images/raw/master/7chG39bI55.jpg">
-<meta property="og:updated_time" content="2018-11-19T03:39:52.532Z">
+<meta property="og:updated_time" content="2018-12-04T07:21:25.591Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2017年读书计划">
-<meta name="twitter:description" content="前言有目标才不至于迷失方向，有计划才会有行动，否则一切就是空谈。趁京东双11活动，入手几本关于理财，家庭教育以及逻辑思维方面的书籍，因此制定半年读书计划：  每半个月阅读一本书&amp;emsp;2017-11-06  读书清单  读书列表《小狗钱钱》&amp;emsp;2017-11-19 阅读完成《中产阶级如何保护自己的财富》&amp;emsp;2017-12-05 阅读完成《小岛经济学》&amp;emsp;2017-12-">
-<meta name="twitter:image" content="https://github.com/octocat9lee/blog-images/raw/master/7chG39bI55.jpg">
+<meta name="twitter:title" content="接口与实现分离方式">
+<meta name="twitter:description" content="在阅读SRS源码时，作者大量使用如下的方式实现接口和实现间的分离，并调用接口中的函数，相比自己之前熟悉的使用std::bind和std::function实现回调方式有些差异。于是将作者的意图进行简化，便于理解。简化后的代码如下：">
   
     <link rel="alternative" href="/atom.xml" title="章鱼猫の博客" type="application/atom+xml">
   
@@ -173,34 +171,32 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-2017年读书计划" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-接口与实现分离方式" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      2017年读书计划
+      接口与实现分离方式
     </h1>
   
 
         
-        <a href="/2017/11/06/2017年读书计划/" class="archive-article-date">
-  	<time datetime="2017-11-06T15:20:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-06</time>
+        <a href="/2018/12/04/接口与实现分离方式/" class="archive-article-date">
+  	<time datetime="2018-12-04T06:47:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>有目标才不至于迷失方向，有计划才会有行动，否则一切就是空谈。趁京东双11活动，入手几本关于理财，家庭教育以及逻辑思维方面的书籍，因此制定半年读书计划：</p>
-<blockquote>
-<p><strong>每半个月阅读一本书&emsp;2017-11-06</strong></p>
-</blockquote>
-<h1 id="读书清单"><a href="#读书清单" class="headerlink" title="读书清单"></a>读书清单</h1><center><br><img src="https://github.com/octocat9lee/blog-images/raw/master/7chG39bI55.jpg" alt="avatar"><br></center>
-
-<h1 id="读书列表"><a href="#读书列表" class="headerlink" title="读书列表"></a>读书列表</h1><p>《小狗钱钱》&emsp;2017-11-19 阅读完成<br>《中产阶级如何保护自己的财富》&emsp;2017-12-05 阅读完成<br>《小岛经济学》&emsp;2017-12-18 阅读完成<br>《管道的故事》&emsp;2017-12-21 阅读完成<br>《互联网的效率：以一敌百》&emsp;2018-01-15 阅读完成<br>《黑客与画家》&emsp;2018-01-28 阅读完成</p>
-<a id="more"></a>
+        <p>在阅读SRS源码时，作者大量使用如下的方式实现接口和实现间的分离，并调用接口中的函数，相比自己之前熟悉的使用<code>std::bind</code>和<code>std::function</code>实现回调方式有些差异。于是将作者的意图进行简化，便于理解。<br>简化后的代码如下：<br><a id="more"></a></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">IThreadHandler</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    IThreadHandler()</span><br><span class="line">    &#123; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">virtual</span> ~IThreadHandler()</span><br><span class="line">    &#123; &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">int</span> <span class="title">cycle</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Thread</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Thread(IThreadHandler *h)</span><br><span class="line">    &#123;</span><br><span class="line">        handler = h;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">start</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        handler-&gt;cycle();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    IThreadHandler *handler;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Listener</span> :</span> <span class="keyword">public</span> IThreadHandler</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Listener()</span><br><span class="line">    &#123;</span><br><span class="line">        thd = <span class="keyword">new</span> Thread(<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">virtual</span> ~Listener()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">delete</span> thd;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// interface IThreadHandler</span></span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">int</span> <span class="title">cycle</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Listener::cycle\n"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">listen</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        thd-&gt;start();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    Thread *thd;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Listener listener;</span><br><span class="line">    listener.listen();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>IThreadHandler</code>表示接口类，需要由子类实现的函数定义为纯虚函数。</p>
+<p>在<code>Thread</code>类中通过接口对象<code>handler</code>调用<code>IThreadHandler</code>接口中对象。</p>
+<p><code>Listener</code>类继承接口类，并实现接口类中的纯虚函数。在<code>Listener</code>类的构造函数中将真正的实现对象<code>this</code>指针初始化到<code>Thread</code>类中，供<code>Thread</code>回调使用。</p>
+<p>在整个的实现机制中，通过<code>IThreadHandler</code>接口对象，让<code>Thread</code>和<code>Listener</code>解耦。</p>
 
       
 
@@ -214,7 +210,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">生活规划</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
         		</li>
       		
 		</ul>
@@ -270,7 +266,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://octocat9lee.github.io/2017/11/06/2017年读书计划/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://octocat9lee.github.io/2018/12/04/接口与实现分离方式/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -284,18 +280,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2017/11/07/CSAPP之存储器层次结构/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          CSAPP之存储器层次结构
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/11/03/CSAPP之优化程序性能/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">CSAPP之优化程序性能</div>
+    <a href="/2018/12/03/经济学讲义：06-耐心-想象力决定生产力/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">经济学讲义：06-耐心 想象力决定生产力</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -322,7 +309,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#读书清单"><span class="toc-number">2.</span> <span class="toc-text">读书清单</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#读书列表"><span class="toc-number">3.</span> <span class="toc-text">读书列表</span></a></li></ol>
+                    目录不存在
                     </div>
                 </span>
             </div>
