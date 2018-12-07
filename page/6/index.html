@@ -171,6 +171,167 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CSAPP之存储器层次结构" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/07/CSAPP之存储器层次结构/">CSAPP之存储器层次结构</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/07/CSAPP之存储器层次结构/" class="archive-article-date">
+  	<time datetime="2017-11-07T01:30:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>存储系统采用分层结构，越靠近CPU，访问速度快，容量小，越远离CPU，访问速度慢，容量大。存储器分层结构利用程序的<code>局部性</code>基本属性，即程序在一段时间内，倾向于访问相同集合的数据例如循环遍历数组或者访问相邻的数据集合的特性，从而提升访问性能。所以，利用<code>缓冲</code>思想，将存储系统设计为层次结构，例如高速Cache作为CPU寄存器和内存的缓冲区，内存作为高速Cache和硬盘的缓冲区，硬盘可以作为网络数据的缓冲区。</p>
+<h1 id="存储器分类"><a href="#存储器分类" class="headerlink" title="存储器分类"></a>存储器分类</h1><p>RAM分为SRAM和DRAM，SRAM主要用于作为高速Cache，DRAM用来作为主存或者图形帧缓冲区。桌面系统SRAM容量不超过几M字节，DRAM却有几百到几千M字节。从磁盘读取信息为毫秒级，比从DRAM读慢了10万倍，比从SRAM读慢了100万倍。<br>CPU发送完读磁盘请求后，由相应的控制器完成磁盘与内存间数据的读写处理，CPU不需要参与，可以继续执行其他的指令。当读写操作完成后，控制器通过中断通知CPU，称之为<code>直接内存访问(DMA,Direct Memory Access)</code>。</p>
+<h1 id="局部性"><a href="#局部性" class="headerlink" title="局部性"></a>局部性</h1><p>时间局部性：被引用过一次的内存位置在不久的将来再次被引用<br>空间局部性：被引用过一次的内存位置在不久的将来引用附近的内存访问<br>重复引用相同变量的程序具有良好的时间局部性；步长为1的引用模式具有良好的空间局部性，随着步长的增加，空间局部性下降；对于指令来说，循环具有良好的时间和空间局部性，循环体越小，迭代次数越多，局部性越好</p>
+<h1 id="存储器层次结构"><a href="#存储器层次结构" class="headerlink" title="存储器层次结构"></a>存储器层次结构</h1><p>CPU访问寄存器需要一个时钟周期，SRAM需要几个时钟周期，DRAM需要几十到几百时钟周期。<br>基本原则：上层缓存下层的一个块，每次传输时使用块作为单元，为了补偿访问时间，因此，在越远离CPU的层次时块的大小越大。存储器层次结构如下图所示：<br>
+        
+          <a class="article-more-a" href="/2017/11/07/CSAPP之存储器层次结构/#more">more >></a>
+        
+      
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">CSAPP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/07/CSAPP之存储器层次结构/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2017年读书计划" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/06/2017年读书计划/">2017年读书计划</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/06/2017年读书计划/" class="archive-article-date">
+  	<time datetime="2017-11-06T15:20:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>有目标才不至于迷失方向，有计划才会有行动，否则一切就是空谈。趁京东双11活动，入手几本关于理财，家庭教育以及逻辑思维方面的书籍，因此制定半年读书计划：</p>
+<blockquote>
+<p><strong>每半个月阅读一本书&emsp;2017-11-06</strong></p>
+</blockquote>
+<h1 id="读书清单"><a href="#读书清单" class="headerlink" title="读书清单"></a>读书清单</h1><center><br><img src="https://github.com/octocat9lee/blog-images/raw/master/7chG39bI55.jpg" alt="avatar"><br></center>
+
+<h1 id="读书列表"><a href="#读书列表" class="headerlink" title="读书列表"></a>读书列表</h1><p>《小狗钱钱》&emsp;2017-11-19 阅读完成<br>《中产阶级如何保护自己的财富》&emsp;2017-12-05 阅读完成<br>《小岛经济学》&emsp;2017-12-18 阅读完成<br>《管道的故事》&emsp;2017-12-21 阅读完成<br>《互联网的效率：以一敌百》&emsp;2018-01-15 阅读完成<br>《黑客与画家》&emsp;2018-01-28 阅读完成</p>
+        
+          <a class="article-more-a" href="/2017/11/06/2017年读书计划/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">生活规划</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/06/2017年读书计划/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-CSAPP之优化程序性能" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -796,170 +957,9 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-CSAPP实验之BombLab" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/27/CSAPP实验之BombLab/">CSAPP实验之BombLab</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/27/CSAPP实验之BombLab/" class="archive-article-date">
-  	<time datetime="2017-10-27T09:32:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>“二进制炸弹”是作为目标代码文件提供给学生的程序。运行时，它提示用户键入6个不同的字符串。如果这些中的任何一个是不正确的，炸弹“爆炸”，打印一个错误消息。我们必须通过拆卸和反向工程来确定6个字符串应该是什么，来“消除”自己独特的炸弹。本实验的主要目的是熟悉汇编语言，并强制学习如何使用调试器。<br>本实验详细项目文件以及分析解决方案参见<a href="https://gitee.com/zhoulee/CSAPP/tree/master/bomb" target="_blank" rel="noopener">BombLab</a>，下载实验代码，解压，进入工作目录，下面进入惊险刺激的的破译之旅。</p>
-<h1 id="基本知识"><a href="#基本知识" class="headerlink" title="基本知识"></a>基本知识</h1><h2 id="寄存器基本使用规律"><a href="#寄存器基本使用规律" class="headerlink" title="寄存器基本使用规律"></a>寄存器基本使用规律</h2><figure class="highlight mojolicious"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"></span><span class="perl">%rbp %rbx %r12~%15 被调用者保存寄存器</span><span class="xml"></span></span><br><span class="line"><span class="xml"></span><span class="perl">%r10 %r11 调用者保存寄存器</span><span class="xml"></span></span><br><span class="line"><span class="xml"></span><span class="perl">%rax 保存函数返回值</span><span class="xml"></span></span><br><span class="line"><span class="xml"></span><span class="perl">%rdi %rsi %rdx %rcx %r8 %r9 依次保存函数参数<span class="number">1</span>~<span class="number">6</span></span><span class="xml"></span></span><br></pre></td></tr></table></figure>
-<h2 id="汇编指令阅读"><a href="#汇编指令阅读" class="headerlink" title="汇编指令阅读"></a>汇编指令阅读</h2><p>指令编写方式：<code>指令名  源操作数  目的操作数</code>源操作数和目的操作数不能同时都为内存单元<br>对于源操作数和目的操作数中，除lea指令外，其他包含括号的指令均为访问对应的内存单元的值，在C语言中，可以将该变量视为指针变量。<br>cmp指令使用<code>目的操作数-源操作数</code>，test指令使用<code>目的操作数&amp;源操作数</code>，接下来的条件指令根据命令规则进行跳转。<br>
-        
-          <a class="article-more-a" href="/2017/10/27/CSAPP实验之BombLab/#more">more >></a>
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">CSAPP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/27/CSAPP实验之BombLab/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Markdown基本语法" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/27/Markdown基本语法/">Markdown基本语法</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/27/Markdown基本语法/" class="archive-article-date">
-  	<time datetime="2017-10-27T08:04:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><strong>Markdown</strong>编辑器支持代码块高亮，是一款简洁高效的编辑器。</p>
-<h1 id="Markdown简介"><a href="#Markdown简介" class="headerlink" title="Markdown简介"></a>Markdown简介</h1><blockquote>
-<p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，然后转换成格式丰富的HTML页面。 —— <a href="https://zh.wikipedia.org/wiki/Markdown" target="_blank" rel="noopener">维基百科</a></p>
-</blockquote>
-<blockquote><a href="http://www.baidu.com" target="_blank" rel="noopener">百度一下</a></blockquote>
-
-<h1 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h1><p>常用代码块指示标签有<code>bash python c cpp java javascript css xml x86asm haskell</code></p>
-<h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@requires_authorization</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">somefunc</span><span class="params">(param1=<span class="string">''</span>, param2=<span class="number">0</span>)</span>:</span></span><br><span class="line">    <span class="string">'''A docstring'''</span></span><br><span class="line">    <span class="keyword">if</span> param1 &gt; param2: <span class="comment"># interesting</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">'Greater'</span></span><br><span class="line">    <span class="keyword">return</span> (param2 - param1 + <span class="number">1</span>) <span class="keyword">or</span> <span class="keyword">None</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>message = <span class="string">'''interpreter</span></span><br><span class="line"><span class="string"><span class="meta">... </span>prompt'''</span></span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2017/10/27/Markdown基本语法/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术点滴</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/27/Markdown基本语法/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span>
+      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
     </nav>
   
 
@@ -1093,11 +1093,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
+                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
+                <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
               </li>
              
               <li class="article-tag-list-item">
