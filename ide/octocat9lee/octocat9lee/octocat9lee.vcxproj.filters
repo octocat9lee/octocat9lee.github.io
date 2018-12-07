@@ -195,5 +195,11 @@
     <None Include="..\..\..\source\_posts\接口与实现分离方式.md">
       <Filter>资源文件</Filter>
     </None>
+    <None Include="..\..\..\source\_posts\经济学讲义：07-供应-好钢用在刀刃上.md">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\..\source\_posts\经济学讲义：08-信任的建立.md">
+      <Filter>资源文件</Filter>
+    </None>
   </ItemGroup>
 </Project>
