@@ -62,7 +62,8 @@ import shutil
 import re
 
 
-def normalize_date(filepath, pattern, year):
+def normalize_date_1(filepath, year):
+    pattern = re.compile(r'^([a-z]*)(\d{4,})(.*)')
     for root, _, files in os.walk(filepath):
         for filename in files:
             old_filename = os.path.join(root, filename)
@@ -74,9 +75,71 @@ def normalize_date(filepath, pattern, year):
                     os.rename(old_filename, new_filename)
 
 
+"""
+将形如wj0908文件名开始的文件整理成wj20180908开始的文件名
+"""
+def normalize_1():
+    filepath = r'E:\网盘空间\speedpan\整理\硅谷来信'
+    normalize_date_1(filepath, "2017")
+
+
+def normalize_date_2(filepath):
+    pattern = re.compile(r'^([a-z]*)(\d{1,2})(\.)(\d{1,2})(.*)')
+    for root, _, files in os.walk(filepath):
+        for filename in files:
+            old_filename = os.path.join(root, filename)
+            match = pattern.match(filename)
+            if match:
+                prefix = match.group(1)
+                month = match.group(2)
+                day = match.group(4)
+                suffix = match.group(5)
+                if(len(month) == 1):
+                    month = '0' + month
+                if(len(day) == 1):
+                    day = '0' + day
+                new_filename = prefix + month + day + suffix
+                new_filename = os.path.join(root, new_filename)
+                os.rename(old_filename, new_filename)
+
+
+"""
+将形如wj4.1文件名开始的文件整理成wj0401开始的文件名
+"""
+def normalize_2():
+    filepath = r'E:\网盘空间\speedpan\整理\硅谷来信'
+    normalize_date_2(filepath)
+
+
+def normalize_date_3(filepath):
+    pattern = re.compile(r'^([a-z]*)(\d{1,})(.*)')
+    for root, _, files in os.walk(filepath):
+        for filename in files:
+            old_filename = os.path.join(root, filename)
+            match = pattern.match(filename)
+            if match:
+                prefix = match.group(1)
+                month_day = match.group(2)
+                suffix = match.group(3)
+                if(len(month_day) == 2):
+                    month_day = '0' + month_day[0] + '0' + month_day[1]
+                if(len(month_day) == 3):
+                    month_day = '0' + month_day
+                new_filename = prefix + month_day + suffix
+                new_filename = os.path.join(root, new_filename)
+                os.rename(old_filename, new_filename)
+
+
+"""
+将形如wj41文件名开始的文件整理成wj0401开始的文件名
+"""
+def normalize_3():
+    filepath = r'E:\网盘空间\speedpan\整理\硅谷来信'
+    #filepath = r'E:\网盘空间\speedpan\整理\test'
+    normalize_date_3(filepath)
+
+
 if __name__ == "__main__":
-    filepath = r'E:\download\speedpan\xxxx\jpg'
-    pattern = re.compile(r'^(wj)(\d{4,})(.*)')
-    # 将形如wj0908文件名开始的文件整理成wj20180908开始的文件名
-    normalize_date(filepath, pattern, "2018")
+    normalize_1()
+
 ```
