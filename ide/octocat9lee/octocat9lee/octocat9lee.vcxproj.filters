@@ -201,5 +201,11 @@
     <None Include="..\..\..\source\_posts\经济学讲义：08-信任的建立.md">
       <Filter>资源文件</Filter>
     </None>
+    <None Include="..\..\..\source\_posts\经济学讲义：09-合作-为何同工不同酬.md">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\..\source\_posts\经济学讲义：10-协调-众人如何彼此影响.md">
+      <Filter>资源文件</Filter>
+    </None>
   </ItemGroup>
 </Project>
