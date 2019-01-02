@@ -170,6 +170,7 @@
     <None Include="..\..\..\source\_posts\经济学讲义：09-合作-为何同工不同酬.md" />
     <None Include="..\..\..\source\_posts\经济学讲义：10-协调-众人如何彼此影响.md" />
     <None Include="..\..\..\source\_posts\网络编程实践环境搭建.md" />
+    <None Include="..\..\..\source\_posts\谷歌方法论：001-030.md" />
     <None Include="..\..\..\source\_posts\软件架构专栏-阅读整理一.md" />
     <None Include="..\..\..\source\_posts\软件架构专栏-阅读整理二.md" />
     <None Include="..\..\..\source\_posts\进程内存监控.md" />
