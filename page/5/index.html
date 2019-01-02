@@ -171,6 +171,93 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-C-Primer5e第09章：顺序容器" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/11/C-Primer5e第09章：顺序容器/">C++Primer5e第09章：顺序容器</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/11/C-Primer5e第09章：顺序容器/" class="archive-article-date">
+  	<time datetime="2017-12-11T05:11:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="顺序容器概述"><a href="#顺序容器概述" class="headerlink" title="顺序容器概述"></a>顺序容器概述</h1><p>顺序容器中顺序不依赖元素的值，而与元素加入容器时的位置相对应。所有顺序容器都提供快速顺序访问元素的能力，但在以下方面有不同的性能折中：</p>
+<blockquote>
+<p>向容器中添加和删除元素的代价<br>非顺序访问容器中元素的代价</p>
+</blockquote>
+<h2 id="顺序容器类型"><a href="#顺序容器类型" class="headerlink" title="顺序容器类型"></a>顺序容器类型</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>        可变大小数组。支持快速随机访问。在尾部之外的位置插入或删除元素可能很慢</span><br><span class="line"><span class="built_in">deque</span>         双端队列。支持快速随机访问。在头尾位置插入、删除速度都很快</span><br><span class="line"><span class="built_in">list</span>          双向链表。只支持双向顺序访问。在<span class="built_in">list</span>中任何位置进行插入、删除操作速度都很快</span><br><span class="line">forward_list  单向链表。只支持单向顺序访问。在链表任何位置进行插入、删除操作速度都很快</span><br><span class="line"><span class="built_in">array</span>         固定大小数组。支持快速随机访问。不能添加或删除元素</span><br><span class="line"><span class="built_in">string</span>        与<span class="built_in">vector</span>相似的容器，但专门用于保存字符。随机访问快。在尾部插入、删除速度快</span><br></pre></td></tr></table></figure>
+<p>新标准库容器的性能几乎肯定与最精心优化过的同类数据结构一样好(通常会更好)。现代C++程序应该使用标准库容器，而不是更原始的数据结构，如内置数组。</p>
+<h2 id="选择容器的基本原则"><a href="#选择容器的基本原则" class="headerlink" title="选择容器的基本原则"></a>选择容器的基本原则</h2><blockquote>
+<p>1）除非有很好的理由选择其他容器，否则应使用vector；<br>2）如果程序有很多小元素，且空间的额外开销很重要，则不要使用list或forward_list；<br>3）如果程序要求随机访问元素，应使用vector或deque；<br>4）如果程序要求在容器的中间插入或删除元素，应使用list或forward_list；<br>5）如果程序需要在头尾位置插入或删除元素，但不会在中间位置进行插入或删除操作，则使用deque；<br>6）如果程序只有在读取输入时才需要在容器中间位置插入元素，随后需要随机访问元素，则:</p>
+<pre><code>- 首先，确定是否真的需要在容器中间位置添加元素。当处理输入数据时，通常可以很容易地向vector追加数据，然后在调用标准库的sort函数来重排序，从而避免在中间位置添加元素。
+- 如果必须在中间位置插入元素，考虑在输入阶段使用list，一旦输入完成，将list中的内容拷贝到一个vector中。
+</code></pre></blockquote>
+<p><strong>如果不确定应该使用哪种容器，那么在程序中使用vector和list公共操作：使用迭代器，不使用下标访问，避免随机访问。这样，在必要时选择使用vector和list都很方便。</strong><br>
+        
+          <a class="article-more-a" href="/2017/12/11/C-Primer5e第09章：顺序容器/#more">more >></a>
+        
+      
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/11/C-Primer5e第09章：顺序容器/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-C-Primer5e第08章：IO库" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -909,84 +996,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-CSAPP之异常控制流" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/20/CSAPP之异常控制流/">CSAPP之异常控制流</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/20/CSAPP之异常控制流/" class="archive-article-date">
-  	<time datetime="2017-11-20T03:40:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>从开机到关机，处理器做的工作其实很简单，就是不断读取并执行指令，每次执行一条，整个指令执行的序列，称为处理器的控制流。对于程序内部本身的控制，可以通过跳转、调用和返回等程序指令实现；然而，如果需要对系统状态变化做出反应，因为系统状态不能被程序变量捕获，有时甚至与程序的执行无关。比如说定时器产生信号，数据包到达网卡，程序向磁盘请求数据等情况发生时，需要采用另外的机制对上述的异常情形做出反应，这些突变就称为异常控制流(Exception Control Flow,ECF)。<br>ECF存在于系统的每个层级，最底层的机制称为异常(Exception)，用以改变控制流以响应系统事件，通常是由硬件的操作系统共同实现的。更高层次的异常控制流包括进程切换(Process Context Switch)、信号(Signal)和非本地跳转(Nonlocal Jumps)，也可以看做是一个从硬件过渡到操作系统，再从操作系统过渡到语言库的过程。进程切换是由硬件计时器和操作系统共同实现的，而信号则只是操作系统层面的概念了，到了非本地跳转就已经是在C运行时库中实现的了。</p>
-<h1 id="进程控制"><a href="#进程控制" class="headerlink" title="进程控制"></a>进程控制</h1><p>进程是计算机科学中最为重要的思想之一，进程是运行实例。进程给每个应用提供了两个非常关键的抽象：一是逻辑控制流，二是私有地址空间。逻辑控制流通过称为上下文切换(context switching)的内核机制让每个程序都感觉自己在独占处理器。私有地址空间则是通过称为虚拟内存(virtual memory)的机制让每个程序都感觉自己在独占内存。这样的抽象使得具体的进程不需要操心处理器和内存的相关适宜，也保证了在不同情况下运行同样的程序能得到相同的结果。对于fork关系复杂的进程，建议使用<code>进程图</code>画出各个进程的关系，梳理所有调用时序的可能性。</p>
-<h2 id="僵尸进程"><a href="#僵尸进程" class="headerlink" title="僵尸进程"></a>僵尸进程</h2><p>当一个进程由于某种原因终止时，内核并不立即从系统中删除。而是进程被保持在一种已终止的状态，直到被它的父进程<code>回收</code>。所以，当一个进程完成它的工作终止之后，它的父进程需要调用<code>wait()或者waitpid()</code>系统调用取得子进程的终止状态。<strong>一个终止了但未被回收的进程称为“僵尸进程”。</strong>系统进程表是一项有限资源，如果系统进程表被僵尸进程耗尽的话，系统就可能无法创建新的进程。模拟产生僵尸进程示例：<br>
-        
-          <a class="article-more-a" href="/2017/11/20/CSAPP之异常控制流/#more">more >></a>
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">CSAPP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/20/CSAPP之异常控制流/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
@@ -1103,11 +1112,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
+                <a href="javascript:void(0)" class="js-tag color5">技术点滴</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术点滴</a>
+                <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1127,11 +1136,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
               </li>
             
             <div class="clearfix"></div>
