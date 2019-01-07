@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://octocat9lee.github.io/"/>
-  <updated>2019-01-02T07:42:27.200Z</updated>
+  <updated>2019-01-07T06:50:41.635Z</updated>
   <id>https://octocat9lee.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>project操作指南</title>
+    <link href="https://octocat9lee.github.io/2019/01/07/project%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/"/>
+    <id>https://octocat9lee.github.io/2019/01/07/project操作指南/</id>
+    <published>2019-01-07T06:36:19.000Z</published>
+    <updated>2019-01-07T06:50:41.635Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h1><h2 id="自定义计划内假期"><a href="#自定义计划内假期" class="headerlink" title="自定义计划内假期"></a>自定义计划内假期</h2><p>在”项目”–&gt;”更改工作时间”–&gt;”新建日历”的步骤添加项目周期内假期和对应的时间段；然后在”任务”–&gt;”甘特图”之”任务工作表”界面中的合适位置选择插入”任务日历”列，通过下拉框选择自定义的工作日历，对于多项任务，可以通过下拉拖动的方式进行快速复制。具体操作方式如下：<br><a id="more"></a></p><center><br><img src="https://github.com/octocat9lee/blog-images/raw/master/project_%E8%87%AA%E5%AE%9A%E4%B9%89%E5%81%87%E6%9C%9F.jpg" alt="avatar"><br></center><h2 id="任务关联"><a href="#任务关联" class="headerlink" title="任务关联"></a>任务关联</h2><p>在任务模式中选择”自动安排”，并且在工作表中插入”前置任务”列，然后根据项目任务依赖情形在每项任务列中填写对应的前置任务，从而完全工作任务的自动依赖。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;基本操作&quot;&gt;&lt;a href=&quot;#基本操作&quot; class=&quot;headerlink&quot; title=&quot;基本操作&quot;&gt;&lt;/a&gt;基本操作&lt;/h1&gt;&lt;h2 id=&quot;自定义计划内假期&quot;&gt;&lt;a href=&quot;#自定义计划内假期&quot; class=&quot;headerlink&quot; title=&quot;自定义计划内假期&quot;&gt;&lt;/a&gt;自定义计划内假期&lt;/h2&gt;&lt;p&gt;在”项目”–&amp;gt;”更改工作时间”–&amp;gt;”新建日历”的步骤添加项目周期内假期和对应的时间段；然后在”任务”–&amp;gt;”甘特图”之”任务工作表”界面中的合适位置选择插入”任务日历”列，通过下拉框选择自定义的工作日历，对于多项任务，可以通过下拉拖动的方式进行快速复制。具体操作方式如下：&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="技术点滴" scheme="https://octocat9lee.github.io/tags/%E6%8A%80%E6%9C%AF%E7%82%B9%E6%BB%B4/"/>
+    
+  </entry>
   
   <entry>
     <title>谷歌方法论：001-030</title>
@@ -482,28 +502,6 @@
     
     
       <category term="家庭教育" scheme="https://octocat9lee.github.io/tags/%E5%AE%B6%E5%BA%AD%E6%95%99%E8%82%B2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo+Github搭建博客</title>
-    <link href="https://octocat9lee.github.io/2018/06/22/Hexo-Github%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
-    <id>https://octocat9lee.github.io/2018/06/22/Hexo-Github搭建博客/</id>
-    <published>2018-06-22T14:56:45.000Z</published>
-    <updated>2018-08-31T01:34:10.048Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前期使用<code>Hexo+Github</code>搭建部署了个人博客，并且在Github上使用分支技术，其中<code>hexo</code>分支用于编写博客，<code>master</code>分支用于发布博客。因为很长一段时间没有使用博客系统，关于博客的部署又得重新查找资料，故将个人博客的重新部署归纳总结。</p><h1 id="Hexo安装"><a href="#Hexo安装" class="headerlink" title="Hexo安装"></a>Hexo安装</h1><h2 id="安装Node-js和Git"><a href="#安装Node-js和Git" class="headerlink" title="安装Node.js和Git"></a>安装Node.js和Git</h2><p>直接在官网下载最新的<a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a>和<a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a>。安装完成后，启动<code>Git Bash</code>，使用<code>git --version,node -v和npm -v</code>检测安装是否成功。</p><h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p>在<code>Git Bash</code>中，使用<code>npm install hexo --save</code>安装Hexo；然后使用<code>hexo -v</code>检测安装是否成功。<br><a id="more"></a></p><h1 id="配置SSH"><a href="#配置SSH" class="headerlink" title="配置SSH"></a>配置SSH</h1><p>使用如下命令生成ssh信息：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ssh-keygen</span> <span class="selector-tag">-t</span> <span class="selector-tag">rsa</span> <span class="selector-tag">-C</span> "295861542@<span class="keyword">qq</span>.<span class="keyword">com</span>"</span><br></pre></td></tr></table></figure></p><p>找到<code>~/.ssh/id_rsa.pub</code>文件并复制里面的内容，登录Github并添加密钥，将复制的内容添加到<code>SSH Key</code>中，然后使用如下命令检验是否添加成功：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ssh</span> <span class="selector-tag">-T</span> <span class="selector-tag">git</span>@<span class="keyword">github</span>.<span class="keyword">com</span></span><br></pre></td></tr></table></figure></p><p>添加SSH Key之后，再配置git的全局信息和命令别名：<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global user.name zhoulee</span><br><span class="line">git<span class="built_in"> config </span>--global user.email 295861542@qq.com</span><br><span class="line">git<span class="built_in"> config </span>--global alias.lg <span class="string">"log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit"</span></span><br></pre></td></tr></table></figure></p><p>配置完git信息后，从Github克隆个人博客仓库：<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/octocat9lee/octocat9lee.github.io.git</span><br></pre></td></tr></table></figure></p><p>最后，切换到<code>hexo</code>分支，使用<code>npm install</code>命令安装所需的模块。至此，关于博客基础环境搭建完毕。</p><h1 id="Hexo命令简介"><a href="#Hexo命令简介" class="headerlink" title="Hexo命令简介"></a>Hexo命令简介</h1><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hexo g <span class="comment"># 生成静态文件</span></span><br><span class="line">hexo s -p <span class="number">4001</span> <span class="comment"># 部署监听4001端口</span></span><br><span class="line">hexo d <span class="comment"># 部署</span></span><br><span class="line">hexo d -g <span class="comment"># 生成并部署到Github</span></span><br><span class="line">hexo <span class="built_in">new</span> <span class="string">"Title"</span> <span class="comment"># 新建一篇文章</span></span><br><span class="line">hexo <span class="built_in">version</span> <span class="comment"># 查看版本</span></span><br><span class="line">hexo clean <span class="comment"># 清除缓存文件和已生成的静态文件</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;前期使用&lt;code&gt;Hexo+Github&lt;/code&gt;搭建部署了个人博客，并且在Github上使用分支技术，其中&lt;code&gt;hexo&lt;/code&gt;分支用于编写博客，&lt;code&gt;master&lt;/code&gt;分支用于发布博客。因为很长一段时间没有使用博客系统，关于博客的部署又得重新查找资料，故将个人博客的重新部署归纳总结。&lt;/p&gt;
-&lt;h1 id=&quot;Hexo安装&quot;&gt;&lt;a href=&quot;#Hexo安装&quot; class=&quot;headerlink&quot; title=&quot;Hexo安装&quot;&gt;&lt;/a&gt;Hexo安装&lt;/h1&gt;&lt;h2 id=&quot;安装Node-js和Git&quot;&gt;&lt;a href=&quot;#安装Node-js和Git&quot; class=&quot;headerlink&quot; title=&quot;安装Node.js和Git&quot;&gt;&lt;/a&gt;安装Node.js和Git&lt;/h2&gt;&lt;p&gt;直接在官网下载最新的&lt;a href=&quot;https://nodejs.org/en/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Node.js&lt;/a&gt;和&lt;a href=&quot;https://git-scm.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Git&lt;/a&gt;。安装完成后，启动&lt;code&gt;Git Bash&lt;/code&gt;，使用&lt;code&gt;git --version,node -v和npm -v&lt;/code&gt;检测安装是否成功。&lt;/p&gt;
-&lt;h2 id=&quot;安装Hexo&quot;&gt;&lt;a href=&quot;#安装Hexo&quot; class=&quot;headerlink&quot; title=&quot;安装Hexo&quot;&gt;&lt;/a&gt;安装Hexo&lt;/h2&gt;&lt;p&gt;在&lt;code&gt;Git Bash&lt;/code&gt;中，使用&lt;code&gt;npm install hexo --save&lt;/code&gt;安装Hexo；然后使用&lt;code&gt;hexo -v&lt;/code&gt;检测安装是否成功。&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="技术点滴" scheme="https://octocat9lee.github.io/tags/%E6%8A%80%E6%9C%AF%E7%82%B9%E6%BB%B4/"/>
     
   </entry>
   
