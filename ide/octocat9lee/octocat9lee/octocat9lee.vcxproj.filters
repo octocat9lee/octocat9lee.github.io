@@ -210,5 +210,8 @@
     <None Include="..\..\..\source\_posts\谷歌方法论：001-030.md">
       <Filter>资源文件</Filter>
     </None>
+    <None Include="..\..\..\source\_posts\project操作指南.md">
+      <Filter>资源文件</Filter>
+    </None>
   </ItemGroup>
 </Project>

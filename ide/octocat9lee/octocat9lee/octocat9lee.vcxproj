@@ -148,6 +148,7 @@
     <None Include="..\..\..\source\_posts\Hexo-Github搭建博客.md" />
     <None Include="..\..\..\source\_posts\Linux性能分析工具：ftrace.md" />
     <None Include="..\..\..\source\_posts\Markdown基本语法.md" />
+    <None Include="..\..\..\source\_posts\project操作指南.md" />
     <None Include="..\..\..\source\_posts\python小工具.md" />
     <None Include="..\..\..\source\_posts\Scratch基本操作篇.md" />
     <None Include="..\..\..\source\_posts\UNIX编程艺术.md" />
