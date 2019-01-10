@@ -171,6 +171,87 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-C-Primer5e第11章：关联容器" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/13/C-Primer5e第11章：关联容器/">C++Primer5e第11章：关联容器</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/13/C-Primer5e第11章：关联容器/" class="archive-article-date">
+  	<time datetime="2017-12-13T06:47:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>关联容器中的元素是按关键字来保存和访问的，支持高效的关键字查找和访问。标准库提供8个关联容器，体现在3个维度：<br>(1) set或者map；(2)关键字能否重复，允许重复关键字的包含单词multi；(3)按顺序保存或无序保存，不保持关键字按顺序存储的容器的名字都以单词unordered开头。因此，unordered_multi_set是一个允许关键字重复，元素无序保存的集合，而set则是一个要求关键字不重复，有序存储的集合。<code>set和map使用红黑树，无序容器使用哈希函数来组织元素。</code><br>关联容器类型：</p>
+<blockquote>
+<p>按关键字有序保存元素<br>map<br>set<br>multimap<br>multiset<br>无序集合<br>unordered_map<br>unordered_set<br>unordered_multimap<br>unordered_multiset</p>
+</blockquote>
+<h1 id="使用关联容器"><a href="#使用关联容器" class="headerlink" title="使用关联容器"></a>使用关联容器</h1><p>在忽略大小写和标点的单词计数程序中，首先是对输入的字符串进行处理，剔除单词中的标点，并将大写转换成小写。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> &amp;<span class="title">trans</span><span class="params">(<span class="built_in">string</span> &amp;s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">string</span>::size_type p = <span class="number">0</span>; p &lt; s.size(); ++p)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(s[p] &gt;= <span class="string">'A'</span> &amp;&amp; s[p] &lt;= <span class="string">'Z'</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            s[p] -= (<span class="string">'A'</span> - <span class="string">'a'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(s[p] == <span class="string">','</span> || sp[p] == <span class="string">'.'</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            s.erase(p, <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="关联容器概述"><a href="#关联容器概述" class="headerlink" title="关联容器概述"></a>关联容器概述</h1><p>关联容器的迭代器都是双向的。在C++11新标准中，我们可以对关联容器进行值初始化：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">size_t</span>&gt; word_count; <span class="comment">//空容器</span></span><br><span class="line"><span class="comment">//列表初始化</span></span><br><span class="line"><span class="built_in">set</span>&lt;<span class="built_in">string</span>&gt; exclude = &#123;<span class="string">"the"</span>, <span class="string">"but"</span>, <span class="string">"and"</span>, <span class="string">"or"</span>, <span class="string">"an"</span>&#125;;</span><br><span class="line"><span class="comment">//三个元素：authors将姓映射为名</span></span><br><span class="line"><span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt; authors = &#123;&#123;<span class="string">"Joyce"</span>, <span class="string">"James"</span>&#125;, &#123;<span class="string">"Austen"</span>, <span class="string">"Jane"</span>&#125;, &#123;<span class="string">"Dickens, "</span>Charles<span class="string">"&#125;&#125;;</span></span><br></pre></td></tr></table></figure></p>
+        
+          <a class="article-more-a" href="/2017/12/13/C-Primer5e第11章：关联容器/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/13/C-Primer5e第11章：关联容器/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-C-Primer5e第10章：泛型算法" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -911,86 +992,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-CSAPP之虚拟内存" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/28/CSAPP之虚拟内存/">CSAPP之虚拟内存</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/28/CSAPP之虚拟内存/" class="archive-article-date">
-  	<time datetime="2017-11-28T07:33:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文介绍虚拟内存如何工作以及应用程序如何使用和管理虚拟内存。虚拟内存由硬件异常、硬件地址翻译、主存、磁盘文件和内核交互，为每个进程提供一个大的、一致的和私有的地址空间，提供如下三个重要功能：</p>
-<blockquote>
-<p>1) 作为主存和磁盘的高速缓存，在主存中只保存活动区域<br>2) 为每个进程提供了一致的地址空间，从而简化内存管理<br>3) 保护每个进程的地址空间不被其他进程破坏</p>
-</blockquote>
-<h1 id="虚拟内存作为缓存的工具"><a href="#虚拟内存作为缓存的工具" class="headerlink" title="虚拟内存作为缓存的工具"></a>虚拟内存作为缓存的工具</h1><p>磁盘和主存间的传输单元为虚拟页(Virtual Page, VP)。虚拟页和物理页(页帧)为相同的固定大小的块。虚拟存储在磁盘上，物理页存储在主存中。在任意时刻，虚拟页集合分为三个不相交的子集：未分配的，缓存的和未缓存的。<br>术语SRAM缓存表示CPU和主存之间的L1、L2和L3高速缓存，DRAM缓存表示虚拟内存系统的缓存，在主存中缓存虚拟页。因为大的不命中处罚和访问磁盘第一个字节的开销，所以<code>虚拟页往往很大</code>，通常在4KB~2MB。由于大的不命中处罚，<code>DRAM缓存是全相联</code>，即任何虚拟页都可以放置在任何的物理页中。最后，因为对磁盘的访问时间长，DRAM缓存总是使用<code>写回</code>，而不是直写。<br>
-        
-          <a class="article-more-a" href="/2017/11/28/CSAPP之虚拟内存/#more">more >></a>
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">CSAPP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/28/CSAPP之虚拟内存/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
@@ -1119,15 +1120,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">家庭教育</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">STEAM</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color5">家庭教育</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1136,6 +1133,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
             
             <div class="clearfix"></div>
