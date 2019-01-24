@@ -64,3 +64,28 @@ tail -f /var/log/syslog | ack --passthru 192.168.1.10
 ack --help-type
 ```
 [代码（文件）搜索工具——ack](http://blog.sina.com.cn/s/blog_bd615ff80102wm9v.html)
+
+# 常见文本处理
+提取XML文档中指定标签的内容，其中使用tag设置标签名称：
+```
+tag=loc && sed -n '/<'$tag'>/{/\/'$tag'/{p;b};:BG;N;/<\/'$tag'/!bBG;p}' baidusitemap.xml | awk -F "<$tag>" '{print $2}' | awk -F "</$tag>" '{print $1}' > urls.txt
+```
+
+因为Github屏蔽百度对sitemap的获取，下面使用主动推送的方式向百度搜索提交sitemap文件内容：
+```
+#!/bin/bash
+set -x
+
+tag=loc
+
+wget https://octocat9lee.github.io/baidusitemap.xml
+
+sed -n '/<'$tag'>/{/\/'$tag'/{p;b};:BG;N;/<\/'$tag'/!bBG;p}' baidusitemap.xml | awk -F "<$tag>" '{print $2}' | awk -F "</$tag>" '{print $1}' > urls.txt
+
+curl -H 'Content-Type:text/plain' --data-binary @urls.txt "http://data.zz.baidu.com/urls?site=https://octocat9lee.github.io&token=elOrQEDByCUQaaxv"
+
+sleep 5
+
+rm -f ./baidusitemap.xml
+rm -f ./urls.txt
+```
