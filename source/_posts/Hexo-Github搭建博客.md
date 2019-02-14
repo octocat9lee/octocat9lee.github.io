@@ -12,7 +12,7 @@ date: 2018-06-22 22:56:45
 ## 安装Node.js和Git
 直接在官网下载最新的[Node.js](https://nodejs.org/en/)和[Git](https://git-scm.com/)。安装完成后，启动`Git Bash`，使用`git --version,node -v和npm -v`检测安装是否成功。
 ## 安装Hexo
-在`Git Bash`中，使用`npm install hexo --save`安装Hexo；然后使用`hexo -v`检测安装是否成功。
+在`Git Bash`中，使用`npm install -g hexo`安装Hexo；然后使用`hexo -v`检测安装是否成功。
 <!--more-->
 
 # 配置SSH
