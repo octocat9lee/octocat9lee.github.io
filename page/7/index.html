@@ -171,6 +171,84 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CSAPP之优化程序性能" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/03/CSAPP之优化程序性能/">CSAPP之优化程序性能</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/03/CSAPP之优化程序性能/" class="archive-article-date">
+  	<time datetime="2017-11-03T02:31:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>程序性能优化最重要的原则是在<code>保证程序正确性</code>的基础上，使用多种手段，反复尝试分析，有时甚至需要查看底层对应的汇编代码，从而找出性能的瓶颈，进行合理的优化。另外，我们需要注意的是在性能重要的环境中反复执行的代码，进行优化是合适的。为了提升程序的性能，我们做了大量的修改优化，但仍然要保持代码的简洁和可读性。如果我们盲目执行对低级别的优化，往往会降低程序的可读性，使得程序难以扩展和维护。因此，我们需要在<code>程序实现和维护的简单性与它们的运行速度</code>之间做出权衡。在性能优化过程中，我们经常遇到<code>很小的改动但产生性能巨大的差异，有时一些很有希望的技术却被证明无效</code>的场景，这是因为性能依赖于处理器许多特性的设计，而我们却所知甚少，因此，性能的优化往往是比较困难的，需要我们有足够的经验，采用各种综合手段去分析，挖掘性能的瓶颈。</p>
+<h1 id="优化方法"><a href="#优化方法" class="headerlink" title="优化方法"></a>优化方法</h1><h2 id="熟悉编译器优化选项"><a href="#熟悉编译器优化选项" class="headerlink" title="熟悉编译器优化选项"></a>熟悉编译器优化选项</h2><p>在大多数情况下，我们都是使用高级的程序语言，需要通过编译器将源码转变成机器识别执行的机器程序。因此，我们需要对使用的编译器的优化选项有大致的了解，其中<a href="https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html" target="_blank" rel="noopener">gcc optimize options</a>编译优化选项在其使用手册文档中有详细说明。因为编译器优化能力的局限性和安全性，导致很多情形下编译器很无法执行理想的优化，因此，需要程序员编写编译器容易优化的代码，帮助编译器显式执行优化。</p>
+<h2 id="消除循环低效率"><a href="#消除循环低效率" class="headerlink" title="消除循环低效率"></a>消除循环低效率</h2><p>在循环过程中，重复计算没有改变的量应该使用局部变量进行保存，减少不必要的重复计算。例如，CSAPP作者举例的<code>将字符串由小写转成成大小</code>的示例中，在每次循环中求取保持不变的字符串长度量，导致函数的运行时间为二次方。如果使用局部变量保存长度，函数的时间开销为线性。作者特别提到，编程中更常见的问题是<code>一个无足轻重的代码隐藏着渐进的低效率</code>，使得当问题的规模较小时，根本无法发现问题。因此我们作为一名有经验合格的程序员应该竭力避免引入这种<code>渐进低效率</code>的问题。<br>
+        
+          <a class="article-more-a" href="/2017/11/03/CSAPP之优化程序性能/#more">more >></a>
+        
+      
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">CSAPP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/03/CSAPP之优化程序性能/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-CSAPP实验之archlab" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -997,11 +1075,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">生活规划</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" class="js-tag color5">生活规划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1009,11 +1087,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
+                <a href="javascript:void(0)" class="js-tag color5">技术点滴</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术点滴</a>
+                <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1033,11 +1111,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
               </li>
             
             <div class="clearfix"></div>
