@@ -171,6 +171,85 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-openSIPS使用简介" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/15/openSIPS使用简介/">openSIPS使用简介</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/15/openSIPS使用简介/" class="archive-article-date">
+  	<time datetime="2019-03-15T03:26:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>按照<a href="https://octocat9lee.github.io/2019/03/14/Centos%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/#openSIPS">Centos基础开发环境中的openSIPS小节</a>的步骤完成openSIPS的编译和生成基础配置文件，下面开始对openSIPS数据库和配置文件进行详细介绍。</p>
+<h1 id="openSIPS数据库"><a href="#openSIPS数据库" class="headerlink" title="openSIPS数据库"></a>openSIPS数据库</h1><h2 id="配置数据库凭证"><a href="#配置数据库凭证" class="headerlink" title="配置数据库凭证"></a>配置数据库凭证</h2><p>openSIPS数据库配置文件位于<code>/opt/opensips/etc/opensips</code>路径下的<code>opensipsctlrc</code>。关于配置文件的详细说明参见官方文档<a href="http://www.opensips.org/Documentation/Install-DBDeployment-2-3" target="_blank" rel="noopener">Database Deployment v2.3</a>。</p>
+<p>进入<code>opensipsctlrc</code>文件目录，打开配置文件，去掉关于DB相关注释，基本内容如下所示：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># this parameter.</span></span><br><span class="line">DBENGINE=MYSQL</span><br><span class="line"></span><br><span class="line"><span class="comment">## database port (PostgreSQL=5432 default; MYSQL=3306 default)</span></span><br><span class="line">DBPORT=3306</span><br><span class="line"></span><br><span class="line"><span class="comment">## database host</span></span><br><span class="line">DBHOST=localhost</span><br><span class="line"></span><br><span class="line"><span class="comment">## database name (for ORACLE this is TNS name)</span></span><br><span class="line">DBNAME=opensips</span><br><span class="line"></span><br><span class="line"><span class="comment"># database path used by dbtext, db_berkeley, or sqlite</span></span><br><span class="line">DB_PATH=<span class="string">"/usr/local/etc/opensips/dbtext"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## database read/write user</span></span><br><span class="line">DBRWUSER=opensips</span><br><span class="line"></span><br><span class="line"><span class="comment">## password for database read/write user</span></span><br><span class="line">DBRWPW=<span class="string">"opensipsrw"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## engine type for the MySQL/MariaDB tabels (default InnoDB)</span></span><br><span class="line">MYSQL_ENGINE=<span class="string">"MyISAM"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## database super user (for ORACLE this is 'scheme-creator' user)</span></span><br><span class="line">DBROOTUSER=<span class="string">"root"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># user name column</span></span><br><span class="line">USERCOL=<span class="string">"username"</span></span><br><span class="line">.......</span><br><span class="line"><span class="comment"># 其他不变</span></span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2019/03/15/openSIPS使用简介/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">openSIPS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/15/openSIPS使用简介/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Centos开发基础环境搭建" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -880,96 +959,9 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-经济学讲义：07-供应-好钢用在刀刃上" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/07/经济学讲义：07-供应-好钢用在刀刃上/">经济学讲义：07-供应 好钢用在刀刃上</a>
-    </h1>
-  
-
-        
-        <a href="/2018/12/07/经济学讲义：07-供应-好钢用在刀刃上/" class="archive-article-date">
-  	<time datetime="2018-12-07T08:36:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="第7章-供应-好钢用在刀刃上"><a href="#第7章-供应-好钢用在刀刃上" class="headerlink" title="第7章  供应 好钢用在刀刃上"></a>第7章  供应 好钢用在刀刃上</h2><p>如果要在经济学中找一个最普遍适用，又最违反直觉的原理，那么首推的就是比较优势原理。</p>
-<p>比较优势原理，是经济学里坚如磐石的基本原理之一。</p>
-<h2 id="第071讲-比较优势原理"><a href="#第071讲-比较优势原理" class="headerlink" title="第071讲 | 比较优势原理"></a>第071讲 | 比较优势原理</h2><p>在一个社会里，每个个体如果把有限的资源，包括时间和精力，只用来生产对他们来说机会成本比较低的那些产品，然后跟别人进行交换，这样整个社会产品的总价值就能达到最大，而且每一个个体的境遇都能得到改善，而不论他们的绝对生产能力是高还是低。</p>
-<p>比较优势来自自己跟自己的比较。自己跟别人比，可能样样都比别人差，但是自己跟自己比，一定会有比较优势。</p>
-<ol>
-<li>分工与合作给人们带来更大财富</li>
-<li>分工可以减少工作之间往返的成本</li>
-<li>分工促进“熟能生巧”</li>
-<li>分工使机器替代成为可能</li>
-</ol>
-<p>李嘉图的比较优势原理的核心，讲的是自己跟自己比，总有效率比较高、成本比较低的生产项目，专注这种生产项目然后跟别人进行交换，整个社会的财富就能够增加，而个人的财富也能够增加。</p>
-<p>亚当·斯密的分工协作原理的核心是：哪怕是天生禀赋一样的人，只要专注某个细分领域的生产，就能够减少在工作当中切换往返的成本，能够熟能生巧，能够让机器的替代成为可能。<br>
-        
-          <a class="article-more-a" href="/2018/12/07/经济学讲义：07-供应-好钢用在刀刃上/#more">more >></a>
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">生活规划</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/07/经济学讲义：07-供应-好钢用在刀刃上/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1097,11 +1089,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术点滴</a>
+                <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
+                <a href="javascript:void(0)" class="js-tag color5">技术点滴</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1113,11 +1105,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">openSIPS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">家庭教育</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
+                <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1125,7 +1121,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
+                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
               </li>
             
             <div class="clearfix"></div>
