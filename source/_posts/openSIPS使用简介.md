@@ -178,6 +178,34 @@ Domain:: location table=512 records=1
 ```
 使用两个测试账号即可进行音视频对讲测试。
 
+## tcpdump调试
+在测试过程中，可以使用`tcpdump`工具获取SIP协议交互报文。
+``` bash
+# tcpdump -i ens192 -nn -s0 -SvX port 5060 -w opensips_register.pcap
+```
+查看是否接收到RTP数据包，`10.0.22.40`为手机客户端IP地址
+``` bash
+# tcpdump -i ens192 -nn -s0 udp and host 10.0.22.40
+
+当输出如下信息时，表示客户端已经和rtpprox在进行数据传输：
+14:37:05.155346 IP 10.0.22.40.7076 > 10.0.204.60.2062: UDP, length 78
+14:37:05.174776 IP 10.0.204.60.2062 > 10.0.22.40.7076: UDP, length 83
+14:37:05.176192 IP 10.0.22.40.7076 > 10.0.204.60.2062: UDP, length 80
+并且，可以看出，rtpproxy通讯使用的端口号为2062
+```
+同时，使用如下命令查看rtpproxy打开的端口情形：
+``` bash
+# netstat -anp | grep rtpproxy
+udp        0      0 10.0.204.60:2046        0.0.0.0:*                           126226/./rtpproxy   
+udp        0      0 10.0.204.60:2047        0.0.0.0:*                           126226/./rtpproxy   
+udp     2176      0 10.0.204.60:2062        0.0.0.0:*                           126226/./rtpproxy   
+udp        0      0 10.0.204.60:2063        0.0.0.0:*                           126226/./rtpproxy   
+unix  2      [ ACC ]     STREAM     LISTENING     1314540  126226/./rtpproxy    /tmp/rtpproxy.unix
+```
+可以看出，`2062`的端口号已经被udp协议占用。
+
+
+
 # 参考资料
 [Tutorials-GettingStarted Video](https://www.opensips.org/Documentation/Tutorials-GettingStarted)
 
