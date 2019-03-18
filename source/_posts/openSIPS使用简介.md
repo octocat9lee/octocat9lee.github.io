@@ -44,10 +44,11 @@ MYSQL_ENGINE="MyISAM"
 DBROOTUSER="root"
 
 # user name column
-USERCOL="username"
+#USERCOL="username"
 .......
 # 其他不变
 ```
+配置完成后的[配置文件](https://github.com/octocat9lee/tools/blob/master/opensips/opensipsctlrc)。
 <!--more-->
 ## 创建数据库
 当对数据库凭证配置完成后，使用`/opt/opensips/sbin`目录下的`opensipsdbctl`工具生成数据库。具体步骤如下：
@@ -55,7 +56,7 @@ USERCOL="username"
 [root@localhost sbin]# ./opensipsdbctl create
 MySQL password for root: octocat(MySQL root 用户密码)
 
-生成过程中的交互选项：字符集选择->latin1  其他选项选择 y
+生成过程中的交互选项：字符集选择->latin1  其他选项选择 n
 ```
 >NOTE：如果出现ERROR 1101 (42000) at line 2: BLOB, TEXT, GEOMETRY or JSON column 'extra_hdrs' can't have a default value这类错误，则在`/etc/my.cnf`文件内的`[mysqld]`标签下添加一行 ：
 `sql-mode = "NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"`
@@ -66,7 +67,7 @@ MySQL password for root: octocat(MySQL root 用户密码)
 ``` bash
 opensipsctl domain add opensips.org
 ```
-当添加完成后，在`opensips`数据库的`domain`能够查看到对应的添加记录信息。
+当添加完成后，在`opensips`数据库的`domain`能够查看到对应的添加记录信息。当直接使用IP地址作为SIP账号域名时不需要使用该步骤添加域名配置。
 
 ## 管理接口
 openSIPS提供了很多管理接口（`Manager Interface, MI`），通过这些接口，可以对openSIPS的运行状态进行查询，或者实时更新openSIPS的运行数据。下面列举常见的管理接口：
@@ -103,74 +104,82 @@ listen=tcp:0.0.0.0:5060   # CUSTOMIZE ME
 listen=udp:0.0.0.0:5060   # CUSTOMIZE ME 
 ```
 
-## 配置URI模块
-使用如下配置更改URI模块对应字段值，[URI模块各个字段含义文档](http://www.opensips.org/html/docs/modules/2.3.x/uri.html)
-``` bash
-#### URI module
-loadmodule "uri.so"
-modparam("uri", "use_uri_table", 0)
-modparam("uri", "db_table", "m_user") # my_user_db数据库中的m_user表
-modparam("uri", "user_column", "Name") # m_user表中的账号字段名 
-modparam("uri", "domain_column", "Domain") # m_user表中的Domain字段名
-```
-
-## 配置鉴权Auth模块
-通常情况下，我们都不会用`opensips`数据库的`subscriber`表中的账号和密码进行鉴权，而是使用项目业务系统的账号系统进行鉴权。也就是使用业务系统的数据库中的账号密码进行鉴权。如下图配置：
-``` bash
-#### AUTHentication modules
-loadmodule "auth.so"
-loadmodule "auth_db.so"
-modparam("auth_db", "calculate_ha1", yes)
-modparam("auth_db", "user_column", "Name")  # 鉴权表中的账号字段名
-modparam("auth_db", "domain_column", "Domain")
-modparam("auth_db", "password_column", "Password") # 鉴权表中的密码字段名
-modparam("auth_db", "password_column_2", "HA1B")
-modparam("auth_db|uri", "db_url", "mysql://opensips:opensipsrw@10.0.15.2:3306/my_user_db") # CUSTOMIZE ME 数据库链接设置
-modparam("auth_db", "load_credentials", "")
-```
-关于`m_user`表中用户名列`Name`，密码列`Password`以及`ha1`列和`ha1b`列计算方法：
-1. 用户名列为注册的用户名
-2. 密码列为密码明文md5加密后的值，即md5(plaintext)作为`Password`列的值
-3. ha1=md5(username:Domain:md5(plaintext) ) 在上面将Domain配置为`opensips.org`
-4. ha1b=md5(username@Domain:Domain:md5(plaintext))
-
-例如：假设用户名为`zhoulee`，用户密码明文`123456`，
-则`Password`的值为`md5(123456)=e10adc3949ba59abbe56e057f20f883e`，
-`ha1= md5(zhoulee:opensips.org:e10adc3949ba59abbe56e057f20f883e)`，
-`ha1b=md5(zhoulee@opensips.org:opensips.org:e10adc3949ba59abbe56e057f20f883e)`。
-[在线MD5加密网站](http://tool.chinaz.com/tools/md5.aspx)
-
-## 对用户表授权
-openSIPS使用的数据库默认为`opensips`，但在URI和Auth模块配置中，把用户表指向了`my_user_db`数据库的`m_user`表，所以要给MySQL的`opensips`用户开放权限：
-``` bash
-grant select on my_user_db.m_user to opensips@'localhost';
-grant select on my_user_db.version to opensips@'localhost';
-grant select on my_user_db.m_user to opensips@'%';
-grant select on my_user_db.version to opensips@'%';
-```
-并同时在`my_user_db`数据库的`version`表中插入如下2条记录：
-``` bash
-insert into version(table_name, table_version) values('m_user', 7);
-insert into version(table_name, table_version) values('subscriber', 7);
-```
-
 ## 配置RTPProxy模块
 RTPProxy模块指定openSIPS与RTP转发通讯相关信息。下面使用UNIX套接字与RTP进行通讯，该配置需要与RTPProxy运行时的配置保持一致。
 ``` bash
 loadmodule "rtpproxy.so"
 modparam("rtpproxy", "rtpproxy_sock", "unix:/tmp/rtpproxy.unix") # CUSTOMIZE ME
 ```
+最后的[配置文件参考](https://github.com/octocat9lee/tools/blob/master/opensips/opensips.cfg)。
 
-## 配置代理鉴权和注册鉴权
-修改`proxy_authorize(realm, table)`和`www_authorize(realm, table)`中的`table`字段`subscriber`为自定义鉴权数据表名`m_user`。
-<center>
-![avatar](https://github.com/octocat9lee/blog-images/raw/master/opensip_subscriber.jpg)
-</center>
+# RTPProxy编译和运行
 
-## 修改Route
-将路由设置中的`if(has_totag())`和`route[relay]`函数中的`is_method("INVITE")`判断中添加`UPDATE`字段变成`is_method("INVITE|UPDATE")`。
+## RTPProxy编译
+
+``` bash
+# mkdir /opt/rtpproxy
+# git clone -b master https://github.com/sippy/rtpproxy.git rtpproxy-master
+# cd rtpproxy-master
+# git -c rtpproxy submodule update --init --recursive
+# ./configure --prefix=/opt/rtpproxy
+# make -j
+# make install
+```
+当执行完上述命令时，`RTPProxy`将被安装到`/opt/rtpproxy`目录下。
+
+## 运行RTPProxy
+``` bash
+# cd /opt/rtpproxy
+#./rtpproxy -A 10.0.204.60 -l 10.0.204.60 -s unix:/tmp/rtpproxy.unix -m 2000 -M 2100 -F
+
+选项参数含义：
+-A  本机外网IP
+-l  本地内网IP
+-s  与opensips通讯的socket，与opensips.cfg配置文件保持一致
+-F  不检查是否为超级用户模式
+-m  RTP最小端口
+-M  RTP最大端口
+-d  调试消息输出级别
+```
+
+# 基本功能测试
+至此，`openSIPS`环境基本配置完毕，可以使用SIP客户端进行基本功能测试。在运行RTPProxy之后，再运行opensips程序。在调式模式下，输出信息中没有错误信息，即可认为`opensips`运行成功。
+
+##  添加测试账号
+``` bash
+# ./opensipsctl add zhoulee@10.0.204.60:5060 123456
+# ./opensipsctl add octocat@10.0.204.60:5060 123456
+```
+当测试账号添加后，可以在`opensips`数据库的`subscriber`表中查看到对应的账号信息。
+
+## linphone
+使用[linphone](https://www.linphone.org/)作为SIP客户端，对部署的opensips环境进行基本功能测试。在linphone界面选择`USE A SIP ACCOUNT`，在如下界面中输入添加测试账号时的账号和SIP服务器信息，具体配置如下所示：
 <center>
-![avatar](https://github.com/octocat9lee/blog-images/raw/master/opensips_update.jpg)
+![avatar](https://github.com/octocat9lee/blog-images/raw/master/linphone_client.jpg)
 </center>
+添加完成后，在SIP服务器端使用MI命令查看在线用户信息：
+``` bash
+# ./opensipsctl ul show
+Domain:: location table=512 records=1
+    AOR:: zhoulee
+        Contact:: sip:zhoulee@10.0.20.121;transport=udp Q=
+            ContactID:: 3070469783448198127
+            Expires:: 557
+            Callid:: D8Wj6UbWPj
+            Cseq:: 21
+            User-agent:: Linphone Desktop/4.1.1 (belle-sip/1.6.3)
+            Received:: sip:10.0.20.121:5060
+            State:: CS_NEW
+            Flags:: 0
+            Cflags:: NAT
+            Socket:: udp:10.0.204.60:5060
+            Methods:: 4294967295
+            SIP_instance:: <urn:uuid:01c3eeec-76ce-4c2a-9aa9-63afcffd7027>
+```
+使用两个测试账号即可进行音视频对讲测试。
+
+# 参考资料
+[Tutorials-GettingStarted Video](https://www.opensips.org/Documentation/Tutorials-GettingStarted)
+
 
 
