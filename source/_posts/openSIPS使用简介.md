@@ -11,7 +11,7 @@ date: 2019-03-15 11:26:49
 
 ## 配置数据库凭证
 
-openSIPS数据库配置文件位于`/opt/opensips/etc/opensips`路径下的`opensipsctlrc`。关于配置文件的详细说明参见官方文档[Database Deployment v2.3](http://www.opensips.org/Documentation/Install-DBDeployment-2-3)。
+openSIPS 数据库配置文件位于`/opt/opensips/etc/opensips`路径下的`opensipsctlrc`。关于配置文件的详细说明参见官方文档[Database Deployment v2.3](http://www.opensips.org/Documentation/Install-DBDeployment-2-3)。
 
 进入`opensipsctlrc`文件目录，打开配置文件，去掉关于DB相关注释，基本内容如下所示：
 
@@ -114,18 +114,34 @@ modparam("rtpproxy", "rtpproxy_sock", "unix:/tmp/rtpproxy.unix") # CUSTOMIZE ME
 
 # RTPProxy编译和运行
 
+## RTPProxy项目
+项目主页以及GitHub地址：
+``` bash
+主页：http://www.rtpproxy.org/
+GitHub项目：https://github.com/sippy/rtpproxy
+```
+
 ## RTPProxy编译
 
 ``` bash
 # mkdir /opt/rtpproxy
-# git clone -b master https://github.com/sippy/rtpproxy.git rtpproxy-master
-# cd rtpproxy-master
-# git -c rtpproxy submodule update --init --recursive
+# git clone -b master https://github.com/sippy/rtpproxy.git
+# git -C rtpproxy submodule update --init --recursive
+# cd rtpproxy
 # ./configure --prefix=/opt/rtpproxy
 # make -j
 # make install
 ```
 当执行完上述命令时，`RTPProxy`将被安装到`/opt/rtpproxy`目录下。
+对于低版本的`git`，由于不支持`-C`选项，故执行如下命令：
+``` bash
+# cd rtpproxy
+# git submodule update --init --recursive
+```
+在最新版本的 RTPProxy 中，因为使用了 stdatomic 文件，需要将 GCC 版本升级到 4.9 及以上方可编译。通过查看提交记录，在[rtpp_memdeb.c](https://github.com/sippy/rtpproxy/commits/master/src/rtpp_memdeb.c)的 `3a345c587590600ed9bcd82282f77044e7811ed3` 提交中使用了 stdatomic 。如果不需要使用最新的特性，使用如下命令切换到如下版本即可解决：
+``` bash
+# git checkout 15786f2f229e241b901636d8c98c4b849317aeca
+```
 
 ## 运行RTPProxy
 ``` bash
@@ -141,6 +157,11 @@ modparam("rtpproxy", "rtpproxy_sock", "unix:/tmp/rtpproxy.unix") # CUSTOMIZE ME
 -M  RTP最大端口
 -d  调试消息输出级别
 ```
+如果需要对 RTPProxy 进行调试，使用如下方式运行 RTPProxy :
+``` bash
+# rtpproxy -d DBUG:LOG_MAIL -A 10.0.204.60 -l 10.0.204.60 -s unix:/tmp/rtpproxy.unix -m 2000 -M 2100 -F
+```
+此时，能够在 `/var/log/maillog` 文件中查看日志输出。
 
 # 基本功能测试
 至此，`openSIPS`环境基本配置完毕，可以使用SIP客户端进行基本功能测试。在运行RTPProxy之后，再运行opensips程序。在调式模式下，输出信息中没有错误信息，即可认为`opensips`运行成功。
@@ -203,8 +224,6 @@ udp        0      0 10.0.204.60:2063        0.0.0.0:*                           
 unix  2      [ ACC ]     STREAM     LISTENING     1314540  126226/./rtpproxy    /tmp/rtpproxy.unix
 ```
 可以看出，`2062`的端口号已经被udp协议占用。
-
-
 
 # 参考资料
 [Tutorials-GettingStarted Video](https://www.opensips.org/Documentation/Tutorials-GettingStarted)
