@@ -143,6 +143,22 @@ GitHub项目：https://github.com/sippy/rtpproxy
 # git checkout 15786f2f229e241b901636d8c98c4b849317aeca
 ```
 
+因为RTPProxy对每一路会话的流量进行统计，并限制每一路会话流量为100，所以当使用RTPProxy对视频流进行转发时会经常导致花屏现象，具体解决方案如下：[H264 frame corrupted when using rtpproxy](https://github.com/sippy/rtpproxy/issues/38)
+``` bash
+What you can do in a short-term, however, is to increase max PPS rate from
+100 currently to say 1000, that would give you sufficient resolution to
+handle this kind of streams, at expense of some extra CPU burnout. This can
+be done by changing:
+
+#define      MAX_RTP_RATE    100
+
+to
+
+#define      MAX_RTP_RATE    1000
+
+and then re-compiling the code.
+```
+
 ## 运行RTPProxy
 ``` bash
 # cd /opt/rtpproxy
