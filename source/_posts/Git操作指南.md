@@ -153,6 +153,13 @@ git push origin dev
 `git blame -M somefile`
 `git blame -C -C somefile`
 
+# 其他操作
+## 临时忽略文件
+>`git update-index --assume-unchanged file.c` # 临时忽略文件
+`git update-index --no-assume-unchanged file.c` # 解除临时忽略文件
+`git ls-files -v` # 列出所有文件状态
+`git ls-files -v| grep '^h'` # 查看临时忽略文件
+
 # 参考资料
 <strong>[Git教程](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)</strong>
 <strong>[Pro Git](https://git-scm.com/book/zh/v2#%E5%9F%BA%E6%9C%AC%E7%9A%84%E8%A1%8D%E5%90%88%E6%93%8D%E4%BD%9C)</strong>
