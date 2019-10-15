@@ -91,7 +91,7 @@ git commit -m "update README.md"
 具体的`git rebase -i`详细介绍：[Doing git rebase --interactive, including merge conflicts](https://www.youtube.com/watch?v=_ajGPzBBOoQ)
 
 ## 拣选合并
-有时候分之间只需要合并一个提交，而不需要合并一条分支上的全部改动。
+有时候分支之间只需要合并一个提交，而不需要合并一条分支上的全部改动。
 ``` bash
 git cherry-pick commitId #合并指定commitId到当前分支
 git cherry-pick -n commitId #拣选多个提交
@@ -125,6 +125,16 @@ git push origin dev
 如果合并有冲突，则解决冲突，并在本地提交
 没有冲突或者解决掉冲突后，再用`git push origin branch-name`推送至远端
 
+## rebase 模式 pull
+>多人基于同一个远程分支开发的时候，如果想要顺利 push 又不自动生成 merge commit，建议在每次提交都按照如下顺序操作：
+``` bash
+git stash
+git pull --rebase
+git push
+git stash pop
+```
+更多的关于 rebase 模式 pull 细节参见：[git pull --rebase的正确使用](https://juejin.im/post/5d3685146fb9a07ed064f11b)
+
 # 标签管理
 发布一个版本时，我们通常先在版本库中打一个标签（tag），这样，就唯一确定了打标签时刻的版本。将来无论什么时候，取某个标签的版本，就是把那个打标签的时刻的历史版本取出来。所以，标签也是版本库的一个快照。
 ## 创建标签
@@ -152,6 +162,31 @@ git push origin dev
 `git blame somefile` 显示文件各个部分的修改作者及相关提交信息
 `git blame -M somefile`
 `git blame -C -C somefile`
+
+# Git 工作流
+## Git 工作流介绍
+[Git分支管理策略](http://www.ruanyifeng.com/blog/2012/07/git.html)
+[Git工作流程](http://www.ruanyifeng.com/blog/2015/12/git-workflow.html)
+
+## 工作流总结
+<strong>版本场景：</strong>
+不同项目需求既存在相同部分也存在不相同的功能点，并且在同一个项目中新功能的开发与发布版本 BUG 修改需要同时进行，但可能存在一种情形，需要发布解决测试工程师 BUG ，但不包含新功能的版本。
+
+<strong>解决方案：</strong>
++ 在同一个项目创建 master 和 develop 两个分支，其中 master 分支用于版本的发布和测试 BUG 的修复，develop 分支用于新特性开发。
+
++ 当新特性开发完成需要发布版本时，将 develop 分支对应的内容合入到 master 分支，并在每次发布版本时对最新的发布 commit 记录添加 tag 标签。
+
++ 在 master 分支修复 BUG 的 commit 也需要合并到对应的 develop 分支，然后再进行新特性的开发。
+
++ 当不同项目的共同部分出现 BUG 时，选择其中一个项目对 BUG 进行解决，然后合并到所有需要修复 BUG 的分支。
+
+<strong>缺点：</strong>
+在一个项目中存在用于发布版本和 BUG 修复的 master 分支以及新特性开发的 develop 分支，当 BUG 修复和新特性开发涉及的共同部分容易造成冲突时，将会加大合并的工作量。因此，在开发过程中，主要模块的划分，新功能开发尽量不影响原有功能模块。
+
+<strong>改进方案：</strong>
+对不同项目的共同部分进行提炼，形成与项目无关的公共组件，作为项目的子模块，从而解决公共部分出现 BUG , 需要修复后再合入到所有分支的情形。
+
 
 # 其他操作
 ## 临时忽略文件
