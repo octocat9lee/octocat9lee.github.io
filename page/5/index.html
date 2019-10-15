@@ -171,6 +171,84 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-C-Primer5e第17章：标准库特殊设施" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/03/C-Primer5e第17章：标准库特殊设施/">C++Primer5e第17章：标准库特殊设施</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/03/C-Primer5e第17章：标准库特殊设施/" class="archive-article-date">
+  	<time datetime="2018-01-03T00:54:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="tuple类型"><a href="#tuple类型" class="headerlink" title="tuple类型"></a>tuple类型</h1><p>当我们希望将一些数据组合成单一对象，但又不想麻烦地定义一个新数据结构来表示这些数据时，tuple是非常有用的。我们可以将tuple看作一个“快速而随意”的数据结构。<br>tuple类型及其伴随类型和函数都定义在tuple头文件中。</p>
+<h2 id="定义和初始化tuple"><a href="#定义和初始化tuple" class="headerlink" title="定义和初始化tuple"></a>定义和初始化tuple</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">tuple&lt;<span class="keyword">size_t</span>, <span class="keyword">size_t</span>, <span class="keyword">size_t</span>&gt; threeD&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line">tuple&lt;<span class="built_in">string</span>, <span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt;, <span class="keyword">int</span>, <span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt;&gt; somVal(<span class="string">"constants"</span>, &#123;<span class="number">0.01</span>, <span class="number">3.14</span>&#125;, <span class="number">100</span>, &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;);</span><br><span class="line"><span class="keyword">auto</span> item = make_tuple(<span class="string">"0990-0990-0990"</span>, <span class="number">3</span>, <span class="number">20.00</span>); <span class="comment">//使用初始值的类型推断tuple类型，tuple&lt;const char *, int, double&gt;</span></span><br><span class="line"><span class="comment">//访问tuple的成员</span></span><br><span class="line"><span class="keyword">auto</span> book = get&lt;<span class="number">0</span>&gt;(item);  <span class="comment">//返回第一个数据成员的引用</span></span><br><span class="line"><span class="keyword">auto</span> cnt = get&lt;<span class="number">1</span>&gt;(item);</span><br><span class="line">get&lt;<span class="number">2</span>&gt;(item) *= <span class="number">0.8</span>;       <span class="comment">//打8折</span></span><br><span class="line"><span class="keyword">auto</span> price = get&lt;<span class="number">2</span>&gt;(item);</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; book &lt;&lt; <span class="string">" "</span> &lt;&lt; cnt &lt;&lt; <span class="string">" "</span> &lt;&lt; price &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"><span class="comment">//使用辅助模板类获取tuple成员数量和类型</span></span><br><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">decltype</span><span class="params">(item)</span> trans</span>;  <span class="comment">//使用decltype为item定义类型别名</span></span><br><span class="line"><span class="keyword">size_t</span> sz = tuple_size&lt;trans&gt;::value; <span class="comment">//sz = 3</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"tuple size "</span> &lt;&lt; sz &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">tuple_element&lt;<span class="number">1</span>, trans&gt;::type bookCnt = get&lt;<span class="number">1</span>&gt;(item); <span class="comment">//bookCnt的类型与item中第二个成员的类型相同</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"book count "</span> &lt;&lt; bookCnt &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
+<p><a href="http://blog.csdn.net/lanchunhui/article/details/49868077" target="_blank" rel="noopener">C++11::遍历tuple中的元素</a><br>
+        
+          <a class="article-more-a" href="/2018/01/03/C-Primer5e第17章：标准库特殊设施/#more">more >></a>
+        
+      
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/03/C-Primer5e第17章：标准库特殊设施/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-C-Primer5e第16章：模板与泛型编程" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -871,85 +949,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/12/11/C-Primer5e第08章：IO库/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-C-Primer5e第07章：类" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/08/C-Primer5e第07章：类/">C++Primer5e第07章：类</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/08/C-Primer5e第07章：类/" class="archive-article-date">
-  	<time datetime="2017-12-08T02:15:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在C++中，我们可以使用类定义自己的数据类型，用新的类型反映程序中的概念，从而我们更容易编写、调试和修改程序。<br>类的基本思想是<code>数据抽象</code>和<code>封装</code>。数据抽象能够帮助我们将对象的具体实现和对象所执行的操作分离开来，是一种依赖于接口和实现分离的编程技术。封装后的类隐藏了实现细节，类的使用者只需要使用接口而不需要关心具体的实现，降低程序的耦合性。</p>
-<h1 id="定义抽象数据类型"><a href="#定义抽象数据类型" class="headerlink" title="定义抽象数据类型"></a>定义抽象数据类型</h1><p>成功的应用程序，作者必须充分了解并实现用户的需求。所以，优秀的类设计者也应该密切关注那些使用该类的程序员的需求。作为一个设计良好的类，既要有直观而且易于使用的接口，也要具备高效的实现过程。<br>定义在类内部的函数是隐式的inline函数。</p>
-<h2 id="引入this"><a href="#引入this" class="headerlink" title="引入this"></a>引入this</h2><p>当我们调用成员函数时，实际上是在替某个对象调用它。成员函数通过一个名为this的隐式参数来访问调用它的对象。当我们调用一个成员函数时，用调用该函数对象的地址初始化this。例如，调用<code>total.isbn()</code>，则编译器负责把total的地址传递isbn的隐式参数this，等价于编译器将调用重写成如下形式：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//伪代码，用于说明调用成员函数的实际执行过程</span></span><br><span class="line">Sales_data::isbn(&amp;total);</span><br></pre></td></tr></table></figure></p>
-<p>在成员函数内部，因为this都指向该对象，所以可以直接调用该对象的其他成员函数。<br>this形参是隐式定义的。所以，任何自定义名为this的参数或成员变量都是非法的。另外，我们可以在成员函数内部使用this。因为this的目的总是指向“这个”对象，所以this是一个常量指针。<br>
-        
-          <a class="article-more-a" href="/2017/12/08/C-Primer5e第07章：类/#more">more >></a>
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/08/C-Primer5e第07章：类/">展开全文 >></a>
         </p>
       
 

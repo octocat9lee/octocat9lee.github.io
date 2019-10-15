@@ -171,6 +171,85 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-C-Primer5e第07章：类" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/08/C-Primer5e第07章：类/">C++Primer5e第07章：类</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/08/C-Primer5e第07章：类/" class="archive-article-date">
+  	<time datetime="2017-12-08T02:15:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在C++中，我们可以使用类定义自己的数据类型，用新的类型反映程序中的概念，从而我们更容易编写、调试和修改程序。<br>类的基本思想是<code>数据抽象</code>和<code>封装</code>。数据抽象能够帮助我们将对象的具体实现和对象所执行的操作分离开来，是一种依赖于接口和实现分离的编程技术。封装后的类隐藏了实现细节，类的使用者只需要使用接口而不需要关心具体的实现，降低程序的耦合性。</p>
+<h1 id="定义抽象数据类型"><a href="#定义抽象数据类型" class="headerlink" title="定义抽象数据类型"></a>定义抽象数据类型</h1><p>成功的应用程序，作者必须充分了解并实现用户的需求。所以，优秀的类设计者也应该密切关注那些使用该类的程序员的需求。作为一个设计良好的类，既要有直观而且易于使用的接口，也要具备高效的实现过程。<br>定义在类内部的函数是隐式的inline函数。</p>
+<h2 id="引入this"><a href="#引入this" class="headerlink" title="引入this"></a>引入this</h2><p>当我们调用成员函数时，实际上是在替某个对象调用它。成员函数通过一个名为this的隐式参数来访问调用它的对象。当我们调用一个成员函数时，用调用该函数对象的地址初始化this。例如，调用<code>total.isbn()</code>，则编译器负责把total的地址传递isbn的隐式参数this，等价于编译器将调用重写成如下形式：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//伪代码，用于说明调用成员函数的实际执行过程</span></span><br><span class="line">Sales_data::isbn(&amp;total);</span><br></pre></td></tr></table></figure></p>
+<p>在成员函数内部，因为this都指向该对象，所以可以直接调用该对象的其他成员函数。<br>this形参是隐式定义的。所以，任何自定义名为this的参数或成员变量都是非法的。另外，我们可以在成员函数内部使用this。因为this的目的总是指向“这个”对象，所以this是一个常量指针。<br>
+        
+          <a class="article-more-a" href="/2017/12/08/C-Primer5e第07章：类/#more">more >></a>
+        
+      
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/08/C-Primer5e第07章：类/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-C-Primer5e第06章：函数" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -875,84 +954,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/11/09/CSAPP之链接/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-GDB调试器使用总结" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/09/GDB调试器使用总结/">GDB调试器使用总结</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/09/GDB调试器使用总结/" class="archive-article-date">
-  	<time datetime="2017-11-09T05:40:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>GDB是GNU开源组织发布的一个强大的UNIX下的程序调试工具。</p>
-<h1 id="输出线程堆栈"><a href="#输出线程堆栈" class="headerlink" title="输出线程堆栈"></a>输出线程堆栈</h1><p>在调试多线程程序时，经常需要查看线程堆栈信息，如果线程数目过多，每次查看一个线程堆栈，繁琐耗时。下面介绍一种一次性将所有线程堆栈输出到文件的方法：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将gdb attach到调试进程</span></span><br><span class="line">gdb -p pid</span><br><span class="line"><span class="comment"># 在GDB中设置调试文件路径,并开启日志选项</span></span><br><span class="line"><span class="built_in">set</span> logging file thread_stack.info</span><br><span class="line"><span class="built_in">set</span> logging on</span><br><span class="line"><span class="comment"># 输出所有线程堆栈到指定文件</span></span><br><span class="line">thread apply all bt</span><br><span class="line"><span class="comment"># 或者简化命令</span></span><br><span class="line">thr app all bt</span><br></pre></td></tr></table></figure></p>
-<p>直接输出所有线程堆栈信息到指定文件<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">gdb</span> -ex <span class="string">"thread apply all bt"</span> -batch -p pid &gt; thread_stack.<span class="literal">info</span></span><br><span class="line">gdb -ex <span class="string">"thread apply all bt"</span> -batch -p `ps -e | grep procname | awk <span class="string">'&#123;print <span class="variable">$1</span>&#125;'</span>` &gt; thread_stack.<span class="literal">info</span></span><br></pre></td></tr></table></figure></p>
-        
-          <a class="article-more-a" href="/2017/11/09/GDB调试器使用总结/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">调试技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/09/GDB调试器使用总结/">展开全文 >></a>
         </p>
       
 

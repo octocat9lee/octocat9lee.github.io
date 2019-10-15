@@ -171,6 +171,84 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-GDB调试器使用总结" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/09/GDB调试器使用总结/">GDB调试器使用总结</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/09/GDB调试器使用总结/" class="archive-article-date">
+  	<time datetime="2017-11-09T05:40:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>GDB是GNU开源组织发布的一个强大的UNIX下的程序调试工具。</p>
+<h1 id="输出线程堆栈"><a href="#输出线程堆栈" class="headerlink" title="输出线程堆栈"></a>输出线程堆栈</h1><p>在调试多线程程序时，经常需要查看线程堆栈信息，如果线程数目过多，每次查看一个线程堆栈，繁琐耗时。下面介绍一种一次性将所有线程堆栈输出到文件的方法：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将gdb attach到调试进程</span></span><br><span class="line">gdb -p pid</span><br><span class="line"><span class="comment"># 在GDB中设置调试文件路径,并开启日志选项</span></span><br><span class="line"><span class="built_in">set</span> logging file thread_stack.info</span><br><span class="line"><span class="built_in">set</span> logging on</span><br><span class="line"><span class="comment"># 输出所有线程堆栈到指定文件</span></span><br><span class="line">thread apply all bt</span><br><span class="line"><span class="comment"># 或者简化命令</span></span><br><span class="line">thr app all bt</span><br></pre></td></tr></table></figure></p>
+<p>直接输出所有线程堆栈信息到指定文件<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">gdb</span> -ex <span class="string">"thread apply all bt"</span> -batch -p pid &gt; thread_stack.<span class="literal">info</span></span><br><span class="line">gdb -ex <span class="string">"thread apply all bt"</span> -batch -p `ps -e | grep procname | awk <span class="string">'&#123;print <span class="variable">$1</span>&#125;'</span>` &gt; thread_stack.<span class="literal">info</span></span><br></pre></td></tr></table></figure></p>
+        
+          <a class="article-more-a" href="/2017/11/09/GDB调试器使用总结/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">调试技术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/09/GDB调试器使用总结/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-CSAPP之存储器层次结构" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -851,83 +929,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/10/28/coredump/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-进程内存监控" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/28/进程内存监控/">进程内存监控</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/28/进程内存监控/" class="archive-article-date">
-  	<time datetime="2017-10-28T15:03:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="脚本目的"><a href="#脚本目的" class="headerlink" title="脚本目的"></a>脚本目的</h1><p>使用脚本监控指定进程内存占用，当进程占用内存超过设置阈值时，生成对应的coredump文件以及使用gdb命令输出进程的全部线程信息，从而保存进程在系统kill前进程信息，方便后续对内存急剧上涨的调试。</p>
-<h1 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h1><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup ./memcheck.sh &gt; /dev/<span class="literal">null</span> <span class="number">2</span>&gt;<span class="meta">&amp;1 &amp;</span></span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2017/10/28/进程内存监控/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/28/进程内存监控/">展开全文 >></a>
         </p>
       
 
