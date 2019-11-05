@@ -18,20 +18,20 @@
 <meta property="og:site_name" content="章鱼猫の博客">
 <meta property="og:description" content="前言链接就是将代码和数据组合成一个单一文件的过程，组成的文件可以被加载到内存并执行。链接可以执行于编译时，也可以执行于加载时，甚至执行于运行时。链接在软件开发中扮演着一个关键的角色，因为它使得分离编译成为可能，我们可以将一个大型的应用程序分解为更小更好管理的模块，并且独立的修改和编译这些模块，当我们修改这些模块中的一个时只需要重新编译它，并重新链接应用，而不必重新编译其他文件。 编译器驱动程序在将">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://github.com/octocat9lee/blog-images/raw/master/A04eBDGA1j.jpg">
-<meta property="og:image" content="https://github.com/octocat9lee/blog-images/raw/master/ia5cF7fIGk.jpg">
-<meta property="og:image" content="https://github.com/octocat9lee/blog-images/raw/master/bLLL6Hadaj.jpg">
-<meta property="og:image" content="https://github.com/octocat9lee/blog-images/raw/master/0JD765eBgD.jpg">
-<meta property="og:image" content="https://github.com/octocat9lee/blog-images/raw/master/gc3j58GK5f.jpg">
-<meta property="og:image" content="https://github.com/octocat9lee/blog-images/raw/master/BGlCccbJ0a.jpg">
-<meta property="og:image" content="https://github.com/octocat9lee/blog-images/raw/master/a8HjA1iJl5.jpg">
-<meta property="og:image" content="https://github.com/octocat9lee/blog-images/raw/master/b3f621I3G6.jpg">
-<meta property="og:image" content="https://github.com/octocat9lee/blog-images/raw/master/DKCmI6a51D.jpg">
-<meta property="og:updated_time" content="2018-11-19T03:41:47.301Z">
+<meta property="og:image" content="https://github.com/octocat9lee/blog-images/raw/master/compile_process.jpg">
+<meta property="og:image" content="https://github.com/octocat9lee/blog-images/raw/master/elf_format.jpg">
+<meta property="og:image" content="https://github.com/octocat9lee/blog-images/raw/master/link_error.jpg">
+<meta property="og:image" content="https://github.com/octocat9lee/blog-images/raw/master/dynamic_library_load.jpg">
+<meta property="og:image" content="https://github.com/octocat9lee/blog-images/raw/master/moudle_inner_function.jpg">
+<meta property="og:image" content="https://github.com/octocat9lee/blog-images/raw/master/module_inner_call.jpg">
+<meta property="og:image" content="https://github.com/octocat9lee/blog-images/raw/master/extern_data_reference.jpg">
+<meta property="og:image" content="https://github.com/octocat9lee/blog-images/raw/master/moudle_call.jpg">
+<meta property="og:image" content="https://github.com/octocat9lee/blog-images/raw/master/function_calling.jpg">
+<meta property="og:updated_time" content="2019-11-05T01:36:48.092Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSAPP之链接">
 <meta name="twitter:description" content="前言链接就是将代码和数据组合成一个单一文件的过程，组成的文件可以被加载到内存并执行。链接可以执行于编译时，也可以执行于加载时，甚至执行于运行时。链接在软件开发中扮演着一个关键的角色，因为它使得分离编译成为可能，我们可以将一个大型的应用程序分解为更小更好管理的模块，并且独立的修改和编译这些模块，当我们修改这些模块中的一个时只需要重新编译它，并重新链接应用，而不必重新编译其他文件。 编译器驱动程序在将">
-<meta name="twitter:image" content="https://github.com/octocat9lee/blog-images/raw/master/A04eBDGA1j.jpg">
+<meta name="twitter:image" content="https://github.com/octocat9lee/blog-images/raw/master/compile_process.jpg">
   
     <link rel="alternative" href="/atom.xml" title="章鱼猫の博客" type="application/atom+xml">
   
@@ -204,7 +204,7 @@ var _hmt = _hmt || [];
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>链接就是将代码和数据组合成一个单一文件的过程，组成的文件可以被加载到内存并执行。链接可以执行于编译时，也可以执行于加载时，甚至执行于运行时。链接在软件开发中扮演着一个关键的角色，因为它使得分离编译成为可能，我们可以将一个大型的应用程序分解为更小更好管理的模块，并且独立的修改和编译这些模块，当我们修改这些模块中的一个时只需要重新编译它，并重新链接应用，而不必重新编译其他文件。</p>
 <h1 id="编译器驱动程序"><a href="#编译器驱动程序" class="headerlink" title="编译器驱动程序"></a>编译器驱动程序</h1><p>在将源代码编译成可执行程序时，会经历如下步骤：首先，运行预处理器将源程序翻译成一个ASCII码的中间文件；然后，运行C编译器将中间文件翻译成一个汇编文件；再运行汇编器将汇编文件翻译成可重定位目标文件；最后，运行链接程序将可重定位目标文件以及一些必要的系统目标文件组合起来，创建一个可执行目标文件。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cpp sum.c /tmp/sum.i或者gcc -E sum.c -o /tmp/sum.i  <span class="comment">#预处理</span></span><br><span class="line">/usr/lib/gcc/x86_64-linux-gnu/5/cc1 /tmp/sum.i -Og -o /tmp/sum.s或者gcc -Og -S sum.i -o /tmp/sum.s <span class="comment">#编译</span></span><br><span class="line">as -o /tmp/sum.o /tmp/sum.s或者gcc -c /tmp/sum.s -o /tmp/sum.o  <span class="comment">#汇编</span></span><br><span class="line">ld -o prog /tmp/main.o /tmp/sum.o <span class="comment">#链接</span></span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
-<center><img src="https://github.com/octocat9lee/blog-images/raw/master/A04eBDGA1j.jpg" alt="avatar"></center>
+<center><img src="https://github.com/octocat9lee/blog-images/raw/master/compile_process.jpg" alt="avatar"></center>
 
 <h1 id="静态链接"><a href="#静态链接" class="headerlink" title="静态链接"></a>静态链接</h1><p>链接器的主要任务：</p>
 <blockquote>
@@ -215,7 +215,7 @@ var _hmt = _hmt || [];
 <p>COMMON   未初始化的全局变量<br>.bss     未初始化的静态变量以及初始化为0的全局或静态变量</p>
 </blockquote>
 <p>可重定位目标文件格式如下：</p>
-<center><img src="https://github.com/octocat9lee/blog-images/raw/master/ia5cF7fIGk.jpg" alt="avatar"></center>
+<center><img src="https://github.com/octocat9lee/blog-images/raw/master/elf_format.jpg" alt="avatar"></center>
 
 <h1 id="符号解析"><a href="#符号解析" class="headerlink" title="符号解析"></a>符号解析</h1><p>链接器对重载函数的区分是通过重整(mangling)实现，编译器将每个唯一的方法和参数列表组合编码成一个对链接器来说唯一的名字。<br>每个定义符号在代码段或数据段中都被分配了存储空间，<code>将引用符号与对应定义符号建立关联后，就可在重定位时将引用符号的地址重定位为相关联的定义符号的地址</code>。“符号的定义”其实质就是符号被分配了虚拟地址空间，符号为函数名时指代码所在区；符号为变量即指其占的静态数据区。<br>强符号和弱符号定义：</p>
 <blockquote>
@@ -226,24 +226,24 @@ var _hmt = _hmt || [];
 <p>Rule 1: 强符号不能多次定义；强符号只能被定义一次，否则链接错误<br>Rule 2: 若一个符号被定义为一次强符号和多次弱符号，则按强定义为准<br>Rule 3: 若有多个弱符号定义，则任选其中一个</p>
 </blockquote>
 <p>GCC的”-fno-common”选项允许我们把所有未初始化的全部变量不以COMMON块的形式处理，一旦一个未初始化的全局变量不是以COMMON块形式存在，那么它就相当于一个强符号，如果其他目标文件中还有同一个变量的强符号定义，链接时就会发生符号重定义错误。GCC编译器选项”-ffunction-section”和”-fdata-section”将函数或变量分别保存到独立的段中。<br>规则2和规则3的应用会造成一些不易察觉的运行时错误，尤其是如果重复的符号定义还有不同的类型。当怀疑有此类错误时，在GCC中使用<code>-fno-common</code>的选项调用链接器，这个选项会告诉链接器在遇到多重定义的符号时，触发一个错误。或者使用<code>-Werror</code>选项，它会把所有的警告都变为错误。多重定义导致难以察觉错误示例:</p>
-<center><img src="https://github.com/octocat9lee/blog-images/raw/master/bLLL6Hadaj.jpg" alt="avatar"></center>
+<center><img src="https://github.com/octocat9lee/blog-images/raw/master/link_error.jpg" alt="avatar"></center>
 
 <h1 id="静态库链接"><a href="#静态库链接" class="headerlink" title="静态库链接"></a>静态库链接</h1><p>把函数编译为独立的目标模块，然后封装成一个单独的静态库。在Linux系统中，静态库以一种称为存档(archive)的文件格式存放在磁盘中，存档文件是一些可重定位目标文件的集合，有一个头部用来描述每个成员目标文件的大小和位置，存档文件名由后缀.a标识。所以应用程序员只要包含较少的库文件的名字，在链接时链接器只复制被应用程序引用的目标模块，从而减少了可执行文件在磁盘和内存中的大小。<br>关于库的一般准则是将它们放在命令行的结尾。如果各个库的成员是相互独立的，那么这些库就可以以任意的顺序放在命令行的结尾处；如果不是相互独立的，那么必须对它们排序，使得对于每个被静态库的外部成员引用的符号s，在命令行中至少有一个s的定义是在s的引用之后。在某些情况下，为了满足依赖需求，需要重复包含库或者将多个库合并成一个库。</p>
 <h1 id="重定位"><a href="#重定位" class="headerlink" title="重定位"></a>重定位</h1><h1 id="动态共享库"><a href="#动态共享库" class="headerlink" title="动态共享库"></a>动态共享库</h1><p>动态库使用<code>-shared和-fPIC</code>编译选项从而编译位置无关的代码。对于创建依赖动态库的可执行文件其基本思路是<code>创建可执行文件使，静态执行一些链接，生成部分链接的可执行目标文件，此时动态库中的代码和数据节都没有复制到可执行文件中，仅仅复制了重定位和符号表信息；在程序加载时，完成链接过程，代码和数据才真正的复制到可执行文件中</code>。在依赖动态库的可执行文件中，包含<code>.interp</code>节，包含动态链接器的路径名。动态链接器也是共享目标，但加载器会特殊对待，从而加载和运行加载器，动态链接器通过重定位完成链接过程，具体的动态共享库链接过程如下所示：</p>
-<center><img src="https://github.com/octocat9lee/blog-images/raw/master/0JD765eBgD.jpg" alt="动态共享库链接过程"></center>
+<center><img src="https://github.com/octocat9lee/blog-images/raw/master/dynamic_library_load.jpg" alt="动态共享库链接过程"></center>
 
 <h2 id="soname"><a href="#soname" class="headerlink" title="soname"></a>soname</h2><p>soname(Short for Shared Object Name)的存在主要是为了共享库兼容性。比如说，有一个程序prog，以及依赖的共享库库libtest.so.1，prog启动的时候需要libtest.so.1，如果链接的时候直接把libtest.so.1传给prog，那么将来库升级为libtest.so.2的时候prog仍然只能使用libtest.so.1，并不能链接到升级后的动态库。然而如果指定soname为libtest.so，那么prog启动的时候将查找的就是libtest.so，而不是其在被链接时实际使用的库libtest.so.1这个文件名。在发布版本1时，我们使用<code>ln -sf libtest.so.1 libtest.so</code>对版本1的动态库创建软链接；而在库升级后，我们<code>ln -sf libtest.so.2 libtest.so</code>创建新的软链接即可，这样prog不需要任何变动就能享受升级后的库的特性了。另外，<code>共享库libtest.so.1与libtest.so.2</code>可以同时存在于系统内，不必非得把libtest.so.2重命名成libtest.so.1。<br>编译选项<code>-Wl</code>中的l应该表示ld的缩写，后面的参数就是选项信息。<code>-Wl</code>参数可以将指定的参数传递给链接器。</p>
 <blockquote>
 <p><code>-Wl,-soname,my_soname</code>指定输出共享库的SONAME<br>    <code>gcc -shared -fPIC -Wl,-soname,libfoo.so.1 -o libfoo.so.1.0.0 libfoo1.c libfoo2.c -lbar1 -lbar2</code><br><code>-Wl,-rpath=/home/mylib</code>指定链接器产生的目标程序的共享库查找路径<br><code>-Wl,-export-dynamic</code>将所有全局符号导出到动态符号表</p>
 </blockquote>
 <h2 id="位置无关代码"><a href="#位置无关代码" class="headerlink" title="位置无关代码"></a>位置无关代码</h2><p>对GCC使用<code>-fpic</code>选项指示GNU编译器生成PIC代码。共享库的编译必须总是使用该选项。<br>对同一个目标模块中符号的引用因为可以使用PC相对寻址来编译，所以不需要特殊处理就可以实现PIC。然而，对于模块外部和对全局变量的引用需要特殊处理。</p>
-<center><img src="https://github.com/octocat9lee/blog-images/raw/master/gc3j58GK5f.jpg" alt="模块内函数调用示例"></center><br><center><img src="https://github.com/octocat9lee/blog-images/raw/master/BGlCccbJ0a.jpg" alt="模块内数据引用示例"></center>
+<center><img src="https://github.com/octocat9lee/blog-images/raw/master/moudle_inner_function.jpg" alt="模块内函数调用示例"></center><br><center><img src="https://github.com/octocat9lee/blog-images/raw/master/module_inner_call.jpg" alt="模块内数据引用示例"></center>
 
 <p>PIC数据引用基于<code>代码段中指令和数据变量之间的距离为常量，与代码段和数据段的绝对内存位置无关</code>。编译器为GOT中每个条目生成一个重定位记录，在加载时，动态链接器会重定位GOT(Global Offset Table,全局偏移表)中的每个条目，使得它包含目标正确的绝对地址。</p>
-<center><img src="https://github.com/octocat9lee/blog-images/raw/master/a8HjA1iJl5.jpg" alt="模块外部数据GOT引用示例"></center>
+<center><img src="https://github.com/octocat9lee/blog-images/raw/master/extern_data_reference.jpg" alt="模块外部数据GOT引用示例"></center>
 
 <p>PIC函数调用通过GOT和PLT(Procedure Linkage Table,过程链接表)实现。</p>
-<center><img src="https://github.com/octocat9lee/blog-images/raw/master/b3f621I3G6.jpg" alt="模块间函数调用"></center><br><center><img src="https://github.com/octocat9lee/blog-images/raw/master/DKCmI6a51D.jpg" alt="模块间函数调用"></center>
+<center><img src="https://github.com/octocat9lee/blog-images/raw/master/moudle_call.jpg" alt="模块间函数调用"></center><br><center><img src="https://github.com/octocat9lee/blog-images/raw/master/function_calling.jpg" alt="模块间函数调用"></center>
 
 <p>地址无关代码(PIC,Position-independent Code)解决共享对象指令中对绝对地址的重定位问题。希望程序模块中的共享指令部分在装载时不要因为装载地址的改变而改变，其基本想法就是把指令中需要被修改的部分分离出来，跟数据部分放在一起，从而指令部分就可以保持不变，而数据部分可以在每个进程中拥有一个副本。</p>
 <blockquote>
