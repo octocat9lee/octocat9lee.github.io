@@ -112,6 +112,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="..\..\..\source\_posts\2017年读书计划.md" />
+    <None Include="..\..\..\source\_posts\boost.md" />
     <None Include="..\..\..\source\_posts\C-Primer5e第02章：变量和基本类型.md" />
     <None Include="..\..\..\source\_posts\C-Primer5e第03章：字符串、向量和数组.md" />
     <None Include="..\..\..\source\_posts\C-Primer5e第04章：表达式.md" />
@@ -131,6 +132,7 @@
     <None Include="..\..\..\source\_posts\C-Primer5e第18章：用于大型程序的工具.md" />
     <None Include="..\..\..\source\_posts\C-Primer5e第19章：特殊工具与技术（一）.md" />
     <None Include="..\..\..\source\_posts\C-Primer5e第19章：特殊工具与技术（二）.md" />
+    <None Include="..\..\..\source\_posts\Centos开发基础环境搭建.md" />
     <None Include="..\..\..\source\_posts\cmake实践.md" />
     <None Include="..\..\..\source\_posts\coredump.md" />
     <None Include="..\..\..\source\_posts\CSAPP之Y86-64模拟器安装.md" />
@@ -148,16 +150,21 @@
     <None Include="..\..\..\source\_posts\Hexo-Github搭建博客.md" />
     <None Include="..\..\..\source\_posts\Linux性能分析工具：ftrace.md" />
     <None Include="..\..\..\source\_posts\Markdown基本语法.md" />
+    <None Include="..\..\..\source\_posts\openSIPS使用简介.md" />
+    <None Include="..\..\..\source\_posts\openSIPS使用自己账号系统鉴权.md" />
     <None Include="..\..\..\source\_posts\project操作指南.md" />
     <None Include="..\..\..\source\_posts\python小工具.md" />
     <None Include="..\..\..\source\_posts\Scratch基本操作篇.md" />
     <None Include="..\..\..\source\_posts\UNIX编程艺术.md" />
     <None Include="..\..\..\source\_posts\写作的层次.md" />
     <None Include="..\..\..\source\_posts\可变参数模板.md" />
+    <None Include="..\..\..\source\_posts\如何培养孩子的社会能力.md" />
+    <None Include="..\..\..\source\_posts\如何学习开源项目.md" />
     <None Include="..\..\..\source\_posts\家庭教育专栏-阅读整理一.md" />
     <None Include="..\..\..\source\_posts\接口与实现分离方式.md" />
     <None Include="..\..\..\source\_posts\李玫瑾家庭教育视频文档整理.md" />
     <None Include="..\..\..\source\_posts\李玫瑾教育讲座.md" />
+    <None Include="..\..\..\source\_posts\正面管教.md" />
     <None Include="..\..\..\source\_posts\程序常用调试工具汇总.md" />
     <None Include="..\..\..\source\_posts\经济学入门通俗教程汇总.md" />
     <None Include="..\..\..\source\_posts\经济学讲义：01-人性与稀缺.md" />
@@ -172,9 +179,11 @@
     <None Include="..\..\..\source\_posts\经济学讲义：10-协调-众人如何彼此影响.md" />
     <None Include="..\..\..\source\_posts\网络编程实践环境搭建.md" />
     <None Include="..\..\..\source\_posts\谷歌方法论：001-030.md" />
+    <None Include="..\..\..\source\_posts\谷歌方法论：031-060.md" />
     <None Include="..\..\..\source\_posts\软件架构专栏-阅读整理一.md" />
     <None Include="..\..\..\source\_posts\软件架构专栏-阅读整理二.md" />
     <None Include="..\..\..\source\_posts\进程内存监控.md" />
+    <None Include="..\..\..\source\_posts\那些比拼命努力更重要的事.md" />
     <None Include="..\..\..\source\_posts\重构-改善既有代码的设计.md" />
     <None Include="..\..\..\source\_posts\键盘快捷操作指南.md" />
   </ItemGroup>

@@ -213,5 +213,32 @@
     <None Include="..\..\..\source\_posts\project操作指南.md">
       <Filter>资源文件</Filter>
     </None>
+    <None Include="..\..\..\source\_posts\boost.md">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\..\source\_posts\Centos开发基础环境搭建.md">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\..\source\_posts\openSIPS使用简介.md">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\..\source\_posts\openSIPS使用自己账号系统鉴权.md">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\..\source\_posts\谷歌方法论：031-060.md">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\..\source\_posts\那些比拼命努力更重要的事.md">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\..\source\_posts\如何培养孩子的社会能力.md">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\..\source\_posts\如何学习开源项目.md">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\..\source\_posts\正面管教.md">
+      <Filter>资源文件</Filter>
+    </None>
   </ItemGroup>
 </Project>
