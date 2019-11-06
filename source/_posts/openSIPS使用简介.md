@@ -48,7 +48,7 @@ DBROOTUSER="root"
 .......
 # 其他不变
 ```
-配置完成后的[配置文件](https://github.com/octocat9lee/tools/blob/master/opensips/opensipsctlrc)。
+配置完成后的[配置文件](https://gitee.com/zhoulee/tools/blob/master/opensips/opensipsctlrc)。
 <!--more-->
 ## 创建数据库
 当对数据库凭证配置完成后，使用`/opt/opensips/sbin`目录下的`opensipsdbctl`工具生成数据库。具体步骤如下：
@@ -110,7 +110,7 @@ RTPProxy模块指定openSIPS与RTP转发通讯相关信息。下面使用UNIX套
 loadmodule "rtpproxy.so"
 modparam("rtpproxy", "rtpproxy_sock", "unix:/tmp/rtpproxy.unix") # CUSTOMIZE ME
 ```
-最后的[配置文件参考](https://github.com/octocat9lee/tools/blob/master/opensips/opensips.cfg)。
+最后的[配置文件参考](https://gitee.com/zhoulee/tools/blob/master/opensips/opensips.cfg)。
 
 # RTPProxy编译和运行
 
@@ -192,7 +192,7 @@ and then re-compiling the code.
 ## linphone
 使用[linphone](https://www.linphone.org/)作为SIP客户端，对部署的opensips环境进行基本功能测试。在linphone界面选择`USE A SIP ACCOUNT`，在如下界面中输入添加测试账号时的账号和SIP服务器信息，具体配置如下所示：
 <center>
-![avatar](https://github.com/octocat9lee/blog-images/raw/master/linphone_client.jpg)
+![avatar](https://gitee.com/zhoulee/blog-images/raw/master/linphone_client.jpg)
 </center>
 添加完成后，在SIP服务器端使用MI命令查看在线用户信息：
 ``` bash

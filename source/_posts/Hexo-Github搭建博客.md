@@ -32,7 +32,7 @@ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Crese
 ```
 配置完git信息后，从Github克隆个人博客仓库：
 ```
-git clone https://github.com/octocat9lee/octocat9lee.github.io.git
+git clone https://gitee.com/zhoulee/octocat9lee.github.io.git
 ```
 最后，切换到`hexo`分支，使用`npm install`命令安装所需的模块。至此，关于博客基础环境搭建完毕。
 

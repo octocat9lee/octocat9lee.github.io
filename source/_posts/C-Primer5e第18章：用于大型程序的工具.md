@@ -83,7 +83,7 @@ void f() noexcept(noexcept(g())); //f和g的异常说明一致
 ## 异常类层次
 标准库异常类的继承体系：
 <center>
-![标准库异常继承体系](https://github.com/octocat9lee/blog-images/raw/master/std_exception.jpg)
+![标准库异常继承体系](https://gitee.com/zhoulee/blog-images/raw/master/std_exception.jpg)
 
 </center>
 

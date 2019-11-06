@@ -207,7 +207,7 @@ mysql> FLUSH PRIVILEGES;
 运行osipsconfig命令，依次选择—>`Generate OpenSIPS Script`—>`Residential Script`—>`Configure Residential Script`，选择如下：
 
 <center>
-![avatar](https://github.com/octocat9lee/blog-images/raw/master/opensips_cfg.jpg)
+![avatar](https://gitee.com/zhoulee/blog-images/raw/master/opensips_cfg.jpg)
 </center>
 
 按q键返回，选择—>`Generate Residential Script`回车，生成新的配置文件。按q键三次退出配置命令；新生成的配置文件位于`/opt/opensips/etc/opensips_residential_*.cfg`。

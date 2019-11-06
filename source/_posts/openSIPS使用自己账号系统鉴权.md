@@ -65,12 +65,12 @@ insert into version(table_name, table_version) values('subscriber', 7);
 ## 配置代理鉴权和注册鉴权
 修改`proxy_authorize(realm, table)`和`www_authorize(realm, table)`中的`table`字段`subscriber`为自定义鉴权数据表名`m_user`。
 <center>
-![avatar](https://github.com/octocat9lee/blog-images/raw/master/opensip_subscriber.jpg)
+![avatar](https://gitee.com/zhoulee/blog-images/raw/master/opensip_subscriber.jpg)
 </center>
 
 ## 修改Route
 将路由设置中的`if(has_totag())`和`route[relay]`函数中的`is_method("INVITE")`判断中添加`UPDATE`字段变成`is_method("INVITE|UPDATE")`。
 <center>
-![avatar](https://github.com/octocat9lee/blog-images/raw/master/opensips_update.jpg)
+![avatar](https://gitee.com/zhoulee/blog-images/raw/master/opensips_update.jpg)
 </center>
 

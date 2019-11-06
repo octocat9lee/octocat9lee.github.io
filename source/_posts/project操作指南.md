@@ -10,7 +10,7 @@ date: 2019-01-07 14:36:19
 在"项目"-->"更改工作时间"-->"新建日历"的步骤添加项目周期内假期和对应的时间段；然后在"任务"-->"甘特图"之"任务工作表"界面中的合适位置选择插入"任务日历"列，通过下拉框选择自定义的工作日历，对于多项任务，可以通过下拉拖动的方式进行快速复制。具体操作方式如下：
 <!--more-->
 <center>
-![avatar](https://github.com/octocat9lee/blog-images/raw/master/project_holiday_manager.jpg)
+![avatar](https://gitee.com/zhoulee/blog-images/raw/master/project_holiday_manager.jpg)
 </center>
 
 ## 任务关联
