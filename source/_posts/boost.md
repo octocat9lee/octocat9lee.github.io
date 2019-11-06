@@ -56,6 +56,101 @@ int main(int argc, char* argv[])
 }
 ```
 
-
-
 <!--more-->
+# std::shared_ptr
+``` cpp
+#include <string>
+#include <iostream>
+#include <memory>
+#include <vld.h>
+
+class Person
+{
+public:
+    Person()
+    {
+        std::cout << "person construct" << std::endl;
+    }
+
+    ~Person()
+    {
+        std::cout << "~person destruct" << std::endl;
+    }
+
+public:
+    int age;
+    std::string name;
+};
+
+
+class Client
+{
+public:
+    Client()
+    {
+        std::cout << "client construct" << std::endl;
+    }
+
+    ~Client()
+    {
+        std::cout << "~ client destruct" << std::endl;
+    }
+
+public:
+    std::shared_ptr<Person> m_person;
+};
+
+class NetClient
+{
+public:
+    NetClient()
+    {
+        std::cout << "net client construct, use count: " << client.use_count() << std::endl;
+    }
+
+    ~NetClient()
+    {
+        client.reset();
+        std::cout << "net client destruct, use count: " << client.use_count() << std::endl;
+    }
+
+    void function()
+    {
+        const int size = 10;
+
+        client = std::make_shared<Client>();
+        std::cout << "client use count: " << client.use_count() << std::endl;
+
+        client->m_person.reset(new Person[size], [](Person *p) { delete[] p; });
+
+        std::cout << "swap" << std::endl;
+        std::shared_ptr<Client> c2;
+        std::cout << "c2 use count: " << c2.use_count() << std::endl;
+
+        //client.swap(c2);
+
+        c2 = client;
+
+        std::cout << "c2 use count: " << c2.use_count() << std::endl;
+        std::cout << "client use count: " << client.use_count() << std::endl;
+
+        c2.reset();
+
+        std::cout << "c2 use count: " << c2.use_count() << std::endl;
+        std::cout << "client use count: " << client.use_count() << std::endl;
+    }
+
+private:
+    std::shared_ptr<Client> client;
+};
+
+int main()
+{
+    NetClient net;
+
+    net.function();
+
+    return 0;
+}
+
+```
