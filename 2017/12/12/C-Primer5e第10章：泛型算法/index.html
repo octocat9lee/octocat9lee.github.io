@@ -18,12 +18,12 @@
 <meta property="og:site_name" content="章鱼猫の博客">
 <meta property="og:description" content="标准库并未给容器添加大量的功能，而是提供了一组独立于任何特定容器的通用的算法实现相关功能。算法是泛型的，也就是说可以用于不同类型的元素和多种容器类型，不仅包括标准库类型，还包括内置数组类型。 概述大多数算法定义在头文件algorithm中。标准库还在头文件numeric中定义了一组数值泛型算法。算法并不直接操作容器，而是遍历由两个迭代器指定的一个元素范围进行操作。迭代器令算法不依赖于容器，但算法依">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://github.com/octocat9lee/blog-images/raw/master/memory_allocator.jpg">
-<meta property="og:updated_time" content="2019-11-05T01:36:47.935Z">
+<meta property="og:image" content="https://gitee.com/zhoulee/blog-images/raw/master/memory_allocator.jpg">
+<meta property="og:updated_time" content="2019-11-07T01:04:41.250Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++Primer5e第10章：泛型算法">
 <meta name="twitter:description" content="标准库并未给容器添加大量的功能，而是提供了一组独立于任何特定容器的通用的算法实现相关功能。算法是泛型的，也就是说可以用于不同类型的元素和多种容器类型，不仅包括标准库类型，还包括内置数组类型。 概述大多数算法定义在头文件algorithm中。标准库还在头文件numeric中定义了一组数值泛型算法。算法并不直接操作容器，而是遍历由两个迭代器指定的一个元素范围进行操作。迭代器令算法不依赖于容器，但算法依">
-<meta name="twitter:image" content="https://github.com/octocat9lee/blog-images/raw/master/memory_allocator.jpg">
+<meta name="twitter:image" content="https://gitee.com/zhoulee/blog-images/raw/master/memory_allocator.jpg">
   
     <link rel="alternative" href="/atom.xml" title="章鱼猫の博客" type="application/atom+xml">
   
@@ -195,7 +195,7 @@ var _hmt = _hmt || [];
       
         <p>标准库并未给容器添加大量的功能，而是提供了一组独立于任何特定容器的通用的算法实现相关功能。算法是泛型的，也就是说可以用于不同类型的元素和多种容器类型，不仅包括标准库类型，还包括内置数组类型。</p>
 <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>大多数算法定义在头文件<code>algorithm</code>中。标准库还在头文件<code>numeric</code>中定义了一组数值泛型算法。算法并不直接操作容器，而是遍历由两个迭代器指定的一个元素范围进行操作。迭代器令算法不依赖于容器，但算法依赖于元素类型的操作，大多数算法提供了一种方法，允许我们使用自定义的操作来代替默认的运算符。<strong>STL组件间关系如下图所示：</strong></p>
-<p><center><img src="https://github.com/octocat9lee/blog-images/raw/master/memory_allocator.jpg" alt="STL组件关系"></center><br>泛型算法使用迭代器作为访问容器元素的桥梁，对元素的元素可以通过函数对象传递到算法内部。为了实现与数据结构的分离，为了实现通用性，算法根本就不该知道容器的存在。算法访问数据的唯一通道是迭代器，是否改变容器大小，完全是迭代器的选择和责任。</p>
+<p><center><img src="https://gitee.com/zhoulee/blog-images/raw/master/memory_allocator.jpg" alt="STL组件关系"></center><br>泛型算法使用迭代器作为访问容器元素的桥梁，对元素的元素可以通过函数对象传递到算法内部。为了实现与数据结构的分离，为了实现通用性，算法根本就不该知道容器的存在。算法访问数据的唯一通道是迭代器，是否改变容器大小，完全是迭代器的选择和责任。</p>
 <h1 id="初识泛型算法"><a href="#初识泛型算法" class="headerlink" title="初识泛型算法"></a>初识泛型算法</h1><p>算法使用元素的方式包括只读取元素、改变元素或者是重排元素顺序。算法不会执行容器操作，所以算法不会改变底层容器的大小。</p>
 <h2 id="只读算法"><a href="#只读算法" class="headerlink" title="只读算法"></a>只读算法</h2><p>accumulate的第三个参数的类型决定了函数中使用哪个加法运算符以及返回值的类型。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//对vec中的int元素求和，和的初始值为0</span></span><br><span class="line"><span class="keyword">int</span> sum = accumulate(vec.cbegin(), vec.cend(), <span class="number">0</span>);</span><br><span class="line"><span class="comment">//将vector中所有的string元素连接起来</span></span><br><span class="line"><span class="built_in">string</span> sum = accumulate(v.cbegin(), v.cend(), <span class="built_in">std</span>::<span class="built_in">string</span>(<span class="string">""</span>));</span><br><span class="line"><span class="comment">//错误：const char*上没有定义+运算符</span></span><br><span class="line"><span class="built_in">string</span> sum = accumulate(v.cbegin(), v.cend(), <span class="string">""</span>);</span><br></pre></td></tr></table></figure></p>
 <p>对于只读取元素而不改变元素的算法，最好使用cbegin()和cend()。<br>使用equal判断两个序列是否保存相同的值，构成这两个序列的元素可以来自不同类型的容器。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; roster1 = &#123;<span class="string">"Hello"</span>, <span class="string">"The"</span>, <span class="string">"a"</span>&#125;;</span><br><span class="line"><span class="built_in">list</span>&lt;<span class="keyword">const</span> <span class="keyword">char</span>*&gt; roster2 = &#123;<span class="string">"Hello"</span>, <span class="string">"The"</span>, <span class="string">"a"</span>&#125;;</span><br><span class="line"><span class="keyword">bool</span> eq = equal(roster1.cbegin(), roster1.cend(), roster2.cbegin());</span><br></pre></td></tr></table></figure></p>

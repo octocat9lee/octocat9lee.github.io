@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="章鱼猫の博客">
 <meta property="og:description" content="cmake基本使用PROJECT指令隐式定义了两个变量&amp;lt;projectname&amp;gt;_BINARY_DIR和&amp;lt;projectname&amp;gt;_SOURCE_DIR。同时cmake系统预定义了PROJECT_BINARY_DIR和PROJECT_SOURCE_DIR两个不依赖项目名的变量，分别表示当前编译发生目录和工程代码目录。为了统一，建议直接使用不依赖工程名的预定义变量。在cmak">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-05T01:36:48.056Z">
+<meta property="og:updated_time" content="2019-11-07T01:04:41.262Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="cmake实践">
 <meta name="twitter:description" content="cmake基本使用PROJECT指令隐式定义了两个变量&amp;lt;projectname&amp;gt;_BINARY_DIR和&amp;lt;projectname&amp;gt;_SOURCE_DIR。同时cmake系统预定义了PROJECT_BINARY_DIR和PROJECT_SOURCE_DIR两个不依赖项目名的变量，分别表示当前编译发生目录和工程代码目录。为了统一，建议直接使用不依赖工程名的预定义变量。在cmak">
@@ -272,7 +272,7 @@ var _hmt = _hmt || [];
 <p>FIND_PACKAGE指令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FIND_PACKAGE(&lt;name&gt; [major.minor] [QUIET] [NO_MODULE] [[REQUIRED|COMPONENTS] [componets...]])</span><br></pre></td></tr></table></figure></p>
 <p>QUIET参数对应FindHELLO中的HELLO_FIND_QUIETLY，REQUIRED参数对应于FindHELLO.cmake模块中的HELLO_FIND_REQUIRED变量。<br>建立src/CMakeLists.txt文件，内容如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">FIND_PACKAGE(HELLO)</span><br><span class="line">IF(HELLO_FOUND)</span><br><span class="line">  ADD_EXECUTABLE(hello main.c)</span><br><span class="line">  INCLUDE_DIRECTORIES(<span class="variable">$&#123;HELLO_INCLUDE_DIR&#125;</span>)</span><br><span class="line">  TARGET_LINK_LIBRARIES(hello <span class="variable">$&#123;HELLO_LIBRARY&#125;</span>)</span><br><span class="line">ENDIF(HELLO_FOUND)</span><br></pre></td></tr></table></figure></p>
 <p>为了能够让工程找到FindHELLO.cmake模块(存放在工程的cmake目录中)，在主工程文件CMakeLists.txt中加入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CMAKE_MINIMUM_REQUIRED(VERSION 3.5)</span><br><span class="line">PROJECT(NEWHELLO)</span><br><span class="line">SET(CMAKE_MODULE_PATH <span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>/cmake) <span class="comment">#必须位于ADD_SUBDIRECTORY前面</span></span><br><span class="line">ADD_SUBDIRECTORY(src)</span><br></pre></td></tr></table></figure></p>
-<h1 id="代码托管"><a href="#代码托管" class="headerlink" title="代码托管"></a>代码托管</h1><p>该博客中所有的源代码归档于<a href="https://github.com/octocat9lee/tools/tree/master/cmake" target="_blank" rel="noopener">github</a>，欢迎共同交流，一起学习进步。</p>
+<h1 id="代码托管"><a href="#代码托管" class="headerlink" title="代码托管"></a>代码托管</h1><p>该博客中所有的源代码归档于<a href="https://gitee.com/zhoulee/tools/tree/master/cmake" target="_blank" rel="noopener">github</a>，欢迎共同交流，一起学习进步。</p>
 
       
 

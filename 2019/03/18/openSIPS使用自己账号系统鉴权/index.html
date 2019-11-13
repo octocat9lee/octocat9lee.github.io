@@ -18,13 +18,13 @@
 <meta property="og:site_name" content="章鱼猫の博客">
 <meta property="og:description" content="通常情况下，我们都不会用opensips数据库的subscriber表中的账号和密码进行鉴权，而是使用项目业务系统的账号系统进行鉴权。因此需要对鉴权模块进行相关配置。 鉴权模块配置配置URI模块使用如下配置更改URI模块对应字段值，URI模块各个字段含义文档123456#### URI moduleloadmodule &quot;uri.so&quot;modparam(&quot;uri&quot;, &quot;use_uri_table&quot;">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://github.com/octocat9lee/blog-images/raw/master/opensip_subscriber.jpg">
-<meta property="og:image" content="https://github.com/octocat9lee/blog-images/raw/master/opensips_update.jpg">
-<meta property="og:updated_time" content="2019-03-18T04:00:09.111Z">
+<meta property="og:image" content="https://gitee.com/zhoulee/blog-images/raw/master/opensip_subscriber.jpg">
+<meta property="og:image" content="https://gitee.com/zhoulee/blog-images/raw/master/opensips_update.jpg">
+<meta property="og:updated_time" content="2019-11-07T01:04:41.264Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="openSIPS使用自己账号系统鉴权">
 <meta name="twitter:description" content="通常情况下，我们都不会用opensips数据库的subscriber表中的账号和密码进行鉴权，而是使用项目业务系统的账号系统进行鉴权。因此需要对鉴权模块进行相关配置。 鉴权模块配置配置URI模块使用如下配置更改URI模块对应字段值，URI模块各个字段含义文档123456#### URI moduleloadmodule &quot;uri.so&quot;modparam(&quot;uri&quot;, &quot;use_uri_table&quot;">
-<meta name="twitter:image" content="https://github.com/octocat9lee/blog-images/raw/master/opensip_subscriber.jpg">
+<meta name="twitter:image" content="https://gitee.com/zhoulee/blog-images/raw/master/opensip_subscriber.jpg">
   
     <link rel="alternative" href="/atom.xml" title="章鱼猫の博客" type="application/atom+xml">
   
@@ -210,10 +210,10 @@ var _hmt = _hmt || [];
 <h2 id="对用户表授权"><a href="#对用户表授权" class="headerlink" title="对用户表授权"></a>对用户表授权</h2><p>openSIPS使用的数据库默认为<code>opensips</code>，但在URI和Auth模块配置中，把用户表指向了<code>my_user_db</code>数据库的<code>m_user</code>表，所以要给MySQL的<code>opensips</code>用户开放权限：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">grant select on my_user_db.m_user to opensips@<span class="string">'localhost'</span>;</span><br><span class="line">grant select on my_user_db.version to opensips@<span class="string">'localhost'</span>;</span><br><span class="line">grant select on my_user_db.m_user to opensips@<span class="string">'%'</span>;</span><br><span class="line">grant select on my_user_db.version to opensips@<span class="string">'%'</span>;</span><br></pre></td></tr></table></figure></p>
 <p>并同时在<code>my_user_db</code>数据库的<code>version</code>表中插入如下2条记录：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">insert into version(table_name, table_version) values(<span class="string">'m_user'</span>, 7);</span><br><span class="line">insert into version(table_name, table_version) values(<span class="string">'subscriber'</span>, 7);</span><br></pre></td></tr></table></figure></p>
 <h2 id="配置代理鉴权和注册鉴权"><a href="#配置代理鉴权和注册鉴权" class="headerlink" title="配置代理鉴权和注册鉴权"></a>配置代理鉴权和注册鉴权</h2><p>修改<code>proxy_authorize(realm, table)</code>和<code>www_authorize(realm, table)</code>中的<code>table</code>字段<code>subscriber</code>为自定义鉴权数据表名<code>m_user</code>。</p>
-<center><br><img src="https://github.com/octocat9lee/blog-images/raw/master/opensip_subscriber.jpg" alt="avatar"><br></center>
+<center><br><img src="https://gitee.com/zhoulee/blog-images/raw/master/opensip_subscriber.jpg" alt="avatar"><br></center>
 
 <h2 id="修改Route"><a href="#修改Route" class="headerlink" title="修改Route"></a>修改Route</h2><p>将路由设置中的<code>if(has_totag())</code>和<code>route[relay]</code>函数中的<code>is_method(&quot;INVITE&quot;)</code>判断中添加<code>UPDATE</code>字段变成<code>is_method(&quot;INVITE|UPDATE&quot;)</code>。</p>
-<center><br><img src="https://github.com/octocat9lee/blog-images/raw/master/opensips_update.jpg" alt="avatar"><br></center>
+<center><br><img src="https://gitee.com/zhoulee/blog-images/raw/master/opensips_update.jpg" alt="avatar"><br></center>
 
 
       
