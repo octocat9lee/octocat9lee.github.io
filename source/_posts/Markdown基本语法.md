@@ -77,11 +77,7 @@ Markdown支持有序列表和无序列表，无序列表使用`+`或者`-`作为
 
 # 音乐播放器
 
-{% aplayer "As One" "As One" "https://gitee.com/zhoulee/blog-images/raw/master/as_one.mp3" %}
-
-{% aplayer "孩子把你的手给我" "解读" "https://gitee.com/zhoulee/blog-images/raw/master/hai_zi_ba_ni_shou_gei_wo_jie_tu_1.mp3" %}
-
-{% aplayer "孩子把你的手给我" "访谈" "https://gitee.com/zhoulee/blog-images/raw/master/hai_zi_ba_ni_shou_gei_wo_fang_tan_1.mp3" %}
+{% aplayer "As One" "As One" "https://files.catbox.moe/nlemw0.mp3" %}
 
 # 反馈与建议
 - 博客：[@章鱼猫](https://octocat9lee.github.io/)
