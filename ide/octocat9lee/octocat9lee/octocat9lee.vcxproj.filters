@@ -240,5 +240,14 @@
     <None Include="..\..\..\source\_posts\正面管教.md">
       <Filter>资源文件</Filter>
     </None>
+    <None Include="..\..\..\source\_posts\Nginx搭建文件服务器.md">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\..\source\_posts\Office-常用操作.md">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\..\source\_posts\孩子把你的手给我.md">
+      <Filter>资源文件</Filter>
+    </None>
   </ItemGroup>
 </Project>

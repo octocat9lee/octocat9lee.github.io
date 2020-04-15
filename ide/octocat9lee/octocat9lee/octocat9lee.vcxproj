@@ -150,6 +150,8 @@
     <None Include="..\..\..\source\_posts\Hexo-Github搭建博客.md" />
     <None Include="..\..\..\source\_posts\Linux性能分析工具：ftrace.md" />
     <None Include="..\..\..\source\_posts\Markdown基本语法.md" />
+    <None Include="..\..\..\source\_posts\Nginx搭建文件服务器.md" />
+    <None Include="..\..\..\source\_posts\Office-常用操作.md" />
     <None Include="..\..\..\source\_posts\openSIPS使用简介.md" />
     <None Include="..\..\..\source\_posts\openSIPS使用自己账号系统鉴权.md" />
     <None Include="..\..\..\source\_posts\project操作指南.md" />
@@ -160,6 +162,7 @@
     <None Include="..\..\..\source\_posts\可变参数模板.md" />
     <None Include="..\..\..\source\_posts\如何培养孩子的社会能力.md" />
     <None Include="..\..\..\source\_posts\如何学习开源项目.md" />
+    <None Include="..\..\..\source\_posts\孩子把你的手给我.md" />
     <None Include="..\..\..\source\_posts\家庭教育专栏-阅读整理一.md" />
     <None Include="..\..\..\source\_posts\接口与实现分离方式.md" />
     <None Include="..\..\..\source\_posts\李玫瑾家庭教育视频文档整理.md" />
