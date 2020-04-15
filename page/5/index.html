@@ -171,6 +171,82 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-cmake实践" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/15/cmake实践/">cmake实践</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/15/cmake实践/" class="archive-article-date">
+  	<time datetime="2018-01-15T02:39:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="cmake基本使用"><a href="#cmake基本使用" class="headerlink" title="cmake基本使用"></a>cmake基本使用</h1><p>PROJECT指令隐式定义了两个变量<code>&lt;projectname&gt;_BINARY_DIR和&lt;projectname&gt;_SOURCE_DIR</code>。同时cmake系统预定义了<code>PROJECT_BINARY_DIR和PROJECT_SOURCE_DIR</code>两个不依赖项目名的变量，分别表示当前编译发生目录和工程代码目录。为了统一，建议直接使用不依赖工程名的预定义变量。<br>在cmake中使用<code>${}</code>引用定义的变量，但在IF控制语句，直接使用变量名引用变量，而不需要<code>${}</code>。<br>在cmake语法中，指令是大小写无关的，但变量和参数是大小写相关的。建议指令全部使用大写。<br>在内部构建中，cmake并没有指令直接全部清除构建过程的中间文件。因此，cmake强烈推荐的是外部构建(out-of-source build)。<br>
+        
+          <a class="article-more-a" href="/2018/01/15/cmake实践/#more">more >></a>
+        
+      
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术点滴</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/15/cmake实践/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-网络编程实践环境搭建" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -882,85 +958,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-C-Primer5e第12章：动态内存" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/14/C-Primer5e第12章：动态内存/">C++Primer5e第12章：动态内存</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/14/C-Primer5e第12章：动态内存/" class="archive-article-date">
-  	<time datetime="2017-12-14T02:00:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>动态对象的生存期由程序来控制，当动态对象不再使用时，程序必须显式地销毁它们。</p>
-<h1 id="动态内存与智能指针"><a href="#动态内存与智能指针" class="headerlink" title="动态内存与智能指针"></a>动态内存与智能指针</h1><p>C++11新标准库提供两种<code>智能指针类型</code>管理动态对象。智能指针行为类似常规指针，重要区别是智能指针负责自动释放所指向的对象。两种智能指针的区别在于管理底层底层的方式：<code>shared_ptr</code>允许多个指针指向同一个对象；<code>unique_ptr</code>则独占所指向的对象。标准库还定义了一个名为<code>weak_ptr</code>的伴随类，它是一种弱引用，指向<code>shared_ptr</code>所管理的对象。三种类型都定义在<code>memory</code>头文件中。</p>
-<h2 id="shared-ptr类"><a href="#shared-ptr类" class="headerlink" title="shared_ptr类"></a>shared_ptr类</h2><p>智能指针也是模板类，必须在尖括号内提供指针指向的类型参数。<br><strong>shared_ptr和unique_ptr都支持的操作</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">shared_ptr</span>&lt;T&gt;    空智能指针，可以指向类型为T的对象</span><br><span class="line"><span class="built_in">unique_ptr</span>&lt;T&gt;</span><br><span class="line">p                将p用作一个条件判断，若p指向一个对象，则为<span class="literal">true</span></span><br><span class="line">*p               解引用p，获得它指向的对象</span><br><span class="line">p-&gt;mem           等价于(*p).mem</span><br><span class="line">p.get()          返回p中保存的指针。小心使用，若智能指针释放了其对象，返回的指针所指向的对象也就消失</span><br><span class="line">swap(p, q)       交换p和q中的指针</span><br><span class="line">p.swap(q)</span><br></pre></td></tr></table></figure></p>
-<p><strong>shared_ptr独有的操作</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">make_shared&lt;T&gt;(args)   返回一个<span class="built_in">shared_ptr</span>，指向一个动态分配的类型为T的对象。使用args初始化此对象</span><br><span class="line"><span class="built_in">shared_ptr</span>&lt;T&gt; p(q)     p是<span class="built_in">shared_ptr</span>的拷贝；此操作会递增q中的计数器。q中的指针必须能转换为T*</span><br><span class="line">p = q                  p和q都是<span class="built_in">shared_ptr</span>，所保存的指针必须能相互转换。此操作会递减p的引用计数，</span><br><span class="line">                       递增q的引用。若p的引用计数变为<span class="number">0</span>，则将其管理的原内存释放。表达式含义：将p指向q的对象</span><br><span class="line">p.unique()             若p.use_count()为<span class="number">1</span>，则返回<span class="literal">true</span>；否则返回<span class="literal">false</span></span><br><span class="line">p.use_count()          返回与p共享对象的智能指针数量，可能很慢，主要用于调试</span><br></pre></td></tr></table></figure></p>
-        
-          <a class="article-more-a" href="/2017/12/14/C-Primer5e第12章：动态内存/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/14/C-Primer5e第12章：动态内存/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
@@ -1079,11 +1076,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" class="js-tag color5">生活规划</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">生活规划</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
