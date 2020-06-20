@@ -89,3 +89,8 @@ sleep 5
 rm -f ./baidusitemap.xml
 rm -f ./urls.txt
 ```
+
+# Sed
+``` bash
+ls | xargs sed -i -e '/1234/d' # 当前目录下在源文件中删除指定内容的行
+```
