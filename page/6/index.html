@@ -171,6 +171,166 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-C-Primer5e第14章：重载运算与类型转换" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/22/C-Primer5e第14章：重载运算与类型转换/">C++Primer5e第14章：重载运算与类型转换</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/22/C-Primer5e第14章：重载运算与类型转换/" class="archive-article-date">
+  	<time datetime="2017-12-22T05:30:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>当运算符作用于类类型的运算对象时，可以通过运算符重载重新定义该运算符的含义。合理使用运算符重载能令我们的程序更易于编写和阅读。</p>
+<h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><p>重载的运算符是具有特殊名字的函数：它们的名字由关键字operator和其后要定义的运算符号共同组成。除了重载的函数调用运算符<code>operator()</code>之外，其他重载运算符不能含有默认实参。<br>当一个重载的运算符是成员函数时，则它的第一个(左侧)运算对象绑定到隐式的this指针上。<br>对于一个运算符函数来说，它或者是类的成员，或者至少包含有一个类类型的参数，因此我们不能改变内置类型的运算符的含义。<br>我们可以使用直接和间接两种方式调用重载的运算符函数：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//非成员运算符函数的等价调用</span></span><br><span class="line">data1 + data2;  <span class="comment">//普通的表达式</span></span><br><span class="line"><span class="keyword">operator</span>+(data1, data2); <span class="comment">//等价的函数调用</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//调用成员函数的operator+=运算符</span></span><br><span class="line">data1 += data2; <span class="comment">//this绑定到data1的地址、将data2作为实参传入函数</span></span><br><span class="line">data1.<span class="keyword">operator</span>+=(data2);</span><br></pre></td></tr></table></figure></p>
+<p><strong>通常情况下，不应该重载逗号、取地址、逻辑与和逻辑或运算符。</strong><br>当内置的运算符和我们自己的操作之间存在逻辑映射关系时，使用重载的运算符更自然直观。但是，过分滥用运算符重载也会使我们的类变得难以理解。<br>
+        
+          <a class="article-more-a" href="/2017/12/22/C-Primer5e第14章：重载运算与类型转换/#more">more >></a>
+        
+      
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/22/C-Primer5e第14章：重载运算与类型转换/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-C-Primer5e第13章：拷贝控制" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/15/C-Primer5e第13章：拷贝控制/">C++Primer5e第13章：拷贝控制</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/15/C-Primer5e第13章：拷贝控制/" class="archive-article-date">
+  	<time datetime="2017-12-15T02:09:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>拷贝控制决定着对象在拷贝、移动、赋值和销毁时的行为，包括：<code>拷贝构造函数(copy constructor)、拷贝赋值运算符(copy-assignment operator)、移动构造函数(move constructor)、移动赋值运算符(move-assignment operator)和析构函数(destructor)</code>。</p>
+<blockquote>
+<p>拷贝构造和移动构造函数定义当用同类型的另一个对象初始化本对象时做什么。<br>拷贝赋值运算符和移动赋值运算符定义了将一个对象赋予同类型对象时做什么。<br>析构函数定义了当此对象销毁时做什么。</p>
+</blockquote>
+<h1 id="拷贝、赋值和销毁"><a href="#拷贝、赋值和销毁" class="headerlink" title="拷贝、赋值和销毁"></a>拷贝、赋值和销毁</h1><h2 id="拷贝构造函数"><a href="#拷贝构造函数" class="headerlink" title="拷贝构造函数"></a>拷贝构造函数</h2><p>拷贝构造函数特征：首先满足构造函数特征，没有返回值；其次操作函数的第一个参数必须是自身类型的引用，其他参数有默认值。<br><strong>如果第一个参数不是引用类型，为了在调用拷贝构造函数时拷贝实参又需要调用拷贝构造函数，从而形成死循环。</strong></p>
+<h2 id="拷贝赋值运算符"><a href="#拷贝赋值运算符" class="headerlink" title="拷贝赋值运算符"></a>拷贝赋值运算符</h2><p>赋值运算符其实就是名为<code>operator=</code>的函数。赋值运算符通常应该返回一个指向其左侧对象的引用。</p>
+<h2 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h2><p>如同构造函数有一个初始化部分和一个函数体，析构函数也有一个函数体和一个析构部分。在构造函数中，成员的初始化是在函数体执行之前完成的，而且按照它们在类中出现的顺序初始化。在析构函数中，首先执行函数体，然后按初始化的相反顺序销毁其成员。成员是在析构函数体之后隐含的析构阶段中被销毁的。<br>对于一个类，只有唯一的一个析构函数。<br>
+        
+          <a class="article-more-a" href="/2017/12/15/C-Primer5e第13章：拷贝控制/#more">more >></a>
+        
+      
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/15/C-Primer5e第13章：拷贝控制/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-C-Primer5e第12章：动态内存" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -797,168 +957,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/12/07/C-Primer5e第05章：语句-md/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-C-Primer5e第04章：表达式" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/06/C-Primer5e第04章：表达式/">C++Primer5e第04章：表达式</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/06/C-Primer5e第04章：表达式/" class="archive-article-date">
-  	<time datetime="2017-12-06T07:21:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="左值和右值"><a href="#左值和右值" class="headerlink" title="左值和右值"></a>左值和右值</h2><p>左值可以位于赋值语句的左侧，右值则不能。<br>当一个对象被用作右值时，用的是对象的值(内容)；当对象用作左值时，用的是对象的身份(在内存中的位置)。<br>使用关键字decltype，左值和右值也有所不同，如果表达式的求值结果是左值，decltype会得到一个引用类型。假设p类型int<em>，因为解引用生成左值，所以decltype(</em>p)的结果是int&amp;。</p>
-<h2 id="求值顺序"><a href="#求值顺序" class="headerlink" title="求值顺序"></a>求值顺序</h2><p>优先级规定运算对象的组合方式，但没有说明运算符对象的求值顺序。在大多数情况下，不会明确指定求值顺序。例如，下面的表达式中，我们可以确定f1和f2一定会在乘法前调用，因为调用符优先级高于乘法，但我们无法知道f1和f2谁先调用。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = f1() * f2();</span><br></pre></td></tr></table></figure></p>
-<p>对于没有明确指定执行顺序的运算符来说，如果表达式指向并修改了同一个对象，将导致未定义行为。例如：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="string">" "</span> &lt;&lt; ++i &lt;&lt; <span class="built_in">endl</span>; <span class="comment">//未定义的</span></span><br><span class="line"><span class="comment">//将单词改成大写形式</span></span><br><span class="line"><span class="keyword">while</span>(beg != s.end() &amp;&amp; !<span class="built_in">isspace</span>(*beg))</span><br><span class="line">&#123;</span><br><span class="line">    *beg = <span class="built_in">toupper</span>(*beg++); <span class="comment">//该赋值语句未定义</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>编译器可能先求++i的值，再求i的值，因此输出结果是1 1；也可能先求i的值再求++i的值，输出结果是0 1，甚至编译器还可能做完全不同的操作。在单词程序中，编译器可能按照下面的任意一种方式处理表达式，也可能采用别的方式处理它。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">*beg = <span class="built_in">toupper</span>(*beg);       <span class="comment">//如果先求左侧的值</span></span><br><span class="line">*(beg + <span class="number">1</span>) = <span class="built_in">toupper</span>(*beg); <span class="comment">//如果先求右侧的值</span></span><br></pre></td></tr></table></figure></p>
-<p>明确规定了求值顺序的运算符：<strong>逻辑与(&amp;&amp;) 逻辑或(||) 条件运算(?:) 逗号(,)运算 </strong></p>
-<blockquote>
-<p>处理复合表达式原则<br>1）使用括号强制让表达式的组合关系符合逻辑要求<br>2）如果改变了某个运算对象的值，在表达式的其他地方不要再使用这个运算对象<br>规则2的例外，当改变对象的子表达式本身就是另外一个子表达式的运算对象时，该规则无效。比如常用的用法*++iter，因为递增运算必须先求值，然后才轮到解引用。</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2017/12/06/C-Primer5e第04章：表达式/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/06/C-Primer5e第04章：表达式/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-C-Primer5e第03章：字符串、向量和数组" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/06/C-Primer5e第03章：字符串、向量和数组/">C++Primer5e第03章：字符串、向量和数组</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/06/C-Primer5e第03章：字符串、向量和数组/" class="archive-article-date">
-  	<time datetime="2017-12-06T01:25:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="命名空间的using声明"><a href="#命名空间的using声明" class="headerlink" title="命名空间的using声明"></a>命名空间的using声明</h1><p><strong>头文件不应包含using声明</strong><br>因为头文件的内容会拷贝到所有引用它的文件中去，如果头文件里有某个using声明，那么每个使用了该头文件的文件都会有这个声明。对于某些程序来说，由于不经意间包含了一些名字，可能产生意想不到的冲突。</p>
-<h1 id="标准库类型string"><a href="#标准库类型string" class="headerlink" title="标准库类型string"></a>标准库类型string</h1><p>如果使用等号(=)初始化一个变量，实际上执行的是<code>拷贝初始化(copy initialization)</code>，因为编译器创建临时对象，然后会把等号右侧的初始值拷贝到新创建的对象中去。如果不使用等号，则执行的是<code>直接初始化(direct initialization)</code>。</p>
-<h2 id="string-size-type类型"><a href="#string-size-type类型" class="headerlink" title="string::size_type类型"></a>string::size_type类型</h2><p>string的size函数返回的是一个string::size_type类型，它是一个无符号类型。切记：如果表达式中已经有size()函数就不要再使用int了，从而可以避免混用int和unsigned可能带来的问题。例如：假设n是一个负值的int，则表达式<code>s.size() &lt; n</code>的判断结果几乎肯定是true，因为负值n会转换成一个很大的无符号值。<br>在C++11新标准中，可以通过auto或decltype来判断变量类型：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> len = s.size(); <span class="comment">//len的类型是string::size_type</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="处理string对象中的字符"><a href="#处理string对象中的字符" class="headerlink" title="处理string对象中的字符"></a>处理string对象中的字符</h2><p>使用C++版本的C标准库头文件，C++标准兼容C语言标准库。C语言的头文件刑如name.h，C++则将文件命名为cname。在名为cname的头文件中定义的名字从属于std命名空间，而定义在名为.h的头文件中则不然。一般来说，C++程序应该使用名为cname的头文件，标准库的名字总能在std中找到。<br>
-        
-          <a class="article-more-a" href="/2017/12/06/C-Primer5e第03章：字符串、向量和数组/#more">more >></a>
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/06/C-Primer5e第03章：字符串、向量和数组/">展开全文 >></a>
         </p>
       
 

@@ -8,20 +8,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://octocat9lee.github.io">
-  <title>Office 常用操作 | 章鱼猫の博客</title>
+  <title>Centos 使用 rsync 同步文件 | 章鱼猫の博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本篇文章主要记录工作生活中 Office 三大办公软件的常用操作，根据个人使用记录不断更新完善。">
+  <meta name="description" content="使用 rsync 在两台 Centos 服务器间同步多个文件夹，并配置定时任务，实现自动同步。">
 <meta name="keywords" content="技术点滴">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Office 常用操作">
-<meta property="og:url" content="https://octocat9lee.github.io/2020/04/15/Office-常用操作/index.html">
+<meta property="og:title" content="Centos 使用 rsync 同步文件">
+<meta property="og:url" content="https://octocat9lee.github.io/2020/07/07/Centos-使用-rsync-同步文件/index.html">
 <meta property="og:site_name" content="章鱼猫の博客">
-<meta property="og:description" content="本篇文章主要记录工作生活中 Office 三大办公软件的常用操作，根据个人使用记录不断更新完善。">
+<meta property="og:description" content="使用 rsync 在两台 Centos 服务器间同步多个文件夹，并配置定时任务，实现自动同步。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-04-15T08:24:16.134Z">
+<meta property="og:updated_time" content="2020-07-07T05:50:27.348Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Office 常用操作">
-<meta name="twitter:description" content="本篇文章主要记录工作生活中 Office 三大办公软件的常用操作，根据个人使用记录不断更新完善。">
+<meta name="twitter:title" content="Centos 使用 rsync 同步文件">
+<meta name="twitter:description" content="使用 rsync 在两台 Centos 服务器间同步多个文件夹，并配置定时任务，实现自动同步。">
   
     <link rel="alternative" href="/atom.xml" title="章鱼猫の博客" type="application/atom+xml">
   
@@ -171,72 +171,38 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Office-常用操作" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-Centos-使用-rsync-同步文件" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Office 常用操作
+      Centos 使用 rsync 同步文件
     </h1>
   
 
         
-        <a href="/2020/04/15/Office-常用操作/" class="archive-article-date">
-  	<time datetime="2020-04-15T08:01:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-15</time>
+        <a href="/2020/07/07/Centos-使用-rsync-同步文件/" class="archive-article-date">
+  	<time datetime="2020-07-07T02:50:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-07</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本篇文章主要记录工作生活中 Office 三大办公软件的常用操作，根据个人使用记录不断更新完善。<br><a id="more"></a></p>
-<h1 id="Excel"><a href="#Excel" class="headerlink" title="Excel"></a>Excel</h1><h2 id="数据查找"><a href="#数据查找" class="headerlink" title="数据查找"></a>数据查找</h2><p>案例：判断一个表中某列的数据在另一个表数据中是否存在？例如，表 A 的数据如下：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">是否存在</th>
-<th>设备编码</th>
-<th>设备名称</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"></td>
-<td>510101</td>
-<td>计算机</td>
-</tr>
-<tr>
-<td style="text-align:left"></td>
-<td>510102</td>
-<td>显示器</td>
-</tr>
-<tr>
-<td style="text-align:left"></td>
-<td>510103</td>
-<td>打印机</td>
-</tr>
-</tbody>
-</table>
-<p>表 code 数据如下：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">设备编码</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">510101</td>
-</tr>
-<tr>
-<td style="text-align:left">510102</td>
-</tr>
-</tbody>
-</table>
-<p>目标：判断表 A 中设备编码列中的编码在表 code 中是否存在，若存在，则在表 A 的<code>是否存在</code>列输出<code>YES</code>，否则输出<code>NO</code>。在表 A 的是否存在列键入公式，公式具体内容如下：<br><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">=<span class="built_in">IF</span>(<span class="built_in">ISERROR</span>(<span class="built_in">VLOOKUP</span>(<span class="symbol">B2</span>,<span class="built_in">code</span>!<span class="symbol">A:A</span>,<span class="number">1</span>,<span class="built_in">FALSE</span>)),<span class="string">"YES"</span>,<span class="string">"NO"</span>)</span><br><span class="line">说明：</span><br><span class="line"><span class="symbol">B2</span> 表示目标单元格</span><br><span class="line"><span class="built_in">code</span>!<span class="symbol">A:A</span> 表示匹配列</span><br><span class="line"><span class="number">1</span> 表示匹配区域的第一列，在上述案例中表示表 <span class="built_in">code</span> 的设备编码列</span><br></pre></td></tr></table></figure></p>
-<h1 id="Word"><a href="#Word" class="headerlink" title="Word"></a>Word</h1><h1 id="Power-Point"><a href="#Power-Point" class="headerlink" title="Power Point"></a>Power Point</h1>
+        <p>使用 rsync 在两台 Centos 服务器间同步多个文件夹，并配置定时任务，实现自动同步。<br><a id="more"></a></p>
+<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><p>主服务器：<code>10.0.204.75</code><br>备份服务器：<code>10.0.204.64</code><br>主服务器和备份服务器安装 <code>rsync</code> 软件：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install rsync</span><br></pre></td></tr></table></figure></p>
+<h1 id="服务端配置"><a href="#服务端配置" class="headerlink" title="服务端配置"></a>服务端配置</h1><p>在主服务器 <code>10.0.204.75</code> 上进行服务器端的配置，<code>rsync</code> 服务端安装完成之后是没有生成 <code>rsync.conf</code> 文件的，需要手动在 <code>/etc</code> 目录下创建 <code>rsyncd.conf</code> 配置文件。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/rsyncd.conf</span><br></pre></td></tr></table></figure></p>
+<p>服务端 <code>rsyncd.conf</code> 配置文件示例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># global setting</span></span><br><span class="line">uid = root</span><br><span class="line">gid = root</span><br><span class="line">list = <span class="literal">false</span></span><br><span class="line">use chroot = no</span><br><span class="line"><span class="built_in">read</span> only = yes</span><br><span class="line">hosts allow = 10.0.204.64 10.0.204.75</span><br><span class="line">max connections = 4</span><br><span class="line"><span class="built_in">log</span> file = /var/<span class="built_in">log</span>/rsyncd.log</span><br><span class="line">pid file = /var/run/rsyncd.pid</span><br><span class="line">lock file = /var/run/rsync.lock</span><br><span class="line">secrets file = /etc/rsyncd.secrets</span><br><span class="line">　　</span><br><span class="line"><span class="comment"># rsync path</span></span><br><span class="line">[rms]</span><br><span class="line">path = /opt/upload</span><br><span class="line">ignore errors</span><br><span class="line">auth users = root</span><br><span class="line">comment = rms</span><br><span class="line"></span><br><span class="line">[nginx]</span><br><span class="line">path = /home/nginx/upload</span><br><span class="line">ignore errors</span><br><span class="line">auth users = root</span><br><span class="line">comment = nginx</span><br></pre></td></tr></table></figure>
+<p>配置同步的用户名和密码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># touch /etc/rsyncd.secrets</span></span><br><span class="line"><span class="comment"># echo "root:123456" &gt; /etc/rsyncd.secrets</span></span><br><span class="line"><span class="comment"># chown root:root /etc/rsyncd.secrets</span></span><br><span class="line"><span class="comment"># chmod 600 /etc/rsyncd.secrets</span></span><br></pre></td></tr></table></figure>
+<p>启动 <code>rsync</code>，并设置为开机启动：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /usr/bin/rsync --daemon</span></span><br><span class="line"><span class="comment"># vi /etc/rc.d/rc.local</span></span><br><span class="line"></span><br><span class="line">rm -f /var/run/rsyncd.pid</span><br><span class="line">/usr/bin/rsync --daemon</span><br></pre></td></tr></table></figure></p>
+<h1 id="客户端配置"><a href="#客户端配置" class="headerlink" title="客户端配置"></a>客户端配置</h1><p>在备份服务器 <code>10.0.204.64</code> 上生成与服务端对应密码配置文件，注意这里只需要服务器 <code>rsyncd.secrets</code> 中的密码。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># touch /etc/rsyncd.secrets</span></span><br><span class="line"><span class="comment"># echo "123456" &gt; /etc/rsyncd.secrets</span></span><br><span class="line"><span class="comment"># chown root:root /etc/rsyncd.secrets</span></span><br><span class="line"><span class="comment"># chmod 600 /etc/rsyncd.secrets</span></span><br></pre></td></tr></table></figure></p>
+<p>在备份服务器端执行同步命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">rsync -au --password-file=/etc/rsyncd.secrets root@10.0.204.75::rms /home/backup/static</span><br><span class="line">rsync -au --password-file=/etc/rsyncd.secrets root@10.0.204.75::nginx /home/backup/static</span><br></pre></td></tr></table></figure></p>
+<p>建立定时任务：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># crontab -e</span></span><br><span class="line">00 02 * * * /home/backup/rsync_backup.sh</span><br></pre></td></tr></table></figure></p>
+
       
 
       
@@ -305,7 +271,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://octocat9lee.github.io/2020/04/15/Office-常用操作/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://octocat9lee.github.io/2020/07/07/Centos-使用-rsync-同步文件/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -319,18 +285,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2020/05/05/孩子把你的手给我之笔记/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          孩子把你的手给我之笔记
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/03/11/Nginx搭建文件服务器/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Nginx搭建文件服务器</div>
+    <a href="/2020/05/05/孩子把你的手给我之笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">孩子把你的手给我之笔记</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -357,7 +314,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Excel"><span class="toc-number">1.</span> <span class="toc-text">Excel</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据查找"><span class="toc-number">1.1.</span> <span class="toc-text">数据查找</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Word"><span class="toc-number">2.</span> <span class="toc-text">Word</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Power-Point"><span class="toc-number">3.</span> <span class="toc-text">Power Point</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#环境"><span class="toc-number">1.</span> <span class="toc-text">环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#服务端配置"><span class="toc-number">2.</span> <span class="toc-text">服务端配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#客户端配置"><span class="toc-number">3.</span> <span class="toc-text">客户端配置</span></a></li></ol>
                     </div>
                 </span>
             </div>
