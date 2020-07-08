@@ -372,6 +372,30 @@ location /download {
 curl -u admin:123456 http://10.0.204.75:9003/download/video_1593656556958.mp4 -o a.mp4
 ```
 
+报文请求分析：
+
+``` bash
+GET /download/user_alarm_resource/xxx.tmp HTTP/1.1
+Authorization: Basic YWRtaW46MTIzNDU2
+User-Agent: curl/7.29.0
+Host: 10.0.204.75:9003
+Accept: */*
+
+HTTP/1.1 200 OK
+Server: nginx/1.16.1
+Date: Wed, 08 Jul 2020 07:41:47 GMT
+Content-Type: application/octet-stream
+Content-Length: 4
+Last-Modified: Wed, 08 Jul 2020 07:41:04 GMT
+Connection: keep-alive
+ETag: "5f057890-4"
+Accept-Ranges: bytes
+
+123
+```
+
+在请求`Authorization`字段使用`base64`加密方式对`用户名:密码`进行加密后的内容。
+
 # 参考资料
 
 [Nginx upload module (v 2.2.0)](http://www.grid.net.ru/nginx/upload.en.html)
