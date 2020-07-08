@@ -132,6 +132,7 @@
     <None Include="..\..\..\source\_posts\C-Primer5e第18章：用于大型程序的工具.md" />
     <None Include="..\..\..\source\_posts\C-Primer5e第19章：特殊工具与技术（一）.md" />
     <None Include="..\..\..\source\_posts\C-Primer5e第19章：特殊工具与技术（二）.md" />
+    <None Include="..\..\..\source\_posts\Centos-使用-rsync-同步文件.md" />
     <None Include="..\..\..\source\_posts\Centos开发基础环境搭建.md" />
     <None Include="..\..\..\source\_posts\cmake实践.md" />
     <None Include="..\..\..\source\_posts\coredump.md" />

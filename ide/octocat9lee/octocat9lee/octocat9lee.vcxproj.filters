@@ -252,5 +252,8 @@
     <None Include="..\..\..\source\_posts\孩子把你的手给我之笔记.md">
       <Filter>资源文件</Filter>
     </None>
+    <None Include="..\..\..\source\_posts\Centos-使用-rsync-同步文件.md">
+      <Filter>资源文件</Filter>
+    </None>
   </ItemGroup>
 </Project>

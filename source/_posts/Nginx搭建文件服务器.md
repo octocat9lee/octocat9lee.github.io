@@ -339,9 +339,42 @@ m_https.route("/nginx_upload_rename", [this](cinatra::request const &req, cinatr
 });
 ```
 
+# 配置下载认证
+在部分情况下，我们下载时需要对用户身份进行登录认证。我们可以使用 `auth_basic_user_file` 指定用户名密码文件，该文件我们可以使用如下方法生成：
+``` bash
+echo -n 'admin:' >> .httppasswd
+openssl passwd >> .httppasswd
+# type your password twice
+```
+
+查看生成的密码文件：
+``` bash
+# cat .httppasswd
+admin:MkKvxko6goeT6
+```
+
+然后，在需要登录身份认证下载的路由处进行配置：
+``` bash
+location /download {
+    alias  /opt/nginx/upload;
+    auth_basic "download";
+    auth_basic_user_file /opt/nginx/conf/.httppasswd;
+    autoindex on;
+    autoindex_localtime on;
+    autoindex_exact_size off;
+}
+```
+
+最后，对配置文件正确性进行校验，并重启 `Nginx` 服务。
+
+在 `linux` 下使用 `curl` 工具进行测试：
+``` bash
+curl -u admin:123456 http://10.0.204.75:9003/download/video_1593656556958.mp4 -o a.mp4
+```
 
 # 参考资料
 
 [Nginx upload module (v 2.2.0)](http://www.grid.net.ru/nginx/upload.en.html)
 [centos7 使用nginx上传文件](https://www.jianshu.com/p/ef9f75094a65)
 [nginx-upload-module上传文件重命名](https://www.jianshu.com/p/7d2b0567521f)
+[基于nginx的文件上传下载服务器](https://zhuleichina.github.io/2019/12/12/%E5%9F%BA%E4%BA%8Enginx%E7%9A%84%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD%E6%9C%8D%E5%8A%A1%E5%99%A8.html)
