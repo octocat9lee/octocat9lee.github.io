@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://octocat9lee.github.io/2020/03/11/Nginx%E6%90%AD%E5%BB%BA%E6%96%87%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
+    
+    <lastmod>2020-07-08T06:46:20.536Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://octocat9lee.github.io/2020/07/07/Centos-%E4%BD%BF%E7%94%A8-rsync-%E5%90%8C%E6%AD%A5%E6%96%87%E4%BB%B6/</loc>
     
     <lastmod>2020-07-07T05:50:27.348Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>https://octocat9lee.github.io/2020/04/15/Office-%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</loc>
     
     <lastmod>2020-04-15T08:24:16.134Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://octocat9lee.github.io/2020/03/11/Nginx%E6%90%AD%E5%BB%BA%E6%96%87%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
-    
-    <lastmod>2020-03-20T08:37:53.714Z</lastmod>
     
   </url>
   
