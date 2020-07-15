@@ -363,6 +363,7 @@ location /download {
     autoindex_localtime on;
     autoindex_exact_size off;
 }
+
 ```
 
 最后，对配置文件正确性进行校验，并重启 `Nginx` 服务。
