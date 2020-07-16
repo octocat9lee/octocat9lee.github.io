@@ -8,6 +8,7 @@ date: 2017-11-24 15:07:19
 # 全局配置与帮助
 >`git config --global user.name "your name"`
 `git config --global user.email "email@gmai.com"` `--global`表示机器上所有Git仓库都使用该配置
+`git config --global credential.helper store` 本地保存账号密码
 
 # 版本库管理
 ## 创建版本库
