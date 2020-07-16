@@ -135,6 +135,13 @@ git stash pop
 ```
 更多的关于 rebase 模式 pull 细节参见：[git pull --rebase的正确使用](https://juejin.im/post/5d3685146fb9a07ed064f11b)
 
+## 更新所有分支
+``` bash
+git pull --all
+for branch in `git branch -a | grep remotes | grep -v HEAD`; do git checkout -f -t -B ${branch##remotes/origin/} $branch; done;
+git checkout master
+```
+
 # 标签管理
 发布一个版本时，我们通常先在版本库中打一个标签（tag），这样，就唯一确定了打标签时刻的版本。将来无论什么时候，取某个标签的版本，就是把那个打标签的时刻的历史版本取出来。所以，标签也是版本库的一个快照。
 ## 创建标签
