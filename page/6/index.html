@@ -171,6 +171,165 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-C-Primer5e第16章：模板与泛型编程" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/28/C-Primer5e第16章：模板与泛型编程/">C++Primer5e第16章：模板与泛型编程</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/28/C-Primer5e第16章：模板与泛型编程/" class="archive-article-date">
+  	<time datetime="2017-12-28T09:08:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>模板是C++中泛型编程的基础。一个模板就是一个创建类或函数的蓝图或者说公式。</p>
+<h1 id="定义模板"><a href="#定义模板" class="headerlink" title="定义模板"></a>定义模板</h1><h2 id="函数模板"><a href="#函数模板" class="headerlink" title="函数模板"></a>函数模板</h2><p>除了定义类型参数，还可以在模板中定义<code>非类型参数(nontype parameter)</code>。一个非类型参数表示一个值而非一个类型。我们通过特定的类型名而非关键字class或typename来指定非类型参数。<br>当一个模板被实例化时，非类型参数被一个用户提供的或编译器推断出的值所代替。这些值必须是常量表达式，从而允许编译器在编译时实例化模板。非类型参数可以是一个整型，或者是一个指向对象或函数类型的指针或引用。<br>比较不同长度的字符串字面常量，因此为模板定义了两个非类型的参数，分别表示数组的长度：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">unsigned</span> N, <span class="keyword">unsigned</span> M&gt;</span><br><span class="line">int compare(const char (&amp;p1)[N], const char (&amp;p2)[M])</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">strcmp</span>(p1, p2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">compare(<span class="string">"hi"</span>, <span class="string">"mom"</span>);</span><br><span class="line"><span class="comment">//编译器会实例化出如下版本</span></span><br><span class="line">int compare(const char (&amp;p1)[3], const char (&amp;p2)[4])</span><br></pre></td></tr></table></figure></p>
+<p><strong>模板程序应该尽量减少对实参类型的要求</strong><br>当编译器遇到一个模板定义时，它并不生成代码。只有当我们实例化出模板的一个特定版本时，编译器才会生成代码。因此大多数编译错误在实例化期间报告。<br><strong>模板的头文件通常既包括声明也包括定义</strong><br>
+        
+          <a class="article-more-a" href="/2017/12/28/C-Primer5e第16章：模板与泛型编程/#more">more >></a>
+        
+      
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/28/C-Primer5e第16章：模板与泛型编程/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-C-Primer5e第15章：面向对象程序设计" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/27/C-Primer5e第15章：面向对象程序设计/">C++Primer5e第15章：面向对象程序设计</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/27/C-Primer5e第15章：面向对象程序设计/" class="archive-article-date">
+  	<time datetime="2017-12-27T05:19:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>面向对象程序设计基于三个基本概念：<code>数据抽象、继承和动态绑定</code>。通过数据抽象，可以将类的接口与实现分离；使用继承，可以定义相似的类型并对其相似关系建模；使用动态绑定，可以在一定程度上忽略相似类型的区别，从而以统一的方式使用它们的对象。</p>
+<h1 id="定义基类和派生类"><a href="#定义基类和派生类" class="headerlink" title="定义基类和派生类"></a>定义基类和派生类</h1><h2 id="定义基类"><a href="#定义基类" class="headerlink" title="定义基类"></a>定义基类</h2><p>在C++语言中，当我们使用基类的引用或者指针调用一个虚函数时将发生动态绑定，即在运行时选择函数的版本。<br><code>基类通常都应该定义一个虚析构函数，即使该函数不执行任何实际操作也是如此</code>。因为在C++中，当派生类对象经由一个基类对象指针被删除，而该基类带有一个非虚析构函数，那么基类成分将被销毁，而派生类对象的析构函数未被执行，从而造成“局部销毁”对象。<br><strong>是否应该声明virtual析构函数的原则：</strong></p>
+<blockquote>
+<p>如果类带有任何virtual函数，它就应该拥有一个virtual析构函数<br>如果类设计的目的不是作为基类使用，或者不是为了具备多态性，就不该声明virtual析构函数</p>
+</blockquote>
+<p>基类通过在其成员函数的声明语句之前加上关键字virtual使得该函数执行动态绑定。关键字virtual仅出现在声明处而不能用于类外部的函数定义。在基类中为virtual函数，则该函数在派生类中隐式地也是虚函数。<br>
+        
+          <a class="article-more-a" href="/2017/12/27/C-Primer5e第15章：面向对象程序设计/#more">more >></a>
+        
+      
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/27/C-Primer5e第15章：面向对象程序设计/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-C-Primer5e第14章：重载运算与类型转换" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -820,175 +979,9 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-C-Primer5e第06章：函数" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/07/C-Primer5e第06章：函数/">C++Primer5e第06章：函数</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/07/C-Primer5e第06章：函数/" class="archive-article-date">
-  	<time datetime="2017-12-07T05:13:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="函数基础"><a href="#函数基础" class="headerlink" title="函数基础"></a>函数基础</h1><h2 id="局部对象"><a href="#局部对象" class="headerlink" title="局部对象"></a>局部对象</h2><h3 id="自动对象"><a href="#自动对象" class="headerlink" title="自动对象"></a>自动对象</h3><p>只存在于块执行期间的对象称为自动对象，当块执行结束后，块中创建的自动对象的值就变成未定义的了。<br>形参是一种自动对象，函数开始时为形参申请存储空间，位于CPU寄存器或者栈上；函数执行结束后，形参销毁。</p>
-<h3 id="局部静态对象"><a href="#局部静态对象" class="headerlink" title="局部静态对象"></a>局部静态对象</h3><p>如果需要函数的局部变量在函数调用以及之后时间有效，可以将局部变量定义成static类型。<code>局部静态对象(local static object)</code>在程序第一次经过对象时初始化，并且直到程序终止才被销毁。初始化的局部静态对象存储在.data段，如果局部静态变量没有显式的初始值，它将执行值初始化，内置类型的局部静态变量初始化为0。</p>
-<h1 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h1><p>每次调用函数时都会重新创建它的形参，并用传入的实参对形参进行初始化。<br>形参初始化的机制和变量初始化一样。</p>
-<ul>
-<li>当形参为引用类型时，它将绑定到对应的实参上，<code>也就是说引用形参是对应实参的别名</code></li>
-<li>传值调用时，形参和实参是两个相互独立的对象，实参的值被拷贝给形参，因此函数对形参做的修改不会影响实参</li>
-</ul>
-<p>当拷贝大的类类型或者容器对象时效率低或者有些类型不支持拷贝，可以使用引用避免拷贝。<strong>如果函数不改变引用形参的值，最好将其声明为常量引用</strong><br>一个函数只能返回一个值，但有时我们需要同时返回多个值，可以使用返回结构体形式或者使用引用形参。</p>
-<h2 id="数组形参"><a href="#数组形参" class="headerlink" title="数组形参"></a>数组形参</h2><p>因为数组会被转换成指针，所以当我们为函数传递一个数组时，实际上传递的是指向数组首元素的指针。所以，调用者需要提供额外的信息：</p>
-<ul>
-<li>使用标记指定数组的长度，例如C风格字符串结尾的空字符，空字符指ASCII值为0的控制字符，在程序代码中通常以转义序列’\0’表示</li>
-<li>使用标准库规范，同时传递首元素和尾后元素指针 <code>void print(const int *beg, const int *end)</code></li>
-<li>显式传递一个表示数组大小的形参</li>
-</ul>
-        
-          <a class="article-more-a" href="/2017/12/07/C-Primer5e第06章：函数/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/07/C-Primer5e第06章：函数/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-C-Primer5e第05章：语句-md" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/07/C-Primer5e第05章：语句-md/">C++Primer5e第05章：语句</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/07/C-Primer5e第05章：语句-md/" class="archive-article-date">
-  	<time datetime="2017-12-07T03:21:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="迭代语句"><a href="#迭代语句" class="headerlink" title="迭代语句"></a>迭代语句</h1><h2 id="范围for语句"><a href="#范围for语句" class="headerlink" title="范围for语句"></a>范围for语句</h2><p>范围for语句语法形式：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(declaration : expression)</span><br><span class="line">    statement</span><br></pre></td></tr></table></figure></p>
-<p>expression表示一个序列，共同特点是要有能返回迭代器的begin和end成员。比如说花括号括起来的初始值列表、数组、vector和string等类型。<br>declaration定义一个变量，要求序列中每个元素能够转换成该变量类型。最简单的办法是使用auto类型说明符。如果需要对序列中的元素执行写操作，循环变量必须声明为引用类型。<br>
-        
-          <a class="article-more-a" href="/2017/12/07/C-Primer5e第05章：语句-md/#more">more >></a>
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/07/C-Primer5e第05章：语句-md/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
     </nav>
   
 
@@ -1125,6 +1118,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">性能分析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Qt</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -171,6 +171,163 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-openSIPS使用自己账号系统鉴权" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/18/openSIPS使用自己账号系统鉴权/">openSIPS使用自己账号系统鉴权</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/18/openSIPS使用自己账号系统鉴权/" class="archive-article-date">
+  	<time datetime="2019-03-18T02:58:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>通常情况下，我们都不会用<code>opensips</code>数据库的<code>subscriber</code>表中的账号和密码进行鉴权，而是使用项目业务系统的账号系统进行鉴权。因此需要对鉴权模块进行相关配置。</p>
+<h1 id="鉴权模块配置"><a href="#鉴权模块配置" class="headerlink" title="鉴权模块配置"></a>鉴权模块配置</h1><h2 id="配置URI模块"><a href="#配置URI模块" class="headerlink" title="配置URI模块"></a>配置URI模块</h2><p>使用如下配置更改URI模块对应字段值，<a href="http://www.opensips.org/html/docs/modules/2.3.x/uri.html" target="_blank" rel="noopener">URI模块各个字段含义文档</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#### URI module</span></span><br><span class="line">loadmodule <span class="string">"uri.so"</span></span><br><span class="line">modparam(<span class="string">"uri"</span>, <span class="string">"use_uri_table"</span>, 0)</span><br><span class="line">modparam(<span class="string">"uri"</span>, <span class="string">"db_table"</span>, <span class="string">"m_user"</span>) <span class="comment"># my_user_db数据库中的m_user表</span></span><br><span class="line">modparam(<span class="string">"uri"</span>, <span class="string">"user_column"</span>, <span class="string">"Name"</span>) <span class="comment"># m_user表中的账号字段名 </span></span><br><span class="line">modparam(<span class="string">"uri"</span>, <span class="string">"domain_column"</span>, <span class="string">"Domain"</span>) <span class="comment"># m_user表中的Domain字段名</span></span><br></pre></td></tr></table></figure></p>
+        
+          <a class="article-more-a" href="/2019/03/18/openSIPS使用自己账号系统鉴权/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">openSIPS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/18/openSIPS使用自己账号系统鉴权/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-openSIPS使用简介" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/15/openSIPS使用简介/">openSIPS使用简介</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/15/openSIPS使用简介/" class="archive-article-date">
+  	<time datetime="2019-03-15T03:26:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>按照<a href="https://octocat9lee.github.io/2019/03/14/Centos%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/#openSIPS">Centos基础开发环境中的openSIPS小节</a>的步骤完成openSIPS的编译和生成基础配置文件，下面开始对openSIPS数据库和配置文件进行详细介绍。</p>
+<h1 id="openSIPS数据库"><a href="#openSIPS数据库" class="headerlink" title="openSIPS数据库"></a>openSIPS数据库</h1><h2 id="配置数据库凭证"><a href="#配置数据库凭证" class="headerlink" title="配置数据库凭证"></a>配置数据库凭证</h2><p>openSIPS 数据库配置文件位于<code>/opt/opensips/etc/opensips</code>路径下的<code>opensipsctlrc</code>。关于配置文件的详细说明参见官方文档<a href="http://www.opensips.org/Documentation/Install-DBDeployment-2-3" target="_blank" rel="noopener">Database Deployment v2.3</a>。</p>
+<p>进入<code>opensipsctlrc</code>文件目录，打开配置文件，去掉关于DB相关注释，基本内容如下所示：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># this parameter.</span></span><br><span class="line">DBENGINE=MYSQL</span><br><span class="line"></span><br><span class="line"><span class="comment">## database port (PostgreSQL=5432 default; MYSQL=3306 default)</span></span><br><span class="line">DBPORT=3306</span><br><span class="line"></span><br><span class="line"><span class="comment">## database host</span></span><br><span class="line">DBHOST=localhost</span><br><span class="line"></span><br><span class="line"><span class="comment">## database name (for ORACLE this is TNS name)</span></span><br><span class="line">DBNAME=opensips</span><br><span class="line"></span><br><span class="line"><span class="comment"># database path used by dbtext, db_berkeley, or sqlite</span></span><br><span class="line">DB_PATH=<span class="string">"/usr/local/etc/opensips/dbtext"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## database read/write user</span></span><br><span class="line">DBRWUSER=opensips</span><br><span class="line"></span><br><span class="line"><span class="comment">## password for database read/write user</span></span><br><span class="line">DBRWPW=<span class="string">"opensipsrw"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## engine type for the MySQL/MariaDB tabels (default InnoDB)</span></span><br><span class="line">MYSQL_ENGINE=<span class="string">"MyISAM"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## database super user (for ORACLE this is 'scheme-creator' user)</span></span><br><span class="line">DBROOTUSER=<span class="string">"root"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># user name column</span></span><br><span class="line"><span class="comment">#USERCOL="username"</span></span><br><span class="line">.......</span><br><span class="line"><span class="comment"># 其他不变</span></span><br></pre></td></tr></table></figure>
+<p>配置完成后的<a href="https://gitee.com/zhoulee/tools/blob/master/opensips/opensipsctlrc" target="_blank" rel="noopener">配置文件</a>。<br>
+        
+          <a class="article-more-a" href="/2019/03/15/openSIPS使用简介/#more">more >></a>
+        
+      
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">openSIPS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/15/openSIPS使用简介/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Centos开发基础环境搭建" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -799,177 +956,9 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-经济学讲义：08-信任的建立" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/07/经济学讲义：08-信任的建立/">经济学讲义：08-信任的建立</a>
-    </h1>
-  
-
-        
-        <a href="/2018/12/07/经济学讲义：08-信任的建立/" class="archive-article-date">
-  	<time datetime="2018-12-07T08:40:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="第8章-信息不对称-谁的话语权更大"><a href="#第8章-信息不对称-谁的话语权更大" class="headerlink" title="第8章 信息不对称 谁的话语权更大"></a>第8章 信息不对称 谁的话语权更大</h2><h2 id="第079讲-柠檬市场的故事"><a href="#第079讲-柠檬市场的故事" class="headerlink" title="第079讲 | 柠檬市场的故事"></a>第079讲 | 柠檬市场的故事</h2><p>现实生活中，信息不对称有很多不同的表现。欺骗，偷懒，逆向选择，道德风尚，敲竹杠</p>
-<p>市场崩溃的根本原因，在于买家不知道每一件商品具体的品质。</p>
-<p>阿克罗夫揭示了一个基本的道理：那就是人和人之间本来是没有互信的，高品质的产品要把自己彰显出来，与低品质的产品区分开来，需要很大的成本。如果这个问题不解决，就会出现劣币驱逐良币的现象。当消费者无法分辨哪一件是高品质产品、哪一件是低品质产品时，他们就会离场，卖家也同样会离场，市场就会崩溃。</p>
-<p>商品质量有高低之分不要紧，问题是怎么把商品的品质准确地体现出来，这是解决信息不对称问题的核心。</p>
-<h2 id="第080讲-何谓优质"><a href="#第080讲-何谓优质" class="headerlink" title="第080讲 | 何谓优质"></a>第080讲 | 何谓优质</h2><p>在经济学里，优质的第一层含义是指匀质。换言之，不是说厂商能把产品的品质做到多好，而是说产品的品质要维持一个稳定的水平。同一批产品当中，一件产品的品质，跟另外一件产品品质之间的差距不能大，而且差距越小越好。</p>
-<p>对消费者来说，并不是质量越高越好，也不是价格越低越好，而是价格和品质要相当，成本和收益要相当。这才是他们最看中的品质。<br>
-        
-          <a class="article-more-a" href="/2018/12/07/经济学讲义：08-信任的建立/#more">more >></a>
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">生活规划</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/07/经济学讲义：08-信任的建立/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-经济学讲义：07-供应-好钢用在刀刃上" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/07/经济学讲义：07-供应-好钢用在刀刃上/">经济学讲义：07-供应 好钢用在刀刃上</a>
-    </h1>
-  
-
-        
-        <a href="/2018/12/07/经济学讲义：07-供应-好钢用在刀刃上/" class="archive-article-date">
-  	<time datetime="2018-12-07T08:36:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="第7章-供应-好钢用在刀刃上"><a href="#第7章-供应-好钢用在刀刃上" class="headerlink" title="第7章  供应 好钢用在刀刃上"></a>第7章  供应 好钢用在刀刃上</h2><p>如果要在经济学中找一个最普遍适用，又最违反直觉的原理，那么首推的就是比较优势原理。</p>
-<p>比较优势原理，是经济学里坚如磐石的基本原理之一。</p>
-<h2 id="第071讲-比较优势原理"><a href="#第071讲-比较优势原理" class="headerlink" title="第071讲 | 比较优势原理"></a>第071讲 | 比较优势原理</h2><p>在一个社会里，每个个体如果把有限的资源，包括时间和精力，只用来生产对他们来说机会成本比较低的那些产品，然后跟别人进行交换，这样整个社会产品的总价值就能达到最大，而且每一个个体的境遇都能得到改善，而不论他们的绝对生产能力是高还是低。</p>
-<p>比较优势来自自己跟自己的比较。自己跟别人比，可能样样都比别人差，但是自己跟自己比，一定会有比较优势。</p>
-<ol>
-<li>分工与合作给人们带来更大财富</li>
-<li>分工可以减少工作之间往返的成本</li>
-<li>分工促进“熟能生巧”</li>
-<li>分工使机器替代成为可能</li>
-</ol>
-<p>李嘉图的比较优势原理的核心，讲的是自己跟自己比，总有效率比较高、成本比较低的生产项目，专注这种生产项目然后跟别人进行交换，整个社会的财富就能够增加，而个人的财富也能够增加。</p>
-<p>亚当·斯密的分工协作原理的核心是：哪怕是天生禀赋一样的人，只要专注某个细分领域的生产，就能够减少在工作当中切换往返的成本，能够熟能生巧，能够让机器的替代成为可能。<br>
-        
-          <a class="article-more-a" href="/2018/12/07/经济学讲义：07-供应-好钢用在刀刃上/#more">more >></a>
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">生活规划</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/07/经济学讲义：07-供应-好钢用在刀刃上/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
@@ -1106,6 +1095,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">性能分析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Qt</a>
               </li>
              
               <li class="article-tag-list-item">
