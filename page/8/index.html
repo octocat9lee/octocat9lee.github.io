@@ -171,6 +171,83 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CSAPP之链接" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/09/CSAPP之链接/">CSAPP之链接</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/09/CSAPP之链接/" class="archive-article-date">
+  	<time datetime="2017-11-09T13:25:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>链接就是将代码和数据组合成一个单一文件的过程，组成的文件可以被加载到内存并执行。链接可以执行于编译时，也可以执行于加载时，甚至执行于运行时。链接在软件开发中扮演着一个关键的角色，因为它使得分离编译成为可能，我们可以将一个大型的应用程序分解为更小更好管理的模块，并且独立的修改和编译这些模块，当我们修改这些模块中的一个时只需要重新编译它，并重新链接应用，而不必重新编译其他文件。</p>
+<h1 id="编译器驱动程序"><a href="#编译器驱动程序" class="headerlink" title="编译器驱动程序"></a>编译器驱动程序</h1><p>在将源代码编译成可执行程序时，会经历如下步骤：首先，运行预处理器将源程序翻译成一个ASCII码的中间文件；然后，运行C编译器将中间文件翻译成一个汇编文件；再运行汇编器将汇编文件翻译成可重定位目标文件；最后，运行链接程序将可重定位目标文件以及一些必要的系统目标文件组合起来，创建一个可执行目标文件。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cpp sum.c /tmp/sum.i或者gcc -E sum.c -o /tmp/sum.i  <span class="comment">#预处理</span></span><br><span class="line">/usr/lib/gcc/x86_64-linux-gnu/5/cc1 /tmp/sum.i -Og -o /tmp/sum.s或者gcc -Og -S sum.i -o /tmp/sum.s <span class="comment">#编译</span></span><br><span class="line">as -o /tmp/sum.o /tmp/sum.s或者gcc -c /tmp/sum.s -o /tmp/sum.o  <span class="comment">#汇编</span></span><br><span class="line">ld -o prog /tmp/main.o /tmp/sum.o <span class="comment">#链接</span></span><br></pre></td></tr></table></figure></p>
+        
+          <a class="article-more-a" href="/2017/11/09/CSAPP之链接/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">CSAPP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/09/CSAPP之链接/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-GDB调试器使用总结" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -881,83 +958,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-coredump" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/28/coredump/">coredump</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/28/coredump/" class="archive-article-date">
-  	<time datetime="2017-10-28T15:13:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="coredump介绍"><a href="#coredump介绍" class="headerlink" title="coredump介绍"></a>coredump介绍</h1><p>应用程序有时会因为异常或者bug导致在运行过程中异常退出或者终止，为了方便问题的定位，我们往往需要获取程序运行时的内存，寄存器状态，堆栈指针，内存管理以及函数调用堆栈信息等，从而找到bug所在。在linux系统中，我们通常可以通过对系统进行一些配置，将上述的信息输出到ELF文件中，即core文件。core文件默认存储位置与对应的可执行程序位于同一路径下，文件名为core；具体信息可以通过如下命令查看：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/sys/kernel/core_pattern</span><br></pre></td></tr></table></figure></p>
-<p>如果程序中调用了chdir函数，则core文件生成在chdir指定路径下。另外，我们也可以通过相关设置设定core文件生成路径。在类unix系统中，core文件本身的主要格式也是ELF格式，因此可以使用readelf或者file命令查看core文件的具体信息。<br>
-        
-          <a class="article-more-a" href="/2017/10/28/coredump/#more">more >></a>
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">调试技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/28/coredump/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
@@ -1084,15 +1084,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术点滴</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">CSAPP</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">技术点滴</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1120,11 +1120,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
             
             <div class="clearfix"></div>

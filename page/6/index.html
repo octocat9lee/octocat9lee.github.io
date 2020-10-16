@@ -171,6 +171,83 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-C-Primer5e第19章：特殊工具与技术（一）" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/05/C-Primer5e第19章：特殊工具与技术（一）/">C++Primer5e第19章：特殊工具与技术（一）</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/05/C-Primer5e第19章：特殊工具与技术（一）/" class="archive-article-date">
+  	<time datetime="2018-01-05T01:25:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h1><p>内存管理的层级以及对应的特性如下：</p>
+<p><center><br><img src="https://gitee.com/zhoulee/blog-images/raw/master/memory_level_manager.jpg" alt="C++内存管理层级"><br></center><br>我们在程序中经常使用的new和delete是C++标准中的表达式，有时也称为new运算符。但new与delete运算符和其他运算符最大的不同在于new和delete运算符不可以重载。<br>各层次内存分配与释放方式的使用示例：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> *p1 = <span class="built_in">malloc</span>(<span class="number">512</span>); <span class="comment">//512 bytes</span></span><br><span class="line"><span class="built_in">free</span>(p1);</span><br><span class="line"></span><br><span class="line"><span class="keyword">complex</span>&lt;<span class="keyword">int</span>&gt; *p2 = <span class="keyword">new</span> <span class="keyword">complex</span>&lt;<span class="keyword">int</span>&gt;; <span class="comment">//one object</span></span><br><span class="line"><span class="keyword">delete</span> p2;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> *p3 = ::<span class="keyword">operator</span> <span class="keyword">new</span>(<span class="number">512</span>); <span class="comment">//512 bytes</span></span><br><span class="line">::<span class="function"><span class="keyword">operator</span> <span class="title">delete</span><span class="params">(p3)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//以下函数都是non-static，要通过object调用。以下分配7个ints</span></span><br><span class="line"><span class="keyword">void</span> *p4 = allocator&lt;<span class="keyword">int</span>&gt;().allocate(<span class="number">7</span>);</span><br><span class="line">allocator&lt;<span class="keyword">int</span>&gt;().deallocate((<span class="keyword">int</span>*)p4,<span class="number">7</span>);</span><br></pre></td></tr></table></figure></p>
+        
+          <a class="article-more-a" href="/2018/01/05/C-Primer5e第19章：特殊工具与技术（一）/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/05/C-Primer5e第19章：特殊工具与技术（一）/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-C-Primer5e第17章：标准库特殊设施" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -897,87 +974,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-C-Primer5e第08章：IO库" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/11/C-Primer5e第08章：IO库/">C++Primer5e第08章：IO库</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/11/C-Primer5e第08章：IO库/" class="archive-article-date">
-  	<time datetime="2017-12-11T02:37:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="IO类"><a href="#IO类" class="headerlink" title="IO类"></a>IO类</h1><p>标准库定义的IO类型包括基础istream，ostream，iostream类型，ifstream，ofstream，fstream读写文件类型以及istringstream，ostringstream，stringstream读写内存string对象的类型。<br>另外，为了支持使用宽字符，标准库还定义了一组wchar_t类型的数据。<br>宽字符版本的类型和函数的名字以一个w开始。例如：wiostream，wfstream，wstringstream，wcin，wcout，wcerr。</p>
-<h2 id="IO类型间的关系"><a href="#IO类型间的关系" class="headerlink" title="IO类型间的关系"></a>IO类型间的关系</h2><p>继承机制让我们可以将派生类对象当作基类对象来使用。类型ifstream和istringstream都继续自istream。因此，我们可以在传递istream对象的地方传递ifstream和istringstream。<br>例如：对ifstream和istringstream对象调用getline，也可以用&gt;&gt;从ifstream和istringstream读取数据。类的ofstream和ostringstream也都继承自ostream。</p>
-<h2 id="IO对象无拷贝和赋值"><a href="#IO对象无拷贝和赋值" class="headerlink" title="IO对象无拷贝和赋值"></a>IO对象无拷贝和赋值</h2><p>不能拷贝IO对象，因此不能将形参和返回类型设置为流类型。所以，进行IO操作的函数通常以引用方式传递和返回流，并且读写一个IO对象会改变其状态，因此传递和返回的引用不能是const的。</p>
-<h2 id="条件状态"><a href="#条件状态" class="headerlink" title="条件状态"></a>条件状态</h2><p>IO类定义了一些函数和标志，帮助我们访问和控制流的状态条件。IO标准库内部条件状态：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">strm::iostate  由各个iostream 类定义，用于定义条件状态</span><br><span class="line">strm::badbit   strm::iostate类型的值，用于指出被破坏的流</span><br><span class="line">strm::failbit  strm::iostate类型的值，用于指出失败的流</span><br><span class="line">strm::eofbit   strm::iostate类型的值，用于指出流已经到达文件的结束符</span><br><span class="line">strm::goodbit　strm::iostate类型的值，流未出现错误状态，此值保证为<span class="number">0</span></span><br></pre></td></tr></table></figure></p>
-<p>IO标准库条件状态获取以及设置函数：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">s.eof()           若流s的eofbit置位，则返回<span class="literal">true</span></span><br><span class="line">s.fail()          若流s的failbit或badbit置位，则返回<span class="literal">true</span></span><br><span class="line">s.bad()           若流s的badbit置位，则返回<span class="literal">true</span></span><br><span class="line">s.good()          若流s处于有效状态，则返回<span class="literal">true</span></span><br><span class="line">s.clear()         将流s的所有条件状态位复位，将流的状态设置为有效</span><br><span class="line">s.clear(flag)     根据指定的flag，将流s中对应条件状态复位。flag类型是strm::iostate</span><br><span class="line">s.setstate(flag)  根据指定的flag，将流s中对应条件状态置位</span><br><span class="line">s.rdstate()       返回流的当前条件状态，返回值类型是strm::iostate</span><br></pre></td></tr></table></figure></p>
-<p>使用位操作按需复位生成新的状态，例如将failbit和badbit复位，但保持eofbit不变：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cin</span>.clear(<span class="built_in">cin</span>.rdstate() &amp; ~<span class="built_in">cin</span>.failbit &amp; ~<span class="built_in">cin</span>.badbit)</span><br></pre></td></tr></table></figure></p>
-        
-          <a class="article-more-a" href="/2017/12/11/C-Primer5e第08章：IO库/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/11/C-Primer5e第08章：IO库/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
@@ -1104,15 +1100,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术点滴</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">CSAPP</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">技术点滴</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1140,11 +1136,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
             
             <div class="clearfix"></div>

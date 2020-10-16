@@ -171,6 +171,82 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Linux性能分析工具：ftrace" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/28/Linux性能分析工具：ftrace/">Linux性能分析工具：ftrace</a>
+    </h1>
+  
+
+        
+        <a href="/2018/02/28/Linux性能分析工具：ftrace/" class="archive-article-date">
+  	<time datetime="2018-02-28T05:50:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文主要介绍ftrace的基本功能和用法。ftrace用于跟踪时延和行为，它让我们可以很深入地了解系统的运行行为，是进行Linux性能调优必须掌握的基本工具。<br>
+        
+          <a class="article-more-a" href="/2018/02/28/Linux性能分析工具：ftrace/#more">more >></a>
+        
+      
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">性能分析</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/02/28/Linux性能分析工具：ftrace/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-家庭教育专栏-阅读整理一" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -868,83 +944,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-C-Primer5e第19章：特殊工具与技术（一）" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/05/C-Primer5e第19章：特殊工具与技术（一）/">C++Primer5e第19章：特殊工具与技术（一）</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/05/C-Primer5e第19章：特殊工具与技术（一）/" class="archive-article-date">
-  	<time datetime="2018-01-05T01:25:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h1><p>内存管理的层级以及对应的特性如下：</p>
-<p><center><br><img src="https://gitee.com/zhoulee/blog-images/raw/master/memory_level_manager.jpg" alt="C++内存管理层级"><br></center><br>我们在程序中经常使用的new和delete是C++标准中的表达式，有时也称为new运算符。但new与delete运算符和其他运算符最大的不同在于new和delete运算符不可以重载。<br>各层次内存分配与释放方式的使用示例：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> *p1 = <span class="built_in">malloc</span>(<span class="number">512</span>); <span class="comment">//512 bytes</span></span><br><span class="line"><span class="built_in">free</span>(p1);</span><br><span class="line"></span><br><span class="line"><span class="keyword">complex</span>&lt;<span class="keyword">int</span>&gt; *p2 = <span class="keyword">new</span> <span class="keyword">complex</span>&lt;<span class="keyword">int</span>&gt;; <span class="comment">//one object</span></span><br><span class="line"><span class="keyword">delete</span> p2;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> *p3 = ::<span class="keyword">operator</span> <span class="keyword">new</span>(<span class="number">512</span>); <span class="comment">//512 bytes</span></span><br><span class="line">::<span class="function"><span class="keyword">operator</span> <span class="title">delete</span><span class="params">(p3)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//以下函数都是non-static，要通过object调用。以下分配7个ints</span></span><br><span class="line"><span class="keyword">void</span> *p4 = allocator&lt;<span class="keyword">int</span>&gt;().allocate(<span class="number">7</span>);</span><br><span class="line">allocator&lt;<span class="keyword">int</span>&gt;().deallocate((<span class="keyword">int</span>*)p4,<span class="number">7</span>);</span><br></pre></td></tr></table></figure></p>
-        
-          <a class="article-more-a" href="/2018/01/05/C-Primer5e第19章：特殊工具与技术（一）/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/05/C-Primer5e第19章：特殊工具与技术（一）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
@@ -1071,15 +1070,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术点滴</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">CSAPP</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">技术点滴</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1107,11 +1106,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
             
             <div class="clearfix"></div>
