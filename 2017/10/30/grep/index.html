@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
-  <meta name="baidu-site-verification" content="gHJw3bXGu1">
-  <meta name="google-site-verification" content="-lNjR-HxF8YoulCpsMRPTH3XMW3mvngPcJDTDXYkNSA">
+  <meta name="baidu-site-verification" content="gHJw3bXGu1" />
+  <meta name="google-site-verification" content="-lNjR-HxF8YoulCpsMRPTH3XMW3mvngPcJDTDXYkNSA" />
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://octocat9lee.github.io">
   <title>grep | 章鱼猫の博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="grep常用选项对于基本常用的命令，如果每次去百度或者Google命令的基本使用方式，因为信息的杂乱，我们很难快速检索到自己需要的信息。因此，作为一名专业的程序员，我们应该逐步建立自己的知识地图，不断总结完善自己的知识体系，当以后再遇到类似问题时，我们只需要回忆类似的场景获取对应的关键字，然后查阅自己的笔记，那么我们解决问题也会快速很多，并且也再次加深对之前知识的理解。好记性不如烂笔头，下面将在l">
-<meta name="keywords" content="调试技术">
 <meta property="og:type" content="article">
 <meta property="og:title" content="grep">
 <meta property="og:url" content="https://octocat9lee.github.io/2017/10/30/grep/index.html">
 <meta property="og:site_name" content="章鱼猫の博客">
 <meta property="og:description" content="grep常用选项对于基本常用的命令，如果每次去百度或者Google命令的基本使用方式，因为信息的杂乱，我们很难快速检索到自己需要的信息。因此，作为一名专业的程序员，我们应该逐步建立自己的知识地图，不断总结完善自己的知识体系，当以后再遇到类似问题时，我们只需要回忆类似的场景获取对应的关键字，然后查阅自己的笔记，那么我们解决问题也会快速很多，并且也再次加深对之前知识的理解。好记性不如烂笔头，下面将在l">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-07-07T02:36:10.875Z">
+<meta property="og:locale">
+<meta property="article:published_time" content="2017-10-30T07:29:36.000Z">
+<meta property="article:modified_time" content="2020-07-07T02:36:10.875Z">
+<meta property="article:author" content="章鱼猫">
+<meta property="article:tag" content="调试技术">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="grep">
-<meta name="twitter:description" content="grep常用选项对于基本常用的命令，如果每次去百度或者Google命令的基本使用方式，因为信息的杂乱，我们很难快速检索到自己需要的信息。因此，作为一名专业的程序员，我们应该逐步建立自己的知识地图，不断总结完善自己的知识体系，当以后再遇到类似问题时，我们只需要回忆类似的场景获取对应的关键字，然后查阅自己的笔记，那么我们解决问题也会快速很多，并且也再次加深对之前知识的理解。好记性不如烂笔头，下面将在l">
   
     <link rel="alternative" href="/atom.xml" title="章鱼猫の博客" type="application/atom+xml">
   
@@ -49,8 +49,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -63,10 +63,8 @@ var _hmt = _hmt || [];
 			<img src="/img/octocat.png" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="">章鱼猫</a></h1>
+		  <h1 class="header-author"><a href=""></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">记录生活的点点滴滴</p>
 		
 
 		<nav class="header-menu">
@@ -121,10 +119,8 @@ var _hmt = _hmt || [];
 				<img src="/img/octocat.png" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">章鱼猫</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>记录生活的点点滴滴<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -171,7 +167,7 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-grep" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-grep" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -191,21 +187,32 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="grep常用选项"><a href="#grep常用选项" class="headerlink" title="grep常用选项"></a>grep常用选项</h1><p>对于基本常用的命令，如果每次去百度或者Google命令的基本使用方式，因为信息的杂乱，我们很难快速检索到自己需要的信息。因此，作为一名专业的程序员，我们应该逐步建立自己的知识地图，不断总结完善自己的知识体系，当以后再遇到类似问题时，我们只需要回忆类似的场景获取对应的关键字，然后查阅自己的笔记，那么我们解决问题也会快速很多，并且也再次加深对之前知识的理解。<code>好记性不如烂笔头</code>，下面将在log定位检索时常用的<code>grep命令</code>选项总结如下：<br>查看指定内容对应的行号并显示改行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -rn <span class="string">"search-content"</span> &lt; file.log</span><br></pre></td></tr></table></figure></p>
-<p>查看指定内容对应的行号但忽略大小写<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -irn <span class="string">"search-content"</span> &lt; file.log</span><br></pre></td></tr></table></figure></p>
-<p>在指定的文件类型中查找指定的内容<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find /path/to/ -regex <span class="string">'.*\.h\|.*\.cpp'</span> | xargs grep -rn <span class="string">"search-content"</span></span><br></pre></td></tr></table></figure></p>
+        <h1 id="grep常用选项"><a href="#grep常用选项" class="headerlink" title="grep常用选项"></a>grep常用选项</h1><p>对于基本常用的命令，如果每次去百度或者Google命令的基本使用方式，因为信息的杂乱，我们很难快速检索到自己需要的信息。因此，作为一名专业的程序员，我们应该逐步建立自己的知识地图，不断总结完善自己的知识体系，当以后再遇到类似问题时，我们只需要回忆类似的场景获取对应的关键字，然后查阅自己的笔记，那么我们解决问题也会快速很多，并且也再次加深对之前知识的理解。<code>好记性不如烂笔头</code>，下面将在log定位检索时常用的<code>grep命令</code>选项总结如下：<br>查看指定内容对应的行号并显示改行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -rn <span class="string">&quot;search-content&quot;</span> &lt; file.log</span><br></pre></td></tr></table></figure>
+<p>查看指定内容对应的行号但忽略大小写</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -irn <span class="string">&quot;search-content&quot;</span> &lt; file.log</span><br></pre></td></tr></table></figure>
+<p>在指定的文件类型中查找指定的内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find /path/to/ -regex <span class="string">&#x27;.*\.h\|.*\.cpp&#x27;</span> | xargs grep -rn <span class="string">&quot;search-content&quot;</span></span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<p>查找匹配行前后内容<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -A 20 -B 10 -irn <span class="string">"search-content"</span> &lt; file.log</span><br></pre></td></tr></table></figure></p>
-<p>匹配单词的全部内容<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -wrn <span class="string">"search-content"</span> &lt; file.log</span><br></pre></td></tr></table></figure></p>
-<p>匹配指定内容之外的行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -vrn <span class="string">"search-content"</span> &lt; file.log</span><br></pre></td></tr></table></figure></p>
-<p>匹配范本文件中每一行，如果在范本文件中指定多个匹配的串，可以同时匹配任意的一行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -f fromat.pat &lt; file.log</span><br></pre></td></tr></table></figure></p>
+<p>查找匹配行前后内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -A 20 -B 10 -irn <span class="string">&quot;search-content&quot;</span> &lt; file.log</span><br></pre></td></tr></table></figure>
+<p>匹配单词的全部内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -wrn <span class="string">&quot;search-content&quot;</span> &lt; file.log</span><br></pre></td></tr></table></figure>
+<p>匹配指定内容之外的行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -vrn <span class="string">&quot;search-content&quot;</span> &lt; file.log</span><br></pre></td></tr></table></figure>
+<p>匹配范本文件中每一行，如果在范本文件中指定多个匹配的串，可以同时匹配任意的一行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -f fromat.pat &lt; file.log</span><br></pre></td></tr></table></figure>
 <p>在程序调试时，需要查找多个关键之时，该选项特别有用！</p>
 <h1 id="ack-grep"><a href="#ack-grep" class="headerlink" title="ack-grep"></a>ack-grep</h1><p>ack-grep是linux平台下的代码全文检索工具，比grep更友好，更适合对代码的检索。</p>
-<h2 id="ack基本使用"><a href="#ack基本使用" class="headerlink" title="ack基本使用"></a>ack基本使用</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">在当前目录递归搜索单词eat</span><br><span class="line">ack -w eat</span><br><span class="line"></span><br><span class="line">搜索有特殊字符的字符串<span class="variable">$path</span>=.</span><br><span class="line">ack -Q <span class="string">'$path=.'</span> /etc</span><br><span class="line"></span><br><span class="line">除dowloads目录，在所有目录搜索about</span><br><span class="line">ack about --ignore-dir=downloads</span><br><span class="line"></span><br><span class="line">只搜索包含protected的C++文件，然后通过文件名把搜索结果整合在一起，打印每个文件对应的搜索结果</span><br><span class="line">ack --cpp --group protected</span><br><span class="line"></span><br><span class="line">获取包含CFLAGS关键字的Makefile文件名</span><br><span class="line">ack --make -l CFLAGS</span><br><span class="line"></span><br><span class="line">显示整个日志文件时高亮匹配到的字符串</span><br><span class="line">tail -f /var/<span class="built_in">log</span>/syslog | ack --passthru 192.168.1.10</span><br><span class="line"></span><br><span class="line">获取ack支持的文件过滤类型</span><br><span class="line">ack --<span class="built_in">help</span>-type</span><br></pre></td></tr></table></figure>
-<p><a href="http://blog.sina.com.cn/s/blog_bd615ff80102wm9v.html" target="_blank" rel="noopener">代码（文件）搜索工具——ack</a></p>
-<h1 id="常见文本处理"><a href="#常见文本处理" class="headerlink" title="常见文本处理"></a>常见文本处理</h1><p>提取XML文档中指定标签的内容，其中使用tag设置标签名称：<br><figure class="highlight nsis"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tag=loc &amp;&amp; sed -n <span class="string">'/&lt;'</span><span class="variable">$tag</span><span class="string">'&gt;/&#123;/\/'</span><span class="variable">$tag</span><span class="string">'/&#123;p;b&#125;;:BG;N;/&lt;\/'</span><span class="variable">$tag</span><span class="string">'/!bBG;p&#125;'</span> baidusitemap.xml | awk -F <span class="string">"&lt;<span class="variable">$tag</span>&gt;"</span> <span class="string">'&#123;print <span class="variable">$2</span>&#125;'</span> | awk -F <span class="string">"&lt;/<span class="variable">$tag</span>&gt;"</span> <span class="string">'&#123;print <span class="variable">$1</span>&#125;'</span> &gt; urls.txt</span><br></pre></td></tr></table></figure></p>
-<p>因为Github屏蔽百度对sitemap的获取，下面使用主动推送的方式向百度搜索提交sitemap文件内容：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">set</span> -x</span><br><span class="line"></span><br><span class="line">tag=loc</span><br><span class="line"></span><br><span class="line">wget https://octocat9lee.github.io/baidusitemap.xml</span><br><span class="line"></span><br><span class="line">sed -n <span class="string">'/&lt;'</span><span class="variable">$tag</span><span class="string">'&gt;/&#123;/\/'</span><span class="variable">$tag</span><span class="string">'/&#123;p;b&#125;;:BG;N;/&lt;\/'</span><span class="variable">$tag</span><span class="string">'/!bBG;p&#125;'</span> baidusitemap.xml | awk -F <span class="string">"&lt;<span class="variable">$tag</span>&gt;"</span> <span class="string">'&#123;print $2&#125;'</span> | awk -F <span class="string">"&lt;/<span class="variable">$tag</span>&gt;"</span> <span class="string">'&#123;print $1&#125;'</span> &gt; urls.txt</span><br><span class="line"></span><br><span class="line">curl -H <span class="string">'Content-Type:text/plain'</span> --data-binary @urls.txt <span class="string">"http://data.zz.baidu.com/urls?site=https://octocat9lee.github.io&amp;token=elOrQEDByCUQaaxv"</span></span><br><span class="line"></span><br><span class="line">sleep 5</span><br><span class="line"></span><br><span class="line">rm -f ./baidusitemap.xml</span><br><span class="line">rm -f ./urls.txt</span><br></pre></td></tr></table></figure></p>
-<h1 id="Sed"><a href="#Sed" class="headerlink" title="Sed"></a>Sed</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls | xargs sed -i -e <span class="string">'/1234/d'</span> <span class="comment"># 当前目录下在源文件中删除指定内容的行</span></span><br></pre></td></tr></table></figure>
+<h2 id="ack基本使用"><a href="#ack基本使用" class="headerlink" title="ack基本使用"></a>ack基本使用</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">在当前目录递归搜索单词eat</span><br><span class="line">ack -w eat</span><br><span class="line"></span><br><span class="line">搜索有特殊字符的字符串<span class="variable">$path</span>=.</span><br><span class="line">ack -Q <span class="string">&#x27;$path=.&#x27;</span> /etc</span><br><span class="line"></span><br><span class="line">除dowloads目录，在所有目录搜索about</span><br><span class="line">ack about --ignore-dir=downloads</span><br><span class="line"></span><br><span class="line">只搜索包含protected的C++文件，然后通过文件名把搜索结果整合在一起，打印每个文件对应的搜索结果</span><br><span class="line">ack --cpp --group protected</span><br><span class="line"></span><br><span class="line">获取包含CFLAGS关键字的Makefile文件名</span><br><span class="line">ack --make -l CFLAGS</span><br><span class="line"></span><br><span class="line">显示整个日志文件时高亮匹配到的字符串</span><br><span class="line">tail -f /var/<span class="built_in">log</span>/syslog | ack --passthru 192.168.1.10</span><br><span class="line"></span><br><span class="line">获取ack支持的文件过滤类型</span><br><span class="line">ack --help-type</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="http://blog.sina.com.cn/s/blog_bd615ff80102wm9v.html">代码（文件）搜索工具——ack</a></p>
+<h1 id="常见文本处理"><a href="#常见文本处理" class="headerlink" title="常见文本处理"></a>常见文本处理</h1><p>提取XML文档中指定标签的内容，其中使用tag设置标签名称：</p>
+<figure class="highlight nsis"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tag=loc &amp;&amp; sed -n <span class="string">&#x27;/&lt;&#x27;</span><span class="variable">$tag</span><span class="string">&#x27;&gt;/&#123;/\/&#x27;</span><span class="variable">$tag</span><span class="string">&#x27;/&#123;p;b&#125;;:BG;N;/&lt;\/&#x27;</span><span class="variable">$tag</span><span class="string">&#x27;/!bBG;p&#125;&#x27;</span> baidusitemap.xml | awk -F <span class="string">&quot;&lt;<span class="variable">$tag</span>&gt;&quot;</span> <span class="string">&#x27;&#123;print <span class="variable">$2</span>&#125;&#x27;</span> | awk -F <span class="string">&quot;&lt;/<span class="variable">$tag</span>&gt;&quot;</span> <span class="string">&#x27;&#123;print <span class="variable">$1</span>&#125;&#x27;</span> &gt; urls.txt</span><br></pre></td></tr></table></figure>
+
+<p>因为Github屏蔽百度对sitemap的获取，下面使用主动推送的方式向百度搜索提交sitemap文件内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">set</span> -x</span><br><span class="line"></span><br><span class="line">tag=loc</span><br><span class="line"></span><br><span class="line">wget https://octocat9lee.github.io/baidusitemap.xml</span><br><span class="line"></span><br><span class="line">sed -n <span class="string">&#x27;/&lt;&#x27;</span><span class="variable">$tag</span><span class="string">&#x27;&gt;/&#123;/\/&#x27;</span><span class="variable">$tag</span><span class="string">&#x27;/&#123;p;b&#125;;:BG;N;/&lt;\/&#x27;</span><span class="variable">$tag</span><span class="string">&#x27;/!bBG;p&#125;&#x27;</span> baidusitemap.xml | awk -F <span class="string">&quot;&lt;<span class="variable">$tag</span>&gt;&quot;</span> <span class="string">&#x27;&#123;print $2&#125;&#x27;</span> | awk -F <span class="string">&quot;&lt;/<span class="variable">$tag</span>&gt;&quot;</span> <span class="string">&#x27;&#123;print $1&#125;&#x27;</span> &gt; urls.txt</span><br><span class="line"></span><br><span class="line">curl -H <span class="string">&#x27;Content-Type:text/plain&#x27;</span> --data-binary @urls.txt <span class="string">&quot;http://data.zz.baidu.com/urls?site=https://octocat9lee.github.io&amp;token=elOrQEDByCUQaaxv&quot;</span></span><br><span class="line"></span><br><span class="line">sleep 5</span><br><span class="line"></span><br><span class="line">rm -f ./baidusitemap.xml</span><br><span class="line">rm -f ./urls.txt</span><br></pre></td></tr></table></figure>
+
+<h1 id="Sed"><a href="#Sed" class="headerlink" title="Sed"></a>Sed</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls | xargs sed -i -e <span class="string">&#x27;/1234/d&#x27;</span> <span class="comment"># 当前目录下在源文件中删除指定内容的行</span></span><br></pre></td></tr></table></figure>
 
       
 
@@ -289,7 +296,7 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2017/10/30/键盘快捷操作指南/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/10/30/%E9%94%AE%E7%9B%98%E5%BF%AB%E6%8D%B7%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -327,7 +334,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#grep常用选项"><span class="toc-number">1.</span> <span class="toc-text">grep常用选项</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ack-grep"><span class="toc-number">2.</span> <span class="toc-text">ack-grep</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ack基本使用"><span class="toc-number">2.1.</span> <span class="toc-text">ack基本使用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常见文本处理"><span class="toc-number">3.</span> <span class="toc-text">常见文本处理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Sed"><span class="toc-number">4.</span> <span class="toc-text">Sed</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#grep%E5%B8%B8%E7%94%A8%E9%80%89%E9%A1%B9"><span class="toc-number">1.</span> <span class="toc-text">grep常用选项</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ack-grep"><span class="toc-number">2.</span> <span class="toc-text">ack-grep</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ack%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">2.1.</span> <span class="toc-text">ack基本使用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86"><span class="toc-number">3.</span> <span class="toc-text">常见文本处理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Sed"><span class="toc-number">4.</span> <span class="toc-text">Sed</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -358,7 +365,7 @@ var _hmt = _hmt || [];
           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
       </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </section>
   
 
@@ -488,11 +495,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
+                <a href="javascript:void(0)" class="js-tag color5">技术点滴</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术点滴</a>
+                <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -500,11 +507,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt</a>
+                <a href="javascript:void(0)" class="js-tag color1">STEAM</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">STEAM</a>
+                <a href="javascript:void(0)" class="js-tag color3">Qt</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -532,7 +539,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:

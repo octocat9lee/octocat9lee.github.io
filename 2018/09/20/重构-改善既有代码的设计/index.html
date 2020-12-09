@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
-  <meta name="baidu-site-verification" content="gHJw3bXGu1">
-  <meta name="google-site-verification" content="-lNjR-HxF8YoulCpsMRPTH3XMW3mvngPcJDTDXYkNSA">
+  <meta name="baidu-site-verification" content="gHJw3bXGu1" />
+  <meta name="google-site-verification" content="-lNjR-HxF8YoulCpsMRPTH3XMW3mvngPcJDTDXYkNSA" />
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://octocat9lee.github.io">
   <title>重构-改善既有代码的设计 | 章鱼猫の博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="何谓重构？重构的定义 名词形式  重构(名词)：对软件内部的一种调整，目的是在不改变软件可观察的前提下，提高其可理解性，降低其修改成本。  动词形式  重构(动词)：使用一系列的重构手法，在不改变软件可观察的行为的前提下，调整其结构。  通俗解释  你要问我“重构就只是整理代码吗？” 在某种角度来说是的。但是重构肯定有其独到的地方：它提供一种更高效且受控的代码整理技术。 两顶帽子使用重构技术开发软">
-<meta name="keywords" content="技术点滴">
 <meta property="og:type" content="article">
 <meta property="og:title" content="重构-改善既有代码的设计">
-<meta property="og:url" content="https://octocat9lee.github.io/2018/09/20/重构-改善既有代码的设计/index.html">
+<meta property="og:url" content="https://octocat9lee.github.io/2018/09/20/%E9%87%8D%E6%9E%84-%E6%94%B9%E5%96%84%E6%97%A2%E6%9C%89%E4%BB%A3%E7%A0%81%E7%9A%84%E8%AE%BE%E8%AE%A1/index.html">
 <meta property="og:site_name" content="章鱼猫の博客">
 <meta property="og:description" content="何谓重构？重构的定义 名词形式  重构(名词)：对软件内部的一种调整，目的是在不改变软件可观察的前提下，提高其可理解性，降低其修改成本。  动词形式  重构(动词)：使用一系列的重构手法，在不改变软件可观察的行为的前提下，调整其结构。  通俗解释  你要问我“重构就只是整理代码吗？” 在某种角度来说是的。但是重构肯定有其独到的地方：它提供一种更高效且受控的代码整理技术。 两顶帽子使用重构技术开发软">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-05T01:36:48.314Z">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-09-20T07:58:43.000Z">
+<meta property="article:modified_time" content="2019-11-05T01:36:48.314Z">
+<meta property="article:author" content="章鱼猫">
+<meta property="article:tag" content="技术点滴">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="重构-改善既有代码的设计">
-<meta name="twitter:description" content="何谓重构？重构的定义 名词形式  重构(名词)：对软件内部的一种调整，目的是在不改变软件可观察的前提下，提高其可理解性，降低其修改成本。  动词形式  重构(动词)：使用一系列的重构手法，在不改变软件可观察的行为的前提下，调整其结构。  通俗解释  你要问我“重构就只是整理代码吗？” 在某种角度来说是的。但是重构肯定有其独到的地方：它提供一种更高效且受控的代码整理技术。 两顶帽子使用重构技术开发软">
   
     <link rel="alternative" href="/atom.xml" title="章鱼猫の博客" type="application/atom+xml">
   
@@ -49,8 +49,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -63,10 +63,8 @@ var _hmt = _hmt || [];
 			<img src="/img/octocat.png" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="">章鱼猫</a></h1>
+		  <h1 class="header-author"><a href=""></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">记录生活的点点滴滴</p>
 		
 
 		<nav class="header-menu">
@@ -121,10 +119,8 @@ var _hmt = _hmt || [];
 				<img src="/img/octocat.png" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">章鱼猫</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>记录生活的点点滴滴<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -171,7 +167,7 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-重构-改善既有代码的设计" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-重构-改善既有代码的设计" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -183,7 +179,7 @@ var _hmt = _hmt || [];
   
 
         
-        <a href="/2018/09/20/重构-改善既有代码的设计/" class="archive-article-date">
+        <a href="/2018/09/20/%E9%87%8D%E6%9E%84-%E6%94%B9%E5%96%84%E6%97%A2%E6%9C%89%E4%BB%A3%E7%A0%81%E7%9A%84%E8%AE%BE%E8%AE%A1/" class="archive-article-date">
   	<time datetime="2018-09-20T07:58:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-20</time>
 </a>
         
@@ -208,6 +204,7 @@ var _hmt = _hmt || [];
 <p>重构时你就不能添加功能，只管改进程序的结构</p>
 <p>两种动作循环往复，但无论何时你都应该清楚自己戴的是哪一顶帽子</p>
 <a id="more"></a>
+
 <h2 id="重构目的"><a href="#重构目的" class="headerlink" title="重构目的"></a>重构目的</h2><ul>
 <li>重构的目的是是软件更容易被理解和修改</li>
 <li>重构不能对软件的现有功能造成任何的变化，及时在重构过程中发现疑似BUG的行为，也请遵循原始代码的逻辑</li>
@@ -667,7 +664,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://octocat9lee.github.io/2018/09/20/重构-改善既有代码的设计/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://octocat9lee.github.io/2018/09/20/%E9%87%8D%E6%9E%84-%E6%94%B9%E5%96%84%E6%97%A2%E6%9C%89%E4%BB%A3%E7%A0%81%E7%9A%84%E8%AE%BE%E8%AE%A1/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -681,7 +678,7 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2018/09/28/写作的层次/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/09/28/%E5%86%99%E4%BD%9C%E7%9A%84%E5%B1%82%E6%AC%A1/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -691,7 +688,7 @@ var _hmt = _hmt || [];
     </a>
   
   
-    <a href="/2018/09/19/UNIX编程艺术/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/09/19/UNIX%E7%BC%96%E7%A8%8B%E8%89%BA%E6%9C%AF/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">UNIX编程艺术</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -719,7 +716,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#何谓重构？"><span class="toc-number">1.</span> <span class="toc-text">何谓重构？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#重构的定义"><span class="toc-number">1.1.</span> <span class="toc-text">重构的定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#两顶帽子"><span class="toc-number">1.2.</span> <span class="toc-text">两顶帽子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重构目的"><span class="toc-number">1.3.</span> <span class="toc-text">重构目的</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#为何重构？"><span class="toc-number">2.</span> <span class="toc-text">为何重构？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#何时重构？"><span class="toc-number">3.</span> <span class="toc-text">何时重构？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#重构的难题"><span class="toc-number">4.</span> <span class="toc-text">重构的难题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#何时不该重构？"><span class="toc-number">4.1.</span> <span class="toc-text">何时不该重构？</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码的坏味道"><span class="toc-number">5.</span> <span class="toc-text">代码的坏味道</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#构筑测试体系"><span class="toc-number">6.</span> <span class="toc-text">构筑测试体系</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#重新组织函数"><span class="toc-number">7.</span> <span class="toc-text">重新组织函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#在对象之间搬移特性"><span class="toc-number">8.</span> <span class="toc-text">在对象之间搬移特性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#重新组织数据"><span class="toc-number">9.</span> <span class="toc-text">重新组织数据</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#简化条件表达式"><span class="toc-number">10.</span> <span class="toc-text">简化条件表达式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#简化条件表达式-1"><span class="toc-number">11.</span> <span class="toc-text">简化条件表达式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#处理概括关系"><span class="toc-number">12.</span> <span class="toc-text">处理概括关系</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#大型重构"><span class="toc-number">13.</span> <span class="toc-text">大型重构</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%95%E8%B0%93%E9%87%8D%E6%9E%84%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">何谓重构？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E6%9E%84%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">1.1.</span> <span class="toc-text">重构的定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%A4%E9%A1%B6%E5%B8%BD%E5%AD%90"><span class="toc-number">1.2.</span> <span class="toc-text">两顶帽子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E6%9E%84%E7%9B%AE%E7%9A%84"><span class="toc-number">1.3.</span> <span class="toc-text">重构目的</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%BA%E4%BD%95%E9%87%8D%E6%9E%84%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">为何重构？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%95%E6%97%B6%E9%87%8D%E6%9E%84%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">何时重构？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%87%8D%E6%9E%84%E7%9A%84%E9%9A%BE%E9%A2%98"><span class="toc-number">4.</span> <span class="toc-text">重构的难题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%95%E6%97%B6%E4%B8%8D%E8%AF%A5%E9%87%8D%E6%9E%84%EF%BC%9F"><span class="toc-number">4.1.</span> <span class="toc-text">何时不该重构？</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E7%9A%84%E5%9D%8F%E5%91%B3%E9%81%93"><span class="toc-number">5.</span> <span class="toc-text">代码的坏味道</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9E%84%E7%AD%91%E6%B5%8B%E8%AF%95%E4%BD%93%E7%B3%BB"><span class="toc-number">6.</span> <span class="toc-text">构筑测试体系</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%87%8D%E6%96%B0%E7%BB%84%E7%BB%87%E5%87%BD%E6%95%B0"><span class="toc-number">7.</span> <span class="toc-text">重新组织函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9C%A8%E5%AF%B9%E8%B1%A1%E4%B9%8B%E9%97%B4%E6%90%AC%E7%A7%BB%E7%89%B9%E6%80%A7"><span class="toc-number">8.</span> <span class="toc-text">在对象之间搬移特性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%87%8D%E6%96%B0%E7%BB%84%E7%BB%87%E6%95%B0%E6%8D%AE"><span class="toc-number">9.</span> <span class="toc-text">重新组织数据</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%80%E5%8C%96%E6%9D%A1%E4%BB%B6%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">10.</span> <span class="toc-text">简化条件表达式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%80%E5%8C%96%E6%9D%A1%E4%BB%B6%E8%A1%A8%E8%BE%BE%E5%BC%8F-1"><span class="toc-number">11.</span> <span class="toc-text">简化条件表达式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%84%E7%90%86%E6%A6%82%E6%8B%AC%E5%85%B3%E7%B3%BB"><span class="toc-number">12.</span> <span class="toc-text">处理概括关系</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%A7%E5%9E%8B%E9%87%8D%E6%9E%84"><span class="toc-number">13.</span> <span class="toc-text">大型重构</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -750,7 +747,7 @@ var _hmt = _hmt || [];
           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
       </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </section>
   
 
@@ -880,11 +877,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
+                <a href="javascript:void(0)" class="js-tag color5">技术点滴</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术点滴</a>
+                <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -892,11 +889,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt</a>
+                <a href="javascript:void(0)" class="js-tag color1">STEAM</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">STEAM</a>
+                <a href="javascript:void(0)" class="js-tag color3">Qt</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -924,7 +921,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:

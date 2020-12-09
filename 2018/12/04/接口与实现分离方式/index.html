@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
-  <meta name="baidu-site-verification" content="gHJw3bXGu1">
-  <meta name="google-site-verification" content="-lNjR-HxF8YoulCpsMRPTH3XMW3mvngPcJDTDXYkNSA">
+  <meta name="baidu-site-verification" content="gHJw3bXGu1" />
+  <meta name="google-site-verification" content="-lNjR-HxF8YoulCpsMRPTH3XMW3mvngPcJDTDXYkNSA" />
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://octocat9lee.github.io">
   <title>接口与实现分离方式 | 章鱼猫の博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="在阅读SRS源码时，作者大量使用如下的方式实现接口和实现间的分离，并调用接口中的函数，相比自己之前熟悉的使用std::bind和std::function实现回调方式有些差异。于是将作者的意图进行简化，便于理解。简化后的代码如下：">
-<meta name="keywords" content="C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="接口与实现分离方式">
-<meta property="og:url" content="https://octocat9lee.github.io/2018/12/04/接口与实现分离方式/index.html">
+<meta property="og:url" content="https://octocat9lee.github.io/2018/12/04/%E6%8E%A5%E5%8F%A3%E4%B8%8E%E5%AE%9E%E7%8E%B0%E5%88%86%E7%A6%BB%E6%96%B9%E5%BC%8F/index.html">
 <meta property="og:site_name" content="章鱼猫の博客">
 <meta property="og:description" content="在阅读SRS源码时，作者大量使用如下的方式实现接口和实现间的分离，并调用接口中的函数，相比自己之前熟悉的使用std::bind和std::function实现回调方式有些差异。于是将作者的意图进行简化，便于理解。简化后的代码如下：">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-05T01:36:48.188Z">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-12-04T06:47:52.000Z">
+<meta property="article:modified_time" content="2019-11-05T01:36:48.188Z">
+<meta property="article:author" content="章鱼猫">
+<meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="接口与实现分离方式">
-<meta name="twitter:description" content="在阅读SRS源码时，作者大量使用如下的方式实现接口和实现间的分离，并调用接口中的函数，相比自己之前熟悉的使用std::bind和std::function实现回调方式有些差异。于是将作者的意图进行简化，便于理解。简化后的代码如下：">
   
     <link rel="alternative" href="/atom.xml" title="章鱼猫の博客" type="application/atom+xml">
   
@@ -49,8 +49,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -63,10 +63,8 @@ var _hmt = _hmt || [];
 			<img src="/img/octocat.png" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="">章鱼猫</a></h1>
+		  <h1 class="header-author"><a href=""></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">记录生活的点点滴滴</p>
 		
 
 		<nav class="header-menu">
@@ -121,10 +119,8 @@ var _hmt = _hmt || [];
 				<img src="/img/octocat.png" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">章鱼猫</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>记录生活的点点滴滴<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -171,7 +167,7 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-接口与实现分离方式" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-接口与实现分离方式" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -183,7 +179,7 @@ var _hmt = _hmt || [];
   
 
         
-        <a href="/2018/12/04/接口与实现分离方式/" class="archive-article-date">
+        <a href="/2018/12/04/%E6%8E%A5%E5%8F%A3%E4%B8%8E%E5%AE%9E%E7%8E%B0%E5%88%86%E7%A6%BB%E6%96%B9%E5%BC%8F/" class="archive-article-date">
   	<time datetime="2018-12-04T06:47:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-04</time>
 </a>
         
@@ -191,8 +187,11 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在阅读SRS源码时，作者大量使用如下的方式实现接口和实现间的分离，并调用接口中的函数，相比自己之前熟悉的使用<code>std::bind</code>和<code>std::function</code>实现回调方式有些差异。于是将作者的意图进行简化，便于理解。<br>简化后的代码如下：<br><a id="more"></a></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">IThreadHandler</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    IThreadHandler()</span><br><span class="line">    &#123; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">virtual</span> ~IThreadHandler()</span><br><span class="line">    &#123; &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">int</span> <span class="title">cycle</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Thread</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Thread(IThreadHandler *h)</span><br><span class="line">    &#123;</span><br><span class="line">        handler = h;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">start</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        handler-&gt;cycle();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    IThreadHandler *handler;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Listener</span> :</span> <span class="keyword">public</span> IThreadHandler</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Listener()</span><br><span class="line">    &#123;</span><br><span class="line">        thd = <span class="keyword">new</span> Thread(<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">virtual</span> ~Listener()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">delete</span> thd;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// interface IThreadHandler</span></span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">int</span> <span class="title">cycle</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Listener::cycle\n"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">listen</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        thd-&gt;start();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    Thread *thd;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Listener listener;</span><br><span class="line">    listener.listen();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>在阅读SRS源码时，作者大量使用如下的方式实现接口和实现间的分离，并调用接口中的函数，相比自己之前熟悉的使用<code>std::bind</code>和<code>std::function</code>实现回调方式有些差异。于是将作者的意图进行简化，便于理解。<br>简化后的代码如下：</p>
+<a id="more"></a>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">IThreadHandler</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    IThreadHandler()</span><br><span class="line">    &#123; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">virtual</span> ~IThreadHandler()</span><br><span class="line">    &#123; &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">int</span> <span class="title">cycle</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Thread</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Thread(IThreadHandler *h)</span><br><span class="line">    &#123;</span><br><span class="line">        handler = h;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">start</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        handler-&gt;cycle();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    IThreadHandler *handler;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Listener</span> :</span> <span class="keyword">public</span> IThreadHandler</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Listener()</span><br><span class="line">    &#123;</span><br><span class="line">        thd = <span class="keyword">new</span> Thread(<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">virtual</span> ~Listener()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">delete</span> thd;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// interface IThreadHandler</span></span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">int</span> <span class="title">cycle</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Listener::cycle\n&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">listen</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        thd-&gt;start();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    Thread *thd;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Listener listener;</span><br><span class="line">    listener.listen();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p><code>IThreadHandler</code>表示接口类，需要由子类实现的函数定义为纯虚函数。</p>
 <p>在<code>Thread</code>类中通过接口对象<code>handler</code>调用<code>IThreadHandler</code>接口中对象。</p>
 <p><code>Listener</code>类继承接口类，并实现接口类中的纯虚函数。在<code>Listener</code>类的构造函数中将真正的实现对象<code>this</code>指针初始化到<code>Thread</code>类中，供<code>Thread</code>回调使用。</p>
@@ -266,7 +265,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://octocat9lee.github.io/2018/12/04/接口与实现分离方式/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://octocat9lee.github.io/2018/12/04/%E6%8E%A5%E5%8F%A3%E4%B8%8E%E5%AE%9E%E7%8E%B0%E5%88%86%E7%A6%BB%E6%96%B9%E5%BC%8F/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -280,7 +279,7 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2018/12/07/经济学讲义：07-供应-好钢用在刀刃上/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/12/07/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E8%AE%B2%E4%B9%89%EF%BC%9A07-%E4%BE%9B%E5%BA%94-%E5%A5%BD%E9%92%A2%E7%94%A8%E5%9C%A8%E5%88%80%E5%88%83%E4%B8%8A/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -290,7 +289,7 @@ var _hmt = _hmt || [];
     </a>
   
   
-    <a href="/2018/12/03/经济学讲义：06-耐心-想象力决定生产力/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/12/03/%E7%BB%8F%E6%B5%8E%E5%AD%A6%E8%AE%B2%E4%B9%89%EF%BC%9A06-%E8%80%90%E5%BF%83-%E6%83%B3%E8%B1%A1%E5%8A%9B%E5%86%B3%E5%AE%9A%E7%94%9F%E4%BA%A7%E5%8A%9B/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">经济学讲义：06-耐心 想象力决定生产力</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -349,7 +348,7 @@ var _hmt = _hmt || [];
           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
       </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </section>
   
 
@@ -479,11 +478,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
+                <a href="javascript:void(0)" class="js-tag color5">技术点滴</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术点滴</a>
+                <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -491,11 +490,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt</a>
+                <a href="javascript:void(0)" class="js-tag color1">STEAM</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">STEAM</a>
+                <a href="javascript:void(0)" class="js-tag color3">Qt</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -523,7 +522,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:

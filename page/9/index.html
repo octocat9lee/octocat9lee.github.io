@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
-  <meta name="baidu-site-verification" content="gHJw3bXGu1">
-  <meta name="google-site-verification" content="-lNjR-HxF8YoulCpsMRPTH3XMW3mvngPcJDTDXYkNSA">
+  <meta name="baidu-site-verification" content="gHJw3bXGu1" />
+  <meta name="google-site-verification" content="-lNjR-HxF8YoulCpsMRPTH3XMW3mvngPcJDTDXYkNSA" />
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://octocat9lee.github.io">
   <title>章鱼猫の博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -16,10 +16,9 @@
 <meta property="og:url" content="https://octocat9lee.github.io/page/9/index.html">
 <meta property="og:site_name" content="章鱼猫の博客">
 <meta property="og:description" content="做自己爱做的事,爱自己在做的事">
-<meta property="og:locale" content="default">
+<meta property="og:locale">
+<meta property="article:author" content="章鱼猫">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="章鱼猫の博客">
-<meta name="twitter:description" content="做自己爱做的事,爱自己在做的事">
   
     <link rel="alternative" href="/atom.xml" title="章鱼猫の博客" type="application/atom+xml">
   
@@ -47,8 +46,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -61,10 +60,8 @@ var _hmt = _hmt || [];
 			<img src="/img/octocat.png" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="">章鱼猫</a></h1>
+		  <h1 class="header-author"><a href=""></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">记录生活的点点滴滴</p>
 		
 
 		<nav class="header-menu">
@@ -119,10 +116,8 @@ var _hmt = _hmt || [];
 				<img src="/img/octocat.png" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">章鱼猫</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>记录生活的点点滴滴<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -171,7 +166,7 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-coredump" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-coredump" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -191,15 +186,16 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="coredump介绍"><a href="#coredump介绍" class="headerlink" title="coredump介绍"></a>coredump介绍</h1><p>应用程序有时会因为异常或者bug导致在运行过程中异常退出或者终止，为了方便问题的定位，我们往往需要获取程序运行时的内存，寄存器状态，堆栈指针，内存管理以及函数调用堆栈信息等，从而找到bug所在。在linux系统中，我们通常可以通过对系统进行一些配置，将上述的信息输出到ELF文件中，即core文件。core文件默认存储位置与对应的可执行程序位于同一路径下，文件名为core；具体信息可以通过如下命令查看：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/sys/kernel/core_pattern</span><br></pre></td></tr></table></figure></p>
-<p>如果程序中调用了chdir函数，则core文件生成在chdir指定路径下。另外，我们也可以通过相关设置设定core文件生成路径。在类unix系统中，core文件本身的主要格式也是ELF格式，因此可以使用readelf或者file命令查看core文件的具体信息。<br>
+        <h1 id="coredump介绍"><a href="#coredump介绍" class="headerlink" title="coredump介绍"></a>coredump介绍</h1><p>应用程序有时会因为异常或者bug导致在运行过程中异常退出或者终止，为了方便问题的定位，我们往往需要获取程序运行时的内存，寄存器状态，堆栈指针，内存管理以及函数调用堆栈信息等，从而找到bug所在。在linux系统中，我们通常可以通过对系统进行一些配置，将上述的信息输出到ELF文件中，即core文件。core文件默认存储位置与对应的可执行程序位于同一路径下，文件名为core；具体信息可以通过如下命令查看：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/sys/kernel/core_pattern</span><br></pre></td></tr></table></figure>
+<p>如果程序中调用了chdir函数，则core文件生成在chdir指定路径下。另外，我们也可以通过相关设置设定core文件生成路径。在类unix系统中，core文件本身的主要格式也是ELF格式，因此可以使用readelf或者file命令查看core文件的具体信息。</p>
         
           <a class="article-more-a" href="/2017/10/28/coredump/#more">more >></a>
         
       
 
       
-    </p></div>
+    </div>
     <div class="article-info article-info-index">
       
       
@@ -248,19 +244,19 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-进程内存监控" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-进程内存监控" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/28/进程内存监控/">进程内存监控</a>
+      <a class="article-title" href="/2017/10/28/%E8%BF%9B%E7%A8%8B%E5%86%85%E5%AD%98%E7%9B%91%E6%8E%A7/">进程内存监控</a>
     </h1>
   
 
         
-        <a href="/2017/10/28/进程内存监控/" class="archive-article-date">
+        <a href="/2017/10/28/%E8%BF%9B%E7%A8%8B%E5%86%85%E5%AD%98%E7%9B%91%E6%8E%A7/" class="archive-article-date">
   	<time datetime="2017-10-28T15:03:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-28</time>
 </a>
         
@@ -269,9 +265,9 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="脚本目的"><a href="#脚本目的" class="headerlink" title="脚本目的"></a>脚本目的</h1><p>使用脚本监控指定进程内存占用，当进程占用内存超过设置阈值时，生成对应的coredump文件以及使用gdb命令输出进程的全部线程信息，从而保存进程在系统kill前进程信息，方便后续对内存急剧上涨的调试。</p>
-<h1 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h1><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup ./memcheck.sh &gt; /dev/<span class="literal">null</span> <span class="number">2</span>&gt;<span class="meta">&amp;1 &amp;</span></span><br></pre></td></tr></table></figure>
+<h1 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h1><figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup ./memcheck.sh &gt; <span class="regexp">/dev/</span><span class="literal">null</span> <span class="number">2</span>&gt;&amp;<span class="number">1</span> &amp;</span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2017/10/28/进程内存监控/#more">more >></a>
+          <a class="article-more-a" href="/2017/10/28/%E8%BF%9B%E7%A8%8B%E5%86%85%E5%AD%98%E7%9B%91%E6%8E%A7/#more">more >></a>
         
       
 
@@ -295,7 +291,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/28/进程内存监控/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/10/28/%E8%BF%9B%E7%A8%8B%E5%86%85%E5%AD%98%E7%9B%91%E6%8E%A7/">展开全文 >></a>
         </p>
       
 
@@ -325,19 +321,19 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-CSAPP实验之BombLab" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-CSAPP实验之BombLab" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/27/CSAPP实验之BombLab/">CSAPP实验之BombLab</a>
+      <a class="article-title" href="/2017/10/27/CSAPP%E5%AE%9E%E9%AA%8C%E4%B9%8BBombLab/">CSAPP实验之BombLab</a>
     </h1>
   
 
         
-        <a href="/2017/10/27/CSAPP实验之BombLab/" class="archive-article-date">
+        <a href="/2017/10/27/CSAPP%E5%AE%9E%E9%AA%8C%E4%B9%8BBombLab/" class="archive-article-date">
   	<time datetime="2017-10-27T09:32:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-27</time>
 </a>
         
@@ -345,16 +341,16 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>“二进制炸弹”是作为目标代码文件提供给学生的程序。运行时，它提示用户键入6个不同的字符串。如果这些中的任何一个是不正确的，炸弹“爆炸”，打印一个错误消息。我们必须通过拆卸和反向工程来确定6个字符串应该是什么，来“消除”自己独特的炸弹。本实验的主要目的是熟悉汇编语言，并强制学习如何使用调试器。<br>本实验详细项目文件以及分析解决方案参见<a href="https://gitee.com/zhoulee/CSAPP/tree/master/bomb" target="_blank" rel="noopener">BombLab</a>，下载实验代码，解压，进入工作目录，下面进入惊险刺激的的破译之旅。</p>
-<h1 id="基本知识"><a href="#基本知识" class="headerlink" title="基本知识"></a>基本知识</h1><h2 id="寄存器基本使用规律"><a href="#寄存器基本使用规律" class="headerlink" title="寄存器基本使用规律"></a>寄存器基本使用规律</h2><figure class="highlight mojolicious"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"></span><span class="perl">%rbp %rbx %r12~%15 被调用者保存寄存器</span><span class="xml"></span></span><br><span class="line"><span class="xml"></span><span class="perl">%r10 %r11 调用者保存寄存器</span><span class="xml"></span></span><br><span class="line"><span class="xml"></span><span class="perl">%rax 保存函数返回值</span><span class="xml"></span></span><br><span class="line"><span class="xml"></span><span class="perl">%rdi %rsi %rdx %rcx %r8 %r9 依次保存函数参数<span class="number">1</span>~<span class="number">6</span></span><span class="xml"></span></span><br></pre></td></tr></table></figure>
-<h2 id="汇编指令阅读"><a href="#汇编指令阅读" class="headerlink" title="汇编指令阅读"></a>汇编指令阅读</h2><p>指令编写方式：<code>指令名  源操作数  目的操作数</code>源操作数和目的操作数不能同时都为内存单元<br>对于源操作数和目的操作数中，除lea指令外，其他包含括号的指令均为访问对应的内存单元的值，在C语言中，可以将该变量视为指针变量。<br>cmp指令使用<code>目的操作数-源操作数</code>，test指令使用<code>目的操作数&amp;源操作数</code>，接下来的条件指令根据命令规则进行跳转。<br>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>“二进制炸弹”是作为目标代码文件提供给学生的程序。运行时，它提示用户键入6个不同的字符串。如果这些中的任何一个是不正确的，炸弹“爆炸”，打印一个错误消息。我们必须通过拆卸和反向工程来确定6个字符串应该是什么，来“消除”自己独特的炸弹。本实验的主要目的是熟悉汇编语言，并强制学习如何使用调试器。<br>本实验详细项目文件以及分析解决方案参见<a target="_blank" rel="noopener" href="https://gitee.com/zhoulee/CSAPP/tree/master/bomb">BombLab</a>，下载实验代码，解压，进入工作目录，下面进入惊险刺激的的破译之旅。</p>
+<h1 id="基本知识"><a href="#基本知识" class="headerlink" title="基本知识"></a>基本知识</h1><h2 id="寄存器基本使用规律"><a href="#寄存器基本使用规律" class="headerlink" title="寄存器基本使用规律"></a>寄存器基本使用规律</h2><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">%</span>rbp <span class="meta">%</span>rbx <span class="meta">%</span>r<span class="number">12</span>~<span class="meta">%</span><span class="number">15</span> 被调用者保存寄存器</span><br><span class="line"><span class="meta">%</span>r<span class="number">10</span> <span class="meta">%</span>r<span class="number">11</span> 调用者保存寄存器</span><br><span class="line"><span class="meta">%</span>rax 保存函数返回值</span><br><span class="line"><span class="meta">%</span>rdi <span class="meta">%</span>rsi <span class="meta">%</span>rdx <span class="meta">%</span>rcx <span class="meta">%</span>r<span class="number">8</span> <span class="meta">%</span>r<span class="number">9</span> 依次保存函数参数<span class="number">1</span>~<span class="number">6</span></span><br></pre></td></tr></table></figure>
+<h2 id="汇编指令阅读"><a href="#汇编指令阅读" class="headerlink" title="汇编指令阅读"></a>汇编指令阅读</h2><p>指令编写方式：<code>指令名  源操作数  目的操作数</code>源操作数和目的操作数不能同时都为内存单元<br>对于源操作数和目的操作数中，除lea指令外，其他包含括号的指令均为访问对应的内存单元的值，在C语言中，可以将该变量视为指针变量。<br>cmp指令使用<code>目的操作数-源操作数</code>，test指令使用<code>目的操作数&amp;源操作数</code>，接下来的条件指令根据命令规则进行跳转。</p>
         
-          <a class="article-more-a" href="/2017/10/27/CSAPP实验之BombLab/#more">more >></a>
+          <a class="article-more-a" href="/2017/10/27/CSAPP%E5%AE%9E%E9%AA%8C%E4%B9%8BBombLab/#more">more >></a>
         
       
 
       
-    </p></div>
+    </div>
     <div class="article-info article-info-index">
       
       
@@ -373,7 +369,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/27/CSAPP实验之BombLab/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/10/27/CSAPP%E5%AE%9E%E9%AA%8C%E4%B9%8BBombLab/">展开全文 >></a>
         </p>
       
 
@@ -403,19 +399,19 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Markdown基本语法" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-Markdown基本语法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/27/Markdown基本语法/">Markdown基本语法</a>
+      <a class="article-title" href="/2017/10/27/Markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">Markdown基本语法</a>
     </h1>
   
 
         
-        <a href="/2017/10/27/Markdown基本语法/" class="archive-article-date">
+        <a href="/2017/10/27/Markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="archive-article-date">
   	<time datetime="2017-10-27T08:04:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-27</time>
 </a>
         
@@ -425,14 +421,14 @@ var _hmt = _hmt || [];
       
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><strong>Markdown</strong>编辑器支持代码块高亮，是一款简洁高效的编辑器。</p>
 <h1 id="Markdown简介"><a href="#Markdown简介" class="headerlink" title="Markdown简介"></a>Markdown简介</h1><blockquote>
-<p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，然后转换成格式丰富的HTML页面。 —— <a href="https://zh.wikipedia.org/wiki/Markdown" target="_blank" rel="noopener">维基百科</a></p>
+<p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，然后转换成格式丰富的HTML页面。 —— <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Markdown">维基百科</a></p>
 </blockquote>
-<blockquote><a href="http://www.baidu.com" target="_blank" rel="noopener">百度一下</a></blockquote>
+<blockquote>[百度一下](http://www.baidu.com)</blockquote>
 
 <h1 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h1><p>常用代码块指示标签有<code>bash python c cpp java javascript css xml x86asm haskell</code></p>
-<h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@requires_authorization</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">somefunc</span><span class="params">(param1=<span class="string">''</span>, param2=<span class="number">0</span>)</span>:</span></span><br><span class="line">    <span class="string">'''A docstring'''</span></span><br><span class="line">    <span class="keyword">if</span> param1 &gt; param2: <span class="comment"># interesting</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">'Greater'</span></span><br><span class="line">    <span class="keyword">return</span> (param2 - param1 + <span class="number">1</span>) <span class="keyword">or</span> <span class="keyword">None</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>message = <span class="string">'''interpreter</span></span><br><span class="line"><span class="string"><span class="meta">... </span>prompt'''</span></span><br></pre></td></tr></table></figure>
+<h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@requires_authorization</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">somefunc</span>(<span class="params">param1=<span class="string">&#x27;&#x27;</span>, param2=<span class="number">0</span></span>):</span></span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;A docstring&#x27;&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">if</span> param1 &gt; param2: <span class="comment"># interesting</span></span><br><span class="line">        <span class="built_in">print</span> <span class="string">&#x27;Greater&#x27;</span></span><br><span class="line">    <span class="keyword">return</span> (param2 - param1 + <span class="number">1</span>) <span class="keyword">or</span> <span class="literal">None</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>message = <span class="string">&#x27;&#x27;&#x27;interpreter</span></span><br><span class="line"><span class="string"><span class="meta">... </span>prompt&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2017/10/27/Markdown基本语法/#more">more >></a>
+          <a class="article-more-a" href="/2017/10/27/Markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/#more">more >></a>
         
       
 
@@ -456,7 +452,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/27/Markdown基本语法/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/10/27/Markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">展开全文 >></a>
         </p>
       
 
@@ -488,7 +484,7 @@ var _hmt = _hmt || [];
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span>
+      <a class="extend prev" rel="prev" href="/page/8/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span>
     </nav>
   
 
@@ -616,11 +612,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
+                <a href="javascript:void(0)" class="js-tag color5">技术点滴</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术点滴</a>
+                <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -628,11 +624,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt</a>
+                <a href="javascript:void(0)" class="js-tag color1">STEAM</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">STEAM</a>
+                <a href="javascript:void(0)" class="js-tag color3">Qt</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -660,7 +656,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:

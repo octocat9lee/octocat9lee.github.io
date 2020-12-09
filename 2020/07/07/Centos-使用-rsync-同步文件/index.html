@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
-  <meta name="baidu-site-verification" content="gHJw3bXGu1">
-  <meta name="google-site-verification" content="-lNjR-HxF8YoulCpsMRPTH3XMW3mvngPcJDTDXYkNSA">
+  <meta name="baidu-site-verification" content="gHJw3bXGu1" />
+  <meta name="google-site-verification" content="-lNjR-HxF8YoulCpsMRPTH3XMW3mvngPcJDTDXYkNSA" />
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://octocat9lee.github.io">
   <title>Centos 使用 rsync 同步文件 | 章鱼猫の博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="使用 rsync 在两台 Centos 服务器间同步多个文件夹，并配置定时任务，实现自动同步。">
-<meta name="keywords" content="技术点滴">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Centos 使用 rsync 同步文件">
-<meta property="og:url" content="https://octocat9lee.github.io/2020/07/07/Centos-使用-rsync-同步文件/index.html">
+<meta property="og:url" content="https://octocat9lee.github.io/2020/07/07/Centos-%E4%BD%BF%E7%94%A8-rsync-%E5%90%8C%E6%AD%A5%E6%96%87%E4%BB%B6/index.html">
 <meta property="og:site_name" content="章鱼猫の博客">
 <meta property="og:description" content="使用 rsync 在两台 Centos 服务器间同步多个文件夹，并配置定时任务，实现自动同步。">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-07-07T05:59:03.110Z">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-07-07T02:50:23.000Z">
+<meta property="article:modified_time" content="2020-07-07T05:59:03.110Z">
+<meta property="article:author" content="章鱼猫">
+<meta property="article:tag" content="技术点滴">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Centos 使用 rsync 同步文件">
-<meta name="twitter:description" content="使用 rsync 在两台 Centos 服务器间同步多个文件夹，并配置定时任务，实现自动同步。">
   
     <link rel="alternative" href="/atom.xml" title="章鱼猫の博客" type="application/atom+xml">
   
@@ -49,8 +49,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -63,10 +63,8 @@ var _hmt = _hmt || [];
 			<img src="/img/octocat.png" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="">章鱼猫</a></h1>
+		  <h1 class="header-author"><a href=""></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">记录生活的点点滴滴</p>
 		
 
 		<nav class="header-menu">
@@ -121,10 +119,8 @@ var _hmt = _hmt || [];
 				<img src="/img/octocat.png" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">章鱼猫</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>记录生活的点点滴滴<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -171,7 +167,7 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Centos-使用-rsync-同步文件" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-Centos-使用-rsync-同步文件" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -183,7 +179,7 @@ var _hmt = _hmt || [];
   
 
         
-        <a href="/2020/07/07/Centos-使用-rsync-同步文件/" class="archive-article-date">
+        <a href="/2020/07/07/Centos-%E4%BD%BF%E7%94%A8-rsync-%E5%90%8C%E6%AD%A5%E6%96%87%E4%BB%B6/" class="archive-article-date">
   	<time datetime="2020-07-07T02:50:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-07</time>
 </a>
         
@@ -191,17 +187,31 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>使用 rsync 在两台 Centos 服务器间同步多个文件夹，并配置定时任务，实现自动同步。<br><a id="more"></a></p>
-<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><p>主服务器：<code>10.0.204.75</code><br>备份服务器：<code>10.0.204.64</code><br>主服务器和备份服务器安装 <code>rsync</code> 软件：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install rsync</span><br></pre></td></tr></table></figure></p>
-<h1 id="服务端配置"><a href="#服务端配置" class="headerlink" title="服务端配置"></a>服务端配置</h1><p>在主服务器 <code>10.0.204.75</code> 上进行服务器端的配置，<code>rsync</code> 服务端安装完成之后是没有生成 <code>rsync.conf</code> 文件的，需要手动在 <code>/etc</code> 目录下创建 <code>rsyncd.conf</code> 配置文件。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/rsyncd.conf</span><br></pre></td></tr></table></figure></p>
+        <p>使用 rsync 在两台 Centos 服务器间同步多个文件夹，并配置定时任务，实现自动同步。</p>
+<a id="more"></a>
+<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><p>主服务器：<code>10.0.204.75</code><br>备份服务器：<code>10.0.204.64</code><br>主服务器和备份服务器安装 <code>rsync</code> 软件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install rsync</span><br></pre></td></tr></table></figure>
+
+<h1 id="服务端配置"><a href="#服务端配置" class="headerlink" title="服务端配置"></a>服务端配置</h1><p>在主服务器 <code>10.0.204.75</code> 上进行服务器端的配置，<code>rsync</code> 服务端安装完成之后是没有生成 <code>rsync.conf</code> 文件的，需要手动在 <code>/etc</code> 目录下创建 <code>rsyncd.conf</code> 配置文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/rsyncd.conf</span><br></pre></td></tr></table></figure>
+
 <p>服务端 <code>rsyncd.conf</code> 配置文件示例：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># global setting</span></span><br><span class="line">uid = root</span><br><span class="line">gid = root</span><br><span class="line">list = <span class="literal">false</span></span><br><span class="line">use chroot = no</span><br><span class="line"><span class="built_in">read</span> only = yes</span><br><span class="line">hosts allow = 10.0.204.64 10.0.204.75</span><br><span class="line">max connections = 4</span><br><span class="line"><span class="built_in">log</span> file = /var/<span class="built_in">log</span>/rsyncd.log</span><br><span class="line">pid file = /var/run/rsyncd.pid</span><br><span class="line">lock file = /var/run/rsync.lock</span><br><span class="line">secrets file = /etc/rsyncd.secrets</span><br><span class="line">　　</span><br><span class="line"><span class="comment"># rsync path</span></span><br><span class="line">[rms]</span><br><span class="line">path = /opt/upload</span><br><span class="line">ignore errors</span><br><span class="line">auth users = root</span><br><span class="line">comment = rms</span><br><span class="line"></span><br><span class="line">[nginx]</span><br><span class="line">path = /home/nginx/upload</span><br><span class="line">ignore errors</span><br><span class="line">auth users = root</span><br><span class="line">comment = nginx</span><br></pre></td></tr></table></figure>
+
 <p>配置同步的用户名和密码：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># touch /etc/rsyncd.secrets</span></span><br><span class="line"><span class="comment"># echo "root:123456" &gt; /etc/rsyncd.secrets</span></span><br><span class="line"><span class="comment"># chown root:root /etc/rsyncd.secrets</span></span><br><span class="line"><span class="comment"># chmod 600 /etc/rsyncd.secrets</span></span><br></pre></td></tr></table></figure>
-<p>启动 <code>rsync</code>，并设置为开机启动：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /usr/bin/rsync --daemon</span></span><br><span class="line"><span class="comment"># vi /etc/rc.d/rc.local</span></span><br><span class="line"></span><br><span class="line">rm -f /var/run/rsyncd.pid</span><br><span class="line">/usr/bin/rsync --daemon</span><br></pre></td></tr></table></figure></p>
-<h1 id="客户端配置"><a href="#客户端配置" class="headerlink" title="客户端配置"></a>客户端配置</h1><p>在备份服务器 <code>10.0.204.64</code> 上生成与服务端对应密码配置文件，注意这里只需要服务器 <code>rsyncd.secrets</code> 中的密码。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># touch /etc/rsyncd.secrets</span></span><br><span class="line"><span class="comment"># echo "123456" &gt; /etc/rsyncd.secrets</span></span><br><span class="line"><span class="comment"># chown root:root /etc/rsyncd.secrets</span></span><br><span class="line"><span class="comment"># chmod 600 /etc/rsyncd.secrets</span></span><br></pre></td></tr></table></figure></p>
-<p>在备份服务器端执行同步命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">rsync -au --password-file=/etc/rsyncd.secrets root@10.0.204.75::rms /home/backup/static</span><br><span class="line">rsync -au --password-file=/etc/rsyncd.secrets root@10.0.204.75::nginx /home/backup/static</span><br></pre></td></tr></table></figure></p>
-<p>建立定时任务：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># crontab -e</span></span><br><span class="line">00 02 * * * /home/backup/rsync_backup.sh</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># touch /etc/rsyncd.secrets</span></span><br><span class="line"><span class="comment"># echo &quot;root:123456&quot; &gt; /etc/rsyncd.secrets</span></span><br><span class="line"><span class="comment"># chown root:root /etc/rsyncd.secrets</span></span><br><span class="line"><span class="comment"># chmod 600 /etc/rsyncd.secrets</span></span><br></pre></td></tr></table></figure>
+
+<p>启动 <code>rsync</code>，并设置为开机启动：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /usr/bin/rsync --daemon</span></span><br><span class="line"><span class="comment"># vi /etc/rc.d/rc.local</span></span><br><span class="line"></span><br><span class="line">rm -f /var/run/rsyncd.pid</span><br><span class="line">/usr/bin/rsync --daemon</span><br></pre></td></tr></table></figure>
+
+<h1 id="客户端配置"><a href="#客户端配置" class="headerlink" title="客户端配置"></a>客户端配置</h1><p>在备份服务器 <code>10.0.204.64</code> 上生成与服务端对应密码配置文件，注意这里只需要服务器 <code>rsyncd.secrets</code> 中的密码。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># touch /etc/rsyncd.secrets</span></span><br><span class="line"><span class="comment"># echo &quot;123456&quot; &gt; /etc/rsyncd.secrets</span></span><br><span class="line"><span class="comment"># chown root:root /etc/rsyncd.secrets</span></span><br><span class="line"><span class="comment"># chmod 600 /etc/rsyncd.secrets</span></span><br></pre></td></tr></table></figure>
+
+<p>在备份服务器端执行同步命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">rsync -au --password-file=/etc/rsyncd.secrets root@10.0.204.75::rms /home/backup/static</span><br><span class="line">rsync -au --password-file=/etc/rsyncd.secrets root@10.0.204.75::nginx /home/backup/static</span><br></pre></td></tr></table></figure>
+
+<p>建立定时任务：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># crontab -e</span></span><br><span class="line">00 02 * * * /home/backup/rsync_backup.sh</span><br></pre></td></tr></table></figure>
 
       
 
@@ -271,7 +281,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://octocat9lee.github.io/2020/07/07/Centos-使用-rsync-同步文件/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://octocat9lee.github.io/2020/07/07/Centos-%E4%BD%BF%E7%94%A8-rsync-%E5%90%8C%E6%AD%A5%E6%96%87%E4%BB%B6/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -285,7 +295,7 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2020/07/19/Qt开发环境搭建/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/07/19/Qt%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -295,7 +305,7 @@ var _hmt = _hmt || [];
     </a>
   
   
-    <a href="/2020/05/05/孩子把你的手给我之笔记/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/05/05/%E5%AD%A9%E5%AD%90%E6%8A%8A%E4%BD%A0%E7%9A%84%E6%89%8B%E7%BB%99%E6%88%91%E4%B9%8B%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">孩子把你的手给我之笔记</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -323,7 +333,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#环境"><span class="toc-number">1.</span> <span class="toc-text">环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#服务端配置"><span class="toc-number">2.</span> <span class="toc-text">服务端配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#客户端配置"><span class="toc-number">3.</span> <span class="toc-text">客户端配置</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83"><span class="toc-number">1.</span> <span class="toc-text">环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF%E9%85%8D%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">服务端配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%85%8D%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">客户端配置</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -354,7 +364,7 @@ var _hmt = _hmt || [];
           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
       </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </section>
   
 
@@ -484,11 +494,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
+                <a href="javascript:void(0)" class="js-tag color5">技术点滴</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术点滴</a>
+                <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -496,11 +506,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt</a>
+                <a href="javascript:void(0)" class="js-tag color1">STEAM</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">STEAM</a>
+                <a href="javascript:void(0)" class="js-tag color3">Qt</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -528,7 +538,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:

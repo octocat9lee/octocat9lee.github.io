@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
-  <meta name="baidu-site-verification" content="gHJw3bXGu1">
-  <meta name="google-site-verification" content="-lNjR-HxF8YoulCpsMRPTH3XMW3mvngPcJDTDXYkNSA">
+  <meta name="baidu-site-verification" content="gHJw3bXGu1" />
+  <meta name="google-site-verification" content="-lNjR-HxF8YoulCpsMRPTH3XMW3mvngPcJDTDXYkNSA" />
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://octocat9lee.github.io">
   <title>进程内存监控 | 章鱼猫の博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="脚本目的使用脚本监控指定进程内存占用，当进程占用内存超过设置阈值时，生成对应的coredump文件以及使用gdb命令输出进程的全部线程信息，从而保存进程在系统kill前进程信息，方便后续对内存急剧上涨的调试。 使用方式1nohup ./memcheck.sh &amp;gt; /dev/null 2&amp;gt;&amp;amp;1 &amp;amp;">
-<meta name="keywords" content="shell">
+  <meta name="description" content="脚本目的使用脚本监控指定进程内存占用，当进程占用内存超过设置阈值时，生成对应的coredump文件以及使用gdb命令输出进程的全部线程信息，从而保存进程在系统kill前进程信息，方便后续对内存急剧上涨的调试。 使用方式1nohup .&#x2F;memcheck.sh &gt; &#x2F;dev&#x2F;null 2&gt;&amp;1 &amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="进程内存监控">
-<meta property="og:url" content="https://octocat9lee.github.io/2017/10/28/进程内存监控/index.html">
+<meta property="og:url" content="https://octocat9lee.github.io/2017/10/28/%E8%BF%9B%E7%A8%8B%E5%86%85%E5%AD%98%E7%9B%91%E6%8E%A7/index.html">
 <meta property="og:site_name" content="章鱼猫の博客">
-<meta property="og:description" content="脚本目的使用脚本监控指定进程内存占用，当进程占用内存超过设置阈值时，生成对应的coredump文件以及使用gdb命令输出进程的全部线程信息，从而保存进程在系统kill前进程信息，方便后续对内存急剧上涨的调试。 使用方式1nohup ./memcheck.sh &amp;gt; /dev/null 2&amp;gt;&amp;amp;1 &amp;amp;">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-05T01:36:48.302Z">
+<meta property="og:description" content="脚本目的使用脚本监控指定进程内存占用，当进程占用内存超过设置阈值时，生成对应的coredump文件以及使用gdb命令输出进程的全部线程信息，从而保存进程在系统kill前进程信息，方便后续对内存急剧上涨的调试。 使用方式1nohup .&#x2F;memcheck.sh &gt; &#x2F;dev&#x2F;null 2&gt;&amp;1 &amp;">
+<meta property="og:locale">
+<meta property="article:published_time" content="2017-10-28T15:03:37.000Z">
+<meta property="article:modified_time" content="2019-11-05T01:36:48.302Z">
+<meta property="article:author" content="章鱼猫">
+<meta property="article:tag" content="shell">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="进程内存监控">
-<meta name="twitter:description" content="脚本目的使用脚本监控指定进程内存占用，当进程占用内存超过设置阈值时，生成对应的coredump文件以及使用gdb命令输出进程的全部线程信息，从而保存进程在系统kill前进程信息，方便后续对内存急剧上涨的调试。 使用方式1nohup ./memcheck.sh &amp;gt; /dev/null 2&amp;gt;&amp;amp;1 &amp;amp;">
   
     <link rel="alternative" href="/atom.xml" title="章鱼猫の博客" type="application/atom+xml">
   
@@ -49,8 +49,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -63,10 +63,8 @@ var _hmt = _hmt || [];
 			<img src="/img/octocat.png" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="">章鱼猫</a></h1>
+		  <h1 class="header-author"><a href=""></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">记录生活的点点滴滴</p>
 		
 
 		<nav class="header-menu">
@@ -121,10 +119,8 @@ var _hmt = _hmt || [];
 				<img src="/img/octocat.png" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">章鱼猫</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>记录生活的点点滴滴<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -171,7 +167,7 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-进程内存监控" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-进程内存监控" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -183,7 +179,7 @@ var _hmt = _hmt || [];
   
 
         
-        <a href="/2017/10/28/进程内存监控/" class="archive-article-date">
+        <a href="/2017/10/28/%E8%BF%9B%E7%A8%8B%E5%86%85%E5%AD%98%E7%9B%91%E6%8E%A7/" class="archive-article-date">
   	<time datetime="2017-10-28T15:03:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-28</time>
 </a>
         
@@ -192,9 +188,9 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="脚本目的"><a href="#脚本目的" class="headerlink" title="脚本目的"></a>脚本目的</h1><p>使用脚本监控指定进程内存占用，当进程占用内存超过设置阈值时，生成对应的coredump文件以及使用gdb命令输出进程的全部线程信息，从而保存进程在系统kill前进程信息，方便后续对内存急剧上涨的调试。</p>
-<h1 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h1><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup ./memcheck.sh &gt; /dev/<span class="literal">null</span> <span class="number">2</span>&gt;<span class="meta">&amp;1 &amp;</span></span><br></pre></td></tr></table></figure>
+<h1 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h1><figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup ./memcheck.sh &gt; <span class="regexp">/dev/</span><span class="literal">null</span> <span class="number">2</span>&gt;&amp;<span class="number">1</span> &amp;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h1 id="脚本实现"><a href="#脚本实现" class="headerlink" title="脚本实现"></a>脚本实现</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment">#usage: nohup ./memcheck.sh &gt; /dev/null 2&gt;&amp;1 &amp;</span></span><br><span class="line"><span class="comment">#set -x</span></span><br><span class="line">PROC_NAME=<span class="string">"memchk_test"</span>   <span class="comment">#进程名称</span></span><br><span class="line">OUTPUT_PATH=<span class="string">"/home/zhoulee/"</span> <span class="comment">#输出文件路径</span></span><br><span class="line"><span class="built_in">let</span> MEMORY_LIMIT=500000  <span class="comment">#内存使用上限 单位:KB</span></span><br><span class="line"><span class="built_in">let</span> MONITOR_INTERVAL=5   <span class="comment">#监控时间间隔 单位:Sec</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>)</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    PID=`ps aux | grep <span class="variable">$&#123;PROC_NAME&#125;</span> | grep -v grep | head -n 1 | awk <span class="string">'&#123;print $2&#125;'</span>`</span><br><span class="line">    <span class="keyword">if</span> [ ! <span class="variable">$&#123;PID&#125;</span> ]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"process <span class="variable">$&#123;PROC_NAME&#125;</span> not found"</span></span><br><span class="line">    <span class="keyword">elif</span> [ <span class="variable">$&#123;PID&#125;</span> -gt 0 ]; <span class="keyword">then</span></span><br><span class="line">        MEM_USE=`cat /proc/<span class="variable">$&#123;PID&#125;</span>/status | grep VmRSS | awk <span class="string">'&#123;print $2&#125;'</span>`</span><br><span class="line">        <span class="keyword">if</span> [ <span class="variable">$&#123;MEM_USE&#125;</span> -gt <span class="variable">$&#123;MEMORY_LIMIT&#125;</span> ]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">echo</span> <span class="string">"memory high, save process info...."</span></span><br><span class="line">            TIME_SUFFIX=`date +%Y%m%d-%H%M%S`</span><br><span class="line">            CORE_FILE=<span class="variable">$&#123;OUTPUT_PATH&#125;</span><span class="variable">$&#123;PROC_NAME&#125;</span><span class="string">"_"</span><span class="variable">$&#123;TIME_SUFFIX&#125;</span><span class="string">"_"</span><span class="variable">$&#123;PID&#125;</span><span class="string">".coredump"</span></span><br><span class="line">            GDB_FILE=<span class="variable">$&#123;OUTPUT_PATH&#125;</span><span class="variable">$&#123;PROC_NAME&#125;</span><span class="string">"_"</span><span class="variable">$&#123;TIME_SUFFIX&#125;</span><span class="string">"_"</span><span class="variable">$&#123;PID&#125;</span><span class="string">"_gdb.info"</span></span><br><span class="line">            gdb -ex <span class="string">"thread apply all bt"</span> -batch -p <span class="variable">$&#123;PID&#125;</span> &gt; <span class="variable">$&#123;GDB_FILE&#125;</span></span><br><span class="line">            gcore -o <span class="variable">$&#123;CORE_FILE&#125;</span> <span class="variable">$&#123;PID&#125;</span></span><br><span class="line">            <span class="built_in">break</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">echo</span> <span class="string">"memory <span class="variable">$&#123;MEM_USE&#125;</span> KB"</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">    sleep <span class="variable">$&#123;MONITOR_INTERVAL&#125;</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<h1 id="脚本实现"><a href="#脚本实现" class="headerlink" title="脚本实现"></a>脚本实现</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment">#usage: nohup ./memcheck.sh &gt; /dev/null 2&gt;&amp;1 &amp;</span></span><br><span class="line"><span class="comment">#set -x</span></span><br><span class="line">PROC_NAME=<span class="string">&quot;memchk_test&quot;</span>   <span class="comment">#进程名称</span></span><br><span class="line">OUTPUT_PATH=<span class="string">&quot;/home/zhoulee/&quot;</span> <span class="comment">#输出文件路径</span></span><br><span class="line"><span class="built_in">let</span> MEMORY_LIMIT=500000  <span class="comment">#内存使用上限 单位:KB</span></span><br><span class="line"><span class="built_in">let</span> MONITOR_INTERVAL=5   <span class="comment">#监控时间间隔 单位:Sec</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>)</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    PID=`ps aux | grep <span class="variable">$&#123;PROC_NAME&#125;</span> | grep -v grep | head -n 1 | awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span>`</span><br><span class="line">    <span class="keyword">if</span> [ ! <span class="variable">$&#123;PID&#125;</span> ]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;process <span class="variable">$&#123;PROC_NAME&#125;</span> not found&quot;</span></span><br><span class="line">    <span class="keyword">elif</span> [ <span class="variable">$&#123;PID&#125;</span> -gt 0 ]; <span class="keyword">then</span></span><br><span class="line">        MEM_USE=`cat /proc/<span class="variable">$&#123;PID&#125;</span>/status | grep VmRSS | awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span>`</span><br><span class="line">        <span class="keyword">if</span> [ <span class="variable">$&#123;MEM_USE&#125;</span> -gt <span class="variable">$&#123;MEMORY_LIMIT&#125;</span> ]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">echo</span> <span class="string">&quot;memory high, save process info....&quot;</span></span><br><span class="line">            TIME_SUFFIX=`date +%Y%m%d-%H%M%S`</span><br><span class="line">            CORE_FILE=<span class="variable">$&#123;OUTPUT_PATH&#125;</span><span class="variable">$&#123;PROC_NAME&#125;</span><span class="string">&quot;_&quot;</span><span class="variable">$&#123;TIME_SUFFIX&#125;</span><span class="string">&quot;_&quot;</span><span class="variable">$&#123;PID&#125;</span><span class="string">&quot;.coredump&quot;</span></span><br><span class="line">            GDB_FILE=<span class="variable">$&#123;OUTPUT_PATH&#125;</span><span class="variable">$&#123;PROC_NAME&#125;</span><span class="string">&quot;_&quot;</span><span class="variable">$&#123;TIME_SUFFIX&#125;</span><span class="string">&quot;_&quot;</span><span class="variable">$&#123;PID&#125;</span><span class="string">&quot;_gdb.info&quot;</span></span><br><span class="line">            gdb -ex <span class="string">&quot;thread apply all bt&quot;</span> -batch -p <span class="variable">$&#123;PID&#125;</span> &gt; <span class="variable">$&#123;GDB_FILE&#125;</span></span><br><span class="line">            gcore -o <span class="variable">$&#123;CORE_FILE&#125;</span> <span class="variable">$&#123;PID&#125;</span></span><br><span class="line">            <span class="built_in">break</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">echo</span> <span class="string">&quot;memory <span class="variable">$&#123;MEM_USE&#125;</span> KB&quot;</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">    sleep <span class="variable">$&#123;MONITOR_INTERVAL&#125;</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
 
       
 
@@ -264,7 +260,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://octocat9lee.github.io/2017/10/28/进程内存监控/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://octocat9lee.github.io/2017/10/28/%E8%BF%9B%E7%A8%8B%E5%86%85%E5%AD%98%E7%9B%91%E6%8E%A7/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -288,7 +284,7 @@ var _hmt = _hmt || [];
     </a>
   
   
-    <a href="/2017/10/27/CSAPP实验之BombLab/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/10/27/CSAPP%E5%AE%9E%E9%AA%8C%E4%B9%8BBombLab/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">CSAPP实验之BombLab</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -334,7 +330,7 @@ var _hmt = _hmt || [];
           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
       </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </section>
   
 
@@ -464,11 +460,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
+                <a href="javascript:void(0)" class="js-tag color5">技术点滴</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术点滴</a>
+                <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -476,11 +472,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt</a>
+                <a href="javascript:void(0)" class="js-tag color1">STEAM</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">STEAM</a>
+                <a href="javascript:void(0)" class="js-tag color3">Qt</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -508,7 +504,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:

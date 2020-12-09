@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
-  <meta name="baidu-site-verification" content="gHJw3bXGu1">
-  <meta name="google-site-verification" content="-lNjR-HxF8YoulCpsMRPTH3XMW3mvngPcJDTDXYkNSA">
+  <meta name="baidu-site-verification" content="gHJw3bXGu1" />
+  <meta name="google-site-verification" content="-lNjR-HxF8YoulCpsMRPTH3XMW3mvngPcJDTDXYkNSA" />
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://octocat9lee.github.io">
   <title>C++Primer5e第04章：表达式 | 章鱼猫の博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="基础左值和右值左值可以位于赋值语句的左侧，右值则不能。当一个对象被用作右值时，用的是对象的值(内容)；当对象用作左值时，用的是对象的身份(在内存中的位置)。使用关键字decltype，左值和右值也有所不同，如果表达式的求值结果是左值，decltype会得到一个引用类型。假设p类型int，因为解引用生成左值，所以decltype(p)的结果是int&amp;amp;。 求值顺序优先级规定运算对象的组合方式，">
-<meta name="keywords" content="C++">
+  <meta name="description" content="基础左值和右值左值可以位于赋值语句的左侧，右值则不能。当一个对象被用作右值时，用的是对象的值(内容)；当对象用作左值时，用的是对象的身份(在内存中的位置)。使用关键字decltype，左值和右值也有所不同，如果表达式的求值结果是左值，decltype会得到一个引用类型。假设p类型int*，因为解引用生成左值，所以decltype(*p)的结果是int&amp;。 求值顺序优先级规定运算对象的组合方">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++Primer5e第04章：表达式">
-<meta property="og:url" content="https://octocat9lee.github.io/2017/12/06/C-Primer5e第04章：表达式/index.html">
+<meta property="og:url" content="https://octocat9lee.github.io/2017/12/06/C-Primer5e%E7%AC%AC04%E7%AB%A0%EF%BC%9A%E8%A1%A8%E8%BE%BE%E5%BC%8F/index.html">
 <meta property="og:site_name" content="章鱼猫の博客">
-<meta property="og:description" content="基础左值和右值左值可以位于赋值语句的左侧，右值则不能。当一个对象被用作右值时，用的是对象的值(内容)；当对象用作左值时，用的是对象的身份(在内存中的位置)。使用关键字decltype，左值和右值也有所不同，如果表达式的求值结果是左值，decltype会得到一个引用类型。假设p类型int，因为解引用生成左值，所以decltype(p)的结果是int&amp;amp;。 求值顺序优先级规定运算对象的组合方式，">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-05T01:36:47.873Z">
+<meta property="og:description" content="基础左值和右值左值可以位于赋值语句的左侧，右值则不能。当一个对象被用作右值时，用的是对象的值(内容)；当对象用作左值时，用的是对象的身份(在内存中的位置)。使用关键字decltype，左值和右值也有所不同，如果表达式的求值结果是左值，decltype会得到一个引用类型。假设p类型int*，因为解引用生成左值，所以decltype(*p)的结果是int&amp;。 求值顺序优先级规定运算对象的组合方">
+<meta property="og:locale">
+<meta property="article:published_time" content="2017-12-06T07:21:11.000Z">
+<meta property="article:modified_time" content="2019-11-05T01:36:47.873Z">
+<meta property="article:author" content="章鱼猫">
+<meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C++Primer5e第04章：表达式">
-<meta name="twitter:description" content="基础左值和右值左值可以位于赋值语句的左侧，右值则不能。当一个对象被用作右值时，用的是对象的值(内容)；当对象用作左值时，用的是对象的身份(在内存中的位置)。使用关键字decltype，左值和右值也有所不同，如果表达式的求值结果是左值，decltype会得到一个引用类型。假设p类型int，因为解引用生成左值，所以decltype(p)的结果是int&amp;amp;。 求值顺序优先级规定运算对象的组合方式，">
   
     <link rel="alternative" href="/atom.xml" title="章鱼猫の博客" type="application/atom+xml">
   
@@ -49,8 +49,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -63,10 +63,8 @@ var _hmt = _hmt || [];
 			<img src="/img/octocat.png" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="">章鱼猫</a></h1>
+		  <h1 class="header-author"><a href=""></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">记录生活的点点滴滴</p>
 		
 
 		<nav class="header-menu">
@@ -121,10 +119,8 @@ var _hmt = _hmt || [];
 				<img src="/img/octocat.png" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">章鱼猫</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>记录生活的点点滴滴<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -171,7 +167,7 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-C-Primer5e第04章：表达式" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-C-Primer5e第04章：表达式" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -183,7 +179,7 @@ var _hmt = _hmt || [];
   
 
         
-        <a href="/2017/12/06/C-Primer5e第04章：表达式/" class="archive-article-date">
+        <a href="/2017/12/06/C-Primer5e%E7%AC%AC04%E7%AB%A0%EF%BC%9A%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="archive-article-date">
   	<time datetime="2017-12-06T07:21:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-06</time>
 </a>
         
@@ -191,21 +187,28 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="左值和右值"><a href="#左值和右值" class="headerlink" title="左值和右值"></a>左值和右值</h2><p>左值可以位于赋值语句的左侧，右值则不能。<br>当一个对象被用作右值时，用的是对象的值(内容)；当对象用作左值时，用的是对象的身份(在内存中的位置)。<br>使用关键字decltype，左值和右值也有所不同，如果表达式的求值结果是左值，decltype会得到一个引用类型。假设p类型int<em>，因为解引用生成左值，所以decltype(</em>p)的结果是int&amp;。</p>
-<h2 id="求值顺序"><a href="#求值顺序" class="headerlink" title="求值顺序"></a>求值顺序</h2><p>优先级规定运算对象的组合方式，但没有说明运算符对象的求值顺序。在大多数情况下，不会明确指定求值顺序。例如，下面的表达式中，我们可以确定f1和f2一定会在乘法前调用，因为调用符优先级高于乘法，但我们无法知道f1和f2谁先调用。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = f1() * f2();</span><br></pre></td></tr></table></figure></p>
-<p>对于没有明确指定执行顺序的运算符来说，如果表达式指向并修改了同一个对象，将导致未定义行为。例如：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="string">" "</span> &lt;&lt; ++i &lt;&lt; <span class="built_in">endl</span>; <span class="comment">//未定义的</span></span><br><span class="line"><span class="comment">//将单词改成大写形式</span></span><br><span class="line"><span class="keyword">while</span>(beg != s.end() &amp;&amp; !<span class="built_in">isspace</span>(*beg))</span><br><span class="line">&#123;</span><br><span class="line">    *beg = <span class="built_in">toupper</span>(*beg++); <span class="comment">//该赋值语句未定义</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>编译器可能先求++i的值，再求i的值，因此输出结果是1 1；也可能先求i的值再求++i的值，输出结果是0 1，甚至编译器还可能做完全不同的操作。在单词程序中，编译器可能按照下面的任意一种方式处理表达式，也可能采用别的方式处理它。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">*beg = <span class="built_in">toupper</span>(*beg);       <span class="comment">//如果先求左侧的值</span></span><br><span class="line">*(beg + <span class="number">1</span>) = <span class="built_in">toupper</span>(*beg); <span class="comment">//如果先求右侧的值</span></span><br></pre></td></tr></table></figure></p>
+        <h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="左值和右值"><a href="#左值和右值" class="headerlink" title="左值和右值"></a>左值和右值</h2><p>左值可以位于赋值语句的左侧，右值则不能。<br>当一个对象被用作右值时，用的是对象的值(内容)；当对象用作左值时，用的是对象的身份(在内存中的位置)。<br>使用关键字decltype，左值和右值也有所不同，如果表达式的求值结果是左值，decltype会得到一个引用类型。假设p类型int*，因为解引用生成左值，所以decltype(*p)的结果是int&amp;。</p>
+<h2 id="求值顺序"><a href="#求值顺序" class="headerlink" title="求值顺序"></a>求值顺序</h2><p>优先级规定运算对象的组合方式，但没有说明运算符对象的求值顺序。在大多数情况下，不会明确指定求值顺序。例如，下面的表达式中，我们可以确定f1和f2一定会在乘法前调用，因为调用符优先级高于乘法，但我们无法知道f1和f2谁先调用。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = f1() * f2();</span><br></pre></td></tr></table></figure>
+<p>对于没有明确指定执行顺序的运算符来说，如果表达式指向并修改了同一个对象，将导致未定义行为。例如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; ++i &lt;&lt; <span class="built_in">endl</span>; <span class="comment">//未定义的</span></span><br><span class="line"><span class="comment">//将单词改成大写形式</span></span><br><span class="line"><span class="keyword">while</span>(beg != s.end() &amp;&amp; !<span class="built_in">isspace</span>(*beg))</span><br><span class="line">&#123;</span><br><span class="line">    *beg = <span class="built_in">toupper</span>(*beg++); <span class="comment">//该赋值语句未定义</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译器可能先求++i的值，再求i的值，因此输出结果是1 1；也可能先求i的值再求++i的值，输出结果是0 1，甚至编译器还可能做完全不同的操作。在单词程序中，编译器可能按照下面的任意一种方式处理表达式，也可能采用别的方式处理它。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">*beg = <span class="built_in">toupper</span>(*beg);       <span class="comment">//如果先求左侧的值</span></span><br><span class="line">*(beg + <span class="number">1</span>) = <span class="built_in">toupper</span>(*beg); <span class="comment">//如果先求右侧的值</span></span><br></pre></td></tr></table></figure>
+
 <p>明确规定了求值顺序的运算符：<strong>逻辑与(&amp;&amp;) 逻辑或(||) 条件运算(?:) 逗号(,)运算 </strong></p>
 <blockquote>
 <p>处理复合表达式原则<br>1）使用括号强制让表达式的组合关系符合逻辑要求<br>2）如果改变了某个运算对象的值，在表达式的其他地方不要再使用这个运算对象<br>规则2的例外，当改变对象的子表达式本身就是另外一个子表达式的运算对象时，该规则无效。比如常用的用法*++iter，因为递增运算必须先求值，然后才轮到解引用。</p>
 </blockquote>
 <a id="more"></a>
 <h1 id="逻辑运算"><a href="#逻辑运算" class="headerlink" title="逻辑运算"></a>逻辑运算</h1><p>逻辑与和或运算都使用<code>短路求值(short-circuit evaluation)</code>。即只有左侧表达式无法确定运算结果时才会计算右侧表达式。</p>
-<h1 id="赋值运算"><a href="#赋值运算" class="headerlink" title="赋值运算"></a>赋值运算</h1><p>C++11新标准允许使用花括号括起来的初始值列表作为赋值语句的右侧运算对象。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vi;</span><br><span class="line">vi = &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span> , <span class="number">5</span>&#125;;</span><br></pre></td></tr></table></figure></p>
+<h1 id="赋值运算"><a href="#赋值运算" class="headerlink" title="赋值运算"></a>赋值运算</h1><p>C++11新标准允许使用花括号括起来的初始值列表作为赋值语句的右侧运算对象。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vi;</span><br><span class="line">vi = &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span> , <span class="number">5</span>&#125;;</span><br></pre></td></tr></table></figure>
 <p><strong>因为赋值运算符的优先级低于关系运算符的优先级，所以在条件语句中，赋值部分应该加上括号</strong><br><strong>切勿混淆相等运算符和赋值运算符</strong></p>
-<h1 id="递增和递减运算符"><a href="#递增和递减运算符" class="headerlink" title="递增和递减运算符"></a>递增和递减运算符</h1><p>递增和递减运算符有两种形式：前置版本和后置版本。前置版本现将运算对象加1或减1，然后将改变后的运算对象作为结果；后置版本也会将对象加1或减1，但求值结果是运算对象改变前的那个值的副本。<br><strong>除非必须，否则不用递增递减运算符的后置版本</strong><br>在一条语句中混用解引用和递增运算符，如下程序循环输出vector对象直到遇到第一个负值：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> pbeg = v.begin();</span><br><span class="line"><span class="keyword">while</span>(pbeg != v.end() &amp;&amp; *beg &gt;= <span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; *pbeg++ &lt;&lt; <span class="built_in">endl</span>; <span class="comment">//等价于*(pbeg++)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="递增和递减运算符"><a href="#递增和递减运算符" class="headerlink" title="递增和递减运算符"></a>递增和递减运算符</h1><p>递增和递减运算符有两种形式：前置版本和后置版本。前置版本现将运算对象加1或减1，然后将改变后的运算对象作为结果；后置版本也会将对象加1或减1，但求值结果是运算对象改变前的那个值的副本。<br><strong>除非必须，否则不用递增递减运算符的后置版本</strong><br>在一条语句中混用解引用和递增运算符，如下程序循环输出vector对象直到遇到第一个负值：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> pbeg = v.begin();</span><br><span class="line"><span class="keyword">while</span>(pbeg != v.end() &amp;&amp; *beg &gt;= <span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; *pbeg++ &lt;&lt; <span class="built_in">endl</span>; <span class="comment">//等价于*(pbeg++)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>后置递增运算符的优先级高于解引用，因此<code>*pbeg++等价于*(pbeg++)</code>。pbeg++把pbeg的值加1，然后返回pbeg的初始值的副本作为求值结果，所以解引用的结果是pbeg未增加前的值。最终，该语句输出pbeg开始时指向的那个元素，并将指针向前移动一个位置。</p>
-<h1 id="sizeof运算符"><a href="#sizeof运算符" class="headerlink" title="sizeof运算符"></a>sizeof运算符</h1><p>sizeof运算符返回一个表达式或者类型所占的字节数。sizeof运算符满足右结合律，返回值为size_t类型的常量表达式。sizeof运算符的两种形式：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">sizeof</span>(type)</span><br><span class="line"><span class="keyword">sizeof</span> expr <span class="comment">//sizeof返回表达式结果类型的大小，但不实际计算运算对象的值</span></span><br><span class="line"></span><br><span class="line">Sales_data data, *p;</span><br><span class="line"><span class="keyword">sizeof</span>(Sales_data);         <span class="comment">//获得存储Sales_data类型对象所占空间大小</span></span><br><span class="line"><span class="keyword">sizeof</span> data;                <span class="comment">//data的类型的大小，即sizeof(Sales_data)</span></span><br><span class="line"><span class="keyword">sizeof</span> p;                   <span class="comment">//指针所占空间大小</span></span><br><span class="line"><span class="keyword">sizeof</span> *p;                  <span class="comment">//根据右结合律，等价于sizeof(*p)，即sizeof(Sales_data)</span></span><br><span class="line"><span class="keyword">sizeof</span> data.revenue;        <span class="comment">//Sales_data的revenue成员对应类型的大小</span></span><br><span class="line"><span class="keyword">sizeof</span> Sales_data::revenue; <span class="comment">//Sales_data的revenue成员对应类型的大小</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="sizeof运算符"><a href="#sizeof运算符" class="headerlink" title="sizeof运算符"></a>sizeof运算符</h1><p>sizeof运算符返回一个表达式或者类型所占的字节数。sizeof运算符满足右结合律，返回值为size_t类型的常量表达式。sizeof运算符的两种形式：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">sizeof</span>(type)</span><br><span class="line"><span class="keyword">sizeof</span> expr <span class="comment">//sizeof返回表达式结果类型的大小，但不实际计算运算对象的值</span></span><br><span class="line"></span><br><span class="line">Sales_data data, *p;</span><br><span class="line"><span class="keyword">sizeof</span>(Sales_data);         <span class="comment">//获得存储Sales_data类型对象所占空间大小</span></span><br><span class="line"><span class="keyword">sizeof</span> data;                <span class="comment">//data的类型的大小，即sizeof(Sales_data)</span></span><br><span class="line"><span class="keyword">sizeof</span> p;                   <span class="comment">//指针所占空间大小</span></span><br><span class="line"><span class="keyword">sizeof</span> *p;                  <span class="comment">//根据右结合律，等价于sizeof(*p)，即sizeof(Sales_data)</span></span><br><span class="line"><span class="keyword">sizeof</span> data.revenue;        <span class="comment">//Sales_data的revenue成员对应类型的大小</span></span><br><span class="line"><span class="keyword">sizeof</span> Sales_data::revenue; <span class="comment">//Sales_data的revenue成员对应类型的大小</span></span><br></pre></td></tr></table></figure>
 <p>因为sizeof不会实际求运算对象的值，所以在sizeof *p中即使p是个未初始化的指针也不会有什么影响。<br>C++11新标准允许我们使用作用域运算符来获得类成员的大小。因为sizeof运算符不需要我们提供一个具体的对象，所以如果需要知道类成员的大小并需要真的获取该成员。<br><strong>sizeof运算结果总结：</strong></p>
 <blockquote>
 <p>对char类型或者类型为char的表达式执行sizeof运算，结果得到1<br>对引用类型执行sizeof运算得到被引用对象所占空间大小<br>对指针执行sizeof运算得到指针本身所占空间大小<br>对解引用指针执行sizeof运算得到指针指向对象所占空间大小，指针不需要有效<br>对数组执行sizeof运算得到整个数组所占空间大小，也即使sizeof运算不会把数组转换成指针来处理<br>对string或vector执行sizeof运算只返回该类型固定部分大小，不会计算对象中元素占用了多少空间</p>
@@ -213,18 +216,21 @@ var _hmt = _hmt || [];
 <h1 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h1><p>在C++中，某些类型之间存在关联，如果两种类型相关联，那么它们就可以相互转换。</p>
 <h2 id="算术转换"><a href="#算术转换" class="headerlink" title="算术转换"></a>算术转换</h2><p>整型提升负责把小整数类型转换成较大的整数类型。对于bool、char、signed char、unsigned char、short和unsigned short类型，只要它们所有可能值都能存在int里，它们就会提升成int类型，否则提升成unsigned int类型。<br>如果一个运算对象是无符号类型，另外一个是有符号类型，而且其中无符号类型不小于有符号类型，那么有符号的运算转换成无符号的。否则转换结果依赖于机器。</p>
 <h2 id="显式转换"><a href="#显式转换" class="headerlink" title="显式转换"></a>显式转换</h2><p>强制类型转换干扰了正常的类型检查，所以程序员应该避免使用强制类型转换。特别是reinterpret_cast。当我们每次使用强制类型转换时，都应该反复考虑是否能以其他方式达到相同目标。如果无法避免，也应该尽量限制类型转换值的作用域，并且记录相关类型的所有假定，减少错误发生的机会。</p>
-<h3 id="static-cast"><a href="#static-cast" class="headerlink" title="static_cast"></a>static_cast</h3><p>任何具有明确定义的类型转换，只要不包含底层const，都可以使用static_cast。强制类型转换告诉读者和编译器：我们知道并且不在乎潜在的精度损失。另外，static_cast对于编译器无法自动执行的类型转换也非常有用。例如，我们可以使用static_cast找回存在于<code>void*</code>指针中的值，但我们必须确保转换后得到的类型就是指针所指的类型，否则，将产生未定义。另外，<code>你不能将一个int*类型static_cast到一个double*类型，因为这个转换只有在int*已经被改为指向一个double*时才有意义</code>。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i, j;</span><br><span class="line"><span class="comment">//进行强制类型转换以便执行浮点除法</span></span><br><span class="line"><span class="keyword">double</span> slop = <span class="keyword">static_cast</span>&lt;<span class="keyword">double</span>&gt;(j) / i;</span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> d;</span><br><span class="line"><span class="keyword">void</span> *p = &amp;d; <span class="comment">//任何非常量对象的地址都可以存入void*</span></span><br><span class="line"><span class="keyword">double</span> *dp = <span class="keyword">static_cast</span>&lt;<span class="keyword">double</span>*&gt;(p); <span class="comment">//将void*转成初始的指针类型</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="static-cast"><a href="#static-cast" class="headerlink" title="static_cast"></a>static_cast</h3><p>任何具有明确定义的类型转换，只要不包含底层const，都可以使用static_cast。强制类型转换告诉读者和编译器：我们知道并且不在乎潜在的精度损失。另外，static_cast对于编译器无法自动执行的类型转换也非常有用。例如，我们可以使用static_cast找回存在于<code>void*</code>指针中的值，但我们必须确保转换后得到的类型就是指针所指的类型，否则，将产生未定义。另外，<code>你不能将一个int*类型static_cast到一个double*类型，因为这个转换只有在int*已经被改为指向一个double*时才有意义</code>。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i, j;</span><br><span class="line"><span class="comment">//进行强制类型转换以便执行浮点除法</span></span><br><span class="line"><span class="keyword">double</span> slop = <span class="keyword">static_cast</span>&lt;<span class="keyword">double</span>&gt;(j) / i;</span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> d;</span><br><span class="line"><span class="keyword">void</span> *p = &amp;d; <span class="comment">//任何非常量对象的地址都可以存入void*</span></span><br><span class="line"><span class="keyword">double</span> *dp = <span class="keyword">static_cast</span>&lt;<span class="keyword">double</span>*&gt;(p); <span class="comment">//将void*转成初始的指针类型</span></span><br></pre></td></tr></table></figure>
 <p>static_cast常见用法：</p>
 <blockquote>
 <p>用于基本数据类型之间的转换，如把int转换成char，把int转换成enum，但转换的安全性需要开发人员保证<br>把void*指针转换成初始的指针类型<br>用于类层次结构中基类(父类)和派生类(子类)之间指针或引用的转换</p>
+</blockquote>
 <ul>
 <li>进行上行转换(把派生类的指针或引用转换成基类表示)是安全的；</li>
 <li>进行下行转换(把基类指针或引用转换成派生类表示)时，由于没有动态类型检查，所以是不安全的</li>
 </ul>
-</blockquote>
-<h3 id="const-cast"><a href="#const-cast" class="headerlink" title="const_cast"></a>const_cast</h3><p>const_cast只能改变运算对象的底层const。对于将常量对象转换成非常量对象，我们成为“去掉const性质”。一旦去掉了某个对象的const性质，编译器就不再阻止我们对该对象进行写操作了。如果对象本身不是常量，使用const_cast获得写权限是合法行为，然而如果对象是一个常量，再使用const_cast执行写操作会产生未定义的后果。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">char</span> *pc;</span><br><span class="line"><span class="keyword">char</span> *p = <span class="keyword">const_cast</span>&lt;<span class="keyword">char</span>*&gt;(pc); <span class="comment">//正确，但通过p写值是未定义的行为</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="const-cast"><a href="#const-cast" class="headerlink" title="const_cast"></a>const_cast</h3><p>const_cast只能改变运算对象的底层const。对于将常量对象转换成非常量对象，我们成为“去掉const性质”。一旦去掉了某个对象的const性质，编译器就不再阻止我们对该对象进行写操作了。如果对象本身不是常量，使用const_cast获得写权限是合法行为，然而如果对象是一个常量，再使用const_cast执行写操作会产生未定义的后果。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">char</span> *pc;</span><br><span class="line"><span class="keyword">char</span> *p = <span class="keyword">const_cast</span>&lt;<span class="keyword">char</span>*&gt;(pc); <span class="comment">//正确，但通过p写值是未定义的行为</span></span><br></pre></td></tr></table></figure>
 <p>const_cast常用于函数重载的上下文中。</p>
-<h3 id="reinterpret-cast"><a href="#reinterpret-cast" class="headerlink" title="reinterpret_cast"></a>reinterpret_cast</h3><p>reinterpret_cast通常为运算对象的位模式提供较低层次上的重新解释。通俗解释，reinterpret_cast运算符是用来处理无关类型之间的转换；它会产生一个新的值，这个值会有与原始参数(expressoin)有完全相同的比特位。例如，将<code>int*转换为double*对于reinterpret_cast</code>来说是合法的，尽管结果是未定义的。类似地，将<code>int转换为void*对于reinterpret_cast</code>完全合法，虽然它是不安全的。例如有如下转换：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *ip;</span><br><span class="line"><span class="keyword">char</span> *pc = <span class="keyword">reinterpret_cast</span>&lt;<span class="keyword">char</span>*&gt;(ip);</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">str</span><span class="params">(pc)</span></span>; <span class="comment">//可能导致异常的运行时行为</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="reinterpret-cast"><a href="#reinterpret-cast" class="headerlink" title="reinterpret_cast"></a>reinterpret_cast</h3><p>reinterpret_cast通常为运算对象的位模式提供较低层次上的重新解释。通俗解释，reinterpret_cast运算符是用来处理无关类型之间的转换；它会产生一个新的值，这个值会有与原始参数(expressoin)有完全相同的比特位。例如，将<code>int*转换为double*对于reinterpret_cast</code>来说是合法的，尽管结果是未定义的。类似地，将<code>int转换为void*对于reinterpret_cast</code>完全合法，虽然它是不安全的。例如有如下转换：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *ip;</span><br><span class="line"><span class="keyword">char</span> *pc = <span class="keyword">reinterpret_cast</span>&lt;<span class="keyword">char</span>*&gt;(ip);</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">str</span><span class="params">(pc)</span></span>; <span class="comment">//可能导致异常的运行时行为</span></span><br></pre></td></tr></table></figure>
 <p>我们必须牢记pc所指向的真实对象是一个int而非字符，如果把pc当成普通的字符指针使用就可能在运行时发生错误。主要问题是当我们用int的地址初始化pc时，类型改变了，但由于显示地声称这个转换合法，所以编译器没有给出任何的警告或者错误的提示信息。接下来使用pc时就会认为它的值是<code>char*</code>类型，编译器没法知道它实际存放的是<code>int*</code>类型。<br>查找这类问题的原因十分困难，如果将ip强制转换成pc的语句和用pc初始化string的语句位于不同的文件中，错误原因更加难以查找。<br>reinterpret_cast中的reinterpret过程依赖于具体的机器，所以对于reinterpret_cast运算符需要谨慎使用，下面列出常用的地方：</p>
 <blockquote>
 <p>从指针转换成足够大以保有该指针值的整数类型(例如转换成std::uintptr_t)<br>从整型或者枚举类型转换为指针<br>从任何指向T1类型对象的指针能转换成指向另一类型T2对象的指针，等价于<code>static_cast&lt;T2*&gt;(static_cast&lt;void*&gt;(expression))</code><br>从指向函数的指针转向另一个不同类型的指向函数的指针<br>从一个指向对象的指针转向另一个不同类型的指向对象的指针<br>从一个指向成员的指针转向另一个指向类成员的指针</p>
@@ -299,7 +305,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://octocat9lee.github.io/2017/12/06/C-Primer5e第04章：表达式/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://octocat9lee.github.io/2017/12/06/C-Primer5e%E7%AC%AC04%E7%AB%A0%EF%BC%9A%E8%A1%A8%E8%BE%BE%E5%BC%8F/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -313,7 +319,7 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2017/12/07/C-Primer5e第05章：语句-md/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/12/07/C-Primer5e%E7%AC%AC05%E7%AB%A0%EF%BC%9A%E8%AF%AD%E5%8F%A5-md/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -323,7 +329,7 @@ var _hmt = _hmt || [];
     </a>
   
   
-    <a href="/2017/12/06/C-Primer5e第03章：字符串、向量和数组/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/12/06/C-Primer5e%E7%AC%AC03%E7%AB%A0%EF%BC%9A%E5%AD%97%E7%AC%A6%E4%B8%B2%E3%80%81%E5%90%91%E9%87%8F%E5%92%8C%E6%95%B0%E7%BB%84/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">C++Primer5e第03章：字符串、向量和数组</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -351,7 +357,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基础"><span class="toc-number">1.</span> <span class="toc-text">基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#左值和右值"><span class="toc-number">1.1.</span> <span class="toc-text">左值和右值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#求值顺序"><span class="toc-number">1.2.</span> <span class="toc-text">求值顺序</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#逻辑运算"><span class="toc-number">2.</span> <span class="toc-text">逻辑运算</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#赋值运算"><span class="toc-number">3.</span> <span class="toc-text">赋值运算</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#递增和递减运算符"><span class="toc-number">4.</span> <span class="toc-text">递增和递减运算符</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sizeof运算符"><span class="toc-number">5.</span> <span class="toc-text">sizeof运算符</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#类型转换"><span class="toc-number">6.</span> <span class="toc-text">类型转换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#算术转换"><span class="toc-number">6.1.</span> <span class="toc-text">算术转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#显式转换"><span class="toc-number">6.2.</span> <span class="toc-text">显式转换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#static-cast"><span class="toc-number">6.2.1.</span> <span class="toc-text">static_cast</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#const-cast"><span class="toc-number">6.2.2.</span> <span class="toc-text">const_cast</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reinterpret-cast"><span class="toc-number">6.2.3.</span> <span class="toc-text">reinterpret_cast</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#旧式的强制类型转换"><span class="toc-number">6.3.</span> <span class="toc-text">旧式的强制类型转换</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80"><span class="toc-number">1.</span> <span class="toc-text">基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A6%E5%80%BC%E5%92%8C%E5%8F%B3%E5%80%BC"><span class="toc-number">1.1.</span> <span class="toc-text">左值和右值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B1%82%E5%80%BC%E9%A1%BA%E5%BA%8F"><span class="toc-number">1.2.</span> <span class="toc-text">求值顺序</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97"><span class="toc-number">2.</span> <span class="toc-text">逻辑运算</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97"><span class="toc-number">3.</span> <span class="toc-text">赋值运算</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%92%E5%A2%9E%E5%92%8C%E9%80%92%E5%87%8F%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">4.</span> <span class="toc-text">递增和递减运算符</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sizeof%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">5.</span> <span class="toc-text">sizeof运算符</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-number">6.</span> <span class="toc-text">类型转换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%9C%AF%E8%BD%AC%E6%8D%A2"><span class="toc-number">6.1.</span> <span class="toc-text">算术转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%BE%E5%BC%8F%E8%BD%AC%E6%8D%A2"><span class="toc-number">6.2.</span> <span class="toc-text">显式转换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#static-cast"><span class="toc-number">6.2.1.</span> <span class="toc-text">static_cast</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#const-cast"><span class="toc-number">6.2.2.</span> <span class="toc-text">const_cast</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reinterpret-cast"><span class="toc-number">6.2.3.</span> <span class="toc-text">reinterpret_cast</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A7%E5%BC%8F%E7%9A%84%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-number">6.3.</span> <span class="toc-text">旧式的强制类型转换</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -382,7 +388,7 @@ var _hmt = _hmt || [];
           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
       </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </section>
   
 
@@ -512,11 +518,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
+                <a href="javascript:void(0)" class="js-tag color5">技术点滴</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术点滴</a>
+                <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -524,11 +530,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt</a>
+                <a href="javascript:void(0)" class="js-tag color1">STEAM</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">STEAM</a>
+                <a href="javascript:void(0)" class="js-tag color3">Qt</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -556,7 +562,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:

@@ -1,36 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
-  <meta name="baidu-site-verification" content="gHJw3bXGu1">
-  <meta name="google-site-verification" content="-lNjR-HxF8YoulCpsMRPTH3XMW3mvngPcJDTDXYkNSA">
+  <meta name="baidu-site-verification" content="gHJw3bXGu1" />
+  <meta name="google-site-verification" content="-lNjR-HxF8YoulCpsMRPTH3XMW3mvngPcJDTDXYkNSA" />
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://octocat9lee.github.io">
   <title>CSAPP之虚拟内存 | 章鱼猫の博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言本文介绍虚拟内存如何工作以及应用程序如何使用和管理虚拟内存。虚拟内存由硬件异常、硬件地址翻译、主存、磁盘文件和内核交互，为每个进程提供一个大的、一致的和私有的地址空间，提供如下三个重要功能：  1) 作为主存和磁盘的高速缓存，在主存中只保存活动区域2) 为每个进程提供了一致的地址空间，从而简化内存管理3) 保护每个进程的地址空间不被其他进程破坏  虚拟内存作为缓存的工具磁盘和主存间的传输单元为">
-<meta name="keywords" content="CSAPP">
+  <meta name="description" content="前言本文介绍虚拟内存如何工作以及应用程序如何使用和管理虚拟内存。虚拟内存由硬件异常、硬件地址翻译、主存、磁盘文件和内核交互，为每个进程提供一个大的、一致的和私有的地址空间，提供如下三个重要功能：   作为主存和磁盘的高速缓存，在主存中只保存活动区域 为每个进程提供了一致的地址空间，从而简化内存管理 保护每个进程的地址空间不被其他进程破坏   虚拟内存作为缓存的工具磁盘和主存间的传输单元为虚拟页(V">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSAPP之虚拟内存">
-<meta property="og:url" content="https://octocat9lee.github.io/2017/11/28/CSAPP之虚拟内存/index.html">
+<meta property="og:url" content="https://octocat9lee.github.io/2017/11/28/CSAPP%E4%B9%8B%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/index.html">
 <meta property="og:site_name" content="章鱼猫の博客">
-<meta property="og:description" content="前言本文介绍虚拟内存如何工作以及应用程序如何使用和管理虚拟内存。虚拟内存由硬件异常、硬件地址翻译、主存、磁盘文件和内核交互，为每个进程提供一个大的、一致的和私有的地址空间，提供如下三个重要功能：  1) 作为主存和磁盘的高速缓存，在主存中只保存活动区域2) 为每个进程提供了一致的地址空间，从而简化内存管理3) 保护每个进程的地址空间不被其他进程破坏  虚拟内存作为缓存的工具磁盘和主存间的传输单元为">
-<meta property="og:locale" content="default">
-<meta property="og:image" content="https://gitee.com/zhoulee/blog-images/raw/master/phymical_memory.jpg">
-<meta property="og:image" content="https://gitee.com/zhoulee/blog-images/raw/master/allocated_blocks.jpg">
-<meta property="og:image" content="https://gitee.com/zhoulee/blog-images/raw/master/allocated_heap.jpg">
-<meta property="og:image" content="https://gitee.com/zhoulee/blog-images/raw/master/allocated_spliting.jpg">
-<meta property="og:image" content="https://gitee.com/zhoulee/blog-images/raw/master/implict_list.jpg">
-<meta property="og:image" content="https://gitee.com/zhoulee/blog-images/raw/master/coalseing.jpg">
-<meta property="og:image" content="https://gitee.com/zhoulee/blog-images/raw/master/allocated_format.jpg">
-<meta property="og:image" content="https://gitee.com/zhoulee/blog-images/raw/master/free_coalsecing.jpg">
-<meta property="og:updated_time" content="2019-11-07T01:04:41.254Z">
+<meta property="og:description" content="前言本文介绍虚拟内存如何工作以及应用程序如何使用和管理虚拟内存。虚拟内存由硬件异常、硬件地址翻译、主存、磁盘文件和内核交互，为每个进程提供一个大的、一致的和私有的地址空间，提供如下三个重要功能：   作为主存和磁盘的高速缓存，在主存中只保存活动区域 为每个进程提供了一致的地址空间，从而简化内存管理 保护每个进程的地址空间不被其他进程破坏   虚拟内存作为缓存的工具磁盘和主存间的传输单元为虚拟页(V">
+<meta property="og:locale">
+<meta property="article:published_time" content="2017-11-28T07:33:47.000Z">
+<meta property="article:modified_time" content="2019-11-07T01:04:41.254Z">
+<meta property="article:author" content="章鱼猫">
+<meta property="article:tag" content="CSAPP">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSAPP之虚拟内存">
-<meta name="twitter:description" content="前言本文介绍虚拟内存如何工作以及应用程序如何使用和管理虚拟内存。虚拟内存由硬件异常、硬件地址翻译、主存、磁盘文件和内核交互，为每个进程提供一个大的、一致的和私有的地址空间，提供如下三个重要功能：  1) 作为主存和磁盘的高速缓存，在主存中只保存活动区域2) 为每个进程提供了一致的地址空间，从而简化内存管理3) 保护每个进程的地址空间不被其他进程破坏  虚拟内存作为缓存的工具磁盘和主存间的传输单元为">
-<meta name="twitter:image" content="https://gitee.com/zhoulee/blog-images/raw/master/phymical_memory.jpg">
   
     <link rel="alternative" href="/atom.xml" title="章鱼猫の博客" type="application/atom+xml">
   
@@ -58,8 +49,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -72,10 +63,8 @@ var _hmt = _hmt || [];
 			<img src="/img/octocat.png" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="">章鱼猫</a></h1>
+		  <h1 class="header-author"><a href=""></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">记录生活的点点滴滴</p>
 		
 
 		<nav class="header-menu">
@@ -130,10 +119,8 @@ var _hmt = _hmt || [];
 				<img src="/img/octocat.png" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">章鱼猫</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>记录生活的点点滴滴<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -180,7 +167,7 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-CSAPP之虚拟内存" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-CSAPP之虚拟内存" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -192,7 +179,7 @@ var _hmt = _hmt || [];
   
 
         
-        <a href="/2017/11/28/CSAPP之虚拟内存/" class="archive-article-date">
+        <a href="/2017/11/28/CSAPP%E4%B9%8B%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/" class="archive-article-date">
   	<time datetime="2017-11-28T07:33:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-28</time>
 </a>
         
@@ -202,11 +189,18 @@ var _hmt = _hmt || [];
       
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文介绍虚拟内存如何工作以及应用程序如何使用和管理虚拟内存。虚拟内存由硬件异常、硬件地址翻译、主存、磁盘文件和内核交互，为每个进程提供一个大的、一致的和私有的地址空间，提供如下三个重要功能：</p>
 <blockquote>
-<p>1) 作为主存和磁盘的高速缓存，在主存中只保存活动区域<br>2) 为每个进程提供了一致的地址空间，从而简化内存管理<br>3) 保护每个进程的地址空间不被其他进程破坏</p>
+<ol>
+<li>作为主存和磁盘的高速缓存，在主存中只保存活动区域</li>
+<li>为每个进程提供了一致的地址空间，从而简化内存管理</li>
+<li>保护每个进程的地址空间不被其他进程破坏</li>
+</ol>
 </blockquote>
-<h1 id="虚拟内存作为缓存的工具"><a href="#虚拟内存作为缓存的工具" class="headerlink" title="虚拟内存作为缓存的工具"></a>虚拟内存作为缓存的工具</h1><p>磁盘和主存间的传输单元为虚拟页(Virtual Page, VP)。虚拟页和物理页(页帧)为相同的固定大小的块。虚拟存储在磁盘上，物理页存储在主存中。在任意时刻，虚拟页集合分为三个不相交的子集：未分配的，缓存的和未缓存的。<br>术语SRAM缓存表示CPU和主存之间的L1、L2和L3高速缓存，DRAM缓存表示虚拟内存系统的缓存，在主存中缓存虚拟页。因为大的不命中处罚和访问磁盘第一个字节的开销，所以<code>虚拟页往往很大</code>，通常在4KB~2MB。由于大的不命中处罚，<code>DRAM缓存是全相联</code>，即任何虚拟页都可以放置在任何的物理页中。最后，因为对磁盘的访问时间长，DRAM缓存总是使用<code>写回</code>，而不是直写。<br><a id="more"></a></p>
+<h1 id="虚拟内存作为缓存的工具"><a href="#虚拟内存作为缓存的工具" class="headerlink" title="虚拟内存作为缓存的工具"></a>虚拟内存作为缓存的工具</h1><p>磁盘和主存间的传输单元为虚拟页(Virtual Page, VP)。虚拟页和物理页(页帧)为相同的固定大小的块。虚拟存储在磁盘上，物理页存储在主存中。在任意时刻，虚拟页集合分为三个不相交的子集：未分配的，缓存的和未缓存的。<br>术语SRAM缓存表示CPU和主存之间的L1、L2和L3高速缓存，DRAM缓存表示虚拟内存系统的缓存，在主存中缓存虚拟页。因为大的不命中处罚和访问磁盘第一个字节的开销，所以<code>虚拟页往往很大</code>，通常在4KB~2MB。由于大的不命中处罚，<code>DRAM缓存是全相联</code>，即任何虚拟页都可以放置在任何的物理页中。最后，因为对磁盘的访问时间长，DRAM缓存总是使用<code>写回</code>，而不是直写。</p>
+<a id="more"></a>
 <h2 id="页表"><a href="#页表" class="headerlink" title="页表"></a>页表</h2><p>页表就是一个页表条目(Page Table Entry,PTE)的数组。虚拟地址空间中的每个页在页表中一个固定的偏移量处都有一个PTE。每个PTE项包括一个有效位和一个n位地址字段。有效位表明该虚拟页当前是否被缓存在DRAM中，如果设置了有效位，那么地址字段就表示DRAM中相应的物理页的起始位置，这个物理页中缓存了该虚拟页。如果没有设置有效位，那么一个空地址表示这个虚拟页还未分配。否则，这个地址就指向该虚拟页在磁盘上的起始位置。为了控制内存系统的访问，PTE表项中添加一些额外的许可位来控制对一个虚拟页面内容的访问。如果指令违反了许可条件，那么CPU就触发一个一般保护故障，将控制传递给一个内核中的异常处理程序。Linux shell一般将这种异常报告为”段错误(segmentaion fault)”。PTE示意图如下：</p>
-<center><br><img src="https://gitee.com/zhoulee/blog-images/raw/master/phymical_memory.jpg" alt="PTE示意图"><br></center>
+<center>
+![PTE示意图](https://gitee.com/zhoulee/blog-images/raw/master/phymical_memory.jpg)
+</center>
 
 <h2 id="局部性"><a href="#局部性" class="headerlink" title="局部性"></a>局部性</h2><p>虚拟内存系统能够工作良好，是由于局部性，局部性保证程序在一个较小的活动页面集合上工作，这个集合叫做工作集或者常驻集合。只要我们的程序有好的时间局部性，虚拟内存系统就能工作良好。如果程序性能低下，考虑是否发生了抖动，即页面不断的换进换出。可以使用Linux的<code>getrusage</code>函数检测缺页的数量以及其他信息。</p>
 <h1 id="动态内存分配"><a href="#动态内存分配" class="headerlink" title="动态内存分配"></a>动态内存分配</h1><h2 id="实现问题"><a href="#实现问题" class="headerlink" title="实现问题"></a>实现问题</h2><ul>
@@ -216,35 +210,49 @@ var _hmt = _hmt || [];
 <li>合并：如何处理一个刚刚被释放的块？</li>
 </ul>
 <h2 id="隐式空闲链表"><a href="#隐式空闲链表" class="headerlink" title="隐式空闲链表"></a>隐式空闲链表</h2><p>分配器需要一个数据结构来区别块边界，以及区别已分配块和空闲块。大多数的分配器将这些信息嵌入块本身。一个块由4Byte的头部，有效载荷以及可选的额外填充组成。头部编码块的大小(包括头部和所有填充)以及这个块是已分配还是空闲的。如果强加一个8Byte的对齐约束，那么块大小总是8的倍数，因此块大小的最低3bit总是零。从而，块大小表示使用头部的高29bit，剩余的3bit来编码其他信息。在这种情况下，我们用其中最低位来指示块是已分配的还是空闲的。填充块用来满足对齐或者对付外部碎片。简单的堆块格式如下：</p>
-<center><br><img src="https://gitee.com/zhoulee/blog-images/raw/master/allocated_blocks.jpg" alt="堆块格式"><br></center>
+<center>
+![堆块格式](https://gitee.com/zhoulee/blog-images/raw/master/allocated_blocks.jpg)
+</center>
 
 <p>将堆组织为一个连续的已分配块和空闲块的序列，这种结构称为<code>隐式空闲链表</code>。分配器可以通过遍历堆中所有的块，从而间接地遍历整个空闲块的集合。在该示例中，设置了已分配位而大小为零的终止头部的结束块。隐式链表结构如下图所示：</p>
-<center><br><img src="https://gitee.com/zhoulee/blog-images/raw/master/allocated_heap.jpg" alt="隐式空闲链表"><br></center>
+<center>
+![隐式空闲链表](https://gitee.com/zhoulee/blog-images/raw/master/allocated_heap.jpg)
+</center>
 
 <p>隐式空闲链表的优点是简单，显著的缺点是任何操作的开销，例如放置分配的块，要对空闲链表进行搜索，该搜索所需时间与堆中已分配块和空闲块的总数呈线性关系。</p>
 <h2 id="放置已分配的块"><a href="#放置已分配的块" class="headerlink" title="放置已分配的块"></a>放置已分配的块</h2><p>当应用程序请求分配k字节时，分配器搜索空闲链表，查找一个足够大可以放置所请求块的空闲块。这种搜索方式称为<code>放置策略</code>，常见的包括<code>首次适配、下一次适配和最佳适配</code>。<br>首次适配从头开始搜索空闲链表，选择第一个合适的空闲块。下一次适配和首次适配相似，只不过不是从头开始搜索，而不是从上一次查询结束的地方开始。最佳适配检查每个空闲块，选择所需请求大小的最小空闲块。</p>
 <h2 id="分割空闲块"><a href="#分割空闲块" class="headerlink" title="分割空闲块"></a>分割空闲块</h2><p>分配器找到一个匹配的空闲块，接下来的决策就是分配这个空闲块中多少空间。一个选择是用整个空闲块，简单快捷，但缺点是造成内部碎片。另外就是将空闲块分割成两部分，第一部分变成分配块，而剩下的变成一个新的空闲块。下图展示从6个字节的空闲块中分配4个字节，剩余的2个字节变成新的空闲块:</p>
-<center><br><img src="https://gitee.com/zhoulee/blog-images/raw/master/allocated_spliting.jpg" alt="分割空闲块示意图"><br></center>
+<center>
+![分割空闲块示意图](https://gitee.com/zhoulee/blog-images/raw/master/allocated_spliting.jpg)
+</center>
 
 <h2 id="释放内存"><a href="#释放内存" class="headerlink" title="释放内存"></a>释放内存</h2><p>释放内存仅仅需要清除堆块中头部的标志信息，具体过程如下所示：</p>
-<center><br><img src="https://gitee.com/zhoulee/blog-images/raw/master/implict_list.jpg" alt="释放分配的内存块"><br></center>
+<center>
+![释放分配的内存块](https://gitee.com/zhoulee/blog-images/raw/master/implict_list.jpg)
+</center>
 
 <h2 id="获取额外的堆内存"><a href="#获取额外的堆内存" class="headerlink" title="获取额外的堆内存"></a>获取额外的堆内存</h2><p>如果分配器不能为请求块找到合适的空闲块将发生什么？一个方案是合并内存中相邻的空闲块，如果空闲块已经最大程度合并仍然不能生成足够大的内存块，那么分配器会通过调用sbrk函数，向内核请求额外的堆内存，然后将块插入到空闲链表中，最后将请求的块放置在这个新的空闲块中。</p>
 <h2 id="合并空闲块"><a href="#合并空闲块" class="headerlink" title="合并空闲块"></a>合并空闲块</h2><p>为了解决假碎片问题，任何实际的分配器必须合并相邻的空闲块，这个过程称为合并(coalescing)。执行合并的时期包含不同的策略：立即合并(immediate coalescing)，也就是在每次一个块释放时，就合并所有的相邻的块。或者也可以使用推迟合并(deferred coalescing)，即等到某个稍晚的时候再合并空闲块。立即合并简单明了，可以在常数时间内执行完成，但对于某些请求模式，这个方式会产生一种抖动，块反复合并，然后马上分割。快速的分配器通常会选择某种形式的推迟合并。</p>
 <h2 id="带边界标记的合并"><a href="#带边界标记的合并" class="headerlink" title="带边界标记的合并"></a>带边界标记的合并</h2><p>合并下一个空闲块十分简单，因为当前块的头部指向下一个块的头部，通过判断下一个块的头部是否空闲，如果是，就将它的大小简单地加到当前块头部的大小上，这两个块在常数时间内被合并。合并当前块的下一个块如下所示：</p>
-<center><br><img src="https://gitee.com/zhoulee/blog-images/raw/master/coalseing.jpg" alt="合并当前块的下一个块"><br></center>
+<center>
+![合并当前块的下一个块](https://gitee.com/zhoulee/blog-images/raw/master/coalseing.jpg)
+</center>
 
 <p>困难在于<code>如何合并当前块前面的块呢？</code>Knuth提出了一种聪明而通用的技术，叫做<code>边界标记(boundary tag)</code>，允许在常数时间内进行对前面块的合并。该思想在每个块的结尾处添加一个脚部(footer，边界标记)，其中脚部就是头部的一个副本。如果每个块包括这样一个脚部，那么分配器就可以通过它的脚部，判断前面一个块的起始位置和状态，因为脚部总是在距当前块开始位置4Byte的距离。使用边界标记的堆块格式如下所示：</p>
-<center><br><img src="https://gitee.com/zhoulee/blog-images/raw/master/allocated_format.jpg" alt="边界标记的堆块格式"><br></center>
+<center>
+![边界标记的堆块格式](https://gitee.com/zhoulee/blog-images/raw/master/allocated_format.jpg)
+</center>
 
 <p>边界标记的概念简单优雅，对许多不同类型的分配器和空闲链表组织都是通用的。缺点就是要求每个块都保持一个头部和一个脚部，在应用程序操作许多小块时，会产生显著的内存开销。另外一种更聪明的边界标记优化方法，能够使得在已分配块中不再需要脚部。因为我们试图合并当前块以及前面的块和后面的块时，只有前面的块是空闲时，才会需要用它的脚部。如果我们把前面块的已分配/空闲位存放在当前块中多余的低位中，那么已分配的块就不需要脚部了，这样我们就可以将这个多出来的空间用作有效载荷了。不过注意，空闲块仍然需要脚部。当分配器释放当前块时包含如下四中情形：</p>
 <blockquote>
 <p>case 1）前面的块和后面的块都被分配<br>case 2）前面的块分配，后面的块空闲<br>case 3）前面的块空闲，后面的块分配<br>case 4）前面的块和后面的块都空闲</p>
 </blockquote>
 <p>上述情形合并过程如下所示：</p>
-<center><br><img src="https://gitee.com/zhoulee/blog-images/raw/master/free_coalsecing.jpg" alt="空闲块合并过程"><br></center>
+<center>
+![空闲块合并过程](https://gitee.com/zhoulee/blog-images/raw/master/free_coalsecing.jpg)
+</center>
 
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://gitee.com/zhoulee/blog-images/raw/master/19-malloc-basic.pdf" target="_blank" rel="noopener">19-malloc-basic.pdf</a><br><a href="https://gitee.com/zhoulee/blog-images/raw/master/20-malloc-advanced.pdf" target="_blank" rel="noopener">20-malloc-advanced.pdf</a></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a target="_blank" rel="noopener" href="https://gitee.com/zhoulee/blog-images/raw/master/19-malloc-basic.pdf">19-malloc-basic.pdf</a><br><a target="_blank" rel="noopener" href="https://gitee.com/zhoulee/blog-images/raw/master/20-malloc-advanced.pdf">20-malloc-advanced.pdf</a></p>
 
       
 
@@ -314,7 +322,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://octocat9lee.github.io/2017/11/28/CSAPP之虚拟内存/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://octocat9lee.github.io/2017/11/28/CSAPP%E4%B9%8B%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -328,7 +336,7 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2017/12/05/C-Primer5e第02章：变量和基本类型/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/12/05/C-Primer5e%E7%AC%AC02%E7%AB%A0%EF%BC%9A%E5%8F%98%E9%87%8F%E5%92%8C%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -338,7 +346,7 @@ var _hmt = _hmt || [];
     </a>
   
   
-    <a href="/2017/11/24/Git操作指南/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/11/24/Git%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Git操作指南</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -366,7 +374,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#虚拟内存作为缓存的工具"><span class="toc-number">2.</span> <span class="toc-text">虚拟内存作为缓存的工具</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#页表"><span class="toc-number">2.1.</span> <span class="toc-text">页表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#局部性"><span class="toc-number">2.2.</span> <span class="toc-text">局部性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#动态内存分配"><span class="toc-number">3.</span> <span class="toc-text">动态内存分配</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#实现问题"><span class="toc-number">3.1.</span> <span class="toc-text">实现问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#隐式空闲链表"><span class="toc-number">3.2.</span> <span class="toc-text">隐式空闲链表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#放置已分配的块"><span class="toc-number">3.3.</span> <span class="toc-text">放置已分配的块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分割空闲块"><span class="toc-number">3.4.</span> <span class="toc-text">分割空闲块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#释放内存"><span class="toc-number">3.5.</span> <span class="toc-text">释放内存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获取额外的堆内存"><span class="toc-number">3.6.</span> <span class="toc-text">获取额外的堆内存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#合并空闲块"><span class="toc-number">3.7.</span> <span class="toc-text">合并空闲块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#带边界标记的合并"><span class="toc-number">3.8.</span> <span class="toc-text">带边界标记的合并</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">4.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E4%BD%9C%E4%B8%BA%E7%BC%93%E5%AD%98%E7%9A%84%E5%B7%A5%E5%85%B7"><span class="toc-number">2.</span> <span class="toc-text">虚拟内存作为缓存的工具</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B5%E8%A1%A8"><span class="toc-number">2.1.</span> <span class="toc-text">页表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%80%E9%83%A8%E6%80%A7"><span class="toc-number">2.2.</span> <span class="toc-text">局部性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D"><span class="toc-number">3.</span> <span class="toc-text">动态内存分配</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E9%97%AE%E9%A2%98"><span class="toc-number">3.1.</span> <span class="toc-text">实现问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%90%E5%BC%8F%E7%A9%BA%E9%97%B2%E9%93%BE%E8%A1%A8"><span class="toc-number">3.2.</span> <span class="toc-text">隐式空闲链表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%94%BE%E7%BD%AE%E5%B7%B2%E5%88%86%E9%85%8D%E7%9A%84%E5%9D%97"><span class="toc-number">3.3.</span> <span class="toc-text">放置已分配的块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E5%89%B2%E7%A9%BA%E9%97%B2%E5%9D%97"><span class="toc-number">3.4.</span> <span class="toc-text">分割空闲块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8A%E6%94%BE%E5%86%85%E5%AD%98"><span class="toc-number">3.5.</span> <span class="toc-text">释放内存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E9%A2%9D%E5%A4%96%E7%9A%84%E5%A0%86%E5%86%85%E5%AD%98"><span class="toc-number">3.6.</span> <span class="toc-text">获取额外的堆内存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%88%E5%B9%B6%E7%A9%BA%E9%97%B2%E5%9D%97"><span class="toc-number">3.7.</span> <span class="toc-text">合并空闲块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%A6%E8%BE%B9%E7%95%8C%E6%A0%87%E8%AE%B0%E7%9A%84%E5%90%88%E5%B9%B6"><span class="toc-number">3.8.</span> <span class="toc-text">带边界标记的合并</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">4.</span> <span class="toc-text">参考资料</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -397,7 +405,7 @@ var _hmt = _hmt || [];
           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
       </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </section>
   
 
@@ -527,11 +535,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
+                <a href="javascript:void(0)" class="js-tag color5">技术点滴</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术点滴</a>
+                <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -539,11 +547,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt</a>
+                <a href="javascript:void(0)" class="js-tag color1">STEAM</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">STEAM</a>
+                <a href="javascript:void(0)" class="js-tag color3">Qt</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -571,7 +579,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:

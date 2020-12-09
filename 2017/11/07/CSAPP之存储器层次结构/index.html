@@ -1,36 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
-  <meta name="baidu-site-verification" content="gHJw3bXGu1">
-  <meta name="google-site-verification" content="-lNjR-HxF8YoulCpsMRPTH3XMW3mvngPcJDTDXYkNSA">
+  <meta name="baidu-site-verification" content="gHJw3bXGu1" />
+  <meta name="google-site-verification" content="-lNjR-HxF8YoulCpsMRPTH3XMW3mvngPcJDTDXYkNSA" />
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://octocat9lee.github.io">
   <title>CSAPP之存储器层次结构 | 章鱼猫の博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="前言存储系统采用分层结构，越靠近CPU，访问速度快，容量小，越远离CPU，访问速度慢，容量大。存储器分层结构利用程序的局部性基本属性，即程序在一段时间内，倾向于访问相同集合的数据例如循环遍历数组或者访问相邻的数据集合的特性，从而提升访问性能。所以，利用缓冲思想，将存储系统设计为层次结构，例如高速Cache作为CPU寄存器和内存的缓冲区，内存作为高速Cache和硬盘的缓冲区，硬盘可以作为网络数据的缓">
-<meta name="keywords" content="CSAPP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSAPP之存储器层次结构">
-<meta property="og:url" content="https://octocat9lee.github.io/2017/11/07/CSAPP之存储器层次结构/index.html">
+<meta property="og:url" content="https://octocat9lee.github.io/2017/11/07/CSAPP%E4%B9%8B%E5%AD%98%E5%82%A8%E5%99%A8%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84/index.html">
 <meta property="og:site_name" content="章鱼猫の博客">
 <meta property="og:description" content="前言存储系统采用分层结构，越靠近CPU，访问速度快，容量小，越远离CPU，访问速度慢，容量大。存储器分层结构利用程序的局部性基本属性，即程序在一段时间内，倾向于访问相同集合的数据例如循环遍历数组或者访问相邻的数据集合的特性，从而提升访问性能。所以，利用缓冲思想，将存储系统设计为层次结构，例如高速Cache作为CPU寄存器和内存的缓冲区，内存作为高速Cache和硬盘的缓冲区，硬盘可以作为网络数据的缓">
-<meta property="og:locale" content="default">
-<meta property="og:image" content="https://gitee.com/zhoulee/blog-images/raw/master/cpu_register.jpg">
-<meta property="og:image" content="https://gitee.com/zhoulee/blog-images/raw/master/all_related_word3.jpg">
-<meta property="og:image" content="https://gitee.com/zhoulee/blog-images/raw/master/direct_cache_map.jpg">
-<meta property="og:image" content="https://gitee.com/zhoulee/blog-images/raw/master/all_related_word2.jpg">
-<meta property="og:image" content="https://gitee.com/zhoulee/blog-images/raw/master/group_mapping.jpg">
-<meta property="og:image" content="https://gitee.com/zhoulee/blog-images/raw/master/all_related_word.png">
-<meta property="og:image" content="https://gitee.com/zhoulee/blog-images/raw/master/all_related_mapping.jpg">
-<meta property="og:image" content="https://gitee.com/zhoulee/blog-images/raw/master/memory_mountain.jpg">
-<meta property="og:updated_time" content="2019-11-07T01:04:41.253Z">
+<meta property="og:locale">
+<meta property="article:published_time" content="2017-11-07T01:30:36.000Z">
+<meta property="article:modified_time" content="2019-11-07T01:04:41.253Z">
+<meta property="article:author" content="章鱼猫">
+<meta property="article:tag" content="CSAPP">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSAPP之存储器层次结构">
-<meta name="twitter:description" content="前言存储系统采用分层结构，越靠近CPU，访问速度快，容量小，越远离CPU，访问速度慢，容量大。存储器分层结构利用程序的局部性基本属性，即程序在一段时间内，倾向于访问相同集合的数据例如循环遍历数组或者访问相邻的数据集合的特性，从而提升访问性能。所以，利用缓冲思想，将存储系统设计为层次结构，例如高速Cache作为CPU寄存器和内存的缓冲区，内存作为高速Cache和硬盘的缓冲区，硬盘可以作为网络数据的缓">
-<meta name="twitter:image" content="https://gitee.com/zhoulee/blog-images/raw/master/cpu_register.jpg">
   
     <link rel="alternative" href="/atom.xml" title="章鱼猫の博客" type="application/atom+xml">
   
@@ -58,8 +49,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -72,10 +63,8 @@ var _hmt = _hmt || [];
 			<img src="/img/octocat.png" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="">章鱼猫</a></h1>
+		  <h1 class="header-author"><a href=""></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">记录生活的点点滴滴</p>
 		
 
 		<nav class="header-menu">
@@ -130,10 +119,8 @@ var _hmt = _hmt || [];
 				<img src="/img/octocat.png" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">章鱼猫</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>记录生活的点点滴滴<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -180,7 +167,7 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-CSAPP之存储器层次结构" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-CSAPP之存储器层次结构" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -192,7 +179,7 @@ var _hmt = _hmt || [];
   
 
         
-        <a href="/2017/11/07/CSAPP之存储器层次结构/" class="archive-article-date">
+        <a href="/2017/11/07/CSAPP%E4%B9%8B%E5%AD%98%E5%82%A8%E5%99%A8%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84/" class="archive-article-date">
   	<time datetime="2017-11-07T01:30:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-07</time>
 </a>
         
@@ -203,26 +190,33 @@ var _hmt = _hmt || [];
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>存储系统采用分层结构，越靠近CPU，访问速度快，容量小，越远离CPU，访问速度慢，容量大。存储器分层结构利用程序的<code>局部性</code>基本属性，即程序在一段时间内，倾向于访问相同集合的数据例如循环遍历数组或者访问相邻的数据集合的特性，从而提升访问性能。所以，利用<code>缓冲</code>思想，将存储系统设计为层次结构，例如高速Cache作为CPU寄存器和内存的缓冲区，内存作为高速Cache和硬盘的缓冲区，硬盘可以作为网络数据的缓冲区。</p>
 <h1 id="存储器分类"><a href="#存储器分类" class="headerlink" title="存储器分类"></a>存储器分类</h1><p>RAM分为SRAM和DRAM，SRAM主要用于作为高速Cache，DRAM用来作为主存或者图形帧缓冲区。桌面系统SRAM容量不超过几M字节，DRAM却有几百到几千M字节。从磁盘读取信息为毫秒级，比从DRAM读慢了10万倍，比从SRAM读慢了100万倍。<br>CPU发送完读磁盘请求后，由相应的控制器完成磁盘与内存间数据的读写处理，CPU不需要参与，可以继续执行其他的指令。当读写操作完成后，控制器通过中断通知CPU，称之为<code>直接内存访问(DMA,Direct Memory Access)</code>。</p>
 <h1 id="局部性"><a href="#局部性" class="headerlink" title="局部性"></a>局部性</h1><p>时间局部性：被引用过一次的内存位置在不久的将来再次被引用<br>空间局部性：被引用过一次的内存位置在不久的将来引用附近的内存访问<br>重复引用相同变量的程序具有良好的时间局部性；步长为1的引用模式具有良好的空间局部性，随着步长的增加，空间局部性下降；对于指令来说，循环具有良好的时间和空间局部性，循环体越小，迭代次数越多，局部性越好</p>
-<h1 id="存储器层次结构"><a href="#存储器层次结构" class="headerlink" title="存储器层次结构"></a>存储器层次结构</h1><p>CPU访问寄存器需要一个时钟周期，SRAM需要几个时钟周期，DRAM需要几十到几百时钟周期。<br>基本原则：上层缓存下层的一个块，每次传输时使用块作为单元，为了补偿访问时间，因此，在越远离CPU的层次时块的大小越大。存储器层次结构如下图所示：<br><a id="more"></a></p>
-<center><img src="https://gitee.com/zhoulee/blog-images/raw/master/cpu_register.jpg" alt="avatar"></center>
+<h1 id="存储器层次结构"><a href="#存储器层次结构" class="headerlink" title="存储器层次结构"></a>存储器层次结构</h1><p>CPU访问寄存器需要一个时钟周期，SRAM需要几个时钟周期，DRAM需要几十到几百时钟周期。<br>基本原则：上层缓存下层的一个块，每次传输时使用块作为单元，为了补偿访问时间，因此，在越远离CPU的层次时块的大小越大。存储器层次结构如下图所示：</p>
+<a id="more"></a>
+<center>![avatar](https://gitee.com/zhoulee/blog-images/raw/master/cpu_register.jpg)</center>
 
 <h1 id="高速缓存存储器"><a href="#高速缓存存储器" class="headerlink" title="高速缓存存储器"></a>高速缓存存储器</h1><h2 id="直接映射高速缓存"><a href="#直接映射高速缓存" class="headerlink" title="直接映射高速缓存"></a>直接映射高速缓存</h2><p>直接映射表示每个组只有一行，替换策略就是使用新行替换当前行。如果块被映射到相同的高速缓存组中，将发生抖动，导致程序速度下降。修正抖动问题的一个方法就是填充多余数据，使访问的数据映射到不同的高速缓存组中。<br>使用中间位作为索引值，可以将连续的内存映射到不同的高速缓存组中，高速缓存能够存放整个大小为C的数组，C为高速缓存容量的大小。如果使用高位作为索引，高速缓存仅能够保存一个块的大小。这是因为如果使用高位作为索引，连续的内存块会映射到相同的高速缓存块中。</p>
-<center><img src="https://gitee.com/zhoulee/blog-images/raw/master/all_related_word3.jpg" alt="avatar"></center>
+<center>![avatar](https://gitee.com/zhoulee/blog-images/raw/master/all_related_word3.jpg)</center>
 
-<h2 id="直接映射地址解析示例"><a href="#直接映射地址解析示例" class="headerlink" title="直接映射地址解析示例"></a>直接映射地址解析示例</h2><center><img src="https://gitee.com/zhoulee/blog-images/raw/master/direct_cache_map.jpg" alt="avatar"></center>
+<h2 id="直接映射地址解析示例"><a href="#直接映射地址解析示例" class="headerlink" title="直接映射地址解析示例"></a>直接映射地址解析示例</h2><center>![avatar](https://gitee.com/zhoulee/blog-images/raw/master/direct_cache_map.jpg)</center>
 
 <h2 id="组相联高速缓存"><a href="#组相联高速缓存" class="headerlink" title="组相联高速缓存"></a>组相联高速缓存</h2><p>相对直接映射高速缓存，在每个组中有多行，匹配时，除了有效位校验外，需要将查找的地址与组中所有行的标记逐一匹配，若匹配则命中。替换策略有最近最少使用(LRU)和最不常使用(LFU)策略。</p>
-<center><img src="https://gitee.com/zhoulee/blog-images/raw/master/all_related_word2.jpg" alt="avatar"></center>
+<center>![avatar](https://gitee.com/zhoulee/blog-images/raw/master/all_related_word2.jpg)</center>
 
-<h2 id="组相联地址解析示例"><a href="#组相联地址解析示例" class="headerlink" title="组相联地址解析示例"></a>组相联地址解析示例</h2><center><img src="https://gitee.com/zhoulee/blog-images/raw/master/group_mapping.jpg" alt="avatar"></center>
+<h2 id="组相联地址解析示例"><a href="#组相联地址解析示例" class="headerlink" title="组相联地址解析示例"></a>组相联地址解析示例</h2><center>![avatar](https://gitee.com/zhoulee/blog-images/raw/master/group_mapping.jpg)</center>
 
 <h2 id="全相联高速缓存"><a href="#全相联高速缓存" class="headerlink" title="全相联高速缓存"></a>全相联高速缓存</h2><p>全相连高速缓存，一个组包含所有的行。因为只有一个组，所以没有组索引。地址只被划分为一个标记和块偏移。全相联需要与高速缓存中全部行逐一匹配标记，匹配规模较大，另外构造一个又快又大的全相联高速缓存很困难，而且昂贵。因此全相联的高速缓存只适合做小的缓存。</p>
-<center><img src="https://gitee.com/zhoulee/blog-images/raw/master/all_related_word.png" alt="avatar"></center>
+<center>![avatar](https://gitee.com/zhoulee/blog-images/raw/master/all_related_word.png)</center>
 
-<h2 id="全相连地址解析示例"><a href="#全相连地址解析示例" class="headerlink" title="全相连地址解析示例"></a>全相连地址解析示例</h2><center><img src="https://gitee.com/zhoulee/blog-images/raw/master/all_related_mapping.jpg" alt="avatar"></center>
+<h2 id="全相连地址解析示例"><a href="#全相连地址解析示例" class="headerlink" title="全相连地址解析示例"></a>全相连地址解析示例</h2><center>![avatar](https://gitee.com/zhoulee/blog-images/raw/master/all_related_mapping.jpg)</center>
 
 <h1 id="编写高速缓存友好的代码"><a href="#编写高速缓存友好的代码" class="headerlink" title="编写高速缓存友好的代码"></a>编写高速缓存友好的代码</h1><p>高速缓存友好代码编写的基本方法：<br>1）让这常见的情况运行的快，程序通常把大部分时间都花在少量的核心函数上，而那些函数通常把大部分时间都花在少量循环上，要把注意力集中在核心函数里的循环上，而忽略其他部分<br>2）尽量减小每个循环内部的缓存不命中数量<br>3）对局部变量的反复引用是好的，因为编译器能够将它们换成在寄存器文件中(时间局部性)<br>4）步长为1的引用模式是好的，因为存储器层次结构中都是将数据存储为连续的块(空间局部性)</p>
-<h1 id="存储器山"><a href="#存储器山" class="headerlink" title="存储器山"></a>存储器山</h1><p><center><img src="https://gitee.com/zhoulee/blog-images/raw/master/memory_mountain.jpg" alt="avatar"></center><br>上图为Intel I7处理器的一个存储器山。图中左上角是CPU参数，表明三级高速缓存大小。在下图的存储器山中，X坐标轴<code>working set size</code>表明式工作集的大小，size的值越小，得到的工作集越小，时间局部性越好。Y坐标抽<code>Stride</code>表示步长大小，stride的值越小，空间局部性越好。Z坐标抽表示读吞吐量，数值越大越好。<br>垂直于工作集大小的是四条山脊，分别对应于工作集完全在L1高速缓存，L2高速缓存，L3高速缓存和主存的时间局部性区域。从步长来看，步长越长，速度越慢。大步长的访问方法完全破坏了空间局部性，因此会造成访问速度下降。综合来看，读吞吐量与工作集和步长的有如下的特性:<br>1）当步长很小，工作集很大时，访问速度也很高。这是因为空间局部性可以补救时间局部性，充分利用空间局部性，相同缓存块内的数据，只有第一个发生了miss，而在这次miss之后，后续的数据将hit<br>2）当步长很大，工作集很小时，访问速度也很高。因为整个工作集都会加载到缓存中，步长影响被忽略<br>3）如果工作集和步长都很大，那么高速缓存就形同虚设，因为根本就不存在局部性，读取数据时总是发生miss。因此，访问速度只能是主存级别</p>
+<h1 id="存储器山"><a href="#存储器山" class="headerlink" title="存储器山"></a>存储器山</h1><center>![avatar](https://gitee.com/zhoulee/blog-images/raw/master/memory_mountain.jpg)</center>
+上图为Intel I7处理器的一个存储器山。图中左上角是CPU参数，表明三级高速缓存大小。在下图的存储器山中，X坐标轴`working set size`表明式工作集的大小，size的值越小，得到的工作集越小，时间局部性越好。Y坐标抽`Stride`表示步长大小，stride的值越小，空间局部性越好。Z坐标抽表示读吞吐量，数值越大越好。
+垂直于工作集大小的是四条山脊，分别对应于工作集完全在L1高速缓存，L2高速缓存，L3高速缓存和主存的时间局部性区域。从步长来看，步长越长，速度越慢。大步长的访问方法完全破坏了空间局部性，因此会造成访问速度下降。综合来看，读吞吐量与工作集和步长的有如下的特性:
+1）当步长很小，工作集很大时，访问速度也很高。这是因为空间局部性可以补救时间局部性，充分利用空间局部性，相同缓存块内的数据，只有第一个发生了miss，而在这次miss之后，后续的数据将hit
+2）当步长很大，工作集很小时，访问速度也很高。因为整个工作集都会加载到缓存中，步长影响被忽略
+3）如果工作集和步长都很大，那么高速缓存就形同虚设，因为根本就不存在局部性，读取数据时总是发生miss。因此，访问速度只能是主存级别
+
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1>
       
 
@@ -292,7 +286,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://octocat9lee.github.io/2017/11/07/CSAPP之存储器层次结构/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://octocat9lee.github.io/2017/11/07/CSAPP%E4%B9%8B%E5%AD%98%E5%82%A8%E5%99%A8%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -306,7 +300,7 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2017/11/09/GDB调试器使用总结/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/11/09/GDB%E8%B0%83%E8%AF%95%E5%99%A8%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -316,7 +310,7 @@ var _hmt = _hmt || [];
     </a>
   
   
-    <a href="/2017/11/06/2017年读书计划/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/11/06/2017%E5%B9%B4%E8%AF%BB%E4%B9%A6%E8%AE%A1%E5%88%92/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">2017年读书计划</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -344,7 +338,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#存储器分类"><span class="toc-number">2.</span> <span class="toc-text">存储器分类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#局部性"><span class="toc-number">3.</span> <span class="toc-text">局部性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#存储器层次结构"><span class="toc-number">4.</span> <span class="toc-text">存储器层次结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#高速缓存存储器"><span class="toc-number">5.</span> <span class="toc-text">高速缓存存储器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#直接映射高速缓存"><span class="toc-number">5.1.</span> <span class="toc-text">直接映射高速缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#直接映射地址解析示例"><span class="toc-number">5.2.</span> <span class="toc-text">直接映射地址解析示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组相联高速缓存"><span class="toc-number">5.3.</span> <span class="toc-text">组相联高速缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组相联地址解析示例"><span class="toc-number">5.4.</span> <span class="toc-text">组相联地址解析示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#全相联高速缓存"><span class="toc-number">5.5.</span> <span class="toc-text">全相联高速缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#全相连地址解析示例"><span class="toc-number">5.6.</span> <span class="toc-text">全相连地址解析示例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#编写高速缓存友好的代码"><span class="toc-number">6.</span> <span class="toc-text">编写高速缓存友好的代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#存储器山"><span class="toc-number">7.</span> <span class="toc-text">存储器山</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">8.</span> <span class="toc-text">总结</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E5%99%A8%E5%88%86%E7%B1%BB"><span class="toc-number">2.</span> <span class="toc-text">存储器分类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B1%80%E9%83%A8%E6%80%A7"><span class="toc-number">3.</span> <span class="toc-text">局部性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E5%99%A8%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84"><span class="toc-number">4.</span> <span class="toc-text">存储器层次结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%AB%98%E9%80%9F%E7%BC%93%E5%AD%98%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-number">5.</span> <span class="toc-text">高速缓存存储器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B4%E6%8E%A5%E6%98%A0%E5%B0%84%E9%AB%98%E9%80%9F%E7%BC%93%E5%AD%98"><span class="toc-number">5.1.</span> <span class="toc-text">直接映射高速缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B4%E6%8E%A5%E6%98%A0%E5%B0%84%E5%9C%B0%E5%9D%80%E8%A7%A3%E6%9E%90%E7%A4%BA%E4%BE%8B"><span class="toc-number">5.2.</span> <span class="toc-text">直接映射地址解析示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E7%9B%B8%E8%81%94%E9%AB%98%E9%80%9F%E7%BC%93%E5%AD%98"><span class="toc-number">5.3.</span> <span class="toc-text">组相联高速缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E7%9B%B8%E8%81%94%E5%9C%B0%E5%9D%80%E8%A7%A3%E6%9E%90%E7%A4%BA%E4%BE%8B"><span class="toc-number">5.4.</span> <span class="toc-text">组相联地址解析示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E7%9B%B8%E8%81%94%E9%AB%98%E9%80%9F%E7%BC%93%E5%AD%98"><span class="toc-number">5.5.</span> <span class="toc-text">全相联高速缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E7%9B%B8%E8%BF%9E%E5%9C%B0%E5%9D%80%E8%A7%A3%E6%9E%90%E7%A4%BA%E4%BE%8B"><span class="toc-number">5.6.</span> <span class="toc-text">全相连地址解析示例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BC%96%E5%86%99%E9%AB%98%E9%80%9F%E7%BC%93%E5%AD%98%E5%8F%8B%E5%A5%BD%E7%9A%84%E4%BB%A3%E7%A0%81"><span class="toc-number">6.</span> <span class="toc-text">编写高速缓存友好的代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E5%99%A8%E5%B1%B1"><span class="toc-number">7.</span> <span class="toc-text">存储器山</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">8.</span> <span class="toc-text">总结</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -375,7 +369,7 @@ var _hmt = _hmt || [];
           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
       </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </section>
   
 
@@ -505,11 +499,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
+                <a href="javascript:void(0)" class="js-tag color5">技术点滴</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术点滴</a>
+                <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -517,11 +511,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt</a>
+                <a href="javascript:void(0)" class="js-tag color1">STEAM</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">STEAM</a>
+                <a href="javascript:void(0)" class="js-tag color3">Qt</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -549,7 +543,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:

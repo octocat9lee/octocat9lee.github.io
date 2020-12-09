@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
-  <meta name="baidu-site-verification" content="gHJw3bXGu1">
-  <meta name="google-site-verification" content="-lNjR-HxF8YoulCpsMRPTH3XMW3mvngPcJDTDXYkNSA">
+  <meta name="baidu-site-verification" content="gHJw3bXGu1" />
+  <meta name="google-site-verification" content="-lNjR-HxF8YoulCpsMRPTH3XMW3mvngPcJDTDXYkNSA" />
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://octocat9lee.github.io">
   <title>CSAPP之优化程序性能 | 章鱼猫の博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="前言程序性能优化最重要的原则是在保证程序正确性的基础上，使用多种手段，反复尝试分析，有时甚至需要查看底层对应的汇编代码，从而找出性能的瓶颈，进行合理的优化。另外，我们需要注意的是在性能重要的环境中反复执行的代码，进行优化是合适的。为了提升程序的性能，我们做了大量的修改优化，但仍然要保持代码的简洁和可读性。如果我们盲目执行对低级别的优化，往往会降低程序的可读性，使得程序难以扩展和维护。因此，我们需要">
-<meta name="keywords" content="CSAPP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSAPP之优化程序性能">
-<meta property="og:url" content="https://octocat9lee.github.io/2017/11/03/CSAPP之优化程序性能/index.html">
+<meta property="og:url" content="https://octocat9lee.github.io/2017/11/03/CSAPP%E4%B9%8B%E4%BC%98%E5%8C%96%E7%A8%8B%E5%BA%8F%E6%80%A7%E8%83%BD/index.html">
 <meta property="og:site_name" content="章鱼猫の博客">
 <meta property="og:description" content="前言程序性能优化最重要的原则是在保证程序正确性的基础上，使用多种手段，反复尝试分析，有时甚至需要查看底层对应的汇编代码，从而找出性能的瓶颈，进行合理的优化。另外，我们需要注意的是在性能重要的环境中反复执行的代码，进行优化是合适的。为了提升程序的性能，我们做了大量的修改优化，但仍然要保持代码的简洁和可读性。如果我们盲目执行对低级别的优化，往往会降低程序的可读性，使得程序难以扩展和维护。因此，我们需要">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-05T01:36:48.071Z">
+<meta property="og:locale">
+<meta property="article:published_time" content="2017-11-03T02:31:39.000Z">
+<meta property="article:modified_time" content="2019-11-05T01:36:48.071Z">
+<meta property="article:author" content="章鱼猫">
+<meta property="article:tag" content="CSAPP">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSAPP之优化程序性能">
-<meta name="twitter:description" content="前言程序性能优化最重要的原则是在保证程序正确性的基础上，使用多种手段，反复尝试分析，有时甚至需要查看底层对应的汇编代码，从而找出性能的瓶颈，进行合理的优化。另外，我们需要注意的是在性能重要的环境中反复执行的代码，进行优化是合适的。为了提升程序的性能，我们做了大量的修改优化，但仍然要保持代码的简洁和可读性。如果我们盲目执行对低级别的优化，往往会降低程序的可读性，使得程序难以扩展和维护。因此，我们需要">
   
     <link rel="alternative" href="/atom.xml" title="章鱼猫の博客" type="application/atom+xml">
   
@@ -49,8 +49,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -63,10 +63,8 @@ var _hmt = _hmt || [];
 			<img src="/img/octocat.png" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="">章鱼猫</a></h1>
+		  <h1 class="header-author"><a href=""></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">记录生活的点点滴滴</p>
 		
 
 		<nav class="header-menu">
@@ -121,10 +119,8 @@ var _hmt = _hmt || [];
 				<img src="/img/octocat.png" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">章鱼猫</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>记录生活的点点滴滴<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -171,7 +167,7 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-CSAPP之优化程序性能" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-CSAPP之优化程序性能" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -183,7 +179,7 @@ var _hmt = _hmt || [];
   
 
         
-        <a href="/2017/11/03/CSAPP之优化程序性能/" class="archive-article-date">
+        <a href="/2017/11/03/CSAPP%E4%B9%8B%E4%BC%98%E5%8C%96%E7%A8%8B%E5%BA%8F%E6%80%A7%E8%83%BD/" class="archive-article-date">
   	<time datetime="2017-11-03T02:31:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-03</time>
 </a>
         
@@ -192,8 +188,9 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>程序性能优化最重要的原则是在<code>保证程序正确性</code>的基础上，使用多种手段，反复尝试分析，有时甚至需要查看底层对应的汇编代码，从而找出性能的瓶颈，进行合理的优化。另外，我们需要注意的是在性能重要的环境中反复执行的代码，进行优化是合适的。为了提升程序的性能，我们做了大量的修改优化，但仍然要保持代码的简洁和可读性。如果我们盲目执行对低级别的优化，往往会降低程序的可读性，使得程序难以扩展和维护。因此，我们需要在<code>程序实现和维护的简单性与它们的运行速度</code>之间做出权衡。在性能优化过程中，我们经常遇到<code>很小的改动但产生性能巨大的差异，有时一些很有希望的技术却被证明无效</code>的场景，这是因为性能依赖于处理器许多特性的设计，而我们却所知甚少，因此，性能的优化往往是比较困难的，需要我们有足够的经验，采用各种综合手段去分析，挖掘性能的瓶颈。</p>
-<h1 id="优化方法"><a href="#优化方法" class="headerlink" title="优化方法"></a>优化方法</h1><h2 id="熟悉编译器优化选项"><a href="#熟悉编译器优化选项" class="headerlink" title="熟悉编译器优化选项"></a>熟悉编译器优化选项</h2><p>在大多数情况下，我们都是使用高级的程序语言，需要通过编译器将源码转变成机器识别执行的机器程序。因此，我们需要对使用的编译器的优化选项有大致的了解，其中<a href="https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html" target="_blank" rel="noopener">gcc optimize options</a>编译优化选项在其使用手册文档中有详细说明。因为编译器优化能力的局限性和安全性，导致很多情形下编译器很无法执行理想的优化，因此，需要程序员编写编译器容易优化的代码，帮助编译器显式执行优化。</p>
-<h2 id="消除循环低效率"><a href="#消除循环低效率" class="headerlink" title="消除循环低效率"></a>消除循环低效率</h2><p>在循环过程中，重复计算没有改变的量应该使用局部变量进行保存，减少不必要的重复计算。例如，CSAPP作者举例的<code>将字符串由小写转成成大小</code>的示例中，在每次循环中求取保持不变的字符串长度量，导致函数的运行时间为二次方。如果使用局部变量保存长度，函数的时间开销为线性。作者特别提到，编程中更常见的问题是<code>一个无足轻重的代码隐藏着渐进的低效率</code>，使得当问题的规模较小时，根本无法发现问题。因此我们作为一名有经验合格的程序员应该竭力避免引入这种<code>渐进低效率</code>的问题。<br><a id="more"></a></p>
+<h1 id="优化方法"><a href="#优化方法" class="headerlink" title="优化方法"></a>优化方法</h1><h2 id="熟悉编译器优化选项"><a href="#熟悉编译器优化选项" class="headerlink" title="熟悉编译器优化选项"></a>熟悉编译器优化选项</h2><p>在大多数情况下，我们都是使用高级的程序语言，需要通过编译器将源码转变成机器识别执行的机器程序。因此，我们需要对使用的编译器的优化选项有大致的了解，其中<a target="_blank" rel="noopener" href="https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html">gcc optimize options</a>编译优化选项在其使用手册文档中有详细说明。因为编译器优化能力的局限性和安全性，导致很多情形下编译器很无法执行理想的优化，因此，需要程序员编写编译器容易优化的代码，帮助编译器显式执行优化。</p>
+<h2 id="消除循环低效率"><a href="#消除循环低效率" class="headerlink" title="消除循环低效率"></a>消除循环低效率</h2><p>在循环过程中，重复计算没有改变的量应该使用局部变量进行保存，减少不必要的重复计算。例如，CSAPP作者举例的<code>将字符串由小写转成成大小</code>的示例中，在每次循环中求取保持不变的字符串长度量，导致函数的运行时间为二次方。如果使用局部变量保存长度，函数的时间开销为线性。作者特别提到，编程中更常见的问题是<code>一个无足轻重的代码隐藏着渐进的低效率</code>，使得当问题的规模较小时，根本无法发现问题。因此我们作为一名有经验合格的程序员应该竭力避免引入这种<code>渐进低效率</code>的问题。</p>
+<a id="more"></a>
 <h2 id="减少过程调用"><a href="#减少过程调用" class="headerlink" title="减少过程调用"></a>减少过程调用</h2><p>过程调用会带来开销，并且妨碍程序的优化。</p>
 <h2 id="消除不必要的内存引用"><a href="#消除不必要的内存引用" class="headerlink" title="消除不必要的内存引用"></a>消除不必要的内存引用</h2><p>对于指针变量来说，每次对指针变量的引用都会涉及内存的访问，相对寄存器访问速度来说，内存读写是低效的，因此，如果过多的内存医用会降低程序的效率。我们可以将中间的计算过程保存在局部变量中，利用寄存器访问的高效性提高程序的性能。</p>
 <h2 id="理解现代处理器"><a href="#理解现代处理器" class="headerlink" title="理解现代处理器"></a>理解现代处理器</h2><p>一致性：多条指令可以并行执行，但与多条指令简单顺序执行效果一致<br>乱序性：指令的执行顺序并不与机器程序的指令顺序一致</p>
@@ -282,7 +279,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://octocat9lee.github.io/2017/11/03/CSAPP之优化程序性能/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://octocat9lee.github.io/2017/11/03/CSAPP%E4%B9%8B%E4%BC%98%E5%8C%96%E7%A8%8B%E5%BA%8F%E6%80%A7%E8%83%BD/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -296,7 +293,7 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2017/11/06/2017年读书计划/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/11/06/2017%E5%B9%B4%E8%AF%BB%E4%B9%A6%E8%AE%A1%E5%88%92/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -306,7 +303,7 @@ var _hmt = _hmt || [];
     </a>
   
   
-    <a href="/2017/11/02/CSAPP实验之archlab/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/11/02/CSAPP%E5%AE%9E%E9%AA%8C%E4%B9%8Barchlab/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">CSAPP实验之archlab</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -334,7 +331,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#优化方法"><span class="toc-number">2.</span> <span class="toc-text">优化方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#熟悉编译器优化选项"><span class="toc-number">2.1.</span> <span class="toc-text">熟悉编译器优化选项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#消除循环低效率"><span class="toc-number">2.2.</span> <span class="toc-text">消除循环低效率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#减少过程调用"><span class="toc-number">2.3.</span> <span class="toc-text">减少过程调用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#消除不必要的内存引用"><span class="toc-number">2.4.</span> <span class="toc-text">消除不必要的内存引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#理解现代处理器"><span class="toc-number">2.5.</span> <span class="toc-text">理解现代处理器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#循环展开"><span class="toc-number">2.6.</span> <span class="toc-text">循环展开</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#提高并行性"><span class="toc-number">2.7.</span> <span class="toc-text">提高并行性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重新结合变换"><span class="toc-number">2.8.</span> <span class="toc-text">重新结合变换</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#限制因素"><span class="toc-number">3.</span> <span class="toc-text">限制因素</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#寄存器溢出"><span class="toc-number">3.1.</span> <span class="toc-text">寄存器溢出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编写适合用条件传送实现的代码"><span class="toc-number">3.2.</span> <span class="toc-text">编写适合用条件传送实现的代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#消除读写相关的内存访问"><span class="toc-number">3.3.</span> <span class="toc-text">消除读写相关的内存访问</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#性能分析工具"><span class="toc-number">4.</span> <span class="toc-text">性能分析工具</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">优化方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%86%9F%E6%82%89%E7%BC%96%E8%AF%91%E5%99%A8%E4%BC%98%E5%8C%96%E9%80%89%E9%A1%B9"><span class="toc-number">2.1.</span> <span class="toc-text">熟悉编译器优化选项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B6%88%E9%99%A4%E5%BE%AA%E7%8E%AF%E4%BD%8E%E6%95%88%E7%8E%87"><span class="toc-number">2.2.</span> <span class="toc-text">消除循环低效率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%8F%E5%B0%91%E8%BF%87%E7%A8%8B%E8%B0%83%E7%94%A8"><span class="toc-number">2.3.</span> <span class="toc-text">减少过程调用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B6%88%E9%99%A4%E4%B8%8D%E5%BF%85%E8%A6%81%E7%9A%84%E5%86%85%E5%AD%98%E5%BC%95%E7%94%A8"><span class="toc-number">2.4.</span> <span class="toc-text">消除不必要的内存引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%90%86%E8%A7%A3%E7%8E%B0%E4%BB%A3%E5%A4%84%E7%90%86%E5%99%A8"><span class="toc-number">2.5.</span> <span class="toc-text">理解现代处理器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E5%B1%95%E5%BC%80"><span class="toc-number">2.6.</span> <span class="toc-text">循环展开</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%90%E9%AB%98%E5%B9%B6%E8%A1%8C%E6%80%A7"><span class="toc-number">2.7.</span> <span class="toc-text">提高并行性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E6%96%B0%E7%BB%93%E5%90%88%E5%8F%98%E6%8D%A2"><span class="toc-number">2.8.</span> <span class="toc-text">重新结合变换</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%99%90%E5%88%B6%E5%9B%A0%E7%B4%A0"><span class="toc-number">3.</span> <span class="toc-text">限制因素</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%84%E5%AD%98%E5%99%A8%E6%BA%A2%E5%87%BA"><span class="toc-number">3.1.</span> <span class="toc-text">寄存器溢出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E5%86%99%E9%80%82%E5%90%88%E7%94%A8%E6%9D%A1%E4%BB%B6%E4%BC%A0%E9%80%81%E5%AE%9E%E7%8E%B0%E7%9A%84%E4%BB%A3%E7%A0%81"><span class="toc-number">3.2.</span> <span class="toc-text">编写适合用条件传送实现的代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B6%88%E9%99%A4%E8%AF%BB%E5%86%99%E7%9B%B8%E5%85%B3%E7%9A%84%E5%86%85%E5%AD%98%E8%AE%BF%E9%97%AE"><span class="toc-number">3.3.</span> <span class="toc-text">消除读写相关的内存访问</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7"><span class="toc-number">4.</span> <span class="toc-text">性能分析工具</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -365,7 +362,7 @@ var _hmt = _hmt || [];
           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
       </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </section>
   
 
@@ -495,11 +492,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
+                <a href="javascript:void(0)" class="js-tag color5">技术点滴</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术点滴</a>
+                <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -507,11 +504,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt</a>
+                <a href="javascript:void(0)" class="js-tag color1">STEAM</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">STEAM</a>
+                <a href="javascript:void(0)" class="js-tag color3">Qt</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -539,7 +536,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:

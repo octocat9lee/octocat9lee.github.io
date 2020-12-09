@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
-  <meta name="baidu-site-verification" content="gHJw3bXGu1">
-  <meta name="google-site-verification" content="-lNjR-HxF8YoulCpsMRPTH3XMW3mvngPcJDTDXYkNSA">
+  <meta name="baidu-site-verification" content="gHJw3bXGu1" />
+  <meta name="google-site-verification" content="-lNjR-HxF8YoulCpsMRPTH3XMW3mvngPcJDTDXYkNSA" />
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://octocat9lee.github.io">
   <title>章鱼猫の博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -16,10 +16,9 @@
 <meta property="og:url" content="https://octocat9lee.github.io/page/6/index.html">
 <meta property="og:site_name" content="章鱼猫の博客">
 <meta property="og:description" content="做自己爱做的事,爱自己在做的事">
-<meta property="og:locale" content="default">
+<meta property="og:locale">
+<meta property="article:author" content="章鱼猫">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="章鱼猫の博客">
-<meta name="twitter:description" content="做自己爱做的事,爱自己在做的事">
   
     <link rel="alternative" href="/atom.xml" title="章鱼猫の博客" type="application/atom+xml">
   
@@ -47,8 +46,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -61,10 +60,8 @@ var _hmt = _hmt || [];
 			<img src="/img/octocat.png" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="">章鱼猫</a></h1>
+		  <h1 class="header-author"><a href=""></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">记录生活的点点滴滴</p>
 		
 
 		<nav class="header-menu">
@@ -119,10 +116,8 @@ var _hmt = _hmt || [];
 				<img src="/img/octocat.png" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">章鱼猫</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>记录生活的点点滴滴<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -171,19 +166,19 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-C-Primer5e第19章：特殊工具与技术（一）" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-C-Primer5e第19章：特殊工具与技术（一）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/05/C-Primer5e第19章：特殊工具与技术（一）/">C++Primer5e第19章：特殊工具与技术（一）</a>
+      <a class="article-title" href="/2018/01/05/C-Primer5e%E7%AC%AC19%E7%AB%A0%EF%BC%9A%E7%89%B9%E6%AE%8A%E5%B7%A5%E5%85%B7%E4%B8%8E%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%80%EF%BC%89/">C++Primer5e第19章：特殊工具与技术（一）</a>
     </h1>
   
 
         
-        <a href="/2018/01/05/C-Primer5e第19章：特殊工具与技术（一）/" class="archive-article-date">
+        <a href="/2018/01/05/C-Primer5e%E7%AC%AC19%E7%AB%A0%EF%BC%9A%E7%89%B9%E6%AE%8A%E5%B7%A5%E5%85%B7%E4%B8%8E%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%80%EF%BC%89/" class="archive-article-date">
   	<time datetime="2018-01-05T01:25:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-05</time>
 </a>
         
@@ -192,9 +187,14 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h1><p>内存管理的层级以及对应的特性如下：</p>
-<p><center><br><img src="https://gitee.com/zhoulee/blog-images/raw/master/memory_level_manager.jpg" alt="C++内存管理层级"><br></center><br>我们在程序中经常使用的new和delete是C++标准中的表达式，有时也称为new运算符。但new与delete运算符和其他运算符最大的不同在于new和delete运算符不可以重载。<br>各层次内存分配与释放方式的使用示例：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> *p1 = <span class="built_in">malloc</span>(<span class="number">512</span>); <span class="comment">//512 bytes</span></span><br><span class="line"><span class="built_in">free</span>(p1);</span><br><span class="line"></span><br><span class="line"><span class="keyword">complex</span>&lt;<span class="keyword">int</span>&gt; *p2 = <span class="keyword">new</span> <span class="keyword">complex</span>&lt;<span class="keyword">int</span>&gt;; <span class="comment">//one object</span></span><br><span class="line"><span class="keyword">delete</span> p2;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> *p3 = ::<span class="keyword">operator</span> <span class="keyword">new</span>(<span class="number">512</span>); <span class="comment">//512 bytes</span></span><br><span class="line">::<span class="function"><span class="keyword">operator</span> <span class="title">delete</span><span class="params">(p3)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//以下函数都是non-static，要通过object调用。以下分配7个ints</span></span><br><span class="line"><span class="keyword">void</span> *p4 = allocator&lt;<span class="keyword">int</span>&gt;().allocate(<span class="number">7</span>);</span><br><span class="line">allocator&lt;<span class="keyword">int</span>&gt;().deallocate((<span class="keyword">int</span>*)p4,<span class="number">7</span>);</span><br></pre></td></tr></table></figure></p>
+<center>
+![C++内存管理层级](https://gitee.com/zhoulee/blog-images/raw/master/memory_level_manager.jpg)
+</center>
+我们在程序中经常使用的new和delete是C++标准中的表达式，有时也称为new运算符。但new与delete运算符和其他运算符最大的不同在于new和delete运算符不可以重载。
+各层次内存分配与释放方式的使用示例：
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> *p1 = <span class="built_in">malloc</span>(<span class="number">512</span>); <span class="comment">//512 bytes</span></span><br><span class="line"><span class="built_in">free</span>(p1);</span><br><span class="line"></span><br><span class="line"><span class="built_in">complex</span>&lt;<span class="keyword">int</span>&gt; *p2 = <span class="keyword">new</span> <span class="built_in">complex</span>&lt;<span class="keyword">int</span>&gt;; <span class="comment">//one object</span></span><br><span class="line"><span class="keyword">delete</span> p2;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> *p3 = ::<span class="keyword">operator</span> <span class="keyword">new</span>(<span class="number">512</span>); <span class="comment">//512 bytes</span></span><br><span class="line">::<span class="function"><span class="keyword">operator</span> <span class="title">delete</span><span class="params">(p3)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//以下函数都是non-static，要通过object调用。以下分配7个ints</span></span><br><span class="line"><span class="keyword">void</span> *p4 = allocator&lt;<span class="keyword">int</span>&gt;().allocate(<span class="number">7</span>);</span><br><span class="line">allocator&lt;<span class="keyword">int</span>&gt;().deallocate((<span class="keyword">int</span>*)p4,<span class="number">7</span>);</span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2018/01/05/C-Primer5e第19章：特殊工具与技术（一）/#more">more >></a>
+          <a class="article-more-a" href="/2018/01/05/C-Primer5e%E7%AC%AC19%E7%AB%A0%EF%BC%9A%E7%89%B9%E6%AE%8A%E5%B7%A5%E5%85%B7%E4%B8%8E%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%80%EF%BC%89/#more">more >></a>
         
       
 
@@ -218,7 +218,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/05/C-Primer5e第19章：特殊工具与技术（一）/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/01/05/C-Primer5e%E7%AC%AC19%E7%AB%A0%EF%BC%9A%E7%89%B9%E6%AE%8A%E5%B7%A5%E5%85%B7%E4%B8%8E%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%80%EF%BC%89/">展开全文 >></a>
         </p>
       
 
@@ -248,19 +248,19 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-C-Primer5e第17章：标准库特殊设施" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-C-Primer5e第17章：标准库特殊设施" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/03/C-Primer5e第17章：标准库特殊设施/">C++Primer5e第17章：标准库特殊设施</a>
+      <a class="article-title" href="/2018/01/03/C-Primer5e%E7%AC%AC17%E7%AB%A0%EF%BC%9A%E6%A0%87%E5%87%86%E5%BA%93%E7%89%B9%E6%AE%8A%E8%AE%BE%E6%96%BD/">C++Primer5e第17章：标准库特殊设施</a>
     </h1>
   
 
         
-        <a href="/2018/01/03/C-Primer5e第17章：标准库特殊设施/" class="archive-article-date">
+        <a href="/2018/01/03/C-Primer5e%E7%AC%AC17%E7%AB%A0%EF%BC%9A%E6%A0%87%E5%87%86%E5%BA%93%E7%89%B9%E6%AE%8A%E8%AE%BE%E6%96%BD/" class="archive-article-date">
   	<time datetime="2018-01-03T00:54:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-03</time>
 </a>
         
@@ -269,15 +269,15 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="tuple类型"><a href="#tuple类型" class="headerlink" title="tuple类型"></a>tuple类型</h1><p>当我们希望将一些数据组合成单一对象，但又不想麻烦地定义一个新数据结构来表示这些数据时，tuple是非常有用的。我们可以将tuple看作一个“快速而随意”的数据结构。<br>tuple类型及其伴随类型和函数都定义在tuple头文件中。</p>
-<h2 id="定义和初始化tuple"><a href="#定义和初始化tuple" class="headerlink" title="定义和初始化tuple"></a>定义和初始化tuple</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">tuple&lt;<span class="keyword">size_t</span>, <span class="keyword">size_t</span>, <span class="keyword">size_t</span>&gt; threeD&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line">tuple&lt;<span class="built_in">string</span>, <span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt;, <span class="keyword">int</span>, <span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt;&gt; somVal(<span class="string">"constants"</span>, &#123;<span class="number">0.01</span>, <span class="number">3.14</span>&#125;, <span class="number">100</span>, &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;);</span><br><span class="line"><span class="keyword">auto</span> item = make_tuple(<span class="string">"0990-0990-0990"</span>, <span class="number">3</span>, <span class="number">20.00</span>); <span class="comment">//使用初始值的类型推断tuple类型，tuple&lt;const char *, int, double&gt;</span></span><br><span class="line"><span class="comment">//访问tuple的成员</span></span><br><span class="line"><span class="keyword">auto</span> book = get&lt;<span class="number">0</span>&gt;(item);  <span class="comment">//返回第一个数据成员的引用</span></span><br><span class="line"><span class="keyword">auto</span> cnt = get&lt;<span class="number">1</span>&gt;(item);</span><br><span class="line">get&lt;<span class="number">2</span>&gt;(item) *= <span class="number">0.8</span>;       <span class="comment">//打8折</span></span><br><span class="line"><span class="keyword">auto</span> price = get&lt;<span class="number">2</span>&gt;(item);</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; book &lt;&lt; <span class="string">" "</span> &lt;&lt; cnt &lt;&lt; <span class="string">" "</span> &lt;&lt; price &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"><span class="comment">//使用辅助模板类获取tuple成员数量和类型</span></span><br><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">decltype</span><span class="params">(item)</span> trans</span>;  <span class="comment">//使用decltype为item定义类型别名</span></span><br><span class="line"><span class="keyword">size_t</span> sz = tuple_size&lt;trans&gt;::value; <span class="comment">//sz = 3</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"tuple size "</span> &lt;&lt; sz &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">tuple_element&lt;<span class="number">1</span>, trans&gt;::type bookCnt = get&lt;<span class="number">1</span>&gt;(item); <span class="comment">//bookCnt的类型与item中第二个成员的类型相同</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"book count "</span> &lt;&lt; bookCnt &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
-<p><a href="http://blog.csdn.net/lanchunhui/article/details/49868077" target="_blank" rel="noopener">C++11::遍历tuple中的元素</a><br>
+<h2 id="定义和初始化tuple"><a href="#定义和初始化tuple" class="headerlink" title="定义和初始化tuple"></a>定义和初始化tuple</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">tuple&lt;<span class="keyword">size_t</span>, <span class="keyword">size_t</span>, <span class="keyword">size_t</span>&gt; threeD&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line">tuple&lt;<span class="built_in">string</span>, <span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt;, <span class="keyword">int</span>, <span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt;&gt; somVal(<span class="string">&quot;constants&quot;</span>, &#123;<span class="number">0.01</span>, <span class="number">3.14</span>&#125;, <span class="number">100</span>, &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;);</span><br><span class="line"><span class="keyword">auto</span> item = make_tuple(<span class="string">&quot;0990-0990-0990&quot;</span>, <span class="number">3</span>, <span class="number">20.00</span>); <span class="comment">//使用初始值的类型推断tuple类型，tuple&lt;const char *, int, double&gt;</span></span><br><span class="line"><span class="comment">//访问tuple的成员</span></span><br><span class="line"><span class="keyword">auto</span> book = get&lt;<span class="number">0</span>&gt;(item);  <span class="comment">//返回第一个数据成员的引用</span></span><br><span class="line"><span class="keyword">auto</span> cnt = get&lt;<span class="number">1</span>&gt;(item);</span><br><span class="line">get&lt;<span class="number">2</span>&gt;(item) *= <span class="number">0.8</span>;       <span class="comment">//打8折</span></span><br><span class="line"><span class="keyword">auto</span> price = get&lt;<span class="number">2</span>&gt;(item);</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; book &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; cnt &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; price &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"><span class="comment">//使用辅助模板类获取tuple成员数量和类型</span></span><br><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">decltype</span><span class="params">(item)</span> trans</span>;  <span class="comment">//使用decltype为item定义类型别名</span></span><br><span class="line"><span class="keyword">size_t</span> sz = tuple_size&lt;trans&gt;::value; <span class="comment">//sz = 3</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;tuple size &quot;</span> &lt;&lt; sz &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">tuple_element&lt;<span class="number">1</span>, trans&gt;::type bookCnt = get&lt;<span class="number">1</span>&gt;(item); <span class="comment">//bookCnt的类型与item中第二个成员的类型相同</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;book count &quot;</span> &lt;&lt; bookCnt &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="http://blog.csdn.net/lanchunhui/article/details/49868077">C++11::遍历tuple中的元素</a></p>
         
-          <a class="article-more-a" href="/2018/01/03/C-Primer5e第17章：标准库特殊设施/#more">more >></a>
+          <a class="article-more-a" href="/2018/01/03/C-Primer5e%E7%AC%AC17%E7%AB%A0%EF%BC%9A%E6%A0%87%E5%87%86%E5%BA%93%E7%89%B9%E6%AE%8A%E8%AE%BE%E6%96%BD/#more">more >></a>
         
       
 
       
-    </p></div>
+    </div>
     <div class="article-info article-info-index">
       
       
@@ -296,7 +296,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/03/C-Primer5e第17章：标准库特殊设施/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/01/03/C-Primer5e%E7%AC%AC17%E7%AB%A0%EF%BC%9A%E6%A0%87%E5%87%86%E5%BA%93%E7%89%B9%E6%AE%8A%E8%AE%BE%E6%96%BD/">展开全文 >></a>
         </p>
       
 
@@ -326,19 +326,19 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-C-Primer5e第16章：模板与泛型编程" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-C-Primer5e第16章：模板与泛型编程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/28/C-Primer5e第16章：模板与泛型编程/">C++Primer5e第16章：模板与泛型编程</a>
+      <a class="article-title" href="/2017/12/28/C-Primer5e%E7%AC%AC16%E7%AB%A0%EF%BC%9A%E6%A8%A1%E6%9D%BF%E4%B8%8E%E6%B3%9B%E5%9E%8B%E7%BC%96%E7%A8%8B/">C++Primer5e第16章：模板与泛型编程</a>
     </h1>
   
 
         
-        <a href="/2017/12/28/C-Primer5e第16章：模板与泛型编程/" class="archive-article-date">
+        <a href="/2017/12/28/C-Primer5e%E7%AC%AC16%E7%AB%A0%EF%BC%9A%E6%A8%A1%E6%9D%BF%E4%B8%8E%E6%B3%9B%E5%9E%8B%E7%BC%96%E7%A8%8B/" class="archive-article-date">
   	<time datetime="2017-12-28T09:08:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-28</time>
 </a>
         
@@ -347,15 +347,16 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>模板是C++中泛型编程的基础。一个模板就是一个创建类或函数的蓝图或者说公式。</p>
-<h1 id="定义模板"><a href="#定义模板" class="headerlink" title="定义模板"></a>定义模板</h1><h2 id="函数模板"><a href="#函数模板" class="headerlink" title="函数模板"></a>函数模板</h2><p>除了定义类型参数，还可以在模板中定义<code>非类型参数(nontype parameter)</code>。一个非类型参数表示一个值而非一个类型。我们通过特定的类型名而非关键字class或typename来指定非类型参数。<br>当一个模板被实例化时，非类型参数被一个用户提供的或编译器推断出的值所代替。这些值必须是常量表达式，从而允许编译器在编译时实例化模板。非类型参数可以是一个整型，或者是一个指向对象或函数类型的指针或引用。<br>比较不同长度的字符串字面常量，因此为模板定义了两个非类型的参数，分别表示数组的长度：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">unsigned</span> N, <span class="keyword">unsigned</span> M&gt;</span><br><span class="line">int compare(const char (&amp;p1)[N], const char (&amp;p2)[M])</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">strcmp</span>(p1, p2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">compare(<span class="string">"hi"</span>, <span class="string">"mom"</span>);</span><br><span class="line"><span class="comment">//编译器会实例化出如下版本</span></span><br><span class="line">int compare(const char (&amp;p1)[3], const char (&amp;p2)[4])</span><br></pre></td></tr></table></figure></p>
-<p><strong>模板程序应该尽量减少对实参类型的要求</strong><br>当编译器遇到一个模板定义时，它并不生成代码。只有当我们实例化出模板的一个特定版本时，编译器才会生成代码。因此大多数编译错误在实例化期间报告。<br><strong>模板的头文件通常既包括声明也包括定义</strong><br>
+<h1 id="定义模板"><a href="#定义模板" class="headerlink" title="定义模板"></a>定义模板</h1><h2 id="函数模板"><a href="#函数模板" class="headerlink" title="函数模板"></a>函数模板</h2><p>除了定义类型参数，还可以在模板中定义<code>非类型参数(nontype parameter)</code>。一个非类型参数表示一个值而非一个类型。我们通过特定的类型名而非关键字class或typename来指定非类型参数。<br>当一个模板被实例化时，非类型参数被一个用户提供的或编译器推断出的值所代替。这些值必须是常量表达式，从而允许编译器在编译时实例化模板。非类型参数可以是一个整型，或者是一个指向对象或函数类型的指针或引用。<br>比较不同长度的字符串字面常量，因此为模板定义了两个非类型的参数，分别表示数组的长度：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">unsigned</span> N, <span class="keyword">unsigned</span> M&gt;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">compare</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> (&amp;p1)[N], <span class="keyword">const</span> <span class="keyword">char</span> (&amp;p2)[M])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">strcmp</span>(p1, p2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">compare(<span class="string">&quot;hi&quot;</span>, <span class="string">&quot;mom&quot;</span>);</span><br><span class="line"><span class="comment">//编译器会实例化出如下版本</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">compare</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> (&amp;p1)[<span class="number">3</span>], <span class="keyword">const</span> <span class="keyword">char</span> (&amp;p2)[<span class="number">4</span>])</span></span></span><br></pre></td></tr></table></figure>
+<p><strong>模板程序应该尽量减少对实参类型的要求</strong><br>当编译器遇到一个模板定义时，它并不生成代码。只有当我们实例化出模板的一个特定版本时，编译器才会生成代码。因此大多数编译错误在实例化期间报告。<br><strong>模板的头文件通常既包括声明也包括定义</strong></p>
         
-          <a class="article-more-a" href="/2017/12/28/C-Primer5e第16章：模板与泛型编程/#more">more >></a>
+          <a class="article-more-a" href="/2017/12/28/C-Primer5e%E7%AC%AC16%E7%AB%A0%EF%BC%9A%E6%A8%A1%E6%9D%BF%E4%B8%8E%E6%B3%9B%E5%9E%8B%E7%BC%96%E7%A8%8B/#more">more >></a>
         
       
 
       
-    </p></div>
+    </div>
     <div class="article-info article-info-index">
       
       
@@ -374,7 +375,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/28/C-Primer5e第16章：模板与泛型编程/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/12/28/C-Primer5e%E7%AC%AC16%E7%AB%A0%EF%BC%9A%E6%A8%A1%E6%9D%BF%E4%B8%8E%E6%B3%9B%E5%9E%8B%E7%BC%96%E7%A8%8B/">展开全文 >></a>
         </p>
       
 
@@ -404,19 +405,19 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-C-Primer5e第15章：面向对象程序设计" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-C-Primer5e第15章：面向对象程序设计" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/27/C-Primer5e第15章：面向对象程序设计/">C++Primer5e第15章：面向对象程序设计</a>
+      <a class="article-title" href="/2017/12/27/C-Primer5e%E7%AC%AC15%E7%AB%A0%EF%BC%9A%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">C++Primer5e第15章：面向对象程序设计</a>
     </h1>
   
 
         
-        <a href="/2017/12/27/C-Primer5e第15章：面向对象程序设计/" class="archive-article-date">
+        <a href="/2017/12/27/C-Primer5e%E7%AC%AC15%E7%AB%A0%EF%BC%9A%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" class="archive-article-date">
   	<time datetime="2017-12-27T05:19:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-27</time>
 </a>
         
@@ -429,14 +430,14 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>如果类带有任何virtual函数，它就应该拥有一个virtual析构函数<br>如果类设计的目的不是作为基类使用，或者不是为了具备多态性，就不该声明virtual析构函数</p>
 </blockquote>
-<p>基类通过在其成员函数的声明语句之前加上关键字virtual使得该函数执行动态绑定。关键字virtual仅出现在声明处而不能用于类外部的函数定义。在基类中为virtual函数，则该函数在派生类中隐式地也是虚函数。<br>
+<p>基类通过在其成员函数的声明语句之前加上关键字virtual使得该函数执行动态绑定。关键字virtual仅出现在声明处而不能用于类外部的函数定义。在基类中为virtual函数，则该函数在派生类中隐式地也是虚函数。</p>
         
-          <a class="article-more-a" href="/2017/12/27/C-Primer5e第15章：面向对象程序设计/#more">more >></a>
+          <a class="article-more-a" href="/2017/12/27/C-Primer5e%E7%AC%AC15%E7%AB%A0%EF%BC%9A%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/#more">more >></a>
         
       
 
       
-    </p></div>
+    </div>
     <div class="article-info article-info-index">
       
       
@@ -455,7 +456,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/27/C-Primer5e第15章：面向对象程序设计/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/12/27/C-Primer5e%E7%AC%AC15%E7%AB%A0%EF%BC%9A%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">展开全文 >></a>
         </p>
       
 
@@ -485,19 +486,19 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-C-Primer5e第14章：重载运算与类型转换" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-C-Primer5e第14章：重载运算与类型转换" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/22/C-Primer5e第14章：重载运算与类型转换/">C++Primer5e第14章：重载运算与类型转换</a>
+      <a class="article-title" href="/2017/12/22/C-Primer5e%E7%AC%AC14%E7%AB%A0%EF%BC%9A%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E4%B8%8E%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/">C++Primer5e第14章：重载运算与类型转换</a>
     </h1>
   
 
         
-        <a href="/2017/12/22/C-Primer5e第14章：重载运算与类型转换/" class="archive-article-date">
+        <a href="/2017/12/22/C-Primer5e%E7%AC%AC14%E7%AB%A0%EF%BC%9A%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E4%B8%8E%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" class="archive-article-date">
   	<time datetime="2017-12-22T05:30:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-22</time>
 </a>
         
@@ -506,15 +507,16 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>当运算符作用于类类型的运算对象时，可以通过运算符重载重新定义该运算符的含义。合理使用运算符重载能令我们的程序更易于编写和阅读。</p>
-<h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><p>重载的运算符是具有特殊名字的函数：它们的名字由关键字operator和其后要定义的运算符号共同组成。除了重载的函数调用运算符<code>operator()</code>之外，其他重载运算符不能含有默认实参。<br>当一个重载的运算符是成员函数时，则它的第一个(左侧)运算对象绑定到隐式的this指针上。<br>对于一个运算符函数来说，它或者是类的成员，或者至少包含有一个类类型的参数，因此我们不能改变内置类型的运算符的含义。<br>我们可以使用直接和间接两种方式调用重载的运算符函数：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//非成员运算符函数的等价调用</span></span><br><span class="line">data1 + data2;  <span class="comment">//普通的表达式</span></span><br><span class="line"><span class="keyword">operator</span>+(data1, data2); <span class="comment">//等价的函数调用</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//调用成员函数的operator+=运算符</span></span><br><span class="line">data1 += data2; <span class="comment">//this绑定到data1的地址、将data2作为实参传入函数</span></span><br><span class="line">data1.<span class="keyword">operator</span>+=(data2);</span><br></pre></td></tr></table></figure></p>
-<p><strong>通常情况下，不应该重载逗号、取地址、逻辑与和逻辑或运算符。</strong><br>当内置的运算符和我们自己的操作之间存在逻辑映射关系时，使用重载的运算符更自然直观。但是，过分滥用运算符重载也会使我们的类变得难以理解。<br>
+<h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><p>重载的运算符是具有特殊名字的函数：它们的名字由关键字operator和其后要定义的运算符号共同组成。除了重载的函数调用运算符<code>operator()</code>之外，其他重载运算符不能含有默认实参。<br>当一个重载的运算符是成员函数时，则它的第一个(左侧)运算对象绑定到隐式的this指针上。<br>对于一个运算符函数来说，它或者是类的成员，或者至少包含有一个类类型的参数，因此我们不能改变内置类型的运算符的含义。<br>我们可以使用直接和间接两种方式调用重载的运算符函数：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//非成员运算符函数的等价调用</span></span><br><span class="line">data1 + data2;  <span class="comment">//普通的表达式</span></span><br><span class="line"><span class="keyword">operator</span>+(data1, data2); <span class="comment">//等价的函数调用</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//调用成员函数的operator+=运算符</span></span><br><span class="line">data1 += data2; <span class="comment">//this绑定到data1的地址、将data2作为实参传入函数</span></span><br><span class="line">data1.<span class="keyword">operator</span>+=(data2);  </span><br></pre></td></tr></table></figure>
+<p><strong>通常情况下，不应该重载逗号、取地址、逻辑与和逻辑或运算符。</strong><br>当内置的运算符和我们自己的操作之间存在逻辑映射关系时，使用重载的运算符更自然直观。但是，过分滥用运算符重载也会使我们的类变得难以理解。</p>
         
-          <a class="article-more-a" href="/2017/12/22/C-Primer5e第14章：重载运算与类型转换/#more">more >></a>
+          <a class="article-more-a" href="/2017/12/22/C-Primer5e%E7%AC%AC14%E7%AB%A0%EF%BC%9A%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E4%B8%8E%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/#more">more >></a>
         
       
 
       
-    </p></div>
+    </div>
     <div class="article-info article-info-index">
       
       
@@ -533,7 +535,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/22/C-Primer5e第14章：重载运算与类型转换/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/12/22/C-Primer5e%E7%AC%AC14%E7%AB%A0%EF%BC%9A%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E4%B8%8E%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/">展开全文 >></a>
         </p>
       
 
@@ -563,19 +565,19 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-C-Primer5e第13章：拷贝控制" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-C-Primer5e第13章：拷贝控制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/15/C-Primer5e第13章：拷贝控制/">C++Primer5e第13章：拷贝控制</a>
+      <a class="article-title" href="/2017/12/15/C-Primer5e%E7%AC%AC13%E7%AB%A0%EF%BC%9A%E6%8B%B7%E8%B4%9D%E6%8E%A7%E5%88%B6/">C++Primer5e第13章：拷贝控制</a>
     </h1>
   
 
         
-        <a href="/2017/12/15/C-Primer5e第13章：拷贝控制/" class="archive-article-date">
+        <a href="/2017/12/15/C-Primer5e%E7%AC%AC13%E7%AB%A0%EF%BC%9A%E6%8B%B7%E8%B4%9D%E6%8E%A7%E5%88%B6/" class="archive-article-date">
   	<time datetime="2017-12-15T02:09:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-15</time>
 </a>
         
@@ -589,14 +591,14 @@ var _hmt = _hmt || [];
 </blockquote>
 <h1 id="拷贝、赋值和销毁"><a href="#拷贝、赋值和销毁" class="headerlink" title="拷贝、赋值和销毁"></a>拷贝、赋值和销毁</h1><h2 id="拷贝构造函数"><a href="#拷贝构造函数" class="headerlink" title="拷贝构造函数"></a>拷贝构造函数</h2><p>拷贝构造函数特征：首先满足构造函数特征，没有返回值；其次操作函数的第一个参数必须是自身类型的引用，其他参数有默认值。<br><strong>如果第一个参数不是引用类型，为了在调用拷贝构造函数时拷贝实参又需要调用拷贝构造函数，从而形成死循环。</strong></p>
 <h2 id="拷贝赋值运算符"><a href="#拷贝赋值运算符" class="headerlink" title="拷贝赋值运算符"></a>拷贝赋值运算符</h2><p>赋值运算符其实就是名为<code>operator=</code>的函数。赋值运算符通常应该返回一个指向其左侧对象的引用。</p>
-<h2 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h2><p>如同构造函数有一个初始化部分和一个函数体，析构函数也有一个函数体和一个析构部分。在构造函数中，成员的初始化是在函数体执行之前完成的，而且按照它们在类中出现的顺序初始化。在析构函数中，首先执行函数体，然后按初始化的相反顺序销毁其成员。成员是在析构函数体之后隐含的析构阶段中被销毁的。<br>对于一个类，只有唯一的一个析构函数。<br>
+<h2 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h2><p>如同构造函数有一个初始化部分和一个函数体，析构函数也有一个函数体和一个析构部分。在构造函数中，成员的初始化是在函数体执行之前完成的，而且按照它们在类中出现的顺序初始化。在析构函数中，首先执行函数体，然后按初始化的相反顺序销毁其成员。成员是在析构函数体之后隐含的析构阶段中被销毁的。<br>对于一个类，只有唯一的一个析构函数。</p>
         
-          <a class="article-more-a" href="/2017/12/15/C-Primer5e第13章：拷贝控制/#more">more >></a>
+          <a class="article-more-a" href="/2017/12/15/C-Primer5e%E7%AC%AC13%E7%AB%A0%EF%BC%9A%E6%8B%B7%E8%B4%9D%E6%8E%A7%E5%88%B6/#more">more >></a>
         
       
 
       
-    </p></div>
+    </div>
     <div class="article-info article-info-index">
       
       
@@ -615,7 +617,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/15/C-Primer5e第13章：拷贝控制/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/12/15/C-Primer5e%E7%AC%AC13%E7%AB%A0%EF%BC%9A%E6%8B%B7%E8%B4%9D%E6%8E%A7%E5%88%B6/">展开全文 >></a>
         </p>
       
 
@@ -645,19 +647,19 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-C-Primer5e第12章：动态内存" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-C-Primer5e第12章：动态内存" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/14/C-Primer5e第12章：动态内存/">C++Primer5e第12章：动态内存</a>
+      <a class="article-title" href="/2017/12/14/C-Primer5e%E7%AC%AC12%E7%AB%A0%EF%BC%9A%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98/">C++Primer5e第12章：动态内存</a>
     </h1>
   
 
         
-        <a href="/2017/12/14/C-Primer5e第12章：动态内存/" class="archive-article-date">
+        <a href="/2017/12/14/C-Primer5e%E7%AC%AC12%E7%AB%A0%EF%BC%9A%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98/" class="archive-article-date">
   	<time datetime="2017-12-14T02:00:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-14</time>
 </a>
         
@@ -667,10 +669,12 @@ var _hmt = _hmt || [];
       
         <p>动态对象的生存期由程序来控制，当动态对象不再使用时，程序必须显式地销毁它们。</p>
 <h1 id="动态内存与智能指针"><a href="#动态内存与智能指针" class="headerlink" title="动态内存与智能指针"></a>动态内存与智能指针</h1><p>C++11新标准库提供两种<code>智能指针类型</code>管理动态对象。智能指针行为类似常规指针，重要区别是智能指针负责自动释放所指向的对象。两种智能指针的区别在于管理底层底层的方式：<code>shared_ptr</code>允许多个指针指向同一个对象；<code>unique_ptr</code>则独占所指向的对象。标准库还定义了一个名为<code>weak_ptr</code>的伴随类，它是一种弱引用，指向<code>shared_ptr</code>所管理的对象。三种类型都定义在<code>memory</code>头文件中。</p>
-<h2 id="shared-ptr类"><a href="#shared-ptr类" class="headerlink" title="shared_ptr类"></a>shared_ptr类</h2><p>智能指针也是模板类，必须在尖括号内提供指针指向的类型参数。<br><strong>shared_ptr和unique_ptr都支持的操作</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">shared_ptr</span>&lt;T&gt;    空智能指针，可以指向类型为T的对象</span><br><span class="line"><span class="built_in">unique_ptr</span>&lt;T&gt;</span><br><span class="line">p                将p用作一个条件判断，若p指向一个对象，则为<span class="literal">true</span></span><br><span class="line">*p               解引用p，获得它指向的对象</span><br><span class="line">p-&gt;mem           等价于(*p).mem</span><br><span class="line">p.get()          返回p中保存的指针。小心使用，若智能指针释放了其对象，返回的指针所指向的对象也就消失</span><br><span class="line">swap(p, q)       交换p和q中的指针</span><br><span class="line">p.swap(q)</span><br></pre></td></tr></table></figure></p>
-<p><strong>shared_ptr独有的操作</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">make_shared&lt;T&gt;(args)   返回一个<span class="built_in">shared_ptr</span>，指向一个动态分配的类型为T的对象。使用args初始化此对象</span><br><span class="line"><span class="built_in">shared_ptr</span>&lt;T&gt; p(q)     p是<span class="built_in">shared_ptr</span>的拷贝；此操作会递增q中的计数器。q中的指针必须能转换为T*</span><br><span class="line">p = q                  p和q都是<span class="built_in">shared_ptr</span>，所保存的指针必须能相互转换。此操作会递减p的引用计数，</span><br><span class="line">                       递增q的引用。若p的引用计数变为<span class="number">0</span>，则将其管理的原内存释放。表达式含义：将p指向q的对象</span><br><span class="line">p.unique()             若p.use_count()为<span class="number">1</span>，则返回<span class="literal">true</span>；否则返回<span class="literal">false</span></span><br><span class="line">p.use_count()          返回与p共享对象的智能指针数量，可能很慢，主要用于调试</span><br></pre></td></tr></table></figure></p>
+<h2 id="shared-ptr类"><a href="#shared-ptr类" class="headerlink" title="shared_ptr类"></a>shared_ptr类</h2><p>智能指针也是模板类，必须在尖括号内提供指针指向的类型参数。<br><strong>shared_ptr和unique_ptr都支持的操作</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">shared_ptr</span>&lt;T&gt;    空智能指针，可以指向类型为T的对象</span><br><span class="line"><span class="built_in">unique_ptr</span>&lt;T&gt;</span><br><span class="line">p                将p用作一个条件判断，若p指向一个对象，则为<span class="literal">true</span></span><br><span class="line">*p               解引用p，获得它指向的对象</span><br><span class="line">p-&gt;mem           等价于(*p).mem</span><br><span class="line">p.get()          返回p中保存的指针。小心使用，若智能指针释放了其对象，返回的指针所指向的对象也就消失</span><br><span class="line">swap(p, q)       交换p和q中的指针</span><br><span class="line">p.swap(q)</span><br></pre></td></tr></table></figure>
+<p><strong>shared_ptr独有的操作</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">make_shared&lt;T&gt;(args)   返回一个<span class="built_in">shared_ptr</span>，指向一个动态分配的类型为T的对象。使用args初始化此对象</span><br><span class="line">shared_ptr&lt;T&gt; p(q)     p是shared_ptr的拷贝；此操作会递增q中的计数器。q中的指针必须能转换为T*</span><br><span class="line">p = q                  p和q都是<span class="built_in">shared_ptr</span>，所保存的指针必须能相互转换。此操作会递减p的引用计数，</span><br><span class="line">                       递增q的引用。若p的引用计数变为<span class="number">0</span>，则将其管理的原内存释放。表达式含义：将p指向q的对象</span><br><span class="line">p.unique()             若p.use_count()为<span class="number">1</span>，则返回<span class="literal">true</span>；否则返回<span class="literal">false</span></span><br><span class="line">p.use_count()          返回与p共享对象的智能指针数量，可能很慢，主要用于调试</span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2017/12/14/C-Primer5e第12章：动态内存/#more">more >></a>
+          <a class="article-more-a" href="/2017/12/14/C-Primer5e%E7%AC%AC12%E7%AB%A0%EF%BC%9A%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98/#more">more >></a>
         
       
 
@@ -694,7 +698,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/14/C-Primer5e第12章：动态内存/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/12/14/C-Primer5e%E7%AC%AC12%E7%AB%A0%EF%BC%9A%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98/">展开全文 >></a>
         </p>
       
 
@@ -724,19 +728,19 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-C-Primer5e第11章：关联容器" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-C-Primer5e第11章：关联容器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/13/C-Primer5e第11章：关联容器/">C++Primer5e第11章：关联容器</a>
+      <a class="article-title" href="/2017/12/13/C-Primer5e%E7%AC%AC11%E7%AB%A0%EF%BC%9A%E5%85%B3%E8%81%94%E5%AE%B9%E5%99%A8/">C++Primer5e第11章：关联容器</a>
     </h1>
   
 
         
-        <a href="/2017/12/13/C-Primer5e第11章：关联容器/" class="archive-article-date">
+        <a href="/2017/12/13/C-Primer5e%E7%AC%AC11%E7%AB%A0%EF%BC%9A%E5%85%B3%E8%81%94%E5%AE%B9%E5%99%A8/" class="archive-article-date">
   	<time datetime="2017-12-13T06:47:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-13</time>
 </a>
         
@@ -748,10 +752,13 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>按关键字有序保存元素<br>map<br>set<br>multimap<br>multiset<br>无序集合<br>unordered_map<br>unordered_set<br>unordered_multimap<br>unordered_multiset</p>
 </blockquote>
-<h1 id="使用关联容器"><a href="#使用关联容器" class="headerlink" title="使用关联容器"></a>使用关联容器</h1><p>在忽略大小写和标点的单词计数程序中，首先是对输入的字符串进行处理，剔除单词中的标点，并将大写转换成小写。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> &amp;<span class="title">trans</span><span class="params">(<span class="built_in">string</span> &amp;s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">string</span>::size_type p = <span class="number">0</span>; p &lt; s.size(); ++p)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(s[p] &gt;= <span class="string">'A'</span> &amp;&amp; s[p] &lt;= <span class="string">'Z'</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            s[p] -= (<span class="string">'A'</span> - <span class="string">'a'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(s[p] == <span class="string">','</span> || sp[p] == <span class="string">'.'</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            s.erase(p, <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h1 id="关联容器概述"><a href="#关联容器概述" class="headerlink" title="关联容器概述"></a>关联容器概述</h1><p>关联容器的迭代器都是双向的。在C++11新标准中，我们可以对关联容器进行值初始化：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">size_t</span>&gt; word_count; <span class="comment">//空容器</span></span><br><span class="line"><span class="comment">//列表初始化</span></span><br><span class="line"><span class="built_in">set</span>&lt;<span class="built_in">string</span>&gt; exclude = &#123;<span class="string">"the"</span>, <span class="string">"but"</span>, <span class="string">"and"</span>, <span class="string">"or"</span>, <span class="string">"an"</span>&#125;;</span><br><span class="line"><span class="comment">//三个元素：authors将姓映射为名</span></span><br><span class="line"><span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt; authors = &#123;&#123;<span class="string">"Joyce"</span>, <span class="string">"James"</span>&#125;, &#123;<span class="string">"Austen"</span>, <span class="string">"Jane"</span>&#125;, &#123;<span class="string">"Dickens, "</span>Charles<span class="string">"&#125;&#125;;</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="使用关联容器"><a href="#使用关联容器" class="headerlink" title="使用关联容器"></a>使用关联容器</h1><p>在忽略大小写和标点的单词计数程序中，首先是对输入的字符串进行处理，剔除单词中的标点，并将大写转换成小写。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> &amp;<span class="title">trans</span><span class="params">(<span class="built_in">string</span> &amp;s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">string</span>::size_type p = <span class="number">0</span>; p &lt; s.size(); ++p)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(s[p] &gt;= <span class="string">&#x27;A&#x27;</span> &amp;&amp; s[p] &lt;= <span class="string">&#x27;Z&#x27;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            s[p] -= (<span class="string">&#x27;A&#x27;</span> - <span class="string">&#x27;a&#x27;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(s[p] == <span class="string">&#x27;,&#x27;</span> || sp[p] == <span class="string">&#x27;.&#x27;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            s.erase(p, <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="关联容器概述"><a href="#关联容器概述" class="headerlink" title="关联容器概述"></a>关联容器概述</h1><p>关联容器的迭代器都是双向的。在C++11新标准中，我们可以对关联容器进行值初始化：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">size_t</span>&gt; word_count; <span class="comment">//空容器</span></span><br><span class="line"><span class="comment">//列表初始化</span></span><br><span class="line"><span class="built_in">set</span>&lt;<span class="built_in">string</span>&gt; exclude = &#123;<span class="string">&quot;the&quot;</span>, <span class="string">&quot;but&quot;</span>, <span class="string">&quot;and&quot;</span>, <span class="string">&quot;or&quot;</span>, <span class="string">&quot;an&quot;</span>&#125;;</span><br><span class="line"><span class="comment">//三个元素：authors将姓映射为名</span></span><br><span class="line"><span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt; authors = &#123;&#123;<span class="string">&quot;Joyce&quot;</span>, <span class="string">&quot;James&quot;</span>&#125;, &#123;<span class="string">&quot;Austen&quot;</span>, <span class="string">&quot;Jane&quot;</span>&#125;, &#123;<span class="string">&quot;Dickens, &quot;</span>Charles<span class="string">&quot;&#125;&#125;;</span></span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2017/12/13/C-Primer5e第11章：关联容器/#more">more >></a>
+          <a class="article-more-a" href="/2017/12/13/C-Primer5e%E7%AC%AC11%E7%AB%A0%EF%BC%9A%E5%85%B3%E8%81%94%E5%AE%B9%E5%99%A8/#more">more >></a>
         
       
 
@@ -775,7 +782,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/13/C-Primer5e第11章：关联容器/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/12/13/C-Primer5e%E7%AC%AC11%E7%AB%A0%EF%BC%9A%E5%85%B3%E8%81%94%E5%AE%B9%E5%99%A8/">展开全文 >></a>
         </p>
       
 
@@ -805,19 +812,19 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-C-Primer5e第10章：泛型算法" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-C-Primer5e第10章：泛型算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/12/C-Primer5e第10章：泛型算法/">C++Primer5e第10章：泛型算法</a>
+      <a class="article-title" href="/2017/12/12/C-Primer5e%E7%AC%AC10%E7%AB%A0%EF%BC%9A%E6%B3%9B%E5%9E%8B%E7%AE%97%E6%B3%95/">C++Primer5e第10章：泛型算法</a>
     </h1>
   
 
         
-        <a href="/2017/12/12/C-Primer5e第10章：泛型算法/" class="archive-article-date">
+        <a href="/2017/12/12/C-Primer5e%E7%AC%AC10%E7%AB%A0%EF%BC%9A%E6%B3%9B%E5%9E%8B%E7%AE%97%E6%B3%95/" class="archive-article-date">
   	<time datetime="2017-12-12T03:40:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-12</time>
 </a>
         
@@ -827,18 +834,22 @@ var _hmt = _hmt || [];
       
         <p>标准库并未给容器添加大量的功能，而是提供了一组独立于任何特定容器的通用的算法实现相关功能。算法是泛型的，也就是说可以用于不同类型的元素和多种容器类型，不仅包括标准库类型，还包括内置数组类型。</p>
 <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>大多数算法定义在头文件<code>algorithm</code>中。标准库还在头文件<code>numeric</code>中定义了一组数值泛型算法。算法并不直接操作容器，而是遍历由两个迭代器指定的一个元素范围进行操作。迭代器令算法不依赖于容器，但算法依赖于元素类型的操作，大多数算法提供了一种方法，允许我们使用自定义的操作来代替默认的运算符。<strong>STL组件间关系如下图所示：</strong></p>
-<p><center><img src="https://gitee.com/zhoulee/blog-images/raw/master/memory_allocator.jpg" alt="STL组件关系"></center><br>泛型算法使用迭代器作为访问容器元素的桥梁，对元素的元素可以通过函数对象传递到算法内部。为了实现与数据结构的分离，为了实现通用性，算法根本就不该知道容器的存在。算法访问数据的唯一通道是迭代器，是否改变容器大小，完全是迭代器的选择和责任。</p>
+<center>![STL组件关系](https://gitee.com/zhoulee/blog-images/raw/master/memory_allocator.jpg)</center>
+泛型算法使用迭代器作为访问容器元素的桥梁，对元素的元素可以通过函数对象传递到算法内部。为了实现与数据结构的分离，为了实现通用性，算法根本就不该知道容器的存在。算法访问数据的唯一通道是迭代器，是否改变容器大小，完全是迭代器的选择和责任。
+
 <h1 id="初识泛型算法"><a href="#初识泛型算法" class="headerlink" title="初识泛型算法"></a>初识泛型算法</h1><p>算法使用元素的方式包括只读取元素、改变元素或者是重排元素顺序。算法不会执行容器操作，所以算法不会改变底层容器的大小。</p>
-<h2 id="只读算法"><a href="#只读算法" class="headerlink" title="只读算法"></a>只读算法</h2><p>accumulate的第三个参数的类型决定了函数中使用哪个加法运算符以及返回值的类型。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//对vec中的int元素求和，和的初始值为0</span></span><br><span class="line"><span class="keyword">int</span> sum = accumulate(vec.cbegin(), vec.cend(), <span class="number">0</span>);</span><br><span class="line"><span class="comment">//将vector中所有的string元素连接起来</span></span><br><span class="line"><span class="built_in">string</span> sum = accumulate(v.cbegin(), v.cend(), <span class="built_in">std</span>::<span class="built_in">string</span>(<span class="string">""</span>));</span><br><span class="line"><span class="comment">//错误：const char*上没有定义+运算符</span></span><br><span class="line"><span class="built_in">string</span> sum = accumulate(v.cbegin(), v.cend(), <span class="string">""</span>);</span><br></pre></td></tr></table></figure></p>
-<p>对于只读取元素而不改变元素的算法，最好使用cbegin()和cend()。<br>使用equal判断两个序列是否保存相同的值，构成这两个序列的元素可以来自不同类型的容器。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; roster1 = &#123;<span class="string">"Hello"</span>, <span class="string">"The"</span>, <span class="string">"a"</span>&#125;;</span><br><span class="line"><span class="built_in">list</span>&lt;<span class="keyword">const</span> <span class="keyword">char</span>*&gt; roster2 = &#123;<span class="string">"Hello"</span>, <span class="string">"The"</span>, <span class="string">"a"</span>&#125;;</span><br><span class="line"><span class="keyword">bool</span> eq = equal(roster1.cbegin(), roster1.cend(), roster2.cbegin());</span><br></pre></td></tr></table></figure></p>
-<p>在上面equal中，如果roster中都是C风格字符串，用==比较两个char*对象，只是检查两个指针值是否相等。所以只有当两个序列中的指针都指向相同地址时，equal才会返回true。否则，即使字符串内容完全相同，也会返回false。<br>那些只接受一个单一迭代器来表示第二个序列的算法，都假定第二个序列至少与第一个序列一样长。<br>
+<h2 id="只读算法"><a href="#只读算法" class="headerlink" title="只读算法"></a>只读算法</h2><p>accumulate的第三个参数的类型决定了函数中使用哪个加法运算符以及返回值的类型。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//对vec中的int元素求和，和的初始值为0</span></span><br><span class="line"><span class="keyword">int</span> sum = accumulate(vec.cbegin(), vec.cend(), <span class="number">0</span>);</span><br><span class="line"><span class="comment">//将vector中所有的string元素连接起来</span></span><br><span class="line"><span class="built_in">string</span> sum = accumulate(v.cbegin(), v.cend(), <span class="built_in">std</span>::<span class="built_in">string</span>(<span class="string">&quot;&quot;</span>));</span><br><span class="line"><span class="comment">//错误：const char*上没有定义+运算符</span></span><br><span class="line"><span class="built_in">string</span> sum = accumulate(v.cbegin(), v.cend(), <span class="string">&quot;&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p>对于只读取元素而不改变元素的算法，最好使用cbegin()和cend()。<br>使用equal判断两个序列是否保存相同的值，构成这两个序列的元素可以来自不同类型的容器。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; roster1 = &#123;<span class="string">&quot;Hello&quot;</span>, <span class="string">&quot;The&quot;</span>, <span class="string">&quot;a&quot;</span>&#125;;</span><br><span class="line"><span class="built_in">list</span>&lt;<span class="keyword">const</span> <span class="keyword">char</span>*&gt; roster2 = &#123;<span class="string">&quot;Hello&quot;</span>, <span class="string">&quot;The&quot;</span>, <span class="string">&quot;a&quot;</span>&#125;;</span><br><span class="line"><span class="keyword">bool</span> eq = equal(roster1.cbegin(), roster1.cend(), roster2.cbegin());</span><br></pre></td></tr></table></figure>
+<p>在上面equal中，如果roster中都是C风格字符串，用==比较两个char*对象，只是检查两个指针值是否相等。所以只有当两个序列中的指针都指向相同地址时，equal才会返回true。否则，即使字符串内容完全相同，也会返回false。<br>那些只接受一个单一迭代器来表示第二个序列的算法，都假定第二个序列至少与第一个序列一样长。</p>
         
-          <a class="article-more-a" href="/2017/12/12/C-Primer5e第10章：泛型算法/#more">more >></a>
+          <a class="article-more-a" href="/2017/12/12/C-Primer5e%E7%AC%AC10%E7%AB%A0%EF%BC%9A%E6%B3%9B%E5%9E%8B%E7%AE%97%E6%B3%95/#more">more >></a>
         
       
 
       
-    </p></div>
+    </div>
     <div class="article-info article-info-index">
       
       
@@ -857,7 +868,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/12/C-Primer5e第10章：泛型算法/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/12/12/C-Primer5e%E7%AC%AC10%E7%AB%A0%EF%BC%9A%E6%B3%9B%E5%9E%8B%E7%AE%97%E6%B3%95/">展开全文 >></a>
         </p>
       
 
@@ -887,19 +898,19 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-C-Primer5e第09章：顺序容器" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-C-Primer5e第09章：顺序容器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/11/C-Primer5e第09章：顺序容器/">C++Primer5e第09章：顺序容器</a>
+      <a class="article-title" href="/2017/12/11/C-Primer5e%E7%AC%AC09%E7%AB%A0%EF%BC%9A%E9%A1%BA%E5%BA%8F%E5%AE%B9%E5%99%A8/">C++Primer5e第09章：顺序容器</a>
     </h1>
   
 
         
-        <a href="/2017/12/11/C-Primer5e第09章：顺序容器/" class="archive-article-date">
+        <a href="/2017/12/11/C-Primer5e%E7%AC%AC09%E7%AB%A0%EF%BC%9A%E9%A1%BA%E5%BA%8F%E5%AE%B9%E5%99%A8/" class="archive-article-date">
   	<time datetime="2017-12-11T05:11:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-11</time>
 </a>
         
@@ -914,18 +925,16 @@ var _hmt = _hmt || [];
 <h2 id="顺序容器类型"><a href="#顺序容器类型" class="headerlink" title="顺序容器类型"></a>顺序容器类型</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>        可变大小数组。支持快速随机访问。在尾部之外的位置插入或删除元素可能很慢</span><br><span class="line"><span class="built_in">deque</span>         双端队列。支持快速随机访问。在头尾位置插入、删除速度都很快</span><br><span class="line"><span class="built_in">list</span>          双向链表。只支持双向顺序访问。在<span class="built_in">list</span>中任何位置进行插入、删除操作速度都很快</span><br><span class="line">forward_list  单向链表。只支持单向顺序访问。在链表任何位置进行插入、删除操作速度都很快</span><br><span class="line"><span class="built_in">array</span>         固定大小数组。支持快速随机访问。不能添加或删除元素</span><br><span class="line"><span class="built_in">string</span>        与<span class="built_in">vector</span>相似的容器，但专门用于保存字符。随机访问快。在尾部插入、删除速度快</span><br></pre></td></tr></table></figure>
 <p>新标准库容器的性能几乎肯定与最精心优化过的同类数据结构一样好(通常会更好)。现代C++程序应该使用标准库容器，而不是更原始的数据结构，如内置数组。</p>
 <h2 id="选择容器的基本原则"><a href="#选择容器的基本原则" class="headerlink" title="选择容器的基本原则"></a>选择容器的基本原则</h2><blockquote>
-<p>1）除非有很好的理由选择其他容器，否则应使用vector；<br>2）如果程序有很多小元素，且空间的额外开销很重要，则不要使用list或forward_list；<br>3）如果程序要求随机访问元素，应使用vector或deque；<br>4）如果程序要求在容器的中间插入或删除元素，应使用list或forward_list；<br>5）如果程序需要在头尾位置插入或删除元素，但不会在中间位置进行插入或删除操作，则使用deque；<br>6）如果程序只有在读取输入时才需要在容器中间位置插入元素，随后需要随机访问元素，则:</p>
-<pre><code>- 首先，确定是否真的需要在容器中间位置添加元素。当处理输入数据时，通常可以很容易地向vector追加数据，然后在调用标准库的sort函数来重排序，从而避免在中间位置添加元素。
-- 如果必须在中间位置插入元素，考虑在输入阶段使用list，一旦输入完成，将list中的内容拷贝到一个vector中。
-</code></pre></blockquote>
-<p><strong>如果不确定应该使用哪种容器，那么在程序中使用vector和list公共操作：使用迭代器，不使用下标访问，避免随机访问。这样，在必要时选择使用vector和list都很方便。</strong><br>
+<p>1）除非有很好的理由选择其他容器，否则应使用vector；<br>2）如果程序有很多小元素，且空间的额外开销很重要，则不要使用list或forward_list；<br>3）如果程序要求随机访问元素，应使用vector或deque；<br>4）如果程序要求在容器的中间插入或删除元素，应使用list或forward_list；<br>5）如果程序需要在头尾位置插入或删除元素，但不会在中间位置进行插入或删除操作，则使用deque；<br>6）如果程序只有在读取输入时才需要在容器中间位置插入元素，随后需要随机访问元素，则:<br>    - 首先，确定是否真的需要在容器中间位置添加元素。当处理输入数据时，通常可以很容易地向vector追加数据，然后在调用标准库的sort函数来重排序，从而避免在中间位置添加元素。<br>    - 如果必须在中间位置插入元素，考虑在输入阶段使用list，一旦输入完成，将list中的内容拷贝到一个vector中。</p>
+</blockquote>
+<p><strong>如果不确定应该使用哪种容器，那么在程序中使用vector和list公共操作：使用迭代器，不使用下标访问，避免随机访问。这样，在必要时选择使用vector和list都很方便。</strong></p>
         
-          <a class="article-more-a" href="/2017/12/11/C-Primer5e第09章：顺序容器/#more">more >></a>
+          <a class="article-more-a" href="/2017/12/11/C-Primer5e%E7%AC%AC09%E7%AB%A0%EF%BC%9A%E9%A1%BA%E5%BA%8F%E5%AE%B9%E5%99%A8/#more">more >></a>
         
       
 
       
-    </p></div>
+    </div>
     <div class="article-info article-info-index">
       
       
@@ -944,7 +953,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/11/C-Primer5e第09章：顺序容器/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/12/11/C-Primer5e%E7%AC%AC09%E7%AB%A0%EF%BC%9A%E9%A1%BA%E5%BA%8F%E5%AE%B9%E5%99%A8/">展开全文 >></a>
         </p>
       
 
@@ -976,7 +985,7 @@ var _hmt = _hmt || [];
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/5/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/7/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1104,11 +1113,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
+                <a href="javascript:void(0)" class="js-tag color5">技术点滴</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术点滴</a>
+                <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1116,11 +1125,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt</a>
+                <a href="javascript:void(0)" class="js-tag color1">STEAM</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">STEAM</a>
+                <a href="javascript:void(0)" class="js-tag color3">Qt</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1148,7 +1157,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:

@@ -1,29 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
-  <meta name="baidu-site-verification" content="gHJw3bXGu1">
-  <meta name="google-site-verification" content="-lNjR-HxF8YoulCpsMRPTH3XMW3mvngPcJDTDXYkNSA">
+  <meta name="baidu-site-verification" content="gHJw3bXGu1" />
+  <meta name="google-site-verification" content="-lNjR-HxF8YoulCpsMRPTH3XMW3mvngPcJDTDXYkNSA" />
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://octocat9lee.github.io">
   <title>C++Primer5e第18章：用于大型程序的工具 | 章鱼猫の博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="与小系统相比，大规模编程对程序设计语言的要求更高。大规模应用程序的特殊要求包括：  在独立开发的子系统之间协同处理错误的能力使用各种库(可能包含独立开发的库)进行协同开发的能力对比较复杂的应用概念建模的能力  异常处理异常处理机制允许程序中独立开发的部分能够在运行时就出现的问题进行通信并作出相应的处理。异常将问题的检测与解决过程分离开来。程序的一部分负责检测问题的出现，解决问题的任务传递给程序的另">
-<meta name="keywords" content="C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++Primer5e第18章：用于大型程序的工具">
-<meta property="og:url" content="https://octocat9lee.github.io/2018/01/09/C-Primer5e第18章：用于大型程序的工具/index.html">
+<meta property="og:url" content="https://octocat9lee.github.io/2018/01/09/C-Primer5e%E7%AC%AC18%E7%AB%A0%EF%BC%9A%E7%94%A8%E4%BA%8E%E5%A4%A7%E5%9E%8B%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%B7%A5%E5%85%B7/index.html">
 <meta property="og:site_name" content="章鱼猫の博客">
 <meta property="og:description" content="与小系统相比，大规模编程对程序设计语言的要求更高。大规模应用程序的特殊要求包括：  在独立开发的子系统之间协同处理错误的能力使用各种库(可能包含独立开发的库)进行协同开发的能力对比较复杂的应用概念建模的能力  异常处理异常处理机制允许程序中独立开发的部分能够在运行时就出现的问题进行通信并作出相应的处理。异常将问题的检测与解决过程分离开来。程序的一部分负责检测问题的出现，解决问题的任务传递给程序的另">
-<meta property="og:locale" content="default">
-<meta property="og:image" content="https://gitee.com/zhoulee/blog-images/raw/master/std_exception.jpg">
-<meta property="og:updated_time" content="2019-11-07T01:04:41.251Z">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-01-09T07:13:05.000Z">
+<meta property="article:modified_time" content="2019-11-07T01:04:41.251Z">
+<meta property="article:author" content="章鱼猫">
+<meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C++Primer5e第18章：用于大型程序的工具">
-<meta name="twitter:description" content="与小系统相比，大规模编程对程序设计语言的要求更高。大规模应用程序的特殊要求包括：  在独立开发的子系统之间协同处理错误的能力使用各种库(可能包含独立开发的库)进行协同开发的能力对比较复杂的应用概念建模的能力  异常处理异常处理机制允许程序中独立开发的部分能够在运行时就出现的问题进行通信并作出相应的处理。异常将问题的检测与解决过程分离开来。程序的一部分负责检测问题的出现，解决问题的任务传递给程序的另">
-<meta name="twitter:image" content="https://gitee.com/zhoulee/blog-images/raw/master/std_exception.jpg">
   
     <link rel="alternative" href="/atom.xml" title="章鱼猫の博客" type="application/atom+xml">
   
@@ -51,8 +49,8 @@ var _hmt = _hmt || [];
 </script>
 
 
-</head>
-</html>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -65,10 +63,8 @@ var _hmt = _hmt || [];
 			<img src="/img/octocat.png" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="">章鱼猫</a></h1>
+		  <h1 class="header-author"><a href=""></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">记录生活的点点滴滴</p>
 		
 
 		<nav class="header-menu">
@@ -123,10 +119,8 @@ var _hmt = _hmt || [];
 				<img src="/img/octocat.png" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">章鱼猫</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>记录生活的点点滴滴<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -173,7 +167,7 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-C-Primer5e第18章：用于大型程序的工具" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-C-Primer5e第18章：用于大型程序的工具" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -185,7 +179,7 @@ var _hmt = _hmt || [];
   
 
         
-        <a href="/2018/01/09/C-Primer5e第18章：用于大型程序的工具/" class="archive-article-date">
+        <a href="/2018/01/09/C-Primer5e%E7%AC%AC18%E7%AB%A0%EF%BC%9A%E7%94%A8%E4%BA%8E%E5%A4%A7%E5%9E%8B%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%B7%A5%E5%85%B7/" class="archive-article-date">
   	<time datetime="2018-01-09T07:13:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-09</time>
 </a>
         
@@ -198,23 +192,37 @@ var _hmt = _hmt || [];
 <p>在独立开发的子系统之间协同处理错误的能力<br>使用各种库(可能包含独立开发的库)进行协同开发的能力<br>对比较复杂的应用概念建模的能力</p>
 </blockquote>
 <h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1><p>异常处理机制允许程序中独立开发的部分能够在运行时就出现的问题进行通信并作出相应的处理。<br>异常将问题的检测与解决过程分离开来。程序的一部分负责检测问题的出现，解决问题的任务传递给程序的另一部分。</p>
-<h2 id="抛出异常"><a href="#抛出异常" class="headerlink" title="抛出异常"></a>抛出异常</h2><p>当抛出一个异常后，栈展开过程沿着嵌套函数的调用链不断查找，直到找到了与异常匹配的catch子句为止，如果没有找到匹配的catch，则它将终止当前程序。<br><strong>栈展开过程中对象被自动销毁</strong><br>如果在栈展开过程中退出了某个块，编译器将负责在这个块中创建的对象能被正确的销毁。如果某个局部对象是类类型，则该对象的析构将被自动调用。<br>如果异常发生在构造函数中，则当前对象可能只是构造了一部分。我们也要确保已构造的成员能被正确的销毁。<br><strong>析构函数与异常</strong><br>析构函数总是会被执行的，但是函数中负责释放资源的代码可能因为异常而被跳过。因此，如果我们使用类来控制资源的分配，就能确保无论函数正常结束还是遇到异常，资源都能被正确释放。<br>析构函数不应该抛出异常，如果析构函数的某个操作可能抛出异常，则该操作应该放置在一个try语句块中，并且在析构函数内部处理。<br><a id="more"></a><br><strong>异常对象</strong><br>抛出一个指向局部对象的指针几乎肯定是一种错误行为。如果指针所指的对象位于某个块中，而该块在catch语句之前就已经退出了，则意味着在执行catch语句之前局部对象已经被销毁了。</p>
-<h2 id="捕获异常"><a href="#捕获异常" class="headerlink" title="捕获异常"></a>捕获异常</h2><p>通常情况下，如果catch接受的异常与某个继承体系相关，则最好将该catch的参数定义成引用类型。<br>如果多个catch语句的类型之间存在继承关系，则我们应该把继承中最特殊的类放在前面。<br>在执行了某些校正操作之后，我们可以使用空的throw语句重新抛出。空的throw语句只能出现在catch语句或catch语句调用的函数内。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">catch</span>(my_error &amp;eObj) <span class="comment">//引用类型</span></span><br><span class="line">&#123;</span><br><span class="line">    eObj.status = errCodes::serverErr; <span class="comment">//修改了异常对象</span></span><br><span class="line">    <span class="keyword">throw</span>;    <span class="comment">//异常对象的status成员时serverErr</span></span><br><span class="line">&#125; <span class="keyword">catch</span>(other_error eObj) <span class="comment">//非引用类型</span></span><br><span class="line">&#123;</span><br><span class="line">    eObj.status = errCodes::badErr;  <span class="comment">//只修改了异常对象的局部副本</span></span><br><span class="line">    <span class="keyword">throw</span>;    <span class="comment">//异常对象的status成员没有改变</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>为了一次<code>捕获所有异常</code>，我们使用catch(…)省略号作为异常声明。<br>catch(…)通常与重新抛出语句一起使用<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    <span class="comment">//操作引发异常</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span>(...)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//处理异常的某些特殊操作</span></span><br><span class="line">    <span class="keyword">throw</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>如果在初始值列表抛出异常，但构造函数体内的try语句块还未生效，所以构造函数体内的catch语句无法处理构造函数初始值列表抛出的异常。<br>要想处理构造函数初始值列表抛出的异常，我们必须将构造函数写成<code>函数try语句块</code>：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line">Blob&lt;T&gt;::Blob(<span class="built_in">std</span>::<span class="built_in">initializer_list</span>&lt;T&gt; il) <span class="keyword">try</span> :</span><br><span class="line">    data(<span class="built_in">std</span>::make_shared&lt;<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;T&gt;(il))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/* 空函数体 */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span>(<span class="keyword">const</span> <span class="built_in">std</span>::bad_alloc &amp;e)</span><br><span class="line">&#123;</span><br><span class="line">    handle_out_of_memory(e);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="抛出异常"><a href="#抛出异常" class="headerlink" title="抛出异常"></a>抛出异常</h2><p>当抛出一个异常后，栈展开过程沿着嵌套函数的调用链不断查找，直到找到了与异常匹配的catch子句为止，如果没有找到匹配的catch，则它将终止当前程序。<br><strong>栈展开过程中对象被自动销毁</strong><br>如果在栈展开过程中退出了某个块，编译器将负责在这个块中创建的对象能被正确的销毁。如果某个局部对象是类类型，则该对象的析构将被自动调用。<br>如果异常发生在构造函数中，则当前对象可能只是构造了一部分。我们也要确保已构造的成员能被正确的销毁。<br><strong>析构函数与异常</strong><br>析构函数总是会被执行的，但是函数中负责释放资源的代码可能因为异常而被跳过。因此，如果我们使用类来控制资源的分配，就能确保无论函数正常结束还是遇到异常，资源都能被正确释放。<br>析构函数不应该抛出异常，如果析构函数的某个操作可能抛出异常，则该操作应该放置在一个try语句块中，并且在析构函数内部处理。</p>
+<a id="more"></a>
+<p><strong>异常对象</strong><br>抛出一个指向局部对象的指针几乎肯定是一种错误行为。如果指针所指的对象位于某个块中，而该块在catch语句之前就已经退出了，则意味着在执行catch语句之前局部对象已经被销毁了。</p>
+<h2 id="捕获异常"><a href="#捕获异常" class="headerlink" title="捕获异常"></a>捕获异常</h2><p>通常情况下，如果catch接受的异常与某个继承体系相关，则最好将该catch的参数定义成引用类型。<br>如果多个catch语句的类型之间存在继承关系，则我们应该把继承中最特殊的类放在前面。<br>在执行了某些校正操作之后，我们可以使用空的throw语句重新抛出。空的throw语句只能出现在catch语句或catch语句调用的函数内。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">catch</span>(my_error &amp;eObj) <span class="comment">//引用类型</span></span><br><span class="line">&#123;</span><br><span class="line">    eObj.status = errCodes::serverErr; <span class="comment">//修改了异常对象</span></span><br><span class="line">    <span class="keyword">throw</span>;    <span class="comment">//异常对象的status成员时serverErr</span></span><br><span class="line">&#125; <span class="keyword">catch</span>(other_error eObj) <span class="comment">//非引用类型</span></span><br><span class="line">&#123;</span><br><span class="line">    eObj.status = errCodes::badErr;  <span class="comment">//只修改了异常对象的局部副本</span></span><br><span class="line">    <span class="keyword">throw</span>;    <span class="comment">//异常对象的status成员没有改变</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>为了一次<code>捕获所有异常</code>，我们使用catch(…)省略号作为异常声明。<br>catch(…)通常与重新抛出语句一起使用</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    <span class="comment">//操作引发异常</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span>(...)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//处理异常的某些特殊操作</span></span><br><span class="line">    <span class="keyword">throw</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果在初始值列表抛出异常，但构造函数体内的try语句块还未生效，所以构造函数体内的catch语句无法处理构造函数初始值列表抛出的异常。<br>要想处理构造函数初始值列表抛出的异常，我们必须将构造函数写成<code>函数try语句块</code>：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line">Blob&lt;T&gt;::Blob(<span class="built_in">std</span>::<span class="built_in">initializer_list</span>&lt;T&gt; il) <span class="keyword">try</span> :</span><br><span class="line">    data(<span class="built_in">std</span>::make_shared&lt;<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;T&gt;(il))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/* 空函数体 */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span>(<span class="keyword">const</span> <span class="built_in">std</span>::bad_alloc &amp;e)</span><br><span class="line">&#123;</span><br><span class="line">    handle_out_of_memory(e);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="noexcept异常说明"><a href="#noexcept异常说明" class="headerlink" title="noexcept异常说明"></a>noexcept异常说明</h2><p>在C++11新标准中，我们可以通过noexcept说明指定某个函数不会抛出异常，其形式是关键字noexcept紧跟函数的参数列表后面。<br>noexcept说明要么出现在该函数的所有声明语句和定义语句中，要么一次也不要出现。<br>noexcept有两层含义：</p>
 <blockquote>
 <p>跟在函数参数列后面它是异常说明符<br>当作为noexcept异常说明的bool实参出现时，它是一个运算符</p>
 </blockquote>
-<p>我们可以使用noexcept运算符得到如下的异常说明：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void f() noexcept(noexcept(g())); //f和g的异常说明一致</span><br></pre></td></tr></table></figure></p>
+<p>我们可以使用noexcept运算符得到如下的异常说明：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">()</span> <span class="title">noexcept</span><span class="params">(<span class="keyword">noexcept</span>(g()))</span></span>; <span class="comment">//f和g的异常说明一致</span></span><br></pre></td></tr></table></figure>
 <p>如果函数g承诺不会抛出异常，则f也不会抛出异常；如果g允许抛异常，则f也可能抛异常。</p>
 <h2 id="异常类层次"><a href="#异常类层次" class="headerlink" title="异常类层次"></a>异常类层次</h2><p>标准库异常类的继承体系：</p>
-<center><br><img src="https://gitee.com/zhoulee/blog-images/raw/master/std_exception.jpg" alt="标准库异常继承体系"><br><br></center>
+<center>
+![标准库异常继承体系](https://gitee.com/zhoulee/blog-images/raw/master/std_exception.jpg)
 
-<p>自定义书店应用程序的异常类，我们面向应用的异常类继承自标准异常类：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">out_of_stock</span> :</span> <span class="keyword">public</span> <span class="built_in">std</span>::runtime_error</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    explicit out_of_stock(const std::string &amp;s):</span><br><span class="line">        <span class="built_in">std</span>::runtime_error(s) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">isbn_mismatch</span> :</span> <span class="keyword">public</span> <span class="built_in">std</span>::logic_error</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    explicit isbn_mismatch(const std::string &amp;s):</span><br><span class="line">        <span class="built_in">std</span>::logic_error(s) &#123;&#125;</span><br><span class="line">    isbn_mismatch(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> &amp;s, <span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> &amp;lhs, <span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> &amp;rhs):</span><br><span class="line">        <span class="built_in">std</span>::logic_error(s), left(lhs), right(rhs) &#123;&#125;</span><br><span class="line">    <span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> left, right;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<h1 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h1><h2 id="定义命名空间"><a href="#定义命名空间" class="headerlink" title="定义命名空间"></a>定义命名空间</h2><p>命名空间为防止名字冲突提供了更加可控的机制。命名空间分割了全局命名空间，其中每个命名空间时一个作用域。<br>定义多个类型不相关的命名空间应该使用单独的文件分别表示每个类型(或关联类型构成的集合)。<br>在通常情况下，我们不把<code>#include</code>放在命名空间内部。如果我们这么做了，隐含的意思是把头文件中所有的名字定义成该命名空间的成员。<br>模板特例化必须定义在原始模板所属的命名空间中。和其他命名空间名字类似，只要我们在命名空间中声明了特例化，就能在命名空间外部定义它了。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//我们必须将模板特例化声明成std成员</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="built_in">std</span> &#123;</span><br><span class="line">    <span class="keyword">template</span> &lt;&gt; <span class="class"><span class="keyword">struct</span> <span class="title">hash</span>&lt;Sales_data&gt;;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//在std中添加了模板特例化的声明后，就可以在命名空间std的外部定义它了</span></span><br><span class="line"><span class="keyword">template</span> &lt;&gt; <span class="class"><span class="keyword">struct</span> <span class="title">std</span>:</span>:hash&lt;Sales_data&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">size_t</span> <span class="keyword">operator</span>()(<span class="keyword">const</span> Sales_data &amp;s) <span class="keyword">const</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> hash&lt;<span class="built_in">string</span>&gt;()(s.bookNo) ^ hash&lt;<span class="keyword">unsigned</span>&gt;()(s.units_sold) ^ hash&lt;<span class="keyword">double</span>&gt;()(s.revenue);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</center>
+
+<p>自定义书店应用程序的异常类，我们面向应用的异常类继承自标准异常类：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">out_of_stock</span> :</span> <span class="keyword">public</span> <span class="built_in">std</span>::runtime_error</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">explicit</span> <span class="title">out_of_stock</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> &amp;s)</span>:</span></span><br><span class="line"><span class="function">        <span class="title">std::runtime_error</span><span class="params">(s)</span> </span>&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">isbn_mismatch</span> :</span> <span class="keyword">public</span> <span class="built_in">std</span>::logic_error</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">explicit</span> <span class="title">isbn_mismatch</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> &amp;s)</span>:</span></span><br><span class="line"><span class="function">        <span class="title">std::logic_error</span><span class="params">(s)</span> </span>&#123;&#125;</span><br><span class="line">    isbn_mismatch(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> &amp;s, <span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> &amp;lhs, <span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> &amp;rhs):</span><br><span class="line">        <span class="built_in">std</span>::logic_error(s), left(lhs), right(rhs) &#123;&#125;</span><br><span class="line">    <span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> left, right;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h1 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h1><h2 id="定义命名空间"><a href="#定义命名空间" class="headerlink" title="定义命名空间"></a>定义命名空间</h2><p>命名空间为防止名字冲突提供了更加可控的机制。命名空间分割了全局命名空间，其中每个命名空间时一个作用域。<br>定义多个类型不相关的命名空间应该使用单独的文件分别表示每个类型(或关联类型构成的集合)。<br>在通常情况下，我们不把<code>#include</code>放在命名空间内部。如果我们这么做了，隐含的意思是把头文件中所有的名字定义成该命名空间的成员。<br>模板特例化必须定义在原始模板所属的命名空间中。和其他命名空间名字类似，只要我们在命名空间中声明了特例化，就能在命名空间外部定义它了。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//我们必须将模板特例化声明成std成员</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="built_in">std</span> &#123;</span><br><span class="line">    <span class="keyword">template</span> &lt;&gt; <span class="class"><span class="keyword">struct</span> <span class="title">hash</span>&lt;</span>Sales_data&gt;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//在std中添加了模板特例化的声明后，就可以在命名空间std的外部定义它了</span></span><br><span class="line"><span class="keyword">template</span> &lt;&gt; <span class="class"><span class="keyword">struct</span> <span class="title">std</span>:</span>:hash&lt;Sales_data&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">size_t</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="keyword">const</span> Sales_data &amp;s)</span> <span class="keyword">const</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> hash&lt;<span class="built_in">string</span>&gt;()(s.bookNo) ^ hash&lt;<span class="keyword">unsigned</span>&gt;()(s.units_sold) ^ hash&lt;<span class="keyword">double</span>&gt;()(s.revenue);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>C++11新标准引入<code>内联命名空间</code>，内联命名空间中的名字可以被外层命名空间直接使用。定义内联命名空间的方式是在关键字namespace前添加关键字inline。当应用程序的代码在一次发布和另一次发布之间发生了改变时，常常会用到内联命名空间。<br><code>未命名的命名空间</code>是指关键字namespace后紧跟花括号的一系列声明语句。未命名的命名空间仅在特定的文件内部有效，其作用范围不会横跨多个不同的文件。<br>在文件中进行静态声明的做法已经被C++标准取消了，现在的做法是使用未命名的命名空间。</p>
-<h2 id="使用命名空间成员"><a href="#使用命名空间成员" class="headerlink" title="使用命名空间成员"></a>使用命名空间成员</h2><p>命名空间的别名使得我们可以为命名空间的名字设定一个短得多的同义词。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> primer = cplusplus_primer;</span><br><span class="line"><span class="keyword">namespace</span> Qlib = cplusplus_primer::QueryLib;</span><br></pre></td></tr></table></figure></p>
+<h2 id="使用命名空间成员"><a href="#使用命名空间成员" class="headerlink" title="使用命名空间成员"></a>使用命名空间成员</h2><p>命名空间的别名使得我们可以为命名空间的名字设定一个短得多的同义词。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> primer = cplusplus_primer;</span><br><span class="line"><span class="keyword">namespace</span> Qlib = cplusplus_primer::QueryLib;</span><br></pre></td></tr></table></figure>
 <p>using声明语句一次只引入命名空间的一个成员，例如<code>using std::vector;</code>。using声明语句可以出现在全局作用域、局部作用域、命名空间作用域域以及类的作用域中。<br>using指示以<code>关键字using开始，后面是关键字namespace以及命名空间的名字</code>。using指示可以出现在全局作用域、局部作用域和命名空间作用域中，但是不能出现在类的作用域中。<br>对于using声明来说，我们只是简单地令名字在局部作用域内有效。但using声明是令整个命名空间的所有内容变得有效。<br><strong>在头文件中避免使用using指示。</strong>因为using指示一次性注入某个命名空间的所有名字，则全局命名空间污染的问题将重新出现。另外就是using指示引发的二义性错误只有在使用了冲突名字的地方才能被发现。</p>
 <h2 id="类、命名空间与作用域"><a href="#类、命名空间与作用域" class="headerlink" title="类、命名空间与作用域"></a>类、命名空间与作用域</h2><p>对于位于命名空间中的类来说，查找规则：当成员函数石油给你某个名字时，首先在该成员中进行查找，然后在类中查找(包括基类)，接着在外层作用域中查找。</p>
 <p>当我们给函数传递一个类类型的对象时，除了在常规的作用域查找外还会查找实参类所属的命名空间。<br><strong>查找与std::move和std::forward</strong><br>在标准库中move和forward都是模板函数，它们都接受一个右值引用的形参。如我们所知，在函数模板中，右值引用形参可以匹配任何类型。如果我们的应用程序也定义了一个接受单一形参的move函数，则不管该形参是什么类型，应用程序的move函数都将与标准库的版本冲突。另外move和forward执行的是非常特殊的类型操作，所以应用程序修改函数原有行为的概率非常小。<br>通过使用std::move和std::forward而非move，我们就能明确地知道想要使用的是标准库版本的函数。</p>
@@ -288,7 +296,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://octocat9lee.github.io/2018/01/09/C-Primer5e第18章：用于大型程序的工具/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://octocat9lee.github.io/2018/01/09/C-Primer5e%E7%AC%AC18%E7%AB%A0%EF%BC%9A%E7%94%A8%E4%BA%8E%E5%A4%A7%E5%9E%8B%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%B7%A5%E5%85%B7/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -302,7 +310,7 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2018/01/12/网络编程实践环境搭建/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/01/12/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%AE%9E%E8%B7%B5%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -312,7 +320,7 @@ var _hmt = _hmt || [];
     </a>
   
   
-    <a href="/2018/01/08/C-Primer5e第19章：特殊工具与技术（二）/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/01/08/C-Primer5e%E7%AC%AC19%E7%AB%A0%EF%BC%9A%E7%89%B9%E6%AE%8A%E5%B7%A5%E5%85%B7%E4%B8%8E%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%8C%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">C++Primer5e第19章：特殊工具与技术（二）</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -340,7 +348,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#异常处理"><span class="toc-number">1.</span> <span class="toc-text">异常处理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#抛出异常"><span class="toc-number">1.1.</span> <span class="toc-text">抛出异常</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#捕获异常"><span class="toc-number">1.2.</span> <span class="toc-text">捕获异常</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#noexcept异常说明"><span class="toc-number">1.3.</span> <span class="toc-text">noexcept异常说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#异常类层次"><span class="toc-number">1.4.</span> <span class="toc-text">异常类层次</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#命名空间"><span class="toc-number">2.</span> <span class="toc-text">命名空间</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义命名空间"><span class="toc-number">2.1.</span> <span class="toc-text">定义命名空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用命名空间成员"><span class="toc-number">2.2.</span> <span class="toc-text">使用命名空间成员</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类、命名空间与作用域"><span class="toc-number">2.3.</span> <span class="toc-text">类、命名空间与作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重载与命名空间"><span class="toc-number">2.4.</span> <span class="toc-text">重载与命名空间</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#多重继承与虚继承"><span class="toc-number">3.</span> <span class="toc-text">多重继承与虚继承</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">异常处理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8"><span class="toc-number">1.1.</span> <span class="toc-text">抛出异常</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8D%95%E8%8E%B7%E5%BC%82%E5%B8%B8"><span class="toc-number">1.2.</span> <span class="toc-text">捕获异常</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#noexcept%E5%BC%82%E5%B8%B8%E8%AF%B4%E6%98%8E"><span class="toc-number">1.3.</span> <span class="toc-text">noexcept异常说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8%E7%B1%BB%E5%B1%82%E6%AC%A1"><span class="toc-number">1.4.</span> <span class="toc-text">异常类层次</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4"><span class="toc-number">2.</span> <span class="toc-text">命名空间</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4"><span class="toc-number">2.1.</span> <span class="toc-text">定义命名空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4%E6%88%90%E5%91%98"><span class="toc-number">2.2.</span> <span class="toc-text">使用命名空间成员</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E3%80%81%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4%E4%B8%8E%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">2.3.</span> <span class="toc-text">类、命名空间与作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E8%BD%BD%E4%B8%8E%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4"><span class="toc-number">2.4.</span> <span class="toc-text">重载与命名空间</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%9A%E9%87%8D%E7%BB%A7%E6%89%BF%E4%B8%8E%E8%99%9A%E7%BB%A7%E6%89%BF"><span class="toc-number">3.</span> <span class="toc-text">多重继承与虚继承</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -371,7 +379,7 @@ var _hmt = _hmt || [];
           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
       </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </section>
   
 
@@ -501,11 +509,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
+                <a href="javascript:void(0)" class="js-tag color5">技术点滴</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术点滴</a>
+                <a href="javascript:void(0)" class="js-tag color5">调试技术</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -513,11 +521,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt</a>
+                <a href="javascript:void(0)" class="js-tag color1">STEAM</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">STEAM</a>
+                <a href="javascript:void(0)" class="js-tag color3">Qt</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -545,7 +553,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:
