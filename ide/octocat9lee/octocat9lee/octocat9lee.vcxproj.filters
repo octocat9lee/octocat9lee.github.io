@@ -255,5 +255,17 @@
     <None Include="..\..\..\source\_posts\Centos-使用-rsync-同步文件.md">
       <Filter>资源文件</Filter>
     </None>
+    <None Include="..\..\..\source\_posts\C-小功能函数集合.md">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\..\source\_posts\Qt开发环境搭建.md">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\..\source\_posts\Wireshark使用技巧.md">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\..\source\_posts\数据库使用指南.md">
+      <Filter>资源文件</Filter>
+    </None>
   </ItemGroup>
 </Project>
