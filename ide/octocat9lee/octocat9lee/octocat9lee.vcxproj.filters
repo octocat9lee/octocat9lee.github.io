@@ -267,5 +267,8 @@
     <None Include="..\..\..\source\_posts\数据库使用指南.md">
       <Filter>资源文件</Filter>
     </None>
+    <None Include="..\..\..\source\_posts\mediasoup部署.md">
+      <Filter>资源文件</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -152,6 +152,7 @@
     <None Include="..\..\..\source\_posts\Hexo-Github搭建博客.md" />
     <None Include="..\..\..\source\_posts\Linux性能分析工具：ftrace.md" />
     <None Include="..\..\..\source\_posts\Markdown基本语法.md" />
+    <None Include="..\..\..\source\_posts\mediasoup部署.md" />
     <None Include="..\..\..\source\_posts\Nginx搭建文件服务器.md" />
     <None Include="..\..\..\source\_posts\Office-常用操作.md" />
     <None Include="..\..\..\source\_posts\openSIPS使用简介.md" />
