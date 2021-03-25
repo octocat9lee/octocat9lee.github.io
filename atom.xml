@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://octocat9lee.github.io/"/>
-  <updated>2021-01-06T07:44:35.800Z</updated>
+  <updated>2021-03-25T02:23:04.429Z</updated>
   <id>https://octocat9lee.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>shell 实现 TCP 重传率监测</title>
+    <link href="https://octocat9lee.github.io/2021/03/25/shell-%E5%AE%9E%E7%8E%B0-TCP-%E9%87%8D%E4%BC%A0%E7%8E%87%E7%9B%91%E6%B5%8B/"/>
+    <id>https://octocat9lee.github.io/2021/03/25/shell-实现-TCP-重传率监测/</id>
+    <published>2021-03-25T02:16:52.000Z</published>
+    <updated>2021-03-25T02:23:04.429Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>  本文介绍一种使用 shell 统计 TCP 重传率脚本。</p><a id="more"></a><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">SHELLDIR=<span class="string">&quot;<span class="subst">$(cd <span class="string">&quot;<span class="subst">$(dirname <span class="string">&quot;<span class="variable">$&#123;BASH_SOURCE[0]&#125;</span>&quot;</span>)</span>&quot;</span> &amp;&amp; pwd)</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">tcp_re_ratio</span></span>() &#123;</span><br><span class="line">    netstat -s -t &gt;/tmp/netstat_s 2&gt;/dev/null</span><br><span class="line"></span><br><span class="line">    s_r=$(cat /tmp/netstat_s | grep <span class="string">&#x27;segments send out&#x27;</span> | awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span>)</span><br><span class="line">    s_re=$(cat /tmp/netstat_s | grep <span class="string">&#x27;segments retransmited&#x27;</span> | awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    [ -e <span class="variable">$&#123;SHELLDIR&#125;</span>/s_r ] || touch <span class="variable">$&#123;SHELLDIR&#125;</span>/s_r</span><br><span class="line">    [ -e <span class="variable">$&#123;SHELLDIR&#125;</span>/s_re ] || touch <span class="variable">$&#123;SHELLDIR&#125;</span>/s_re</span><br><span class="line"></span><br><span class="line">    l_s_r=$(cat <span class="variable">$&#123;SHELLDIR&#125;</span>/s_r)</span><br><span class="line">    l_s_re=$(cat <span class="variable">$&#123;SHELLDIR&#125;</span>/s_re)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$s_r</span> &gt;<span class="variable">$&#123;SHELLDIR&#125;</span>/s_r</span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$s_re</span> &gt;<span class="variable">$&#123;SHELLDIR&#125;</span>/s_re</span><br><span class="line"></span><br><span class="line">    tcp_re_rate=$(<span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$s_r</span> <span class="variable">$s_re</span> <span class="variable">$l_s_r</span> <span class="variable">$l_s_re</span>&quot;</span> | awk <span class="string">&#x27;&#123;printf(&quot;%.2f&quot;,($2-$4)/($1-$3)*100)&#125;&#x27;</span>)</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$s_r</span> | <span class="variable">$s_re</span> | <span class="variable">$tcp_re_rate</span>&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">main</span></span>() &#123;</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">true</span></span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">        tcp_re_ratio</span><br><span class="line">        sleep 5</span><br><span class="line">    <span class="keyword">done</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">main</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;  本文介绍一种使用 shell 统计 TCP 重传率脚本。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术点滴" scheme="https://octocat9lee.github.io/tags/%E6%8A%80%E6%9C%AF%E7%82%B9%E6%BB%B4/"/>
+    
+  </entry>
   
   <entry>
     <title>mediasoup部署</title>
@@ -418,26 +438,6 @@
     
     
       <category term="生活规划" scheme="https://octocat9lee.github.io/tags/%E7%94%9F%E6%B4%BB%E8%A7%84%E5%88%92/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>project操作指南</title>
-    <link href="https://octocat9lee.github.io/2019/01/07/project%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/"/>
-    <id>https://octocat9lee.github.io/2019/01/07/project操作指南/</id>
-    <published>2019-01-07T06:36:19.000Z</published>
-    <updated>2020-07-07T02:36:10.876Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h1><h2 id="自定义计划内假期"><a href="#自定义计划内假期" class="headerlink" title="自定义计划内假期"></a>自定义计划内假期</h2><p>在”项目”–&gt;”更改工作时间”–&gt;”新建日历”的步骤添加项目周期内假期和对应的时间段；然后在”任务”–&gt;”甘特图”之”任务工作表”界面中的合适位置选择插入”任务日历”列，通过下拉框选择自定义的工作日历，对于多项任务，可以通过下拉拖动的方式进行快速复制。具体操作方式如下：</p><a id="more"></a><center>![avatar](https://gitee.com/zhoulee/blog-images/raw/master/project_holiday_manager.jpg)</center><h2 id="任务关联"><a href="#任务关联" class="headerlink" title="任务关联"></a>任务关联</h2><p>在任务模式中选择”自动安排”，并且在工作表中插入”前置任务”列，然后根据项目任务依赖情形在每项任务列中填写对应的前置任务，从而完全工作任务的自动依赖。</p><h2 id="行列操作"><a href="#行列操作" class="headerlink" title="行列操作"></a>行列操作</h2><ol><li>内容长的列显示在一行，不换行（选择调整列-&gt;右键-&gt;自动换行）</li><li>高度不一致的行统一高度（选择调整行-&gt;任务菜单-&gt;清除-&gt;清除格式）</li></ol><h2 id="设置摘要"><a href="#设置摘要" class="headerlink" title="设置摘要"></a>设置摘要</h2><p>格式菜单-&gt;大纲数字/项目摘要任务/摘要任务</p><h2 id="链接任务"><a href="#链接任务" class="headerlink" title="链接任务"></a>链接任务</h2><p>前置任务未完成之前开始任务，选择任务-&gt;信息-&gt;前置任务-&gt;延迟间隔（负数表示提前开始），同时也调整任务类型为 “开始-开始”，观察甘特图任务链接方式。</p><h2 id="拆分任务"><a href="#拆分任务" class="headerlink" title="拆分任务"></a>拆分任务</h2><p>任务菜单-&gt;日程-&gt;拆分-&gt;拖动进度条拆分，使用拆分按钮可以多次拆分</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;基本操作&quot;&gt;&lt;a href=&quot;#基本操作&quot; class=&quot;headerlink&quot; title=&quot;基本操作&quot;&gt;&lt;/a&gt;基本操作&lt;/h1&gt;&lt;h2 id=&quot;自定义计划内假期&quot;&gt;&lt;a href=&quot;#自定义计划内假期&quot; class=&quot;headerlink&quot; title=&quot;自定义计划内假期&quot;&gt;&lt;/a&gt;自定义计划内假期&lt;/h2&gt;&lt;p&gt;在”项目”–&amp;gt;”更改工作时间”–&amp;gt;”新建日历”的步骤添加项目周期内假期和对应的时间段；然后在”任务”–&amp;gt;”甘特图”之”任务工作表”界面中的合适位置选择插入”任务日历”列，通过下拉框选择自定义的工作日历，对于多项任务，可以通过下拉拖动的方式进行快速复制。具体操作方式如下：&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="技术点滴" scheme="https://octocat9lee.github.io/tags/%E6%8A%80%E6%9C%AF%E7%82%B9%E6%BB%B4/"/>
     
   </entry>
   

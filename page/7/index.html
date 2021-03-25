@@ -166,6 +166,92 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-C-Primer5e第10章：泛型算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/12/C-Primer5e%E7%AC%AC10%E7%AB%A0%EF%BC%9A%E6%B3%9B%E5%9E%8B%E7%AE%97%E6%B3%95/">C++Primer5e第10章：泛型算法</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/12/C-Primer5e%E7%AC%AC10%E7%AB%A0%EF%BC%9A%E6%B3%9B%E5%9E%8B%E7%AE%97%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2017-12-12T03:40:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>标准库并未给容器添加大量的功能，而是提供了一组独立于任何特定容器的通用的算法实现相关功能。算法是泛型的，也就是说可以用于不同类型的元素和多种容器类型，不仅包括标准库类型，还包括内置数组类型。</p>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>大多数算法定义在头文件<code>algorithm</code>中。标准库还在头文件<code>numeric</code>中定义了一组数值泛型算法。算法并不直接操作容器，而是遍历由两个迭代器指定的一个元素范围进行操作。迭代器令算法不依赖于容器，但算法依赖于元素类型的操作，大多数算法提供了一种方法，允许我们使用自定义的操作来代替默认的运算符。<strong>STL组件间关系如下图所示：</strong></p>
+<center>![STL组件关系](https://gitee.com/zhoulee/blog-images/raw/master/memory_allocator.jpg)</center>
+泛型算法使用迭代器作为访问容器元素的桥梁，对元素的元素可以通过函数对象传递到算法内部。为了实现与数据结构的分离，为了实现通用性，算法根本就不该知道容器的存在。算法访问数据的唯一通道是迭代器，是否改变容器大小，完全是迭代器的选择和责任。
+
+<h1 id="初识泛型算法"><a href="#初识泛型算法" class="headerlink" title="初识泛型算法"></a>初识泛型算法</h1><p>算法使用元素的方式包括只读取元素、改变元素或者是重排元素顺序。算法不会执行容器操作，所以算法不会改变底层容器的大小。</p>
+<h2 id="只读算法"><a href="#只读算法" class="headerlink" title="只读算法"></a>只读算法</h2><p>accumulate的第三个参数的类型决定了函数中使用哪个加法运算符以及返回值的类型。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//对vec中的int元素求和，和的初始值为0</span></span><br><span class="line"><span class="keyword">int</span> sum = accumulate(vec.cbegin(), vec.cend(), <span class="number">0</span>);</span><br><span class="line"><span class="comment">//将vector中所有的string元素连接起来</span></span><br><span class="line"><span class="built_in">string</span> sum = accumulate(v.cbegin(), v.cend(), <span class="built_in">std</span>::<span class="built_in">string</span>(<span class="string">&quot;&quot;</span>));</span><br><span class="line"><span class="comment">//错误：const char*上没有定义+运算符</span></span><br><span class="line"><span class="built_in">string</span> sum = accumulate(v.cbegin(), v.cend(), <span class="string">&quot;&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p>对于只读取元素而不改变元素的算法，最好使用cbegin()和cend()。<br>使用equal判断两个序列是否保存相同的值，构成这两个序列的元素可以来自不同类型的容器。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; roster1 = &#123;<span class="string">&quot;Hello&quot;</span>, <span class="string">&quot;The&quot;</span>, <span class="string">&quot;a&quot;</span>&#125;;</span><br><span class="line"><span class="built_in">list</span>&lt;<span class="keyword">const</span> <span class="keyword">char</span>*&gt; roster2 = &#123;<span class="string">&quot;Hello&quot;</span>, <span class="string">&quot;The&quot;</span>, <span class="string">&quot;a&quot;</span>&#125;;</span><br><span class="line"><span class="keyword">bool</span> eq = equal(roster1.cbegin(), roster1.cend(), roster2.cbegin());</span><br></pre></td></tr></table></figure>
+<p>在上面equal中，如果roster中都是C风格字符串，用==比较两个char*对象，只是检查两个指针值是否相等。所以只有当两个序列中的指针都指向相同地址时，equal才会返回true。否则，即使字符串内容完全相同，也会返回false。<br>那些只接受一个单一迭代器来表示第二个序列的算法，都假定第二个序列至少与第一个序列一样长。</p>
+        
+          <a class="article-more-a" href="/2017/12/12/C-Primer5e%E7%AC%AC10%E7%AB%A0%EF%BC%9A%E6%B3%9B%E5%9E%8B%E7%AE%97%E6%B3%95/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/12/C-Primer5e%E7%AC%AC10%E7%AB%A0%EF%BC%9A%E6%B3%9B%E5%9E%8B%E7%AE%97%E6%B3%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-C-Primer5e第09章：顺序容器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -890,93 +976,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/11/28/CSAPP%E4%B9%8B%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Git操作指南" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/24/Git%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/">Git操作指南</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/24/Git%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/" class="archive-article-date">
-  	<time datetime="2017-11-24T07:07:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="全局配置与帮助"><a href="#全局配置与帮助" class="headerlink" title="全局配置与帮助"></a>全局配置与帮助</h1><blockquote>
-<p><code>git config --global user.name &quot;your name&quot;</code><br><code>git config --global user.email &quot;email@gmai.com&quot;</code> <code>--global</code>表示机器上所有Git仓库都使用该配置<br><code>git config --global credential.helper store</code> 本地保存账号密码</p>
-</blockquote>
-<h1 id="版本库管理"><a href="#版本库管理" class="headerlink" title="版本库管理"></a>版本库管理</h1><h2 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h2><blockquote>
-<p>步骤1:本地创建版本库目录<br>步骤2: 使用<code>git init</code>将目录变成git可以管理的仓库，生成.git目录</p>
-</blockquote>
-<h2 id="添加文件"><a href="#添加文件" class="headerlink" title="添加文件"></a>添加文件</h2><blockquote>
-<p>步骤1: <code>git add file</code> 把文件添加到仓库<br>步骤2: <code>git commit -m &quot;comment&quot;</code> 把文件提交到仓库</p>
-</blockquote>
-<h2 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态"></a>查看状态</h2><blockquote>
-<p><code>git status</code> 显示仓库当前状态<br><code>git diff file</code> 显示指定文件差异<br><code>git show commitId </code> 显示某次提交的修改内容<br><code>git show &lt;commit-hashId&gt; filename</code> 显示某次提交某个文件的修改信息<br><code>git log</code>  显示提交日志记录<br><code>git log --pretty=online --graph --color</code><br><code>git reflog</code> 查看命令历史，以便确认回到未来哪个版本</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2017/11/24/Git%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术点滴</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/24/Git%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/">展开全文 >></a>
         </p>
       
 
