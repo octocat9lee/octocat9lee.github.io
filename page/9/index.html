@@ -166,6 +166,92 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CSAPP之Y86-64模拟器安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/31/CSAPP%E4%B9%8BY86-64%E6%A8%A1%E6%8B%9F%E5%99%A8%E5%AE%89%E8%A3%85/">CSAPP之Y86-64模拟器安装</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/31/CSAPP%E4%B9%8BY86-64%E6%A8%A1%E6%8B%9F%E5%99%A8%E5%AE%89%E8%A3%85/" class="archive-article-date">
+  	<time datetime="2017-10-31T01:33:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在CSAPP第4章处理器体系结构中，需要使用Y86-64模拟器，在安装模拟过程中遇到一些问题，下面记录自己的安装过程：</p>
+<h2 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h2><p>因每个人操作系统环境的不一致，因此下面列出自己的安装环境：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@sim$ uname -a</span><br><span class="line">Linux zhoulee 4.10.0-37-generic <span class="comment">#41~16.04.1-Ubuntu SMP Fri Oct 6 22:42:59 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="下载模拟器源码"><a href="#下载模拟器源码" class="headerlink" title="下载模拟器源码"></a>下载模拟器源码</h2><p>首先，到CS:APP3e官方的<a target="_blank" rel="noopener" href="http://csapp.cs.cmu.edu/3e/students.html">学生主页</a>下载最新的Y86-64模拟源码，源码位于<code>Chapter 4: Processor Architecture</code>。<br>然后，在工作目录解压对应源码文件，我们假设编译无图形界面版本，编辑<code>Makefile</code>，注释下面两个选项：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">TKLIBS=-L/usr/lib -ltk -ltcl</span><br><span class="line">TKINC=-isystem /usr/include/tcl8.5</span><br></pre></td></tr></table></figure>
+<p>最后，执行<code>make clean &amp;&amp; make</code>编译生成Y86-64工具集。</p>
+<h2 id="安装问题"><a href="#安装问题" class="headerlink" title="安装问题"></a>安装问题</h2><p>缺少词法分析器，链接时为找到<code>/usr/bin/ld: cannot find -lfl</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install flex</span><br></pre></td></tr></table></figure>
+<p>缺少语法分析器，编译中出现<code>make[1]: bison: Command not found</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install bison</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2017/10/31/CSAPP%E4%B9%8BY86-64%E6%A8%A1%E6%8B%9F%E5%99%A8%E5%AE%89%E8%A3%85/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">CSAPP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/31/CSAPP%E4%B9%8BY86-64%E6%A8%A1%E6%8B%9F%E5%99%A8%E5%AE%89%E8%A3%85/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-键盘快捷操作指南" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
