@@ -161,7 +161,9 @@
     <None Include="..\..\..\source\_posts\python小工具.md" />
     <None Include="..\..\..\source\_posts\Qt开发环境搭建.md" />
     <None Include="..\..\..\source\_posts\Scratch基本操作篇.md" />
+    <None Include="..\..\..\source\_posts\shell-实现-TCP-重传率监测.md" />
     <None Include="..\..\..\source\_posts\UNIX编程艺术.md" />
+    <None Include="..\..\..\source\_posts\Windows-平台使用-gSOAP-生成-ONVIF-框架代码.md" />
     <None Include="..\..\..\source\_posts\Wireshark使用技巧.md" />
     <None Include="..\..\..\source\_posts\写作的层次.md" />
     <None Include="..\..\..\source\_posts\可变参数模板.md" />
@@ -170,6 +172,7 @@
     <None Include="..\..\..\source\_posts\孩子把你的手给我.md" />
     <None Include="..\..\..\source\_posts\孩子把你的手给我之笔记.md" />
     <None Include="..\..\..\source\_posts\家庭教育专栏-阅读整理一.md" />
+    <None Include="..\..\..\source\_posts\小学义务教育.md" />
     <None Include="..\..\..\source\_posts\接口与实现分离方式.md" />
     <None Include="..\..\..\source\_posts\数据库使用指南.md" />
     <None Include="..\..\..\source\_posts\李玫瑾家庭教育视频文档整理.md" />
