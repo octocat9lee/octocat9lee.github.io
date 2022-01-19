@@ -17,14 +17,14 @@ date: 2022-01-19 10:35:27
 
 # 代码生成
 
-### 解压
+## 解压
 将下载的 `gSOAP` 工具解压至本地目录，进入 `gsoap_2.8.117\gsoap-2.8\gsoap\bin\win64` 目录，在目录中创建 `wsdl`, `onvifgen`, `runtime` 文件夹。 
 
-### 下载 `wsdl`
+## 下载 `wsdl`
 `wsdl` 下载地址：[https://www.onvif.org/profiles/specifications/](https://www.onvif.org/profiles/specifications/)
 根据需要 `ONVIF` 特性下载所需的 `wsdl` 文件，保存至 `wsdl` 文件夹。
 
-### 生成 `C++` 代码
+## 生成 `C++` 代码
 - 打开命令行管理工具，进入 `gsoap_2.8.117\gsoap-2.8\gsoap\bin\win64` 目录，执行如下命令生成 `ONVIF` 框架头文件：
 ``` bash
 wsdl2h -o onvif.h -t ../../typemap.dat ./wsdl/accesscontrol.wsdl ./wsdl/accessrules.wsdl ./wsdl/actionengine.wsdl ./wsdl/advancedsecurity.wsdl ./wsdl/analytics.wsdl ./wsdl/analyticsdevice.wsdl ./wsdl/appmgmt.wsdl ./wsdl/authenticationbehavior.wsdl ./wsdl/bw-2-vs-mod.wsdl ./wsdl/credential.wsdl ./wsdl/deviceio.wsdl ./wsdl/devicemgmt.wsdl ./wsdl/display.wsdl ./wsdl/display2.wsdl ./wsdl/doorcontrol.wsdl ./wsdl/event.wsdl ./wsdl/event-vs.wsdl ./wsdl/federatedsearch.wsdl ./wsdl/imaging.wsdl ./wsdl/media.wsdl ./wsdl/media2.wsdl ./wsdl/provisioning.wsdl ./wsdl/ptz.wsdl ./wsdl/receiver.wsdl ./wsdl/recording.wsdl ./wsdl/replay.wsdl ./wsdl/schedule.wsdl ./wsdl/search.wsdl ./wsdl/security.wsdl ./wsdl/thermal.wsdl ./wsdl/uplink.wsdl
@@ -60,3 +60,6 @@ cp ..\..\plugin\wsaapi.h .\runtime
 cp ..\..\plugin\wsseapi.cpp .\runtime
 cp ..\..\plugin\wsseapi.h .\runtime
 ```
+
+# 参考资料
+[CSDN|ONVIF协议网络摄像机（IPC）客户端程序开发](https://blog.csdn.net/benkaoya/article/details/72424335)
