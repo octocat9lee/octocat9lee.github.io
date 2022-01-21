@@ -25,9 +25,14 @@ date: 2022-01-19 10:35:27
 根据需要 `ONVIF` 特性下载所需的 `wsdl` 文件，保存至 `wsdl` 文件夹。
 
 ## 生成 `C++` 代码
+- 取消注释 `gsoap_2.8.117\gsoap-2.8\gsoap` 目录中 `typemap.dat` 关于 `xsd__duration` 的注释。
+``` bash
+xsd__duration = #import "custom/duration.h" | xsd__duration
+```
+
 - 打开命令行管理工具，进入 `gsoap_2.8.117\gsoap-2.8\gsoap\bin\win64` 目录，执行如下命令生成 `ONVIF` 框架头文件：
 ``` bash
-wsdl2h -o onvif.h -t ../../typemap.dat ./wsdl/accesscontrol.wsdl ./wsdl/accessrules.wsdl ./wsdl/actionengine.wsdl ./wsdl/advancedsecurity.wsdl ./wsdl/analytics.wsdl ./wsdl/analyticsdevice.wsdl ./wsdl/appmgmt.wsdl ./wsdl/authenticationbehavior.wsdl ./wsdl/bw-2-vs-mod.wsdl ./wsdl/credential.wsdl ./wsdl/deviceio.wsdl ./wsdl/devicemgmt.wsdl ./wsdl/display.wsdl ./wsdl/display2.wsdl ./wsdl/doorcontrol.wsdl ./wsdl/event.wsdl ./wsdl/event-vs.wsdl ./wsdl/federatedsearch.wsdl ./wsdl/imaging.wsdl ./wsdl/media.wsdl ./wsdl/media2.wsdl ./wsdl/provisioning.wsdl ./wsdl/ptz.wsdl ./wsdl/receiver.wsdl ./wsdl/recording.wsdl ./wsdl/replay.wsdl ./wsdl/schedule.wsdl ./wsdl/search.wsdl ./wsdl/security.wsdl ./wsdl/thermal.wsdl ./wsdl/uplink.wsdl
+wsdl2h -o onvif.h -t ../../typemap.dat ./wsdl/accesscontrol.wsdl ./wsdl/accessrules.wsdl ./wsdl/actionengine.wsdl ./wsdl/advancedsecurity.wsdl ./wsdl/analytics.wsdl ./wsdl/analyticsdevice.wsdl ./wsdl/appmgmt.wsdl ./wsdl/authenticationbehavior.wsdl ./wsdl/bw-2-vs-mod.wsdl ./wsdl/credential.wsdl ./wsdl/deviceio.wsdl ./wsdl/devicemgmt.wsdl ./wsdl/display.wsdl ./wsdl/display2.wsdl ./wsdl/doorcontrol.wsdl ./wsdl/event.wsdl ./wsdl/event-vs.wsdl ./wsdl/federatedsearch.wsdl ./wsdl/imaging.wsdl ./wsdl/media.wsdl ./wsdl/media2.wsdl ./wsdl/provisioning.wsdl ./wsdl/ptz.wsdl ./wsdl/receiver.wsdl ./wsdl/recording.wsdl ./wsdl/replay.wsdl ./wsdl/schedule.wsdl ./wsdl/search.wsdl ./wsdl/security.wsdl ./wsdl/thermal.wsdl ./wsdl/uplink.wsdl ./wsdl/remotediscovery.wsdl
 ```
 编译成功后，在 `win64` 目录中，将生成 `onvif.h` 文件。
 
@@ -38,21 +43,23 @@ wsdl2h -o onvif.h -t ../../typemap.dat ./wsdl/accesscontrol.wsdl ./wsdl/accessru
 
 - 头文件修改完成后，使用如下命令产生框架代码：
 ``` bash
-soapcpp2 -2 -L -x -i -I../../ -I../../import -I../../custom -d./onvifgen onvif.h
+soapcpp2 -2 -L -x -i -f10 -I../../ -I../../import -I../../custom -d./onvifgen onvif.h
 ```
 命令执行成功后，将在 `onvifgen` 目录下生成 `ONVIF` 框架源码。
 
 - 复制其他运行所需头文件至 `runtime` 目录
 ``` bash
 cp ..\..\dom.cpp .\runtime
+cp ..\..\stdsoap2.cpp .\runtime
+cp ..\..\stdsoap2.h .\runtime
 cp ..\..\custom\duration.c .\runtime
 cp ..\..\custom\duration.h .\runtime
+cp ..\..\custom\struct_timeval.h .\runtime
+cp ..\..\custom\struct_timeval.c .\runtime
 cp ..\..\plugin\mecevp.c .\runtime
 cp ..\..\plugin\mecevp.h .\runtime
 cp ..\..\plugin\smdevp.c .\runtime
 cp ..\..\plugin\smdevp.h .\runtime
-cp ..\..\stdsoap2.cpp .\runtime
-cp ..\..\stdsoap2.h .\runtime
 cp ..\..\plugin\threads.c .\runtime
 cp ..\..\plugin\threads.h .\runtime
 cp ..\..\plugin\wsaapi.c .\runtime
@@ -63,3 +70,4 @@ cp ..\..\plugin\wsseapi.h .\runtime
 
 # 参考资料
 [CSDN|ONVIF协议网络摄像机（IPC）客户端程序开发](https://blog.csdn.net/benkaoya/article/details/72424335)
+[Github|rapidonvif](https://github.com/linkingvision/rapidonvif)
