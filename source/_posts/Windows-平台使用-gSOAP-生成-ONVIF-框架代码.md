@@ -71,3 +71,5 @@ cp ..\..\plugin\wsseapi.h .\runtime
 # 参考资料
 [CSDN|ONVIF协议网络摄像机（IPC）客户端程序开发](https://blog.csdn.net/benkaoya/article/details/72424335)
 [Github|rapidonvif](https://github.com/linkingvision/rapidonvif)
+[gSOAP|ONVIF官方使用示例](https://www.genivia.com/examples/onvif/index.html)
+
