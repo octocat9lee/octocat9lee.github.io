@@ -45,6 +45,19 @@ scl enable devtoolset-9 bash
 
 > 完成 `mediasoup-worker` 程序编译后，请关闭 `shell` 终端，不再使用 `9.3.1` 版本 `GCC`，因为 `SCL` 仅升级了 `GCC` 版本，并未升级 `libstdc++` 和 `libc` 依赖库。如果继续使用 `9.3.1` 版本 `GCC` 将导致 `mediasoup-worker` 程序在启动时找不到高版本的库函数，例如提示 `libstdc++.so.6: version `GLIBCXX_版本号' not found 和 libc.so.6: version `GLIBC_版本号' not found`。个人因为永久启动高版本 `GCC`，差点对 `libstdc++.so.6` 升级处理。
 
+## python 升级
+`mediasoup` 要求 `python` 版本高于 `3.7`，因此需要对 `python` 进行升级：
+``` bash
+add-apt-repository ppa:deadsnakes/ppa
+apt-get update
+apt-get upgrade
+apt-get install python3.7
+update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 2
+update-alternatives --config python3
+python3 --version
+apt-get install python3-pip
+```
+
 ## 生成自签名 `HTTPS` 证书
 使用如下名称生成 `HTTPS` 协议使用的公钥和私钥对，其中key表示私钥，crt表示公钥。
 ``` bash
@@ -67,10 +80,22 @@ npm install
 ```
 该步骤会下载 `node` 需要的 `node_modules`，其中 `c++` 部分的 `mediasoup` 代码会下载到 `mediasoup-demo/server/node_modules/mediasoup` 目录下，这个目录其实就是 `mediasoup` ，这个项目 `worker` 目录下是 `c++`，修改后直接 `make` 就可以。
 
+如果使用 `npm install` 安装 `server` 的 `mediasoup` 失败，可考虑使用如下操作方式：
+``` bash
+# 设置 npm 安装源为淘宝源
+npm config set registry https://registry.npm.taobao.org
+cd server
+npm install
+# 使用 package.json 安装失败后，单独安装 mediasoup
+npm install mediasoup@3 --save
+```
+
 - 安装浏览器 `app`
 ``` bash
 cd app
 npm install
+# 若安装失败，尝试执行如下命令安装：
+npm install --unsafe-perm
 ```
 
 - 全局安装 `gulp`
@@ -232,6 +257,15 @@ module.exports =
 
 主要包括修改 `HTTPS` 监听端口为 15025，`RTP` 传输端口范围为 `15026~15038`，并设置公网IP，其中 `192.168.104.8` 表示部署机器 `IP` 地址,`10.12.13.14` 表示公网 `IP` 地址。
 
+若使用默认端口，因为在环境变量中没有对 `MEDIASOUP_LISTEN_IP` 和 `MEDIASOUP_ANNOUNCED_IP` 进行设置，所以，需要将 `config.js` 中的 `0.0.0.0` 的 `IP` 地址进行设置，否则实时视频通话会失败。在默认端口情形下，配置设置类似如下：
+``` bash
+listenIp :
+{
+    ip          : process.env.MEDIASOUP_LISTEN_IP || '192.168.104.8',
+    announcedIp : process.env.MEDIASOUP_ANNOUNCED_IP || '192.168.104.8'
+}
+```
+
 ### 客户端配置
 因为客户端默认监听在 3000 端口，当需要更该客户端默认监听端口时，需在 `mediasoup-demo/app/gulpfile.js` 文件中的 `browserSync` 添加端口配置，具体方式如下：
 ``` bash
@@ -254,7 +288,7 @@ browserSync(
 ``` bash
 let protooPort = 15025;
 ```
-修改完成后，重新使用 `gulp` 打包客户端代码。客户端代码打包成功后，发布到 `mediasoup-demo/server/public` 路径下。
+修改完成后，在 `mediasoup-demo/app` 路径下执行 `gulp` 命令打包客户端代码。客户端代码打包成功后，前端客户端页面会发布到 `mediasoup-demo/server/public` 路径下。
 
 完成配置修改后，客户端将对 `15024` 端口进行监听服务。
 
@@ -312,7 +346,6 @@ http {
     }
   }
 }
-
 ```
 
 # 服务运行
@@ -334,4 +367,9 @@ exit
 
 ## 测试
 打开浏览器，输入 `https:\\10.12.13.14:15024` 进入房间。
+
+# 参考资料
+[github mediasoup demo](https://github.com/versatica/mediasoup-demo)
+[Ubuntu部署mediasoup](https://blog.csdn.net/qq_22948593/article/details/116797801)
+
 
