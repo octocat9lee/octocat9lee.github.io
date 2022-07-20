@@ -279,5 +279,8 @@
     <None Include="..\..\..\source\_posts\小学义务教育.md">
       <Filter>资源文件</Filter>
     </None>
+    <None Include="..\..\..\source\_posts\GB35114-国标平台认证.md">
+      <Filter>资源文件</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -145,6 +145,7 @@
     <None Include="..\..\..\source\_posts\CSAPP之链接.md" />
     <None Include="..\..\..\source\_posts\CSAPP实验之archlab.md" />
     <None Include="..\..\..\source\_posts\CSAPP实验之BombLab.md" />
+    <None Include="..\..\..\source\_posts\GB35114-国标平台认证.md" />
     <None Include="..\..\..\source\_posts\GDB调试器使用总结.md" />
     <None Include="..\..\..\source\_posts\Git操作指南.md" />
     <None Include="..\..\..\source\_posts\Google搜索技巧.md" />
